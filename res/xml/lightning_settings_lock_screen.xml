@@ -20,6 +20,7 @@
             android:defaultValue="true" />
 
         <!-- Charging stats -->
+
     </PreferenceCategory>
 
     <PreferenceCategory
