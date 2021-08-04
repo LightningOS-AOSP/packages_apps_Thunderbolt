@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 20226 LightningOS
+     Copyright (C) 2026 LightningOS
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -11,17 +11,12 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/thunderbolt_dashboard_title" >
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-     <!-- Boltbar -->
-     <Preference
-          android:id="@+id/boltbar"
-          android:title="@string/category_boltbar_title"
-          android:fragment="com.lightning.thunderbolt.BoltBar"
-          android:layout="@layout/preference_category_boltbar"
-          />
+    <!-- Dashboard tile minimum height -->
+    <dimen name="dashboard_tile_minimum_height">72dp</dimen>
 
-</PreferenceScreen>
+    <!-- Dashboard tile image margin start / end -->
+    <dimen name="dashboard_tile_image_margin">18dp</dimen>
+
+</resources>

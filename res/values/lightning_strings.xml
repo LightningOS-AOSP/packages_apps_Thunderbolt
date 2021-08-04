@@ -16,4 +16,6 @@
     <!-- ThunderBolt -->
     <string name="thunderbolt_dashboard_title">Thunderbolt Control Center</string>
 
+    <!-- Categories -->
+    <string name="category_boltbar_title">⚡ Bolt Bar</string>
 </resources> 
