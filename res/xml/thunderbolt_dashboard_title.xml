@@ -24,4 +24,13 @@
           android:layout="@layout/preference_category_boltbar"
           />
 
+     <!-- Flash Panel -->
+     <Preference
+          android:id="@+id/flash_panel"
+          android:title="@string/category_flashpanel_title"
+          android:fragment="com.lightning.thunderbolt.FlashPanel"
+          android:layout="@layout/preference_category_flashpanel"
+          />
+
 </PreferenceScreen>
+
