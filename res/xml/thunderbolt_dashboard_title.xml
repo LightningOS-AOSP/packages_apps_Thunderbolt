@@ -40,4 +40,13 @@
           android:layout="@layout/preference_category_buttons"
           />
 
+     <!-- Staticfield -->
+     <Preference
+          android:key="staticfield_settings"
+          android:title="@string/category_staticfield_title"
+          android:fragment="com.lightning.thunderbolt.StaticField"
+          android:layout="@layout/preference_category_staticfield"
+          />
+
 </PreferenceScreen>
+
