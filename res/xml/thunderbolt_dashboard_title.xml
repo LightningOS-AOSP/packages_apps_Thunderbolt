@@ -32,5 +32,12 @@
           android:layout="@layout/preference_category_flashpanel"
           />
 
-</PreferenceScreen>
+     <!-- MotionNav -->
+     <Preference
+          android:key="motionnav_settings"
+          android:title="@string/category_motionnav_title"
+          android:fragment="com.lightning.thunderbolt.MotionNav"
+          android:layout="@layout/preference_category_buttons"
+          />
 
+</PreferenceScreen>
