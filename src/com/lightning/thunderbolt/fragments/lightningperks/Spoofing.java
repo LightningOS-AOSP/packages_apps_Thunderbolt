@@ -28,6 +28,8 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.lightning.thunderbolt.utils.PreferenceUtils;
+
 @SearchIndexable
 public class Spoofing extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
