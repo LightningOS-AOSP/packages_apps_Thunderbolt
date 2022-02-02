@@ -93,6 +93,8 @@
 
         <!-- Charging animation -->
 
+        <!-- Screen Off animation -->
+
         <!-- Udfps animation -->
         <Preference
             android:key="udfps_animation"
