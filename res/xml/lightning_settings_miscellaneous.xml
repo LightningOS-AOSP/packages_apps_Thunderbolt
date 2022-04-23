@@ -20,4 +20,5 @@
             android:summary="@string/spoofing_summary"
             android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.Spoofing" />
     </PreferenceCategory>
+
 </PreferenceScreen>
