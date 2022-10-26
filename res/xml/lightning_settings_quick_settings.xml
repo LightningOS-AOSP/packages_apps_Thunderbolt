@@ -63,6 +63,8 @@
             android:summary="@string/qs_compact_media_player_mode_summary"
             android:defaultValue="false" />
 
+        <!-- Squiggle animation -->
+
         <com.lightning.thunderbolt.preferences.SystemSettingListPreference
             android:key="qs_header_clock_style"
             android:title="@string/qs_header_clock_style_title"
