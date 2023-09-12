@@ -42,6 +42,8 @@
             android:title="@string/quick_settings_auto_brightness_icon_title"
             android:summary="@string/quick_settings_auto_brightness_icon_summary"
             android:defaultValue="true" />
+
+        <!-- Brightness slider percentage -->
     </PreferenceCategory>
 
     <PreferenceCategory
