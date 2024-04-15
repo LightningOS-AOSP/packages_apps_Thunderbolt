@@ -59,6 +59,13 @@
             android:title="@string/themes_wifi_icon_title"
             android:summary="@string/themes_wifi_icon_summary"
             android:fragment="com.lightning.thunderbolt.fragments.themes.WifiIcons"/>
+
+        <!-- Navigation bar icons -->
+        <Preference
+            android:key="android.theme.customization.navbar"
+            android:title="@string/themes_navigation_bar_icons_title"
+            android:summary="@string/themes_navigation_bar_icons_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.NavigationBarIcons"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:key="themes_launcher_category"
