@@ -29,6 +29,16 @@
     <string name="about_title">About</string>
     <string name="about_summary">About LightningOS</string>
 
+    <!-- Themes -->
+    <string name="themes_fonts_category">Fonts</string>
+    <string name="themes_system_font_title">System font</string>
+    <string name="themes_system_font_summary">Set system font style</string>
+    <string name="themes_icons_category">Icons</string>
+    <string name="themes_system_icons_title">System Icons</string>
+    <string name="themes_system_icons_summary">Set system icon style</string>
+    <string name="themes_icon_shape_title">Icon shape</string>
+    <string name="themes_icon_shape_summary">Set system icon shape</string>
+
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
     <string name="press_color_to_apply">Press on color below to apply</string>
