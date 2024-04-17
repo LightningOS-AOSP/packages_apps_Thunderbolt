@@ -45,6 +45,20 @@
             android:title="@string/themes_icon_shape_title"
             android:summary="@string/themes_icon_shape_summary"
             android:fragment="com.lightning.thunderbolt.fragments.themes.IconShapes"/>
+
+        <!-- Signal icon -->
+        <Preference
+            android:key="android.theme.customization.signal_icon"
+            android:title="@string/themes_signal_icon_title"
+            android:summary="@string/themes_signal_icon_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.SignalIcons"/>
+
+        <!-- Wifi icon -->
+        <Preference
+            android:key="android.theme.customization.wifi_icon"
+            android:title="@string/themes_wifi_icon_title"
+            android:summary="@string/themes_wifi_icon_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.WifiIcons"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:key="themes_launcher_category"
