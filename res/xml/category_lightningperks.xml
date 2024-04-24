@@ -16,4 +16,15 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/category_lightningperks_title" >
 
+   <PreferenceCategory
+        android:key="lightningperks_spoofing_category"
+        android:title="@string/lightningperks_spoofing_category">
+
+        <!-- Component spoofing -->
+        <Preference
+            android:key="spoofing"
+            android:title="@string/spoofing_title"
+            android:summary="@string/spoofing_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.lightningperks.Spoofing" />
+    </PreferenceCategory>
 </PreferenceScreen>
