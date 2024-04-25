@@ -22,4 +22,5 @@
                 <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
         </Preference>
     </PreferenceCategory>
+
 </PreferenceScreen>
