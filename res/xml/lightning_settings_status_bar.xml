@@ -28,6 +28,8 @@
             android:title="@string/status_bar_colored_icons_title"
             android:summary="@string/status_bar_colored_icons_summary"
             android:defaultValue="false" />
+
+        <!-- Notification counter -->
     </PreferenceCategory>
 
 </PreferenceScreen>
