@@ -74,6 +74,13 @@
             android:summary="@string/status_bar_colored_icons_summary"
             android:defaultValue="false" />
 
+        <!-- Network traffic -->
+        <Preference
+            android:key="network_traffic_settings"
+            android:title="@string/status_bar_network_traffic_settings_title"
+            android:summary="@string/status_bar_network_traffic_settings_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.statusbar.NetworkTrafficSettings" />
+
         <!-- Notification counter -->
     </PreferenceCategory>
 
