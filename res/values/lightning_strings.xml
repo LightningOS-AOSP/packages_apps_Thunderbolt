@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2024 LightningOS
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Lightning -->
+    <string name="lightning_dashboard_title">Lightning Tweek</string>
+    <string name="lightning_dashboard_summary">Magic Happen Here!!</string>
+
+    <!-- Categories -->
+    <string name="themes_title">Themes</string>
+    <string name="themes_summary">Monet, fonts, icons</string>
+    <string name="lock_screen_title">Lock screen</string>
+    <string name="lock_screen_summary">Interface, miscellaneous</string>
+    <string name="status_bar_title">Status bar</string>
+    <string name="status_bar_summary">Gestures, Icons, privacy indicators</string>
+    <string name="quick_settings_title">Quick settings</string>
+    <string name="quick_settings_summary">Interface, lock screen</string>
+    <string name="lightning_notifications_title">Notifications</string>
+    <string name="notifications_summary">Alerts, interface</string>
+    <string name="power_menu_title">Power menu</string>
+    <string name="power_menu_summary">Actions, lock screen</string>
+    <string name="buttons_title">Buttons</string>
+    <string name="buttons_summary">Power button, volume buttons</string>
+    <string name="miscellaneous_title">Miscellaneous</string>
+    <string name="miscellaneous_summary">Developer options, spoofing</string>
+    <string name="about_title">About</string>
+    <string name="about_summary">About LightningOS</string>
+
+</resources>

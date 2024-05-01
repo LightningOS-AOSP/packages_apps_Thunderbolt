@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2023 The risingOS Android Project
+     SPDX-FileCopyrightText: 2026 LightningOS
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/quickswitch_launcher_title">
+
+    <com.lightning.thunderbolt.preferences.SystemPropertyListPreference
+        android:key="persist.sys.default_launcher"
+        android:title="@string/quickswitch_launcher_title"
+        android:entries="@array/quickswitch_launcher_entries"
+        android:entryValues="@array/quickswitch_launcher_values"
+        android:summary="%s" />
+
+    <com.android.settingslib.widget.FooterPreference
+        android:key="quickswitch_footer"
+        android:title="@string/quickswitch_footer_text"
+        android:selectable="false"
+        settings:searchable="false" />
+
+</PreferenceScreen>

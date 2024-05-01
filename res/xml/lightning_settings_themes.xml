@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2024 LightningOS
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/themes_title">
+
+    <PreferenceCategory
+        android:key="themes_launcher_category"
+        android:title="@string/themes_launcher_category">
+
+        <Preference
+            android:key="quickswitch"
+            android:title="@string/quickswitch_launcher_title"
+            android:summary="@string/quickswitch_launcher_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.QuickSwitch" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
