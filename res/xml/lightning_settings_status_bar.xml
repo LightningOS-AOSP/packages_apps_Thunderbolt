@@ -36,6 +36,8 @@
                 <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
         </Preference>
 
+        <!-- Data disabled icon -->
+
         <!-- Bluetooth battery status -->
         <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="bluetooth_show_battery"
