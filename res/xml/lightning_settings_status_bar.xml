@@ -38,6 +38,8 @@
 
         <!-- Data disabled icon -->
 
+        <!-- 4G icon -->
+
         <!-- Bluetooth battery status -->
         <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="bluetooth_show_battery"
