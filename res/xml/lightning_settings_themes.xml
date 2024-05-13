@@ -79,6 +79,18 @@
             android:summary="@string/themes_navigation_bar_icons_summary"
             android:fragment="com.lightning.thunderbolt.fragments.themes.NavigationBarIcons"/>
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="themes_animations_category"
+        android:title="@string/themes_animations_category">
+
+        <!-- Udfps animation -->
+        <Preference
+            android:key="udfps_animation"
+            android:title="@string/themes_udfps_animation_title"
+            android:summary="@string/themes_udfps_animation_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.UdfpsAnimations" />
+    </PreferenceCategory>
     <PreferenceCategory
         android:key="themes_launcher_category"
         android:title="@string/themes_launcher_category">
