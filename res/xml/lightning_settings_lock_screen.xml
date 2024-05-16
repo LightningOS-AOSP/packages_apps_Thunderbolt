@@ -20,5 +20,7 @@
             android:title="@string/lock_screen_fingerprint_ripple_title"
             android:summary="@string/lock_screen_fingerprint_ripple_summary"
             android:defaultValue="true" />
+
+        <!-- Screen-Off UDFPS -->
     </PreferenceCategory>
 </PreferenceScreen>
