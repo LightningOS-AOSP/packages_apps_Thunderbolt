@@ -36,6 +36,24 @@
                 <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
         </Preference>
 
+        <!-- Battery styles -->
+        <com.lightning.thunderbolt.preferences.SystemSettingListPreference
+            android:key="status_bar_battery_style"
+            android:title="@string/status_bar_battery_style_title"
+            android:entries="@array/status_bar_battery_style_entries"
+            android:entryValues="@array/status_bar_battery_style_values"
+            android:defaultValue="0" />
+
+        <!-- Battery percent -->
+        <com.lightning.thunderbolt.preferences.SystemSettingListPreference
+            android:key="status_bar_show_battery_percent"
+            android:title="@string/status_bar_battery_percent_title"
+            android:entries="@array/status_bar_battery_percent_entries"
+            android:entryValues="@array/status_bar_battery_percent_values"
+            android:defaultValue="0" />
+
+        <!-- Battery percentage when charging -->
+
         <!-- Data disabled icon -->
 
         <!-- 4G icon -->
