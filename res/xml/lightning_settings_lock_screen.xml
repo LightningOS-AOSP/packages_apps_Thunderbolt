@@ -9,6 +9,18 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/lock_screen_title">
 
+    <PreferenceCategory
+        android:key="lock_screen_interface_category"
+        android:title="@string/lock_screen_interface_category">
+
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_show_carrier"
+            android:title="@string/status_bar_carrier_lock_screen_title"
+            android:summary="@string/status_bar_carrier_lock_screen_summary"
+            android:defaultValue="true" />
+
+        <!-- Charging stats -->
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="lock_screen_fingerprint_category"
