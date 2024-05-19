@@ -40,6 +40,8 @@
 
         <!-- 4G icon -->
 
+        <!-- Wi-Fi standard icon -->
+
         <!-- Bluetooth battery status -->
         <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="bluetooth_show_battery"
