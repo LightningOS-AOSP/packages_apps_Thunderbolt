@@ -22,5 +22,19 @@
             android:defaultValue="true" />
 
         <!-- Screen-Off UDFPS -->
+
+        <!-- Authentication success vibration -->
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="fp_success_vibrate"
+            android:title="@string/lock_screen_fingerprint_success_vibration_title"
+            android:summary="@string/lock_screen_fingerprint_success_vibration_summary"
+            android:defaultValue="true" />
+
+        <!-- Authentication error vibration -->
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="fp_error_vibrate"
+            android:title="@string/lock_screen_fingerprint_error_vibration_title"
+            android:summary="@string/lock_screen_fingerprint_error_vibration_summary"
+            android:defaultValue="true" />
     </PreferenceCategory>
 </PreferenceScreen>
