@@ -10,5 +10,18 @@
     android:title="@string/lightning_notifications_title">
 
 
+    <PreferenceCategory
+        android:key="notifications_interface_category"
+        android:title="@string/notifications_interface_category">
+
+        <!-- Edge light -->
+        <Preference
+            android:key="edge_light_settings"
+            android:title="@string/notifications_edge_light_title"
+            android:summary="@string/notifications_edge_light_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.notifications.EdgeLightSettings" />
+
+        <!-- Kill app button -->
+    </PreferenceCategory>
 
 </PreferenceScreen>
