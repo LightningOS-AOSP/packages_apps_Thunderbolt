@@ -44,6 +44,26 @@
             android:defaultValue="true" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="quick_settings_interface_category"
+        android:title="@string/quick_settings_interface_category">
+
+        <!-- Battery styles -->
+
+        <!-- Battery percent -->
+
+        <!-- Hide label -->
+
+        <!-- Label text size -->
+
+        <!-- Vertical layout -->
+
+        <Preference
+            android:key="qs_layout_columns_rows"
+            android:title="@string/quick_settings_layout_columns_rows_title"
+            android:summary="@string/quick_settings_layout_columns_rows_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.quicksettings.LayoutSettings" />
+    </PreferenceCategory>
 
 
 </PreferenceScreen>
