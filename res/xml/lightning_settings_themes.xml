@@ -89,6 +89,18 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="themes_brightness_category"
+        android:title="@string/themes_brightness_category">
+
+        <!-- Brightness slider -->
+        <Preference
+            android:key="android.theme.customization.brightness_slider"
+            android:title="@string/themes_brightness_slider_title"
+            android:summary="@string/themes_brightness_slider_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.BrightnessSlider" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="themes_animations_category"
         android:title="@string/themes_animations_category">
 
