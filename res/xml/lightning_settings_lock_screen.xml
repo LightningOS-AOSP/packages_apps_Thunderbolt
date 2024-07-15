@@ -9,6 +9,17 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/lock_screen_title">
 
+    <PreferenceCategory
+        android:key="lockscreen_clock_category"
+        android:title="@string/lockscreen_clock_category_title">
+
+        <!-- Lockscreen Clock Font and styles -->
+        <Preference
+            android:key="android.theme.customization.lockscreen_clock_font"
+            android:title="@string/theme_customization_lock_clock_title"
+            android:summary="@string/theme_customization_lock_clock_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.LockClockFontsPickerPreview" />
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="aod_display"
