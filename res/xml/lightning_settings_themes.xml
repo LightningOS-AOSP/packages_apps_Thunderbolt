@@ -104,6 +104,13 @@
         android:key="themes_animations_category"
         android:title="@string/themes_animations_category">
 
+        <!-- Boot animation -->
+        <Preference
+            android:key="boot_animation"
+            android:title="@string/themes_boot_animation_title"
+            android:summary="@string/themes_boot_animation_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.BootAnimation" />
+
         <!-- Charging animation -->
 
         <!-- Screen Off animation -->
