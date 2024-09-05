@@ -21,6 +21,7 @@
             android:fragment="com.lightning.thunderbolt.fragments.themes.MonetSettings" />
     </PreferenceCategory>
 
+
     <PreferenceCategory
         android:key="themes_fonts_category"
         android:title="@string/themes_fonts_category">
