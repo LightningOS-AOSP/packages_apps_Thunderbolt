@@ -61,6 +61,7 @@
             android:fragment="com.lightning.thunderbolt.fragments.themes.fonts.FontPickerPreview"/>
     </PreferenceCategory>
 
+
     <PreferenceCategory
         android:key="themes_icons_category"
         android:title="@string/themes_icons_category">
