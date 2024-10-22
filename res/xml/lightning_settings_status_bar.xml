@@ -58,6 +58,12 @@
 
         <!-- 4G icon -->
 
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_show_carrier"
+            android:title="@string/status_bar_carrier_lock_screen_title"
+            android:summary="@string/status_bar_carrier_lock_screen_summary"
+            android:defaultValue="true" />
+
         <!-- Wi-Fi standard icon -->
 
         <!-- Bluetooth battery status -->
