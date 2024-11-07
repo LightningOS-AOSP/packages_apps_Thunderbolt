@@ -38,6 +38,7 @@
             android:dependency="custom_aod_image_enabled" />
     </PreferenceCategory>
 
+
     <PreferenceCategory
         android:key="lock_screen_interface_category"
         android:title="@string/lock_screen_interface_category">
