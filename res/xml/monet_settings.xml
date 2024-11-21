@@ -20,6 +20,7 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/monet_settings_title">
 
+
     <PreferenceCategory
         android:title="@string/color_settings_category"
         android:key="color_settings_category">
@@ -86,3 +87,4 @@
 
 
 </PreferenceScreen>
+
