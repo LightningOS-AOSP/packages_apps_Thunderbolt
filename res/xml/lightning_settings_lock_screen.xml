@@ -49,17 +49,23 @@
             android:summary="@string/dw_wallpaper_enabled_summary"
             android:fragment="com.lightning.thunderbolt.fragments.lockscreen.WallpaperDepth" />
 
-        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_show_carrier"
-            android:title="@string/status_bar_carrier_lock_screen_title"
-            android:summary="@string/status_bar_carrier_lock_screen_summary"
-            android:defaultValue="true" />
+        <Preference
+            android:key="peek_display"
+            android:title="@string/peek_display_notifications_title"
+            android:summary="@string/peek_display_notifications_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.PeekDisplay" />
 
 
 
 
         <!-- Charging stats -->
 
+
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_show_carrier"
+            android:title="@string/status_bar_carrier_lock_screen_title"
+            android:summary="@string/status_bar_carrier_lock_screen_summary"
+            android:defaultValue="true" />
     </PreferenceCategory>
 
     <PreferenceCategory
