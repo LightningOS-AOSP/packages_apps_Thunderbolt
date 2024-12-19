@@ -10,4 +10,5 @@
     android:title="@string/lightning_notifications_title">
 
 
+
 </PreferenceScreen>
