@@ -37,4 +37,5 @@
             android:summary="@string/lock_screen_fingerprint_error_vibration_summary"
             android:defaultValue="true" />
     </PreferenceCategory>
+
 </PreferenceScreen>
