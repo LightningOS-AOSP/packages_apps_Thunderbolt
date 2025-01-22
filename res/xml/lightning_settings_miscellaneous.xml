@@ -25,6 +25,8 @@
         android:key="miscellaneous_developer_options_category"
         android:title="@string/miscellaneous_developer_options_category">
 
+        <!-- Smart Pixels -->
+
         <!-- USB configuration -->
         <Preference
             android:key="default_usb_configuration"
