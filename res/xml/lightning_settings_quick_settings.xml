@@ -48,6 +48,8 @@
         android:key="quick_settings_interface_category"
         android:title="@string/quick_settings_interface_category">
 
+        <!-- QS Transparency -->
+
         <!-- QS Header -->
 
         <!-- Battery styles -->
