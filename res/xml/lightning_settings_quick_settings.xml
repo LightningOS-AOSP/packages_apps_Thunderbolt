@@ -30,11 +30,11 @@
             android:defaultValue="0" />
 
         <!-- Haptic feedback on brightness slider -->
-        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+        <!--<com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="qs_brightness_slider_haptic"
             android:title="@string/quick_settings_brightness_slider_haptic_title"
             android:summary="@string/quick_settings_brightness_slider_haptic_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <!-- Auto brightness icon -->
         <lineageos.preference.LineageSecureSettingSwitchPreference
@@ -54,6 +54,21 @@
 
         <!-- QS Header -->
 
+        <!-- QS Media Player  -->
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="qs_compact_media_player_mode"
+            android:title="@string/qs_compact_media_player_mode_title"
+            android:summary="@string/qs_compact_media_player_mode_summary"
+            android:defaultValue="false" />
+
+        <com.lightning.thunderbolt.preferences.SystemSettingListPreference
+            android:key="qs_header_clock_style"
+            android:title="@string/qs_header_clock_style_title"
+            android:entries="@array/qs_header_clock_style_entries"
+            android:entryValues="@array/qs_header_clock_style_values"
+            android:summary="%s"
+            android:defaultValue="0" />
+
         <!-- Battery styles -->
 
         <!-- Battery percent -->
@@ -61,6 +76,7 @@
         <!-- QS tiles style -->
 
         <!-- QS Panel Style -->
+
 
         <!-- Hide label -->
 

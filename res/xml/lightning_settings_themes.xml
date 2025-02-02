@@ -21,6 +21,33 @@
             android:fragment="com.lightning.thunderbolt.fragments.themes.MonetSettings" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="themes_general_category"
+        android:title="@string/themes_general_category">
+
+        <!-- Wallpaper Settings -->
+        <Preference
+            android:key="wallpaper_settings"
+            android:title="@string/lightning_wallpaper_settings_title"
+            android:summary="@string/wallpaper_settings_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.Wallpaper" />
+
+        <!-- Brightness slider -->
+        <Preference
+            android:key="android.theme.customization.brightness_slider"
+            android:title="@string/themes_brightness_slider_title"
+            android:summary="@string/themes_brightness_slider_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.BrightnessSlider" />
+
+        <!-- Notification styles -->      
+
+        <!-- Power menu styles -->      
+
+        <!-- Progress bar styles -->      
+
+        <!-- Volume Styles -->
+    </PreferenceCategory>
+	
 
     <PreferenceCategory
         android:key="themes_fonts_category"
@@ -86,18 +113,6 @@
             android:title="@string/themes_udfps_icon_title"
             android:summary="@string/themes_udfps_icon_summary"
             android:fragment="com.lightning.thunderbolt.fragments.themes.UdfpsIcons" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="themes_brightness_category"
-        android:title="@string/themes_brightness_category">
-
-        <!-- Brightness slider -->
-        <Preference
-            android:key="android.theme.customization.brightness_slider"
-            android:title="@string/themes_brightness_slider_title"
-            android:summary="@string/themes_brightness_slider_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.BrightnessSlider" />
     </PreferenceCategory>
 
     <PreferenceCategory
