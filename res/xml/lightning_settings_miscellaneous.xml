@@ -21,4 +21,40 @@
             android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.Spoofing" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="miscellaneous_developer_options_category"
+        android:title="@string/miscellaneous_developer_options_category">
+
+        <!-- USB configuration -->
+        <Preference
+            android:key="default_usb_configuration"
+            android:title="@string/usb_default_config_title"
+            android:summary="@string/usb_default_config_summary"
+            android:fragment="com.android.settings.connecteddevice.usb.UsbDefaultFragment" />
+
+        <!-- Hide developer status -->
+        <Preference
+            android:key="hide_developer_status_settings"
+            android:title="@string/hide_developer_status_title"
+            android:summary="@string/hide_developer_status_summary"
+            android:fragment="com.android.settings.security.HideDeveloperStatusSettings"
+            settings:controller="com.android.settings.security.HideDeveloperStatusPreferenceController" />
+
+        <!-- No storage restrict -->
+        <com.lightning.thunderbolt.preferences.GlobalSettingSwitchPreference
+            android:key="no_storage_restrict"
+            android:title="@string/no_storage_restrict_title"
+            android:summary="@string/no_storage_restrict_summary"
+            android:defaultValue="false" />
+
+        <!-- Block wallpaper dimming -->
+
+        <!-- Unlimit screenrecord -->
+
+        <!-- Hide screen capture status -->
+
+        <!-- Allow application downgrade -->
+
+        <!-- Ignore window secure flags -->
+    </PreferenceCategory>
 </PreferenceScreen>
