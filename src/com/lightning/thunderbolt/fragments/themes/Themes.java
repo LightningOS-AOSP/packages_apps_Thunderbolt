@@ -47,7 +47,6 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_UDFPS_ICON = "udfps_icon";
     private static final String KEY_ANIMATIONS_CATEGORY = "themes_animations_category";
     private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
-    private static final String KEY_BOOT_ANIMATION = "boot_animation";
     private static final String KEY_PGB_STYLE = "progress_bar_style";
     private static final String KEY_NOTIF_STYLE = "notification_style";
     private static final String KEY_POWERMENU_STYLE = "powermenu_style";
@@ -83,7 +82,6 @@ public class Themes extends SettingsPreferenceFragment implements
     private Preference mSignalIcon;
     private Preference mUdfpsIcon;
     private PreferenceCategory mAnimationsCategory;
-    private Preference mBootAnimation;
     private Preference mUdfpsAnimation;
     private SystemSettingListPreference mNotificationStylePref;
     private SystemSettingListPreference mPowerMenuStylePref;
@@ -111,12 +109,7 @@ public class Themes extends SettingsPreferenceFragment implements
         mSignalIcon = (Preference) findPreference(KEY_SIGNAL_ICON);
         mUdfpsIcon = (Preference) findPreference(KEY_UDFPS_ICON);
         mAnimationsCategory = (PreferenceCategory) findPreference(KEY_ANIMATIONS_CATEGORY);
-        mBootAnimation = (Preference) findPreference(KEY_BOOT_ANIMATION);
         mUdfpsAnimation = (Preference) findPreference(KEY_UDFPS_ANIMATION);
-
-        if (DeviceUtils.isCurrentlySupportedPixel()) {
-            mAnimationsCategory.removePreference(mBootAnimation);
-        }
 
         if (!DeviceUtils.deviceSupportsMobileData(context)) {
             mIconsCategory.removePreference(mSignalIcon);
@@ -241,10 +234,6 @@ public class Themes extends SettingsPreferenceFragment implements
 
                 FingerprintManager fingerprintManager = (FingerprintManager)
                         context.getSystemService(Context.FINGERPRINT_SERVICE);
-
-                if (DeviceUtils.isCurrentlySupportedPixel()) {
-                    keys.add(KEY_BOOT_ANIMATION);
-                }
 
                 if (!DeviceUtils.deviceSupportsMobileData(context)) {
                     keys.add(KEY_SIGNAL_ICON);
