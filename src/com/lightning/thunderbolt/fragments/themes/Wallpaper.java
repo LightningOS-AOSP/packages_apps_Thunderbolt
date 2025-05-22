@@ -74,7 +74,7 @@ public class Wallpaper extends SettingsPreferenceFragment
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.EVOLVER;
+        return MetricsProto.MetricsEvent.LIGHTNING;
     }
 
     /**
