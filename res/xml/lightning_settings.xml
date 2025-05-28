@@ -11,6 +11,14 @@
 
     <!-- Themes -->
     <Preference
+        android:key="styles"
+        android:title="@string/settings_styles"
+        android:summary="@string/settings_summary"
+        android:icon="@drawable/ic_themes"
+        android:fragment="com.lightning.thunderbolt.fragments.UserInterface" />
+
+    <!-- Themes -->
+    <Preference
         android:key="themes"
         android:title="@string/themes_title"
         android:summary="@string/themes_summary"

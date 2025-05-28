@@ -16,6 +16,19 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Settings dashbard style -->
+    <string-array name="settings_dashboard_style_entries" translatable="false">
+        <item>@string/settings_dashboard_style_aosp_legacy</item>
+        <item>@string/settings_dashboard_style_aosp_revamped</item>
+        <item>@string/settings_dashboard_style_dot</item>
+    </string-array>
+
+    <string-array name="settings_dashboard_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <!-- Monet theme styles  -->
     <string-array name="monet_engine_style_entries">
         <item>@string/monet_engine_style_tonal_spot</item>

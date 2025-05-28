@@ -5,6 +5,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    
+    <!-- Settings dashboard style -->
+    <string name="settings_dashboard_style_title">Settings dashboard style</string>
+    <string name="settings_dashboard_style_summary">The style of Settings main page</string>
+    <string name="settings_dashboard_style_aosp_legacy">AOSP legacy</string>
+    <string name="settings_dashboard_style_aosp_revamped">AOSP revamped</string>
+    <string name="settings_dashboard_style_dot">Mist Ui</string>
+    <string name="settings_styles">Settings Ui</string>
+    <string name="settings_summary">Change the Setting Ui</string>
+    <string name="ui_title">System Ui</string>
+
     <!-- Lightning -->
     <string name="lightning_dashboard_title">Lightning Tweek</string>
     <string name="lightning_dashboard_summary">Magic Happen Here!!</string>
