@@ -11,6 +11,7 @@
 
     <PreferenceCategory
         android:key="quick_settings_brightness_slider_category"
+        android:layout="@layout/lightning_first_header_pref"
         android:title="@string/quick_settings_brightness_slider_category">
 
         <!-- Brightness slider -->
@@ -48,6 +49,7 @@
 
     <PreferenceCategory
         android:key="quick_settings_interface_category"
+        android:layout="@layout/lightning_first_header_pref"
         android:title="@string/quick_settings_interface_category">
 
         <!-- QS Transparency -->

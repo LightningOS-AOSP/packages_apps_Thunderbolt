@@ -12,6 +12,7 @@
 
     <PreferenceCategory
         android:key="notifications_interface_category"
+        android:layout="@layout/lightning_first_header_pref"
         android:title="@string/notifications_interface_category">
 
 

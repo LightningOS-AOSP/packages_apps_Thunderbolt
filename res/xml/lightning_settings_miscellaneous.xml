@@ -9,20 +9,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/miscellaneous_title">
 
-    <PreferenceCategory
-        android:key="miscellaneous_spoofing_category"
-        android:title="@string/miscellaneous_spoofing_category">
-
-        <!-- Component spoofing -->
-        <Preference
-            android:key="spoofing"
-            android:title="@string/spoofing_title"
-            android:summary="@string/spoofing_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.Spoofing" />
-    </PreferenceCategory>
-
+    
     <PreferenceCategory
         android:key="miscellaneous_developer_options_category"
+        android:layout="@layout/lightning_first_header_pref"
         android:title="@string/miscellaneous_developer_options_category">
 
         <!-- Hide applist -->

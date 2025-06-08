@@ -11,6 +11,7 @@
 
     <PreferenceCategory
         android:key="status_bar_gestures_category"
+        android:layout="@layout/lightning_first_header_pref"
         android:title="@string/status_bar_gestures_category">
 
         <!-- Status bar brightness control -->
@@ -26,6 +27,7 @@
 
     <PreferenceCategory
         android:key="status_bar_icons_category"
+        android:layout="@layout/lightning_first_header_pref"
         android:title="@string/status_bar_icons_category">
 
         <!-- Status bar tuner -->

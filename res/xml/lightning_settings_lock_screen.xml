@@ -11,6 +11,7 @@
 
     <PreferenceCategory
         android:key="lock_screen_interface_category"
+        android:layout="@layout/lightning_first_header_pref"
         android:title="@string/lock_screen_interface_category">
 
         <!-- Lockscreen Clock Font and styles -->
@@ -68,6 +69,7 @@
 
     <PreferenceCategory
         android:key="lockscreen_weather_category"
+        android:layout="@layout/lightning_first_header_pref"
         android:title="@string/lockscreen_weather_category">
 
         <Preference
@@ -80,6 +82,7 @@
 
     <PreferenceCategory
         android:key="lock_screen_fingerprint_category"
+        android:layout="@layout/lightning_first_header_pref"
         android:title="@string/lock_screen_fingerprint_category">
 
         <!-- Fingerprint unlock ripple animation -->

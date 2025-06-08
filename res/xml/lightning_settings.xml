@@ -13,16 +13,31 @@
         android:key="top_level_thunderbolt_ui"
         android:layout="@layout/settingslib_preference_category_no_title">
 
-    <!-- Themes -->
+    <!-- Dashboard -->
     <Preference
         android:key="styles"
         android:title="@string/settings_styles"
         android:summary="@string/settings_summary"
-        android:icon="@drawable/ic_themes"
+        android:icon="@drawable/ic_home"
         settings:layout="@layout/lightning_dashboard_single"
         android:fragment="com.lightning.thunderbolt.fragments.UserInterface" />
 
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="top_level_personalize_monet"
+        android:layout="@layout/settingslib_preference_category_no_title">
+    
+    <Preference
+            android:key="monet_engine"
+            android:title="@string/themes_monet_title"
+            android:icon="@drawable/ic_monet"
+            android:summary="@string/themes_monet_summary"
+            settings:layout="@layout/lightning_dashboard_single"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.MonetSettings" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:key="top_level_personalize_themes"
         android:layout="@layout/settingslib_preference_category_no_title">
@@ -89,9 +104,11 @@
         android:fragment="com.lightning.thunderbolt.fragments.notifications.Notifications" />
 
     </PreferenceCategory>
+
     <PreferenceCategory
         android:key="top_level_personalize_power"
         android:layout="@layout/settingslib_preference_category_no_title">
+        
     <!-- Power menu -->
     <Preference
         android:key="power_menu"
@@ -102,9 +119,11 @@
         android:fragment="com.lightning.thunderbolt.fragments.powermenu.PowerMenu" />
 
     </PreferenceCategory>
+
     <PreferenceCategory
         android:key="top_level_personalize_misc"
         android:layout="@layout/settingslib_preference_category_no_title">
+
     <!-- Miscellaneous -->
     <Preference
         android:key="miscellaneous"
@@ -114,4 +133,20 @@
         settings:layout="@layout/lightning_dashboard_single"
         android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.Miscellaneous" />
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="top_level_personalize_spoofing"
+        android:layout="@layout/settingslib_preference_category_no_title">
+
+    <!-- Component spoofing -->
+        <Preference
+            android:key="spoofing"
+            android:title="@string/spoofing_title"
+            android:summary="@string/spoofing_summary"
+            android:icon="@drawable/ic_spoofing"
+            settings:layout="@layout/lightning_dashboard_single"
+            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.Spoofing" />
+    </PreferenceCategory>
+
+
 </PreferenceScreen>
