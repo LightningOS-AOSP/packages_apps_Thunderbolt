@@ -59,6 +59,11 @@
             android:summary="@string/status_bar_network_traffic_settings_summary"
             android:fragment="com.lightning.thunderbolt.fragments.statusbar.NetworkTrafficSettings" />
 
+        <Preference
+            android:key="ongoing_progress_settings"
+            android:title="@string/ongoing_progress_settings_title"
+            android:summary="@string/ongoing_progress_settings_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.statusbar.OngoingProgressBar" />
 
         <!-- Battery styles -->
         <com.lightning.thunderbolt.preferences.SystemSettingListPreference
