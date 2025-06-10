@@ -23,6 +23,7 @@
 
 
 
+
     <com.android.settingslib.widget.FooterPreference
         android:key="progress_footer"
         android:title="@string/progress_footer_text"
