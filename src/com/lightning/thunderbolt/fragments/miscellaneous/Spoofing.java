@@ -56,10 +56,6 @@ import java.util.stream.Collectors;
 import com.lightning.thunderbolt.preferences.SystemPropertySwitchPreference;
 import com.lightning.thunderbolt.utils.DeviceUtils;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 @SearchIndexable
 public class Spoofing extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -67,18 +63,14 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String TAG = "Spoofing";
 
     private static final String KEY_SYSTEM_WIDE_CATEGORY = "spoofing_system_wide_category";
-    private static final String KEY_PIF_JSON_FILE_PREFERENCE = "pif_json_file_preference";
-    private static final String KEY_GAME_PROPS_JSON_FILE_PREFERENCE = "game_props_json_file_preference";
-    private static final String SYS_GOOGLE_SPOOF = "persist.sys.pphooks.enable";
-    private static final String SYS_GAMEPROP_SPOOF = "persist.sys.gameprops.enabled";
-    private static final String SYS_GPHOTOS_SPOOF = "persist.sys.gphooks.enable";
-    private static final String SYS_QSB_SPOOF = "persist.sys.qsb.enable";
-    private static final String SYS_SNAP_SPOOF = "persist.sys.snap.enable";
-    private static final String SYS_VENDING_SPOOF = "persist.sys.vending.enable";
+    private static final String SYS_GOOGLE_SPOOF = "persist.sys.pixelprops";
+    private static final String SYS_GAMEPROP_SPOOF = "persist.sys.pixelprops.games";
+    private static final String SYS_GPHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
+    private static final String SYS_QSB_SPOOF = "persist.sys.pixelprops.qsb";
+    private static final String SYS_SNAP_SPOOF = "persist.sys.pixelprops.snap";
+    private static final String SYS_VENDING_SPOOF = "persist.sys.pixelprops.vending";
     private static final String SYS_ENABLE_TENSOR_FEATURES = "persist.sys.features.tensor";
 
-    private Preference mGamePropsJsonFilePreference;
-    private Preference mUpdateJsonButton;
     private PreferenceCategory mSystemWideCategory;
     private SystemPropertySwitchPreference mGoogleSpoof;
     private SystemPropertySwitchPreference mGamePropsSpoof;
@@ -105,7 +97,6 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mGamePropsSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GAMEPROP_SPOOF);
         mGphotosSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GPHOTOS_SPOOF);
         mGoogleSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GOOGLE_SPOOF);
-        mGamePropsJsonFilePreference = findPreference(KEY_GAME_PROPS_JSON_FILE_PREFERENCE);
         mQsbSpoof = (SystemPropertySwitchPreference) findPreference(SYS_QSB_SPOOF);
         mSnapSpoof = (SystemPropertySwitchPreference) findPreference(SYS_SNAP_SPOOF);
         mVendingSpoof = (SystemPropertySwitchPreference) findPreference(SYS_VENDING_SPOOF);
@@ -132,80 +123,10 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mSnapSpoof.setOnPreferenceChangeListener(this);
         mVendingSpoof.setOnPreferenceChangeListener(this);
         mTensorFeaturesToggle.setOnPreferenceChangeListener(this);
-
-        mGamePropsJsonFilePreference.setOnPreferenceClickListener(preference -> {
-            openFileSelector(10001);
-            return true;
-        });
-
     }
 
     private boolean isMainlineTensorModel(String model) {
         return model.matches("Pixel [8-9][a-zA-Z ]*");
-    }
-
-    private void openFileSelector(int requestCode) {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("application/json");
-        startActivityForResult(intent, requestCode);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == Activity.RESULT_OK && data != null) {
-            Uri uri = data.getData();
-            if (uri != null) {
-                if (requestCode == 10001) {
-                    loadGameSpoofingJson(uri);
-                }
-            }
-        }
-    }
-
-    private void loadGameSpoofingJson(Uri uri) {
-        Log.d(TAG, "Loading Game Props JSON from URI: " + uri.toString());
-        try (InputStream inputStream = getActivity().getContentResolver().openInputStream(uri)) {
-            if (inputStream != null) {
-                String json = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
-                Log.d(TAG, "Game Props JSON data: " + json);
-                JSONObject jsonObject = new JSONObject(json);
-                for (Iterator<String> it = jsonObject.keys(); it.hasNext(); ) {
-                    String key = it.next();
-                    if (key.startsWith("PACKAGES_") && !key.endsWith("_DEVICE")) {
-                        String deviceKey = key + "_DEVICE";
-                        if (jsonObject.has(deviceKey)) {
-                            JSONObject deviceProps = jsonObject.getJSONObject(deviceKey);
-                            JSONArray packages = jsonObject.getJSONArray(key);
-                            for (int i = 0; i < packages.length(); i++) {
-                                String packageName = packages.getString(i);
-                                Log.d(TAG, "Spoofing package: " + packageName);
-                                setGameProps(packageName, deviceProps);
-                            }
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "Error reading Game Props JSON or setting properties", e);
-        }
-        mHandler.postDelayed(() -> {
-            SystemRestartUtils.showSystemRestartDialog(getContext());
-        }, 1250);
-    }
-
-    private void setGameProps(String packageName, JSONObject deviceProps) {
-        try {
-            for (Iterator<String> it = deviceProps.keys(); it.hasNext(); ) {
-                String key = it.next();
-                String value = deviceProps.getString(key);
-                String systemPropertyKey = "persist.sys.gameprops." + packageName + "." + key;
-                SystemProperties.set(systemPropertyKey, value);
-                Log.d(TAG, "Set system property: " + systemPropertyKey + " = " + value);
-            }
-        } catch (JSONException e) {
-            Log.e(TAG, "Error parsing device properties", e);
-        }
     }
 
     @Override
