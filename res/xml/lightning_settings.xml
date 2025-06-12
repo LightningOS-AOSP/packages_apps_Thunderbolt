@@ -125,6 +125,18 @@
         android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.Miscellaneous" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="top_level_personalize_spoofing"
+        android:layout="@layout/settingslib_preference_category_no_title">
+
+    <!-- Component spoofing -->
+        <Preference
+            android:key="spoofing"
+            android:title="@string/spoofing_title"
+            android:summary="@string/spoofing_summary"
+            android:icon="@drawable/ic_spoofing"
+            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.Spoofing" />
+    </PreferenceCategory>
 
 
 </PreferenceScreen>

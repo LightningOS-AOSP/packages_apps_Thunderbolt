@@ -42,9 +42,9 @@ import java.util.Iterator;
 import java.util.List;
 
 @SearchIndexable
-public class Spoof extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
+public class Spoofing extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 
-    public static final String TAG = "Spoof";
+    public static final String TAG = "Spoofing";
     private static final String SYS_GMS_SPOOF = "persist.sys.pixelprops.gms";
     private static final String SYS_GPHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
     private static final String KEY_IMPORT_KEYBOX = "import_keybox";
@@ -93,7 +93,7 @@ public class Spoof extends SettingsPreferenceFragment implements Preference.OnPr
         
         mHandler = new Handler();
 
-        addPreferencesFromResource(R.xml.spoof);
+        addPreferencesFromResource(R.xml.spoofing);
 
         mGphotosSpoof = findPreference(SYS_GPHOTOS_SPOOF);
         mGphotosSpoof.setOnPreferenceChangeListener(this);
@@ -333,7 +333,7 @@ public class Spoof extends SettingsPreferenceFragment implements Preference.OnPr
      * For search
      */
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.spoof) {
+            new BaseSearchIndexProvider(R.xml.spoofing) {
 
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
