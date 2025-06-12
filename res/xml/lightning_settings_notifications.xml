@@ -28,4 +28,26 @@
         <!-- Kill app button -->
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="notifications_sounds_vibration_category"
+        android:layout="@layout/lightning_first_header_pref"
+        android:title="@string/notifications_sounds_vibration_category">
+
+        <!-- Alert while display on -->
+
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="vibrate_on_connect"
+            android:title="@string/incall_vibrate_connect_title"
+            android:defaultValue="true" />
+
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="vibrate_on_callwaiting"
+            android:title="@string/incall_vibrate_call_wait_title"
+            android:defaultValue="true" />
+
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="vibrate_on_disconnect"
+            android:title="@string/incall_vibrate_disconnect_title"
+            android:defaultValue="true" />
+    </PreferenceCategory>
 </PreferenceScreen>
