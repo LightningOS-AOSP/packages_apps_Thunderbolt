@@ -221,7 +221,7 @@ public class Themes extends SettingsPreferenceFragment implements
             return true;
         } else if (preference.getKey().equals(KEY_EXPRESSIVE_DESIGN)) {
             boolean boolValue = (Boolean) newValue;
-            SystemProperties.set(PROP_EXPRESSIVE_DESIGN, boolValue ? "1" : "1");
+            SystemProperties.set(PROP_EXPRESSIVE_DESIGN, boolValue ? "1" : "0");
             return true;
         }
         return false;
