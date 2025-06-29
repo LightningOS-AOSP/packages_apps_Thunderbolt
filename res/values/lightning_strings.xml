@@ -5,56 +5,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Unlimited google photos storage -->
-    <string name="use_photos_spoof_title">Unlimited Photos storage</string>
-    <string name="use_photos_spoof_summary">Spoof your device as Pixel XL for Google Photos app only to provide unlimited storage for backup</string>
-
-    <!-- Unlock FPS for specific games -->
-    <string name="use_games_spoof_title">Unlock higher FPS in games</string>
-    <string name="use_games_spoof_summary">Spoof your device as different model for specific games to unlock higher FPS</string>
-
-    <string name="spoof_option_disabled">Disabling PixelProps spoofing is not supported by current device</string>
-
-    <!-- GMS Spoof -->
-    <string name="gms_spoof_title">Enable GMS spoof</string>
-    <string name="gms_spoof_summary">Spoof your device to pass Google Play Attestation</string>
-    <string name="entryhooks_title">Enable Keybox spoofing</string>
-    <string name="entryhooks_summary">Spoof device keybox to pass Play Integrity</string>
-
-    <!-- Play Integrit Fix JSON Update -->
-    <string name="toast_spoofing_success">Successfully downloaded pif.json. Spoofing as %1$s for play integrity.</string>
-    <string name="toast_spoofing_failure">Failed to spoof properties.</string>
-    <string name="update_pif_json_title">Update Play Integrity Fix</string>
-    <string name="update_pif_json_summary">Update PIF spoofing device, requires internet connection.</string>
-    <string name="show_pif_properties_title">Play Integrity Fix properties</string>
-    <string name="show_pif_properties_summary">Show all currently set PIF properties</string>
-    <string name="error_loading_properties">Error loading PIF properties</string>
-
-    <!-- Per-app spoofing -->
-    <string name="gameprops_title">Enable Per-app spoofing</string>
-    <string name="gameprops_summary">Enables per-app spoofing options within the PixelProps</string>
-    <string name="gameprops_load_json_title">Select Per-app Props JSON File</string>
-    <string name="gameprops_load_json_summary">Pick Per-app JSON file to be used for spoofing games</string>
-
-    <!-- PIF spoofing -->
-    <string name="pif_spoofing_title">Select PIF JSON File</string>
-    <string name="pif_spoofing_summary">Pick PIF JSON file to be used for spoofing play integrity</string>
-
-    <!-- Keybox import -->
-    <string name="import_keybox_title">Import Keybox</string>
-    <string name="import_keybox_summary">Import custom keybox for keybox spoofing</string>
-    <string name="import_success">Keybox imported successfully!</string>
-    <string name="import_failed">Failed to import keybox</string>
-    <string name="import_io_error">File operation error</string>
-    <string name="clear_keybox_title">Clear Keybox</string>
-    <string name="clear_keybox_summary">Disable keybox spoofing</string>
-    <string name="clear_success">Keybox removed successfully</string>
-    <string name="clear_failed">Failed to removed keybox</string>
-    
-    <!-- Netflix Spoof -->
-    <string name="netflix_spoof_title">Netflix spoof</string>
-    <string name="netflix_spoof_summary">Spoof your device as different model for Netflix</string>
-
     <!-- Settings dashboard style -->
     <string name="settings_dashboard_style_title">Settings dashboard style</string>
     <string name="settings_dashboard_style_summary">The style of Settings main page</string>
@@ -615,6 +565,8 @@
     <string name="spoofing_pixel_props_summary">Spoof a select group of Google apps to the latest Pixel device</string>
     <string name="tensor_spoof_title">Spoof tensor features</string>
     <string name="tensor_spoof_summary">Unlock tensor/pixel features</string>
+    <string name="gms_spoof_title">Play Integrity fix</string>
+    <string name="gms_spoof_summary">Spoof your device to pass Google Play Attestation</string>
     <string name="spoofing_storage_encryption_title">Storage encryption</string>
     <string name="spoofing_storage_encryption_summary">Spoof the device storage encryption status to \'Encrypted\'</string>
     <string name="spoofing_app_specific_category">App-Specific</string>
@@ -626,6 +578,19 @@
     <string name="spoofing_photos_summary">Spoof the Google Photos app as a Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Spoof Snapchat as a Pixel XL to fix possible chat issues</string>
+    <string name="gameprops_title">Unlock higher FPS in games</string>
+    <string name="gameprops_summary">Spoof your device as different model for specific games to unlock higher FPS</string>
+
+    <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
+    <string name="toast_spoofing_success">Successfully downloaded pif.json. Spoofing as %1$s for Play Integrity.</string>
+    <string name="toast_spoofing_failure">Failed to spoof properties.</string>
+    <string name="update_pif_json_title">Update Play Integrity fix</string>
+    <string name="update_pif_json_summary">Update PIF spoofing device, requires internet connection.</string>
+    <string name="show_pif_properties_title">Play Integrity fix properties</string>
+    <string name="show_pif_properties_summary">Show all currently set PIF properties</string>
+    <string name="error_loading_properties">Error loading PIF properties</string>
+    <string name="pif_spoofing_title">Select PIF JSON file</string>
+    <string name="pif_spoofing_summary">Choose the PIF JSON file to be used to spoof Play Integrity</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
