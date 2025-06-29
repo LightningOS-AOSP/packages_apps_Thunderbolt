@@ -592,6 +592,10 @@
     <string name="pif_spoofing_title">Select PIF JSON file</string>
     <string name="pif_spoofing_summary">Choose the PIF JSON file to be used to spoof Play Integrity</string>
 
+    <!-- Miscellaneous/Spoofing/Keybox Data -->
+    <string name="keybox_data_title">Select keybox XML to spoof</string>
+    <string name="keybox_data_summary">Select keybox XML used for key attestation spoofing for all apps system wide. Click the delete button in order to reset the keybox data values used by the system.</string>
+
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
     <string name="press_color_to_apply">Press on color below to apply</string>
