@@ -25,7 +25,7 @@
         android:title="@string/monet_engine_style_title"
         android:entries="@array/monet_engine_style_entries"
         android:entryValues="@array/monet_engine_style_values"
-        android:defaultValue="0" />
+        android:defaultValue="TONAL_SPOT" />
 
 
 
