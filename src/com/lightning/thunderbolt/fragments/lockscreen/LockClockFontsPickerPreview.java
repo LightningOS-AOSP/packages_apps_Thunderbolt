@@ -49,9 +49,9 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.lightning.thunderbolt.fragments.themes.fonts.FontArrayAdapter;
 import com.lightning.thunderbolt.fragments.themes.fonts.FontManager;
-import com.android.settings.utils.SystemRestartUtils;
+import com.lightning.thunderbolt.utils.SystemRestartUtils;
 
-import com.android.internal.util.lightning.ThemeUtils;
+import com.android.internal.util.android.ThemeUtils;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.util.List;
@@ -123,10 +123,10 @@ public class LockClockFontsPickerPreview extends SettingsPreferenceFragment {
         TextView fontMessage = rootView.findViewById(R.id.font_message);
         List<String> fontPackageNames = fontManager.getAllFontPackages();
         TextView fontSelector = rootView.findViewById(R.id.font_selector);
-        int backgroundColor = ContextCompat.getColor(getContext(),
+        int backgroundColor = ContextCompat.getColor(getContext(), 
                 isNightMode() ? R.color.font_drop_down_bg_dark : R.color.font_drop_down_bg_light);
-        fontSelector.setTextColor(ContextCompat.getColor(getContext(), isNightMode()
-                ? R.color.font_drop_down_bg_light
+        fontSelector.setTextColor(ContextCompat.getColor(getContext(), isNightMode() 
+                ? R.color.font_drop_down_bg_light 
                 : R.color.font_drop_down_bg_dark));
         fontSelector.setBackgroundTintList(ColorStateList.valueOf(backgroundColor));
 
@@ -180,26 +180,7 @@ public class LockClockFontsPickerPreview extends SettingsPreferenceFragment {
         }
 
         applyFab = rootView.findViewById(R.id.apply_extended_fab);
-        applyFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String fontPackage = fontPackageNames.get(mCurrentFontPosition);
-                if (!isStaticClockStyle(mClockPosition)) {
-                    applyFontToAllPreviews(fontPackage);
-                    fontManager.enableFontPackage(mCurrentFontPosition);
-                }
-                Settings.Secure.putIntForUser(getContext().getContentResolver(),
-                    "clock_style", mClockPosition, UserHandle.USER_CURRENT);
-                Settings.Secure.putIntForUser(getContext().getContentResolver(),
-                    "lock_screen_custom_clock_face", 0, UserHandle.USER_CURRENT);
-                mHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                       updateClockOverlays(mClockPosition);
-                    }
-                }, 1250);
-            }
-        });
+        setupApplyButton(fontPackageNames);
 
         highlightGuide = rootView.findViewById(R.id.highlight_guide);
         if (isFirstTime()) {
@@ -497,7 +478,6 @@ public class LockClockFontsPickerPreview extends SettingsPreferenceFragment {
     private void applyFontToAllPreviews(String font) {
         Typeface typeface = fontManager.getTypeface(getContext(), font);
         int childCount = viewPager.getChildCount();
-        //Log.d(TAG, "Total number of children in viewPager: " + childCount);
         if (typeface != null) {
             for (int i = 0; i < childCount; i++) {
                 View currentLayout = viewPager.getChildAt(i);
@@ -505,14 +485,9 @@ public class LockClockFontsPickerPreview extends SettingsPreferenceFragment {
                 if (currentLayout != null) {
                     if (!isStaticClockStyle(currentPosition)) {
                         updateAllTextViews(currentLayout, typeface);
-                        //Log.d(TAG, "Applied font to layout at position: " + currentPosition);
-                    } else {
-                        //Log.d(TAG, "Skipped applying font to static layout at position: " + currentPosition);
                     }
                 }
             }
-        } else {
-            Log.d(TAG, "Failed to apply font");
         }
     }
 
