@@ -41,6 +41,7 @@ import androidx.preference.SwitchPreferenceCompat;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.lightning.thunderbolt.utils.SystemRestartUtils;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settingslib.widget.LayoutPreference;
@@ -139,6 +140,9 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
                 updateWidgetPreferences();
                 saveInitialPreferences();
                 mApplyChange.setEnabled(false);
+
+            // Restart SystemUI to apply changes
+                SystemRestartUtils.restartSystemUI(getContext());
             }
         });
     }
