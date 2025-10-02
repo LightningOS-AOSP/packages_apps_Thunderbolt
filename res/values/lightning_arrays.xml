@@ -1062,5 +1062,17 @@
         <item>17</item>
         <item>18</item>
     </string-array>
+
+    <string-array name="quickswitch_launcher_entries">
+        <item>Mist Launcher</item>
+        <item>Pixel Launcher</item>
+        <item>Lawnchair Launcher</item>
+    </string-array>
+
+    <string-array name="quickswitch_launcher_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
     <string name="lightning_disabled">Disabled</string>
 </resources>
