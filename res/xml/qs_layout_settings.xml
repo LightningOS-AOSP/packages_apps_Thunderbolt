@@ -30,11 +30,18 @@
     <!-- Quick QS rows (portrait) -->
 
     <!-- Quick QS rows (landscape) -->
+    <!--<com.lightning.thunderbolt.preferences.SystemSettingSeekBarPreference
+        android:key="qqs_layout_rows_landscape"
+        android:title="@string/quick_settings_qqs_rows_landscape_title"
+        android:max="3"
+        settings:min="1"
+        settings:interval="1"
+        android:defaultValue="1" />
 
     <com.android.settingslib.widget.FooterPreference
         android:key="qs_layout_columns_rows_footer"
         android:title="@string/quick_settings_layout_columns_rows_footer_text"
         android:selectable="false"
-        settings:searchable="false" />
+        settings:searchable="false" />-->
 
 </PreferenceScreen>

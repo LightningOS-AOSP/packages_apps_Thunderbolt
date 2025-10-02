@@ -33,7 +33,7 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.List;
 
 import com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference;
-import com.lightning.thunderbolt.utils.ImageUtils;
+//import com.lightning.thunderbolt.utils.ImageUtils;
 
 @SearchIndexable
 public class LockScreen extends SettingsPreferenceFragment implements
@@ -46,10 +46,10 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String KEY_SCREEN_OFF_UDFPS = "screen_off_udfps_enabled";
     private static final String KEY_AUTHENTICATION_SUCCESS = "fp_success_vibrate";
     private static final String KEY_AUTHENTICATION_ERROR = "fp_error_vibrate";
-    private static final String CUSTOM_IMAGE_REQUEST_CODE_KEY = "lockscreen_custom_image";
-    private static final int CUSTOM_IMAGE_REQUEST_CODE = 1001;
+//   private static final String CUSTOM_IMAGE_REQUEST_CODE_KEY = "lockscreen_custom_image";
+//    private static final int CUSTOM_IMAGE_REQUEST_CODE = 1001;
 
-    private Preference mCustomImagePreference;
+//    private Preference mCustomImagePreference;
     private PreferenceCategory mFingerprintCategory;
     private SecureSettingSwitchPreference mScreenOffUdfps;
 
@@ -63,7 +63,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources resources = context.getResources();
 
-        mCustomImagePreference = findPreference(CUSTOM_IMAGE_REQUEST_CODE_KEY);
+/*        mCustomImagePreference = findPreference(CUSTOM_IMAGE_REQUEST_CODE_KEY);
         int clockStyle = Settings.Secure.getIntForUser(getContext().getContentResolver(), "clock_style", 0, UserHandle.USER_CURRENT);
         String imagePath = Settings.System.getString(getContext().getContentResolver(), "custom_aod_image_uri");
         if (imagePath != null && clockStyle > 0) {
@@ -73,7 +73,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
             mCustomImagePreference.setSummary(getContext().getString(R.string.custom_aod_image_not_supported));
             mCustomImagePreference.setEnabled(false);
         }
-
+*/
         mFingerprintCategory = (PreferenceCategory) findPreference(KEY_FINGERPRINT_CATEGORY);
         mScreenOffUdfps = (SecureSettingSwitchPreference) findPreference(KEY_SCREEN_OFF_UDFPS);
 
@@ -101,7 +101,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
         return false;
     }
 
-    @Override
+/*    @Override
     public boolean onPreferenceTreeClick(Preference preference) {
         if (preference == mCustomImagePreference) {
             try {
@@ -130,7 +130,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
                 }
             }
         }
-    }
+    } */
 
     @Override
     public int getMetricsCategory() {

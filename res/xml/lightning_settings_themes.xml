@@ -9,34 +9,6 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/themes_title">
 
-    <PreferenceCategory
-        android:key="themes_general_category"
-        android:layout="@layout/lightning_first_header_pref"
-        android:title="@string/themes_general_category">
-
-
-        <!-- Wallpaper Settings -->
-        <Preference
-            android:key="wallpaper_settings"
-            android:title="@string/lightning_wallpaper_settings_title"
-            android:summary="@string/wallpaper_settings_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.Wallpaper" />
-
-        <!-- Brightness slider -->
-        <Preference
-            android:key="android.theme.customization.brightness_slider"
-            android:title="@string/themes_brightness_slider_title"
-            android:summary="@string/themes_brightness_slider_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.BrightnessSlider" />
-
-        <!-- Notification styles -->      
-
-        <!-- Power menu styles -->      
-
-        <!-- Progress bar styles -->      
-
-        <!-- Volume Styles -->
-    </PreferenceCategory>
 	
 
     <PreferenceCategory

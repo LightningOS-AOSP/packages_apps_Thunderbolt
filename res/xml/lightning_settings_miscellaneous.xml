@@ -9,6 +9,19 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/miscellaneous_title">
 
+    <PreferenceCategory
+        android:key="haptics_settings_category"
+        android:layout="@layout/lightning_first_header_pref"
+        android:title="@string/haptics_settings_title">
+
+        <Preference
+            android:key="haptics_settings"
+            android:title="@string/haptics_settings_title"
+            android:summary="@string/haptics_settings_summary"
+            android:fragment="com.android.settings.sound.HapticsPreferenceFragment"/>
+
+    </PreferenceCategory>
+
     
     <PreferenceCategory
         android:key="miscellaneous_developer_options_category"

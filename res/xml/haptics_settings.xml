@@ -19,25 +19,11 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/haptics_settings_title"
     android:key="haptics_settings">
-
-    <!-- Back gesture intensity -->
-
-    <!-- Brightness slider intensity -->
-    <com.lightning.thunderbolt.preferences.CustomSeekBarPreference
-        android:key="qs_brightness_slider_haptic"
-        android:title="@string/brightness_slider_haptics_intensity_title"
-        android:order="-998"
-        android:max="3"
-        settings:min="0"
-        android:defaultValue="0"
-        settings:interval="1" />
-
-    <!-- QS Fling haptics -->
-
-    <!-- QS tile haptics intensity -->
         
     <!-- Edge scrolling intensity -->
 
     <!-- Volume slider intensity -->
+
+    <!-- Volume sound haptics -->
 
 </PreferenceScreen>
