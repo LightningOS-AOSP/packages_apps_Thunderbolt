@@ -30,6 +30,8 @@
             android:entryValues="@array/quick_settings_brightness_slider_position_values"
             android:defaultValue="0" />
 
+        <!-- Brightness Slider Style -->
+
         <!-- Haptic feedback on brightness slider -->
         <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="qs_brightness_slider_haptic"
