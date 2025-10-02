@@ -67,6 +67,8 @@
 
         <!-- Charging stats -->
 
+        <!-- Lockscreen remaining charging time -->
+
         <!-- <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="custom_aod_image_enabled"
             android:title="@string/lockscreen_custom_image_enabled_title"
