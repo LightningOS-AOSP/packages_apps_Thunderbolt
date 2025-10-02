@@ -890,4 +890,8 @@
     <!-- Interface / Expressive Design -->
     <string name="expressive_design_title">Expressive Design</string>
     <string name="expressive_design_summary">Enable Expressive Design preview</string>
+
+    <!-- AOD wallpaper -->
+    <string name="aod_wallpaper_title">AOD wallpaper</string>
+    <string name="aod_wallpaper_summary">Show wallpaper when aod on</string>
 </resources>
