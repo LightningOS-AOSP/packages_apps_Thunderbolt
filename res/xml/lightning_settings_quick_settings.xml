@@ -146,6 +146,7 @@
             android:title="@string/quick_settings_layout_columns_rows_title"
             android:summary="@string/quick_settings_layout_columns_rows_summary"
             android:fragment="com.lightning.thunderbolt.fragments.quicksettings.LayoutSettings" /> -->
+
     </PreferenceCategory>
 
     <!--<PreferenceCategory
