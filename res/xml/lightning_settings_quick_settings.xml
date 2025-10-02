@@ -180,22 +180,5 @@
             android:defaultValue="0" />
     </PreferenceCategory> -->
 
-   <!-- <PreferenceCategory
-        android:key="quick_settings_lock_screen_category"
-        android:layout="@layout/lightning_first_header_pref"
-        android:title="@string/quick_settings_lock_screen_category">
-        
-        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
-            android:key="secure_lockscreen_qs_disabled"
-            android:title="@string/quick_settings_secure_lock_screen_title"
-            android:summary="@string/quick_settings_secure_lock_screen_summary"
-            android:defaultValue="false" />
-
-        <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
-            android:key="qstile_requires_unlocking"
-            android:title="@string/quick_settings_require_unlock_title"
-            android:summary="@string/quick_settings_require_unlock_summary"
-            android:defaultValue="true"/>
-    </PreferenceCategory> -->
 
 </PreferenceScreen>
