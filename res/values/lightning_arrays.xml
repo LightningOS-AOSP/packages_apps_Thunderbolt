@@ -1006,5 +1006,8 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+
+    <!-- Battery bar -->
+    
     <string name="lightning_disabled">Disabled</string>
 </resources>

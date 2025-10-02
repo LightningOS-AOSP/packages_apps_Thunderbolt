@@ -83,6 +83,8 @@
 
         <!-- Battery percentage when charging -->
 
+        <!-- Battery bar -->
+
         <!-- Logo -->
         <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="status_bar_logo"
