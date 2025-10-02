@@ -611,6 +611,8 @@
     <string name="keybox_toast_missing_data">Invalid keybox XML: required fields missing</string>
     <string name="keybox_toast_file_loaded">Keybox loaded</string>
     <string name="keybox_toast_file_cleared">Keybox cleared</string>
+    <string name="keybox_check_title">Private Keybox spoof / disable forcing strong integrity</string>
+    <string name="keybox_check_summary">By default, we allow forcing strong integrity with any keybox and a valid PIF but this breaks apps like Google Pay. This setting allows to disable this option in order to fix it on such apps</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
