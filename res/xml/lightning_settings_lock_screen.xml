@@ -21,13 +21,13 @@
             android:summary="@string/theme_customization_lock_clock_face_summary"
             android:fragment="com.lightning.thunderbolt.fragments.lockscreen.LockClockFontsPickerPreview" />
         
-        <!-- <Preference
+        <Preference
             android:key="lockscreen_widgets"
             android:title="@string/lockscreen_widgets_title"
             android:summary="@string/lockscreen_widgets_enabled_summary"
             android:fragment="com.lightning.thunderbolt.fragments.lockscreen.LockScreenWidgets" />
 
-        <Preference
+        <!--<Preference
             android:key="depth_wallpaper"
             android:title="@string/dw_wallpaper_enabled_title"
             android:summary="@string/dw_wallpaper_enabled_summary"
