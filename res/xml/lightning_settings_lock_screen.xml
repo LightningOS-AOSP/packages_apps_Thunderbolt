@@ -15,14 +15,13 @@
         android:title="@string/lock_screen_interface_category">
 
         <!-- Lockscreen Clock Font and styles -->
-        <!--<Preference
+        <Preference
             android:key="android.theme.customization.lockscreen_clock_font"
             android:title="@string/theme_customization_lock_clock_face_title"
             android:summary="@string/theme_customization_lock_clock_face_summary"
             android:fragment="com.lightning.thunderbolt.fragments.lockscreen.LockClockFontsPickerPreview" />
-
         
-        <Preference
+        <!-- <Preference
             android:key="lockscreen_widgets"
             android:title="@string/lockscreen_widgets_title"
             android:summary="@string/lockscreen_widgets_enabled_summary"
