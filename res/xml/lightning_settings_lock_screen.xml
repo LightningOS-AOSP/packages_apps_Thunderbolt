@@ -89,7 +89,7 @@
             android:defaultValue="true" />
     </PreferenceCategory>
 
-    <!--<PreferenceCategory
+    <PreferenceCategory
         android:key="lockscreen_weather_category"
         android:layout="@layout/lightning_first_header_pref"
         android:title="@string/lockscreen_weather_category">
@@ -100,7 +100,7 @@
             android:summary="@string/weather_settings_summary"
             android:fragment="com.lightning.thunderbolt.fragments.lockscreen.LockScreenWeather" />
 
-    </PreferenceCategory> -->
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="lock_screen_fingerprint_category"
