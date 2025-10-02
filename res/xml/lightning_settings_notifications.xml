@@ -9,6 +9,24 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/lightning_notifications_title">
 
+    <PreferenceCategory
+        android:key="heads_up"
+        android:layout="@layout/lightning_first_header_pref"
+        android:title="@string/notifications_heads_up_title">
+
+        <!-- Heads up -->
+
+        <!-- Compact Heads up -->
+
+        <!-- Less boring heads up -->
+
+        <Preference
+            android:key="island_notification"
+            android:title="@string/island_notification_title"
+            android:summary="@string/island_notification_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.notifications.IslandSettings" />
+            
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="notifications_interface_category"
