@@ -17,6 +17,8 @@
 
         <!-- Small landscape notifications -->
 
+        <!-- Notification Row -->
+
         <!--<com.lightning.thunderbolt.preferences.SystemSettingSeekBarPreference
             android:key="max_visible_notification_icons"
             android:title="@string/max_visible_notification_icons_title"
