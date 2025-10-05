@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.lightning.thunderbolt.fragments.quicksettings;
+package org.lunaris.settings.fragments.quicksettings;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -21,11 +21,15 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
 
+import androidx.preference.Preference;
+
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
+
+import com.android.internal.util.android.VibrationUtils;
 
 import java.util.List;
 
@@ -42,7 +46,15 @@ public class LayoutSettings extends SettingsPreferenceFragment {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.LIGHTNING;
+        return MetricsProto.MetricsEvent.LUNARIS;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference != null && preference.getKey() != null) {
+            VibrationUtils.triggerVibration(getContext(), 3);
+        }
+        return super.onPreferenceTreeClick(preference);
     }
 
     /**

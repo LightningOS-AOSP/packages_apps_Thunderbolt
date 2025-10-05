@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2024 LightningOS
+     Copyright (C) 2019-2024 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 
@@ -8,4 +8,5 @@
 
     <!-- Oval preview size -->
     <dimen name="oval_notification_size">26dp</dimen>
+    <dimen name="color_picker_preview_height">48dp</dimen>
 </resources>

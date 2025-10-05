@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.lightning.thunderbolt.preferences;
+package org.lunaris.settings.preferences;
 
 import android.content.Context;
 import androidx.preference.ListPreference;

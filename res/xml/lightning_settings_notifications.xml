@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2019-2024 LightningOS
-     SPDX-License-Identifier: Apache-2.0
--->
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,78 +7,24 @@
 
     <PreferenceCategory
         android:key="heads_up"
-        android:layout="@layout/lightning_first_header_pref"
         android:title="@string/notifications_heads_up_title">
-
-        <!-- Heads up -->
-
-        <!-- Compact Heads up -->
-
-        <!-- Less boring heads up -->
 
         <Preference
             android:key="island_notification"
-            android:title="@string/island_notification_title"
-            android:summary="@string/island_notification_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.notifications.IslandSettings" />
-            
+            android:title="@string/notifications_island_notification_title"
+            android:summary="@string/notifications_island_notification_summary"
+            android:fragment="org.lunaris.settings.fragments.notifications.IslandSettings" />
+
+        <!-- Heads up -->
+
+
+        <!-- Less boring heads up -->
+
+        <!-- Notification guts kill app button -->
+
+        <!-- Compact Heads up -->
+
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:key="notifications_interface_category"
-        android:layout="@layout/lightning_first_header_pref"
-        android:title="@string/notifications_interface_category">
 
-        <!-- Small landscape notifications -->
-
-        <!-- Notification Row -->
-
-        <!--<com.lightning.thunderbolt.preferences.SystemSettingSeekBarPreference
-            android:key="max_visible_notification_icons"
-            android:title="@string/max_visible_notification_icons_title"
-            android:summary="@string/max_visible_notification_icons_summary"
-            android:defaultValue="4"
-            android:max="10"
-            settings:min="0"
-            settings:units="" /> -->
-
-        <!-- Alert Slider Notifications (OnePlus devices) -->
-
-        <!-- Edge light -->
-        <Preference
-            android:key="edge_light_settings"
-            android:title="@string/notifications_edge_light_title"
-            android:summary="@string/notifications_edge_light_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.notifications.EdgeLightSettings" />
-
-        <!-- Kill app button -->
-        <!--<com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
-            android:key="notification_guts_kill_app_button"
-            android:title="@string/notifications_kill_app_button_title"
-            android:summary="@string/notifications_kill_app_button_summary"
-            android:defaultValue="false" />-->
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="notifications_sounds_vibration_category"
-        android:layout="@layout/lightning_first_header_pref"
-        android:title="@string/notifications_sounds_vibration_category">
-
-        <!-- Alert while display on -->
-
-        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
-            android:key="vibrate_on_connect"
-            android:title="@string/incall_vibrate_connect_title"
-            android:defaultValue="true" />
-
-        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
-            android:key="vibrate_on_callwaiting"
-            android:title="@string/incall_vibrate_call_wait_title"
-            android:defaultValue="true" />
-
-        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
-            android:key="vibrate_on_disconnect"
-            android:title="@string/incall_vibrate_disconnect_title"
-            android:defaultValue="true" />
-    </PreferenceCategory>
 </PreferenceScreen>

@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2024 LightningOS
-     SPDX-License-Identifier: Apache-2.0
+     Copyright (C) 2016-2024 crDroid Android Project
+     Copyright (C) 2023-2025 Lunaris OS Android Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Settings dashboard style -->
-    <string name="settings_dashboard_style_title">Settings dashboard style</string>
-    <string name="settings_dashboard_style_summary">The style of Settings main page</string>
-    <string name="settings_dashboard_style_aosp_legacy">AOSP legacy</string>
-    <string name="settings_dashboard_style_aosp_revamped">AOSP revamped</string>
-    <string name="settings_dashboard_style_dot">Mist Ui</string>
-    <string name="settings_styles">Settings Ui</string>
-    <string name="settings_summary">Change the Setting Ui</string>
-    <string name="ui_title">System Ui</string>
-
-    <!-- Lightning -->
-    <string name="lightning_dashboard_title">Lightning Tweek</string>
-    <string name="lightning_dashboard_summary">Magic Happen Here!!</string>
+    <!-- Singularity -->
+    <string name="lunaris_dashboard_title">Singularity</string>
+    <string name="lunaris_dashboard_summary">Explore infinity</string>
 
     <!-- Categories -->
-    <string name="themes_title">Themes</string>
-    <string name="themes_summary">Monet, fonts, icons</string>
+    <string name="themes_title">User Interface</string>
+    <string name="themes_summary">UI Changes and customization</string>
     <string name="lock_screen_title">Lock screen</string>
-    <string name="lock_screen_summary">Interface, miscellaneous</string>
+    <string name="lock_screen_summary">Lock screen interface</string>
     <string name="status_bar_title">Status bar</string>
-    <string name="status_bar_summary">Gestures, Icons, privacy indicators</string>
-    <string name="quick_settings_title">Quick settings</string>
-    <string name="quick_settings_summary">Interface, lock screen</string>
+    <string name="status_bar_summary">Icons, privacy indicators</string>
+    <string name="quick_settings_title">Quick Settings</string>
+    <string name="quick_settings_summary">Quick Settings interface Settings</string>
     <string name="lightning_notifications_title">Notifications</string>
-    <string name="notifications_summary">Alerts, interface</string>
+    <string name="notifications_summary">Notifications, interface, icons</string>
     <string name="power_menu_title">Power menu</string>
-    <string name="power_menu_summary">Actions, lock screen</string>
+    <string name="power_menu_summary">Power menu Settings</string>
     <string name="buttons_title">Buttons</string>
-    <string name="buttons_summary">Power button, volume buttons</string>
-    <string name="miscellaneous_title">Miscellaneous</string>
-    <string name="miscellaneous_summary">Developer options, spoofing</string>
-    <string name="about_title">About</string>
-    <string name="about_summary">About LightningOS</string>
+    <string name="buttons_summary">System button, volume buttons etc</string>
+    <string name="miscellaneous_title">System</string>
+    <string name="miscellaneous_summary">Some extra system settings</string>
 
     <!-- Themes -->
     <string name="themes_general_category">General</string>
-    <string name="themes_monet_category">Monet</string>
+    <string name="themes_monet_category">UI Themes</string>
     <string name="themes_monet_title">Monet settings</string>
     <string name="themes_monet_summary">Customize Android\'s built-in theme engine</string>
     <string name="themes_audio_category">Audio</string>
@@ -65,6 +65,7 @@
     <string name="themes_navigation_bar_icons_summary">Set navigation bar icon style</string>
     <string name="themes_udfps_icon_title">UDFPS icon</string>
     <string name="themes_udfps_icon_summary">Set UDFPS icon style</string>
+    
     <string name="themes_brightness_category">Brightness slider</string>
     <string name="themes_brightness_slider_title">Brightness slider style</string>
     <string name="themes_brightness_slider_summary">Set brightness slider style</string>
@@ -78,6 +79,10 @@
     <string name="themes_screen_off_animation_scale">Scale</string>
     <string name="themes_udfps_animation_title">UDFPS animation</string>
     <string name="themes_udfps_animation_summary">Set UDFPS animation style</string>
+    <string name="udfps_animation_offset_title">UDFPS animation offset</string>
+    <string name="udfps_animation_offset_summary">Adjust the vertical position of fingerprint animation</string>
+    <string name="udfps_animation_size_title">UDFPS animation size</string>
+    <string name="udfps_animation_size_summary">Adjust the size of fingerprint animation</string>
     <string name="themes_launcher_category">Pixel Launcher</string>
     <string name="themes_launcher_background_blur_title">Background blur</string>
     <string name="themes_launcher_background_blur_summary">Enable blur effect for recent items page background</string>
@@ -99,6 +104,10 @@
     <string name="theme_customization_lock_clock_summary">Set lockscreen clock font style</string>
     <string name="theme_customization_brightness_slider_title">Brightness slider style</string>
     <string name="theme_customization_brightness_slider_summary">Set custom brightness slider style</string>
+    <string name="quick_settings_media_category">QS media category</string>
+    <string name="quick_settings_notification_category">QS notification category</string>
+    <string name="status_bar_battery_category">Statusbar battery category</string>
+    <string name="ambient_display_category_title">Ambient display category</string>
 
     <!-- Themes/Boot animation preview -->
     <string name="boot_animation_preview_desc">Preview of the selected boot animation</string>
@@ -133,9 +142,13 @@
     <string name="monet_engine_color_source_home">Home wallpaper</string>
     <string name="monet_engine_color_source_lock">Lock wallpaper</string>
     <string name="monet_engine_color_source_preset">Preset</string>
+    <string name="monet_engine_wallpaper_color_title">Select a different accent color from your wallpaper</string>
+    <string name="monet_engine_wallpaper_color_summary">Wallpaper color selector</string>
+    <string name="monet_engine_wallpaper_color_not_available">Not available</string>
 
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Interface</string>
+    <string name="lock_screen_charging_category">Charging</string>
     <string name="lock_screen_charging_stats_title">Charging stats</string>
     <string name="lock_screen_charging_stats_summary">Display current, voltage, wattage, and temperature stats while charging</string>
     <string name="lock_screen_fingerprint_category">Fingerprint</string>
@@ -152,42 +165,42 @@
     <string name="lock_screen_pocket_detection_summary">Block screen and button inputs when device is in pocket</string>
     <string name="lock_screen_always_on_pocket_mode_title">Always on Pocket mode</string>
     <string name="lock_screen_always_on_pocket_mode_summary">Always block screen and button inputs when screen is turned on</string>
-    <string name="lock_screen_charging_time_title">Lock screen charging time</string>
-    <string name="lock_screen_charging_time_summary">Display the remaining time for charging to finish</string>
 
-    <!-- Lock screen/Pulse music visualizer -->
-    <string name="pulse_help_policy_notice_title">About Pulse</string>
-    <string name="pulse_help_policy_notice_summary">Pulse is a brilliant audio graphic equalizer when music plays on the device</string>
-    <string name="lock_screen_pulse_settings_title">Pulse</string>
-    <string name="lock_screen_pulse_settings_summary">Audio graphic equalizer for navigation bar and lock screen</string>
-    <string name="show_navbar_pulse_title">Navbar pulse</string>
-    <string name="show_navbar_pulse_summary">Audio graphic equalizer on the navigation bar</string>
-    <string name="show_lockscreen_pulse_title">Lock screen pulse</string>
-    <string name="show_lockscreen_pulse_summary">Audio graphic equalizer on the lock screen</string>
-    <string name="show_ambient_pulse_title">Ambient pulse</string>
-    <string name="show_ambient_pulse_summary">Audio graphic equalizer on the ambient screen</string>
-    <string name="pulse_render_mode_title">Render mode</string>
-    <string name="pulse_render_mode_fading_bars">Fading blocks</string>
-    <string name="pulse_render_mode_solid_lines">Solid lines</string>
-    <string name="pulse_legacy_mode_advanced_category">Fading blocks mode settings</string>
-    <string name="pulse_custom_fudge_factor">Sanity level</string>
-    <string name="pulse_lavalamp_speed_title">Lava lamp speed</string>
-    <string name="pulse_solid_units_rounded_title">Rounded corners</string>
-    <string name="pulse_solid_units_rounded_summary">Solid lines with rounded tip</string>
-    <string name="pulse_solid_units_count">Solid lines count</string>
-    <string name="pulse_solid_units_opacity">Solid lines opacity</string>
-    <string name="pulse_solid_dimen_category">Solid lines mode settings</string>
-    <string name="pulse_color_mode_title">Color</string>
-    <string name="pulse_color_accent">Accent</string>
-    <string name="pulse_color_custom">Custom</string>
-    <string name="pulse_color_lava_lamp">Lava lamp</string>
-    <string name="pulse_color_user_title">Choose color</string>
-    <string name="pulse_smoothing_enabled_title">Turn on smoothing</string>
-    <string name="pulse_smoothing_enabled_summary">Each bar is animated more smoothly</string>
-    <string name="pulse_custom_dimen">Bar width</string>
-    <string name="pulse_custom_div">Bar spacing</string>
-    <string name="pulse_filled_block_size">Block size</string>
-    <string name="pulse_empty_block_size">Block spacing</string>
+    <!-- Pulse music visualizer -->
+    <string name="pulse_settings">Pulse</string>
+    <string name="pulse_settings_title">Pulse Visualizer</string>
+    <string name="pulse_settings_summary">Show a bar visualizer on the lock screen while music is playing</string>
+    <string name="pulse_show_on_ambient_title">Show on ambient display</string>
+    <string name="pulse_show_on_ambient_summary">Display visualizer on always-on display and ambient mode. Disable to show only on lockscreen.</string>
+    <string name="pulse_rounded_bars_title">Rounded bars</string>
+    <string name="pulse_rounded_bars_summary">Display visualizer bars with rounded corners</string>
+    <string name="pulse_color">Visualizer color</string>
+    <string name="pulse_color_lavalamp">Lavalamp</string>
+    <string name="pulse_color_album">Album art</string>
+    <string name="pulse_color_accent">Accent color</string>
+    <string name="pulse_bar_count_title">Number of bars</string>
+    <string name="pulse_bar_count_summary">Set how many bars are shown in the visualizer</string>
+    <string name="pulse_bar_count_units">bars</string>
+    <string name="pulse_renderer">Visualizer style</string>
+    <string name="pulse_renderer_solid">Solid lines</string>
+    <string name="pulse_renderer_fading">Fading blocks</string>
+    <string name="pulse_renderer_neon_glow">Neon Glow</string>
+    <string name="pulse_renderer_retro_vu_meter">Retro VU Meter</string>
+    <string name="pulse_renderer_minimal_wave">Minimal Wave</string>
+
+    <!-- Pulse height multiplier -->
+    <string name="pulse_height_multiplier_title">Pulse height</string>
+    <string name="pulse_height_multiplier_summary">Adjust the visualization height</string>
+	
+	<!-- Pulse Gravity n Mirror Options -->
+    <string name="pulse_custom_gravity_title">Gravity</string>
+    <string name="pulse_custom_gravity_bottom">Bottom</string>
+    <string name="pulse_custom_gravity_top">Top</string>
+    <string name="pulse_custom_gravity_center">Center</string>
+    <string name="visualizer_center_mirrored_title">Center mirrored</string>
+    <string name="visualizer_center_mirrored_summary">Set the visualizer in center mirrored mode</string>
+    <string name="pulse_vertical_mirror_title">Vertical Mirror</string>
+    <string name="pulse_vertical_mirror_summary">Create other pulse and flip vertically</string>
 
     <!-- Lock screen Clock Highlight Guide -->
     <string name="ls_clock_face_highlight_text">Swipe left or right to preview clock styles</string>
@@ -265,7 +278,6 @@
     <string name="status_bar_logo_position_left">Left side</string>
     <string name="status_bar_logo_position_right">Right side</string>
     <string name="status_bar_logo_style_title">Logo style</string>
-    <string name="status_bar_logo_style_lightning">LightningOS</string>
     <string name="status_bar_logo_style_android">Android</string>
     <string name="status_bar_logo_style_adidas">Adidas</string>
     <string name="status_bar_logo_style_alien">Alien</string>
@@ -334,8 +346,20 @@
     <string name="status_bar_clock_auto_hide_sdur_summary">Number of seconds to wait before hiding clock</string>
     <string name="status_bar_clock_auto_hide_launcher_title">Auto hide on launcher</string>
     <string name="status_bar_clock_auto_hide_launcher_summary">Hide clock if launcher is visible</string>
-    <string name="status_bar_clock_chip_title">Background chip</string>
-    <string name="status_bar_clock_chip_summary">Display accented chip behind clock</string>
+    <string name="statusbar_clock_chip_title">Background chip</string>
+    <string name="statusbar_clock_chip_summary">Display accented chip behind clock</string>
+    <string name="solid_accent">Solid color accent</string>
+    <string name="outline">Outline</string>
+    <string name="solid_accent_gradient">Solid color accent gradient</string>
+    <string name="solid_gradient">Solid Gradient side</string>
+    <string name="solid_gradient_corner">Solid accent gradient sharp</string>
+    <string name="solid_gradient_void">Gradient Void</string>
+    <string name="solid_gradient_neumorph">Neumorph gradient</string>
+    <string name="solid_gradient_stroke">Sharp gradient stroke</string>
+    <string name="solid_accent_transperent">Accent transperent</string>
+    <string name="solid_gradient_light">Gradient light</string>
+    <string name="solid_gradient_shape">Sharp gradient corner</string>
+    <string name="solid_gradient_void_light">Gradient Void light</string>
     <string name="status_bar_am_pm_title">AM/PM style</string>
     <string name="status_bar_am_pm_info">24-hour clock is enabled</string>
     <string name="status_bar_am_pm_normal">Normal</string>
@@ -445,39 +469,43 @@
     <string name="quick_settings_tile_animation_interpolator_anticipateOvershoot">Anticipate overshoot</string>
     <string name="quick_settings_data_usage_title">Data usage</string>
     <string name="quick_settings_data_usage_summary">Display data usage summary in quick settings footer</string>
+    <string name="qs_footer_datausage_summary_daily">Display daily data usage summary in quick settings footer</string>
+    <string name="qs_footer_datausage_summary_weekly">Display weekly data usage summary in quick settings footer</string>
+    <string name="qs_data_usage_cycle_type_title">Data usage cycle</string>
+    <string name="qs_data_usage_cycle_type_summary">Choose between daily or weekly data usage display</string>
+    <string name="qs_data_usage_cycle_daily">Daily</string>
+    <string name="qs_data_usage_cycle_weekly">Weekly</string>
+    <string name="qs_show_data_usage_cycle_info_title">Show cycle info</string>
+    <string name="qs_show_data_usage_cycle_info_summary">Display additional information about the data usage cycle</string>
     <string name="quick_settings_lock_screen_category">Lock screen</string>
-    <string name="quick_settings_secure_lock_screen_title">QS on lock screen</string>
-    <string name="quick_settings_secure_lock_screen_summary">Allow swipe down on lock screen to view Quick Settings</string>
+    <string name="quick_settings_secure_lock_screen_title">Show on secure lock screen</string>
+    <string name="quick_settings_secure_lock_screen_summary">Show all quick settings in the notification shade while the device is locked</string>
     <string name="quick_settings_require_unlock_title">Secure QS tiles require unlock</string>
     <string name="quick_settings_require_unlock_summary">The following quick settings require the device to be unlocked before you can interact with them:\nAirplane, Battery saver, Bluetooth, Cellular, Data saver, Hotspot, Internet, NFC, Rotation lock, and Wi-Fi</string>
     <string name="quick_settings_miscellaneous_category">Miscellaneous</string>
     <string name="quick_settings_bluetooth_show_dialog_title">Bluetooth tile dialog</string>
     <string name="quick_settings_bluetooth_show_dialog_summary">Show bluetooth dialog or toggle bluetooth state on tapping bluetooth tile</string>
-    <string name="quick_settings_header_image_title">QS header image</string>
-    <string name="quick_settings_header_image_summary">Select QS background header image</string>
-    <string name="quick_settings_header_daylight_pack_title">Header image collection</string>
-    <string name="quick_settings_header_shadow_title">Header image shadow</string>
-    <string name="quick_settings_header_shadow_summary">For better visibility on bright images</string>
-    <string name="quick_settings_header_static_provider_title">Static image</string>
-    <string name="quick_settings_header_daylight_provider_title">Image collection</string>
-    <string name="quick_settings_header_file_provider_title">Custom image</string>
-    <string name="quick_settings_header_provider_title">Header provider</string>
-    <string name="quick_settings_header_browse_title">Browse installed headers</string>
-    <string name="quick_settings_header_browse_summary">Browse all available header collections</string>
-    <string name="quick_settings_header_pick_title">Select header image</string>
-    <string name="quick_settings_header_pick_summary">Select an image to use for static mode</string>
-    <string name="quick_settings_header_file_select_title">Select image</string>
-    <string name="quick_settings_header_file_select_summary">Select custom image</string>
-    <string name="quick_settings_header_needs_gallery">You must install a gallery app!</string>
-    <string name="quick_settings_header_offset_title">Header image offset</string>
-    <string name="quick_settings_header_offset_summary">Adjust the image header size</string>
-    <string name="quick_settings_transparency_title">Background transparency</string>
-    <string name="quick_settings_transparency_summary">Set transparency level for QS background</string>
-    <string name="quick_settings_tile_shape_title">QS tiles shape</string>
-    <string name="quick_settings_tile_shape_dynamic">Dynamic</string>
-    <string name="quick_settings_tile_shape_circle">Circle</string>
-    <string name="quick_settings_tile_shape_rounded_square">Rounded square</string>
-    <string name="quick_settings_tile_shape_square">Square</string>
+    <string name="qs_header_image_title">Header image</string>
+    <string name="qs_header_image_summary">Select QS background header image</string>
+    <string name="qs_header_daylight_pack_title">Header image collection</string>
+    <string name="qs_header_shadow_title">Header image shadow</string>
+    <string name="qs_header_shadow_summary">For better visibility on bright images</string>
+    <string name="qs_header_static_provider_title">Static image</string>
+    <string name="qs_header_daylight_provider_title">Image collection</string>
+    <string name="qs_header_file_provider_title">Custom image</string>
+    <string name="qs_header_image_processing">Processing image...</string>
+    <string name="qs_header_image_success">Header image saved successfully</string>
+    <string name="qs_header_image_error">Failed to save header image</string>
+    <string name="qs_header_provider_title">Header provider</string>
+    <string name="qs_header_browse_title">Browse installed headers</string>
+    <string name="qs_header_browse_summary">Browse all available header collections</string>
+    <string name="qs_header_pick_title">Select header image</string>
+    <string name="qs_header_pick_summary">Select an image to use for static mode</string>
+    <string name="qs_header_file_select_title">Select image</string>
+    <string name="qs_header_file_select_summary">Select custom image</string>
+    <string name="qs_header_needs_gallery">You must install a gallery app!</string>
+    <string name="qs_header_offset_title">Header image offset</string>
+    <string name="qs_header_offset_summary">Adjust the image header size</string>
 
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Heads up</string>
@@ -499,19 +527,6 @@
     <string name="compact_heads_up_notifications_enabled_title">Compact heads-up</string>
     <string name="compact_heads_up_notifications_enabled_summary">Display notifications in compact size</string>
 
-    <!-- Notifications/Edge light -->
-    <string name="notifications_edge_light_always_trigger_on_pulse_title">Always trigger on pulse</string>
-    <string name="notifications_edge_light_always_trigger_on_pulse_summary">Whether to show edge light whenever ambient display is shown and not just for notifications</string>
-    <string name="notifications_edge_light_repeat_animation_title">Repeat animation</string>
-    <string name="notifications_edge_light_repeat_animation_summary_on">Repeat until timeout</string>
-    <string name="notifications_edge_light_repeat_animation_summary_off">Show only once</string>
-    <string name="notifications_edge_light_color_mode_title">Edge light color mode</string>
-    <string name="notifications_edge_light_style_title">Edge light style</string>
-    <string name="notifications_edge_light_stroke_width_title">Edge light stroke width</string>
-    <string name="notifications_edge_light_stroke_width_summary">Configure edge light thickness</string>
-    <string name="notifications_edge_light_style_1">Draw Line</string>
-    <string name="notifications_edge_light_style_2">Blink/Pulse</string>
-
     <!-- Notifications/Less boring heads up -->
     <string name="notifications_less_boring_heads_up_title">Less boring</string>
     <string name="notifications_less_boring_heads_up_summary">Display popup notifications only for alarm, dialer and messaging app</string>
@@ -523,6 +538,8 @@
     <string name="power_menu_lock_screen_category">Lock screen</string>
     <string name="power_menu_lock_screen_secure_title">Show on secure lock screen</string>
     <string name="power_menu_lock_screen_secure_summary">Show the power menu while the device is locked</string>
+    <string name="advanced_reboot_secured_title">Secured lockscreen</string>
+    <string name="advanced_reboot_secured_summary">Display advanced restart options on secured lockscreen</string>
 
     <!-- Power menu/Power menu actions -->
     <string name="power_menu_actions_advanced_reboot_title">Advanced reboot</string>
@@ -568,13 +585,13 @@
     <string name="smart_pixels_shift_summary">Prevents burn-in on OLED devices by shifting pixels every so often</string>
 
     <!-- Miscellaneous/Spoofing -->
-    <string name="spoofing_title">Component spoofing</string>
-    <string name="spoofing_summary">Bypass app restrictions by spoofing components</string>
+    <string name="spoofing_title">Spoofing Settings</string>
+    <string name="spoofing_summary">Device spoofing and misc.</string>
     <string name="spoofing_system_wide_category">System-Wide</string>
     <string name="spoofing_pixel_props_title">Pixel props</string>
     <string name="spoofing_pixel_props_summary">Spoof a select group of Google apps to the latest Pixel device</string>
-    <string name="tensor_spoof_title">Tensor features</string>
-    <string name="tensor_spoof_summary">Unlock features only available in tensor-based Pixel devices</string>
+    <string name="tensor_spoof_title">Spoof tensor features</string>
+    <string name="tensor_spoof_summary">Unlock tensor/pixel features</string>
     <string name="gms_spoof_title">Play Integrity fix</string>
     <string name="gms_spoof_summary">Spoof your device to pass Google Play Attestation</string>
     <string name="spoofing_storage_encryption_title">Storage encryption</string>
@@ -588,8 +605,12 @@
     <string name="spoofing_photos_summary">Spoof the Google Photos app as a Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Spoof Snapchat as a Pixel XL to fix possible chat issues</string>
-    <string name="gameprops_title">Unlock higher FPS in games</string>
+    <string name="gameprops_title">Enable Game Props spoofing</string>
     <string name="gameprops_summary">Spoof your device as different model for specific games to unlock higher FPS</string>
+    <string name="gameprops_load_json_title">Select Game Props JSON File</string>
+    <string name="gameprops_load_json_summary">Pick Game Props JSON file to be used for spoofing games</string>
+    <string name="spoofing_netflix_title">Netflix</string>
+    <string name="spoofing_netflix_summary">Spoof your device as different model for Netflix</string>
 
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
     <string name="toast_spoofing_success">Successfully downloaded pif.json. Spoofing as %1$s for Play Integrity.</string>
@@ -611,9 +632,9 @@
     <string name="keybox_toast_missing_data">Invalid keybox XML: required fields missing</string>
     <string name="keybox_toast_file_loaded">Keybox loaded</string>
     <string name="keybox_toast_file_cleared">Keybox cleared</string>
-    <string name="keybox_check_title">Private Keybox spoof / disable forcing strong integrity</string>
-    <string name="keybox_check_summary">By default, we allow forcing strong integrity with any keybox and a valid PIF but this breaks apps like Google Pay. This setting allows to disable this option in order to fix it on such apps</string>
-
+    <string name="keybox_check_title">Private Keybox spoof</string>
+    <string name="keybox_check_summary">Spoof the private key only if you have a valid Keybox for proper Strong Integrity.</string>
+    
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
     <string name="press_color_to_apply">Press on color below to apply</string>
@@ -702,21 +723,36 @@
     <!-- Wallpaper Styles -->
     <string name="lightning_wallpaper_settings_title">Wallpaper styles</string>
     <string name="wallpaper_settings_summary">Configure wallpaper styles and settings</string>
-    <string name="wallpaper_blur_title">Wallpaper blur</string>
-    <string name="wallpaper_blur_summary">Enable or disable wallpaper blur effect</string>
-    <string name="wallpaper_blur_filter">Wallpaper blur style</string>
-    <string name="wallpaper_dim_title">Wallpaper dim</string>
-    <string name="wallpaper_dim_level_title">Wallpaper dim level</string>
-    <string name="wallpaper_dim_level_summary">Configure wallpaper dim level</string>
+    
+    <!-- Wallpaper Settings Titles -->
+    <string name="wallpaper_blur_title">Wallpaper Blur Effect</string>
+    <string name="wallpaper_blur_filter">Wallpaper Blur Type</string>
+    <string name="wallpaper_effects_title">Wallpaper Visual Effects</string>
+    <string name="wallpaper_effect_type_title">Wallpaper Effect Type</string>
+    <string name="wallpaper_effect_target_title">Apply effect to</string>
+    <string name="wallpaper_dim_title">Wallpaper Dim Effect</string>
+    <string name="wallpaper_dim_level_title">Wallpaper Dim Level</string>
     <string name="glass_blur">Glass blur</string>
     <string name="frosted_blur">Frosted blur</string>
-    <string name="wallpaper_styles_footer">
-        For wallpaper styles to work effectively, users must set the wallpapers for the lock screen and home screen at different times.\nThe same wallpaper can be used, but it should not be applied to both the lock screen and home screen at the same time.\nThis is optional when using the BOTH OPTION for wallpaper blur and dim styles.
-    </string>
+    <string name="wallpaper_dim_level_summary">Configure wallpaper dim level</string>
+    <string name="wallpaper_styles_footer">For wallpaper styles to work effectively, users must set the wallpapers for the lock screen and home screen at different times.\nThe same wallpaper can be used, but it should not be applied to both the lock screen and home screen at the same time.\nThis is optional when using the BOTH OPTION for wallpaper blur and dim styles.</string>
+    <string name="wallpaper_performance_warning">⚠ Performance Notice: These visual effects are resource-intensive and may impact performance on low-end devices. For optimal experience, use on mid-range or flagship devices.\nEffects may cause lag, battery drain, or stuttering on older phones.</string>
+    
+    <!-- Effect Titles -->
+    <string name="wallpaper_saturation_title">Saturation Level</string>
+    <string name="wallpaper_saturation_summary">Boost or reduce color intensity</string>
+    <string name="wallpaper_pixelation_size_title">Pixelation Size</string>
+    <string name="wallpaper_pixelation_size_summary">Larger values = more pixelated</string>
+    <string name="wallpaper_vignette_intensity_title">Vignette Intensity</string>
+    <string name="wallpaper_vignette_intensity_summary">Darkness of edges</string>
+    <string name="wallpaper_posterize_levels_title">Posterize Levels</string>
+    <string name="wallpaper_posterize_levels_summary">Color depth reduction</string>
 
     <!-- Compact QS Media Player-->
     <string name="qs_compact_media_player_mode_title">Compact QS media player</string>
     <string name="qs_compact_media_player_mode_summary">Enable compact mode for QuickSettings media player</string>
+    <string name="qs_media_stock_title">Stock QS media player</string>
+    <string name="qs_media_stock_summary">Enable stock large QuickSettings media player</string>
 
     <!-- Depth Wallpaper -->
     <string name="dw_file_header_select_title">Select Depth wallpaper subject</string>
@@ -732,27 +768,18 @@
     </string>
 
     <!-- Media art -->
-    <!-- Lock screen media art -->
-    <string name="ls_media_art_title">Media cover art</string>
-    <string name="ls_media_art_summary">Display media cover art when available</string>
-
-    <!-- Lock screen album art filter -->
-    <string name="ls_media_art_filter_title">Media cover art filter</string>
-    <string name="ls_media_art_filter_none">None</string>
-    <string name="ls_media_art_filter_blur">Blur</string>
-    <string name="ls_media_art_filter_grayscale">Grayscale</string>
-    <string name="ls_media_art_filter_sepia">Sepia</string>
-    <string name="ls_media_art_filter_tint">Accent tinted</string>
-    <string name="ls_media_art_filter_invert">Invert</string>
-    <string name="ls_media_art_filter_grayblur">Grayscale and blur</string>
-
-    <!-- Lock screen media art fade level -->
+    <string name="media_art_title">Media cover art</string>
+    <string name="media_art_summary">Display media cover art when available</string>
     <string name="ls_media_art_fade_level_title">Media cover art fade level</string>
     <string name="ls_media_art_fade_level_summary">Set media cover art fade level</string>
-    
-    <!-- Lock screen media art blur level -->
-    <string name="ls_media_art_blur_level_title">Media art blur level</string>
-    <string name="ls_media_art_blur_level_summary">Blur intensity when blur filter is applied</string>
+
+    <!-- Lock screen album art filter -->
+    <string name="lockscreen_albumart_filter_title">Media cover art filter</string>
+    <string name="lockscreen_albumart_filter_none">None</string>
+    <string name="lockscreen_albumart_filter_grayscale">Grayscale</string>
+    <string name="lockscreen_albumart_filter_tint">Accent tinted</string>
+    <string name="lockscreen_albumart_filter_blur">Blur</string>
+    <string name="lockscreen_albumart_filter_grayblur">Grayscale and blurred</string>
 
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">System haptics</string>
@@ -760,12 +787,12 @@
     <string name="back_gesture_haptic_intensity_title">Back gesture haptics intensity</string>
     <string name="brightness_slider_haptics_intensity_title">Brightness slider haptics intensity</string>
     <string name="edge_scrolling_haptics_intensity_title">Edge scrolling haptics intensity</string>
-    <string name="volume_sound_haptics_title">Volume sound feedback</string>
-    <string name="volume_sound_haptics_summary">Enable sound feedback when adjusting volume row progress</string>
     <string name="volume_slider_haptics_intensity_title">Volume slider haptics intensity</string>
     <string name="qs_panel_tile_haptic_intensity_title">QS tile haptics intensity</string>
     <string name="qs_haptics_intensity_title">Qs fling haptics intensity</string>
     <string name="qs_tiles_haptic_feedback_title">Vibrate on touching QS tiles</string>
+    <string name="volume_sound_haptics_title">Volume sound feedback</string>
+    <string name="volume_sound_haptics_summary">Enable sound feedback when adjusting volume row progress</string>
 
     <!-- Weather -->
     <string name="weather_settings_title">Weather settings</string>
@@ -780,6 +807,8 @@
     <string name="lockscreen_weather_text_summary">Display current weather condition summary</string>
     <string name="lockscreen_weather_style_title">Pixel style</string>
     <string name="lockscreen_weather_style_summary">Display weather as separate row</string>
+    <string name="weather_menu_title">Weather Menu</string>
+    <string name="weather_menu_summary">Check weather and refresh</string>
 
     <!-- AOD Settings -->
     <string name="aod_display_category_title">Always-On-Display</string>
@@ -864,13 +893,112 @@
     <string name="max_visible_notification_icons_title">Notification icons</string>
     <string name="max_visible_notification_icons_summary">Maximum notification icons visible on status bar</string>
 
-    <!-- Ongoing progress bar chip in statusbar --> 
-    <string name="ongoing_progress_settings_title">Statusbar action chip</string>
+    <!-- Squiggle animation -->
+    <string name="show_squiggle_animation_title">Show squiggle animation</string>
+    <string name="show_squiggle_animation_summary">Show media panel squiggle animation\nAfter change need to switch music, pause music or move the progress bar to apply</string>
+
+    <!-- Unlimit screenrecord -->
+    <string name="unlimit_screenrecord_title">Unlimit screenrecord</string>
+    <string name="unlimit_screenrecord_summary">Remove the 15GiB file size limit\nMay result in a larger than needed output file</string>
+
+    <!-- Hide screen capture status -->
+    <string name="hide_screen_capture_status_title">Hide screen capture status</string>
+    <string name="hide_screen_capture_status_summary">Hide screen capture and screen record status from all applications. Can be convenient in some cases but may lead to privacy leaks. Need to restart applications for the change to take effect.</string>
+
+    <!-- No storage restrict -->
+    <string name="lightning_no_storage_restrict_title">No storage restrict</string>
+    <string name="lightning_no_storage_restrict_summary">Remove the restriction when selecting folders through Storage Access Framework. Can be convenient in some cases but may lead to privacy leaks.</string>
+
+    <!-- Hide developer status -->
+    <string name="hide_developer_status_title">Hide developer status</string>
+    <string name="hide_developer_status_summary">Hide developer status from apps</string>
+
+    <!-- App search preference -->
+    <string name="search">Search</string>
+    <string name="search_apps">Search apps</string>
+
+    <!-- Idle manager -->
+    <string name="idle_manager_title">Idle manager</string>
+    <string name="idle_manager_summary">Stop all non-essential background processes when the device is idle</string>
+
+    <!-- Custom settings dashboard style -->
+    <string name="settings_dashboard_style_title">Settings Styles</string>
+    <string name="settings_dashboard_style_1">Google expressive Style</string>
+    <string name="settings_dashboard_style_2">Simple Style</string>
+    <string name="settings_dashboard_style_3">Google revamp Style</string>
+
+    <!-- Screen off AOD -->
+    <string name="screen_off_aod_enabled_title">Screen Off AOD</string>
+    <string name="screen_off_aod_enabled_summary">Briefly show the Always-On Display when the screen turns off</string>
+
+    <!-- navigation bar -->
+    <string name="navigation_bar_mode_title">Hide keyboard ime</string>
+    <string name="navigation_bar_mode_summary">Allow hiding Hide keyboard ime space and bottom</string>
+
+    <!-- Statusbar logo color -->
+    <string name="default_string">Default</string>
+    <string name="status_bar_logo_color_title">Color</string>
+    <string name="status_bar_logo_color_default">Default (White)</string>
+    <string name="status_bar_logo_color_accent">Accent</string>
+    <string name="status_bar_logo_color_custom">Custom</string>
+
+    <!-- QS Dual Tone Colors -->
+    <string name="qs_dual_tone_title">Alternate dark qs tone</string>
+    <string name="qs_dual_tone_summary">Use dark tone colors instead of AOSP accent tone</string>
+
+    <string name="fluid_notification_title">Transparent Notifications</string>
+    <string name="fluid_notification_summary">Switch to transparent lockscreen and pop-up notifications style</string>
+
+    <!-- Notification guts kill app button -->
+    <string name="notification_guts_kill_app_button_title">Force stop button</string>
+    <string name="notification_guts_kill_app_button_summary">Show force stop button in the notification\'s longpress menu</string>
+
+    <!-- Media Art -->
+    <string name="lockscreen_media_art_title">Lockscreen media art</string>
+    <string name="lockscreen_media_art_summary">Show album art as lockscreen background when media is playing</string>
+    
+    <!-- Media Art Filter -->
+    <string name="lockscreen_media_art_filter_title">Media art filter</string>
+    <string name="lockscreen_media_art_filter_summary">Choose visual filter for media art</string>
+    
+    <!-- Media Art Fade Level -->
+    <string name="lockscreen_media_art_fade_level_title">Media art fade level</string>
+    <string name="lockscreen_media_art_fade_level_summary">Darkness overlay for better text readability</string>
+    
+    <!-- Media Art Blur Level -->
+    <string name="lockscreen_media_art_blur_level_title">Media art blur level</string>
+    <string name="lockscreen_media_art_blur_level_summary">Blur intensity when blur filter is applied</string>
+
+    <!-- User Switcher -->
+    <string name="kg_user_switcher_enabled_title">User Switcher</string>
+    <string name="kg_user_switcher_enabled_summary">Show user switcher when showing pin/password prompt</string>
+
+    <!-- Ongoing action chip -->
+    <string name="ongoing_progress_settings_title">Ongoing Progress chip</string>
     <string name="ongoing_progress_settings_summary">Statusbar action chip options</string>
-    <string name="ongoing_action_chip_title">Ongoing action chip</string>
-    <string name="ongoing_action_chip_summary">Show progress indicator in status bar for ongoing actions like downloads</string>
+    <string name="ongoing_action_chip_title">Enable ongoing action chip</string>
+    <string name="ongoing_action_chip_summary">Show progress for ongoing notifications in status bar</string>
+    <string name="compact_progress_mode_title">Compact progress mode</string>
+    <string name="compact_progress_mode_summary">Use circular progress indicator instead of bar</string>
     <string name="show_media_progress_title">Show media progress</string>
-    <string name="show_media_progress_summary">"Display media playback progress in the status bar</string>
+    <string name="show_media_progress_summary">Display media playback progress in status bar</string>
+    <string name="progress_bar_opacity_title">Progress bar opacity</string>
+    <string name="progress_bar_opacity_summary">Adjust the transparency of the progress chip</string>
+    <string name="progress_enable_category_title">General settings</string>
+    <string name="standard_chip_position_title">Standard chip position</string>
+    <string name="circular_chip_position_title">Circular chip position</string>
+    <string name="chip_position_x_title">Horizontal position</string>
+    <string name="chip_position_x_summary">Move chip left or right from alignment point</string>
+    <string name="chip_position_y_title">Vertical position</string>
+    <string name="chip_position_y_summary">Move chip up or down in status bar</string>
+    <string name="chip_size_title">Chip width</string>
+    <string name="chip_size_summary">Adjust the width of the progress chip</string>
+    <string name="circular_chip_size_title">Circular chip size</string>
+    <string name="circular_chip_size_summary">Adjust the diameter of the circular chip</string>
+    <string name="circular_position_x_title">Horizontal offset</string>
+    <string name="circular_position_x_summary">Fine-tune horizontal position</string>
+    <string name="circular_position_y_title">Vertical offset</string>
+    <string name="circular_position_y_summary">Fine-tune vertical position</string>
     <string name="progress_footer_text">
     "The status bar progress bar provides real-time updates for both media playback and active downloads/uploads.
 
@@ -882,29 +1010,105 @@
     • Swipe right skips to the next track.
     • Long press opens the media app. 
 
-    - 📥 Download/Upload Progress:
+    - 📥Download/Upload Progress:
     • Shows progress for ongoing downloads and uploads.
     • Automatically hides when no active transfers are detected.
     • Single tap opens the app responsible for the download.
 
     The progress bar dynamically switches between media and download states, ensuring you always have the most relevant information at a glance."
     </string>
-    <string name="compact_progress_mode_title">Compact Progress Indicator</string>
-    <string name="compact_progress_mode_summary">Use a compact circular indicator for ongoing actions</string>
+
+    <!-- Freeform launch mode -->
+    <string name="freeform_launch_mode_title">Freeform launch mode</string>
+    <string name="freeform_launch_mode_1">Native AOSP</string>
+    <string name="freeform_launch_mode_2">LMOFreeForm</string>
+    <string name="freeform_title">Multi-Window</string>
+
+    <!-- Sidebar -->
+    <string name="sidebar_title">Sidebar</string>
+    <string name="sidebar_summary">Quickly open apps in a floating window</string>
+
+    <!-- Volume TextView -->
+    <string name="volume_category_title">Volume panel</string>
+    <string name="volume_persen_switch_title">Volume Percentage</string>
+    <string name="volume_persen_switch_summary">show volume panel percentage</string>
+    <string name="volume_persen_style_title">Percentage Location</string>
+    <string name="volume_persen_style_top">Top</string>
+    <string name="volume_persen_style_bottom">Bottom</string>
+
+    <!-- Volume Media Button -->
+    <string name="volume_show_media_button_title">Volume media button</string>
+    <string name="volume_show_media_button_summary">Show media output switcher button into volume dialog</string>
+
+    <!-- Animation Settings -->
+    <string name="screen_animation_title">Doze Animation</string>
+    <string name="screen_animation_summary">Switch to NOS like doze animations</string>
+
+    <!-- Settings -->
+    <string name="settings_category_title">Settings themes</string>
+    <string name="search_bar_style_title">Search Bar Style</string>
+    <string name="settings_sb_style_1">Android 15 (Revamped)</string>
+
+    <!-- Edge light -->
+    <string name="edge_light_title">Edge light</string>
+    <string name="edge_light_summary">Light up the side edges of the screen on notification pulse</string>
+    <string name="edge_light_color_mode_title">Color mode</string>
+    <string name="edge_light_pulse_count_title">Pulse count</string>
+    <string name="edge_light_pulse_count_summary">Number of pulses for edge light</string>
+    <string name="edge_light_stroke_width_title">Stroke width</string>
+    <string name="edge_light_stroke_width_summary">Set thickness for edge light bars</string>
+    <string name="edge_light_style_title">Edge Light Style</string>
+    <string name="edge_light_animation_effect_title">Animation Effect</string>
+
+    <!-- Statusbar Padding -->
+    <string name="statusbar_extra_padding_category">Extra padding</string>
+    <string name="statusbar_extra_padding_start_title">Start padding</string>
+    <string name="statusbar_extra_padding_top_title">Top padding</string>
+    <string name="statusbar_extra_padding_end_title">End padding</string>
+
+    <!-- QuickSwitch -->
+    <string name="quickswitch_launcher_title">QuickSwitch</string>
+    <string name="quickswitch_launcher_summary">Customize default homescreen app</string>
+    <string name="nothing_launcher_customizations_title">Nothing launcher customizations</string>
+    <string name="nothing_launcher_customizations_summary">Customize nothing launcher homescreen app</string>
+    <string name="quickswitch_not_supported">QuickSwitch is not supported; the system only has one launcher.</string>
+    <string name="quickswitch_footer_text">
+        Notes: \n\n
+        1. Due to compatibility issues with current Android API, the Lawnchair Launcher uses the LightningOS Launcher recents overview and will override any third-party launchers when set as the active QuickSwitch launcher. For better compatibility with third-party launchers, consider setting the QuickSwitch launcher to LightningOS or Pixel Launcher instead.\n\n
+        2. External launcher modules/modifications must be adapted to the QuickSwitch structure to function properly.
+    </string>
+
+    <!-- Statusbar colored icons -->
+    <string name="statusbar_colored_icons_title">Colored icons</string>
+    <string name="statusbar_colored_icons_summary">Use proper app icons for notification icons in statusbar</string>
+
+    <!-- Notification count -->
+    <string name="statusbar_notif_count_title">Show notification count</string>
+    <string name="statusbar_notif_count_summary">Display the number of pending notifications</string>
+
+    <!-- QuickSettings Refactor -->
+    <string name="qs_refactor_title">Legacy Quick Settings</string>
+    <string name="qs_refactor_summary">Switch to legacy a15 Quick Settngs, Some features will not work on the new QS</string>
+
+    <!-- Quick Settings brightness slider -->
+    <string name="qs_brightness_slider_category">Brightness slider</string>
+    <string name="qs_show_brightness_slider_title">When to show</string>
+    <string name="qs_show_brightness_slider_never">Never show</string>
+    <string name="qs_show_brightness_slider_expanded">Show when expanded</string>
+    <string name="qs_show_brightness_slider_always">Show always</string>
+    <string name="qs_show_brightness_slider_not_expanded">Show when not expanded</string>
+    <string name="qs_brightness_slider_position_title">Position</string>
+    <string name="qs_brightness_slider_position_top">Top</string>
+    <string name="qs_brightness_slider_position_bottom">Bottom</string>
+
+    <!-- Brightness slider haptic feedback -->
+    <string name="qs_brightness_slider_haptic_title">Haptic feedback</string>
+    <string name="qs_brightness_slider_haptic_summary">Provide haptic feedback on changing brightness using slider</string>
+
+    <!-- Quick Settings brightness icon -->
+    <string name="qs_show_auto_brightness_title">Auto brightness icon</string>
+    <string name="qs_show_auto_brightness_summary">Show toggle for adaptive brightness near the slider</string>
     
- 
-    <!-- Squiggle animation -->
-    <string name="show_squiggle_animation_title">Show squiggle animation</string>
-    <string name="show_squiggle_animation_summary">Show media panel squiggle animation\nAfter change need to switch music, pause music or move the progress bar to apply</string>
-
-    <!-- Interface / Expressive Design -->
-    <string name="expressive_design_title">Expressive Design</string>
-    <string name="expressive_design_summary">Enable Expressive Design preview</string>
-
-    <!-- AOD wallpaper -->
-    <string name="aod_wallpaper_title">AOD wallpaper</string>
-    <string name="aod_wallpaper_summary">Show wallpaper when aod on</string>
-
     <!-- Battery bar -->
     <string name="battery_bar_title">Battery bar</string>
     <string name="battery_bar_summary">Display and customize battery bar above status bar</string>
@@ -929,75 +1133,300 @@
     <string name="battery_bar_low_color">Low level color"</string>
     <string name="battery_bar_animate_color">Charging animation color</string>
 
-    <!-- Brightness Slider Style -->
-    <string name="qs_brightness_slider_shape_title">Brightness slider shape</string>
+    <!-- Single tap for keyguard affordance -->
+    <string name="keyguard_affordance_single_tap_title">Keyguard affordance single tap</string>
+    <string name="keyguard_affordance_single_tap_summary">Toggle keyguard affordances with a single tap</string>
+
+    <!-- Heads up timeout -->
+    <string name="notification_heads_up_timeout_title">Time out</string>
+    <string name="notification_heads_up_timeout_summary">Time to display heads up notifications</string>
+
+    <!-- MusicCard -->
+    <string name="volume_panel_musiccard_title">Music Card</string>
+    <string name="volume_panel_musiccard_summary">Enable music card in volume panel</string>
+
+    <!-- System Animation styles -->
+    <string name="color_default">Default</string>
+    <string name="system_animation_style_title">System animation style</string>
+    <string name="pie_system_animation_style">Android P</string>
+    <string name="scale_system_animation_style">Scale</string>
+    <string name="slide_system_animation_style">Slide</string>
 
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Small landscape notifications</string>
     <string name="small_landscape_notification_summary">Shows notifications smaller in width in notification panel in landscape mode just as AOSP intended</string>
 
-    <!-- Notification Row -->
-    <string name="notification_row_transparency_title">Notification row transparency</string>
-    <string name="notification_row_transparency_summary">Show translucent quicksettings notifications</string>
+    <!-- Frosted blur -->
+    <string name="qs_blur_forsted_title">QS frosted blur effect</string>
+    <string name="qs_blur_forsted_summary">Applies frosted glass blur to Quick Settings (restart systemUI)</string>
 
-    <!-- Button settings -->
-    <string name="touchscreen_gesture_action_play_pause_music">Play/pause music playback</string>
-    <string name="hardware_keys_action_nothing">No action</string>
-    <string name="hardware_keys_action_menu">Open/close menu</string>
-    <string name="hardware_keys_action_app_switch">Recent apps switcher</string>
-    <string name="hardware_keys_action_search">Search assistant</string>
-    <string name="hardware_keys_action_voice_search">Voice search</string>
-    <string name="hardware_keys_action_in_app_search">In-app search</string>
-    <string name="hardware_keys_action_launch_camera">Launch camera</string>
-    <string name="hardware_keys_action_sleep">Turn screen off</string>
-    <string name="hardware_keys_action_last_app">Last app</string>
-    <string name="hardware_keys_action_split_screen">Split screen</string>
-    <string name="hardware_keys_action_close_app">Kill app</string>
-    <string name="hardware_keys_action_play_pause_music" translatable="false">@string/touchscreen_gesture_action_play_pause_music</string>
-    <string name="hardware_keys_action_torch">Toggle torch</string>
-    <string name="hardware_keys_action_screenshot">Take screenshot</string>
-    <string name="hardware_keys_action_volume_panel">Toggle volume panel</string>
-    <string name="hardware_keys_action_clear_all_notifications">Clear all notifications</string>
-    <string name="hardware_keys_action_notifications_panel">Toggle notifications panel</string>
-    <string name="hardware_keys_action_expand_qs_panel">Expand QS panel</string>
-    <string name="hardware_keys_action_ringer_modes">Change ringer mode</string>
+    <!-- Lockscreen remaining charging time -->
+    <string name="lockscreen_charging_time_title">Lockscreen charging time</string>
+    <string name="lockscreen_charging_time_summary">Display the remaining time for charging to finish</string>
 
-    <!-- Three Finger Gestures -->
-    <string name="three_finger_gesture_action_title">Three Finger Swipe Gestures</string>
-    <string name="three_finger_gesture_action_dialog_title">Swipe Three Finger Gestures Actions</string>
-    <string name="three_finger_long_press_action_title">Three Finger Long Press Gestures</string>
-    <string name="three_finger_long_press_action_dialog_title">Swipe Three Finger Gestures Actions</string>
-    
-    <!-- NT Three finger -->
-    <string name="nt_gesture_three_finger_swipe">Three finger swipe</string>
-    <string name="nt_gesture_three_finger_swipe_summary">Swipe down with three fingers to perform actions.</string>
-    <string name="nt_gesture_three_finger_long_press">Three finger long press</string>
-    <string name="nt_gesture_three_finger_long_press_summary">Press and hold with three fingers and then swipe down to take an area screenshot.</string>
-    <string name="nt_combination_power_volume_click">Disable power button &amp; volume down button</string>
-    <string name="nt_combination_power_volume_click_summary">Disable the function of taking a screenshot by pressing and holding the power button and the volume down button.</string>
-
-    <!-- Power off verify -->
-    <string name="power_off_verify_footer">Power off verification protects your device by preventing others from turning it off immediately after it\'s lost, increasing the chances of recovery. You only need to enter your lock screen password when powering off or restarting the phone from the lock screen.</string>
-    <string name="power_off_verify_summary">When your device is locked, you\'ll need to use your password to power off or restart.</string>
-    <string name="power_off_verify_title">Power off verify</string>
-
-    <!-- QuickSwitch -->
-    <string name="launcher_title_category">Launcher Setting</string>
-    <string name="quickswitch_launcher_title">QuickSwitch</string>
-    <string name="quickswitch_launcher_summary">Customize default homescreen app</string>
-    <string name="nothing_launcher_customizations_title">Nothing launcher customizations</string>
-    <string name="nothing_launcher_customizations_summary">Customize nothing launcher homescreen app</string>
-    <string name="quickswitch_not_supported">QuickSwitch is not supported; the system only has one launcher.</string>
-    <string name="quickswitch_footer_text">
-        Notes: \n\n
-        1. Due to compatibility issues with current Android API, the Lawnchair Launcher uses the Mist Launcher recents overview and will override any third-party launchers when set as the active QuickSwitch launcher. For better compatibility with third-party launchers, consider setting the QuickSwitch launcher to Mist or Pixel Launcher instead.\n\n
-        2. External launcher modules/modifications must be adapted to the QuickSwitch structure to function properly.
+    <!-- Performance -->
+    <string name="performance_title">Performance mode</string>
+    <string name="performance_summary">Adjust CPU and system behavior to save battery or improve performance based on your needs.</string>
+    <string name="display_boost_title">Display Boost</string>
+    <string name="display_boost_summary">Prioritize SurfaceFlinger and display threads during animations and flings for smoother visuals. May increase battery usage.</string>
+    <string name="input_touch_boost_title">Touch Boost</string>
+    <string name="input_touch_boost_summary">Briefly raise CPU speed when the screen is touched for faster responsiveness. May increase battery usage.</string>
+    <string name="cluster_little_title">Little Cluster</string>
+    <string name="cluster_big_title">Big Cluster</string>
+    <string name="cluster_prime_title">Prime Cluster</string>
+    <string name="cpu_boost_title">CPU Boost</string>
+    <string name="cpu_boost_summary">Temporarily boost little cores during animations and flings for smoother performance. May increase battery usage.</string>
+    <string name="big_core_boost_title">Big Core Boost</string>
+    <string name="big_core_boost_summary">Temporarily use big cores during animations and flings for higher performance. May increase battery usage.</string>
+    <string name="prime_core_boost_title">Prime Core Boost</string>
+    <string name="prime_core_boost_summary">Temporarily use the prime cores (highest performance) during animations and flings. May increase battery usage.</string>
+    <string name="axion_min_freq_boost_title">Boost Min Frequency – Little</string>
+    <string name="axion_min_freq_boost_summary">Minimum little-core frequency while CPU Boost is active. Higher values improve responsiveness but may increase battery usage.</string>
+    <string name="axion_min_freq_big_boost_title">Boost Min Frequency – Big</string>
+    <string name="axion_min_freq_big_boost_summary">Minimum big-core frequency while Big Core Boost is active. Higher values improve responsiveness but may increase battery usage.</string>
+    <string name="axion_min_freq_prime_boost_title">Boost Min Frequency – Prime</string>
+    <string name="axion_min_freq_prime_boost_summary">Minimum prime-core frequency while Prime Core Boost is active. Higher values improve responsiveness but may increase battery usage.</string>
+    <string name="axion_min_freq_title">Minimum Frequency – Little</string>
+    <string name="axion_min_freq_summary">Sets the minimum frequency for little cores. Lower values save battery, higher values improve performance.</string>
+    <string name="axion_min_freq_big_title">Minimum Frequency – Big</string>
+    <string name="axion_min_freq_big_summary">Sets the minimum frequency for big cores. Lower values save battery, higher values improve performance.</string>
+    <string name="axion_min_freq_prime_title">Minimum Frequency – Prime</string>
+    <string name="axion_min_freq_prime_summary">Sets the minimum frequency for prime cores. Lower values save battery, higher values improve performance.</string>
+    <string name="axion_max_freq_title">Maximum Frequency – Little</string>
+    <string name="axion_max_freq_summary">Sets the maximum frequency for little cores. Lower values save battery, higher values improve performance.</string>
+    <string name="axion_max_freq_big_title">Maximum Frequency – Big</string>
+    <string name="axion_max_freq_big_summary">Sets the maximum frequency for big cores. Lower values save battery, higher values improve performance.</string>
+    <string name="axion_max_freq_prime_title">Maximum Frequency – Prime</string>
+    <string name="axion_max_freq_prime_summary">Sets the maximum frequency for prime cores. Lower values save battery, higher values improve performance.</string>
+    <string name="gpu_title">GPU</string>
+    <string name="axion_game_gpu_boost_title">Game GPU Boost Level</string>
+    <string name="axion_game_gpu_boost_summary">Set the GPU boost level for gaming scenarios</string>
+    <string name="axion_sys_gpu_boost_title">System GPU Boost Level</string>
+    <string name="axion_sys_gpu_boost_summary">Set the GPU boost level for system/UI scenarios</string>
+    <string name="performence_footer_text">
+    If you don\’t know what frequency value to set, press the reset switch in the seekbar to restore the default.
     </string>
 
+    <!-- Notification Row -->
+    <string name="notification_row_transparency_title">Translucent notifications</string>
+    <string name="notification_row_transparency_summary">Set translucent background for notifications in QS</string>
+    <string name="notification_row_transparency_lockscreen_title">Translucent lockscreen notifications</string>
+    <string name="notification_row_transparency_lockscreen_summary">Set translucent background for notifications in lockscreen</string>
+
+    <!-- Ambient display -->
+    <string name="ambient_bottom_title">AOD bottom</string>
+    <string name="ambient_battery_disable_title">Disabled</string>
+    <string name="ambient_battery_percent_title">Battery level</string> 
+    <string name="ambient_battery_both_title">Battery (Level &amp; temperature)</string>
+    <string name="ambient_battery_cpu_battery_temperature_title">Battery level, temperature (Battery &amp; CPU)</string>
+    <string name="ambient_user_name_title">User name</string>
+    <string name="display_icon_title">Icons</string>
+    <string name="display_icon_summary">Display icons along with level &amp; temperature</string>
+
+    <!-- Clock size -->
+    <string name="statusbar_clock_size_title">Clock Size (Statusbar)</string>
+    <string name="qs_clock_size_title">Clock Size (QS)</string>
+
+    <!-- Ambient AOD -->
+    <string name="ambient_aod_title">Ambient AOD</string>
+    <string name="ambient_aod_summary">Enable ambient wallpaper and AOD enhancements</string>
+
+    <!-- Dynamic charging animation -->
+    <string name="wireless_charging_dynamic_color_title">Dynamic charging color</string>
+    <string name="wireless_charging_dynamic_color_summary">Use battery level to determine charging ripple animation color</string>
+
     <!-- Island Notification -->
-    <string name="island_notification_title">Island notification</string>
-    <string name="island_notification_summary">Display heads-up notification in Dynamic Island style</string>
+    <string name="island_notification_now_playing_title">Now playing</string>
+    <string name="island_notification_now_playing_summary">Display currently playing song in Dynamic Island style</string>
     <string name="island_notification_footer_text">
         The Island notification feature, inspired by iOS\'s Dynamic Island, transforms Android\'s heads-up notifications into quick-access and compact notification utility.\n\nIsland Quick Access Controls includes the following features:\n1. Tap island notification to quick answer phone calls.\n2. Long press island notification to reject phone calls.\n3. Long press island notification to expand the island notification preview.
     </string>
+    <string name="notifications_island_notification_title">Island notification</string>
+    <string name="notifications_island_notification_summary">Display heads-up notification in Dynamic Island style</string>
+    <string name="island_transparent_background_title">Transparent Island Background</string>
+    <string name="island_transparent_background_summary">Use transparent background for island notifications</string>
+    <string name="island_margin_top_title">Island notifications top margin</string>
+    <string name="island_margin_top_summary">Adjust the top margin of island notification</string>
+
+    <!-- UDFPS settings -->
+    <string name="udfps_cust_title">UDFPS icon and animation</string>
+    <string name="udfps_cust_summary">Customize fingerprint icon and animation</string>
+    <string name="udfps_custom_title">UDFPS customization</string>
+    <string name="udfps_icon_picker_title">UDFPS prebuilt icon</string>
+    <string name="udfps_icon_picker_summary">Choose your favorite fingerprint icon</string>
+    <string name="udfps_recog_animation_effect_title">UDFPS custom animation</string>
+    <string name="udfps_recog_animation_effect_summary">Choose animation effect</string>
+    <string name="udfps_custom_footer_text">Set any custom icon in prebuilt icon before switching or applying custom icon\'s After restart device restart systemui once it will fix invisible/blank custom icon issue </string>
+
+    <!-- UDFPS Icon Type -->
+    <string name="udfps_icon_type_title">Icon type</string>
+    
+    <!-- Custom Icon Select -->
+    <string name="udfps_custom_icon_select_title">Select custom icon</string>
+    <string name="udfps_custom_icon_select_summary">Choose an image from gallery</string>
+    <string name="udfps_custom_icon_selected">Custom icon applied</string>
+    
+    <!-- Toast Messages -->
+    <string name="udfps_custom_icon_processing">Processing custom icon...</string>
+    <string name="udfps_custom_icon_success">Custom icon applied successfully</string>
+    <string name="udfps_custom_icon_error">Failed to apply custom icon</string>
+    <string name="udfps_custom_icon_picker_error">No gallery app found</string>
+
+    <string name="video_wallpaper_title">Video Wallpaper</string>
+
+    <!-- Category -->
+    <string name="video_wallpaper_category">Wallpaper customization</string>
+    <string name="video_wallpaper_category_title">Video Wallpaper</string>
+    <string name="video_wallpaper_category_summary">Set animated wallpapers (MP4, GIF, WebP)</string>
+
+    <!-- Preferences -->
+    <string name="video_wallpaper_current_title">Current wallpaper</string>
+    <string name="video_wallpaper_current_summary">No video wallpaper selected</string>
+
+    <string name="video_wallpaper_pick_title">Select video/GIF</string>
+    <string name="video_wallpaper_pick_summary">Choose a video or animated image</string>
+
+    <string name="video_wallpaper_enable_title">Enable video wallpaper</string>
+    <string name="video_wallpaper_enable_summary">Apply the selected video as live wallpaper</string>
+
+    <string name="video_wallpaper_clear_title">Clear video wallpaper</string>
+    <string name="video_wallpaper_clear_summary">Remove the current video wallpaper</string>
+
+    <string name="video_wallpaper_playback">Playback Settings</string>
+    
+    <string name="video_wallpaper_speed">Playback speed</string>
+    
+    <string name="video_wallpaper_pause_lock">Pause on lock screen</string>
+    <string name="video_wallpaper_pause_lock_summary">Save battery when screen is locked</string>
+
+    <!-- Info section -->
+    <string name="video_wallpaper_info_category_title">Information</string>
+    <string name="video_wallpaper_info_title">Supported formats</string>
+    <string name="video_wallpaper_info_summary">MP4 videos, GIF and WebP animations\nMaximum file size: 50MB</string>
+
+    <string name="video_wallpaper_tips_title">Tips</string>
+    <string name="video_wallpaper_tips_summary">• Videos are muted automatically\n• Lower resolution videos use less battery\n• Shorter loops are recommended for better performance\n• If videos wallpaper doesnt load select live wallpaper from Wallpaper and style after selecting video wallpaper\n• You have to reapply live wallpaper after restart device</string>
+
+    <string name="video_wallpaper_description">Animated video and GIF wallpaper</string>
+    <string name="lunaris_os">GHOST</string>
+
+    <!-- Video Wallpaper Strings -->
+    <string name="video_wallpaper_cleared">Video wallpaper cleared</string>
+    <string name="video_wallpaper_clear_failed">Failed to clear video wallpaper</string>
+    <string name="video_wallpaper_current_summary_dynamic">%1$s • %2$s</string>
+    <string name="video_wallpaper_current_none">No video wallpaper selected</string>
+    <string name="video_wallpaper_select_first">Please select a video wallpaper first</string>
+    <string name="video_wallpaper_select_wallpaper">Select video wallpaper</string>
+    <string name="video_wallpaper_save_failed">Failed to save selected video or image</string>
+    <string name="video_wallpaper_apply_prompt">Apply the selected video wallpaper manually from the preview screen</string>
+    <string name="video_wallpaper_enable_failed">Failed to enable video wallpaper</string>
+    <string name="video_wallpaper_picker_error">Unable to open picker. Please try again.</string>
+    <string name="video_wallpaper_processing">Processing selected file...</string>
+    <string name="video_wallpaper_saved">Video wallpaper saved successfully</string>
+
+    <!-- Lock Glymps -->
+    <string name="lock_glymps_title">Lock Glymps</string>
+    <string name="lock_glymps_enable_title">Enable Lock Glymps</string>
+    <string name="lock_glymps_enable_summary">Change lockscreen wallpaper every time screen lights up</string>
+    
+    <string name="lock_glymps_source_category">Wallpaper Source</string>
+    <string name="lock_glymps_source_title">Wallpaper source</string>
+    <string name="lock_glymps_source_summary">Choose where to get wallpapers from</string>
+    
+    <string name="lock_glymps_custom_urls_title">Manage custom URLs</string>
+    <string name="lock_glymps_custom_urls_summary">Add or remove custom wallpaper URLs</string>
+    
+    <string name="lock_glymps_folder_title">Local folder</string>
+    <string name="lock_glymps_folder_summary">View folder location and wallpaper count (Max 10 wallpapers)</string>
+    
+    <string name="lock_glymps_download_category">Download Settings</string>
+    <string name="lock_glymps_wifi_only_title">WiFi only</string>
+    <string name="lock_glymps_wifi_only_summary">Download wallpapers only when connected to WiFi</string>
+    
+    <string name="lock_glymps_cache_size_title">Cache size</string>
+    <string name="lock_glymps_cache_size_summary">Number of wallpapers to pre-download</string>
+    
+    <string name="lock_glymps_advanced_category">Advanced</string>
+    <string name="lock_glymps_clear_cache_title">Clear cache</string>
+    <string name="lock_glymps_clear_cache_summary">Remove all cached wallpapers</string>
+
+    <string name="lock_glymps_behavior_category">Behavior</string>
+    <string name="lock_glymps_change_on_title">Change wallpaper on</string>
+    <string name="lock_glymps_change_on_summary">When to change the lock screen wallpaper</string>
+    
+    <!-- Footer -->
+    <string name="lock_glymps_footer_title">Important Information</string>
+    <string name="lock_glymps_footer_text">📁 Local folder: /sdcard/LightningOSGlymps\n\n⚠️ Low-end devices may experience slight lag\n\n🎨 Tip: Use Custom Accent in Monet Settings for stable colors</string>
+   
+    <!-- Blur intensity -->
+    <string name="blur_intensity_title">Blur intensity</string>
+    <string name="blur_intensity_summary" formatted="false">Control the intensity of blur effects throughout the system.\n0% = no blur, 100% = system default, 200% = double intensity.</string>
+
+    <!-- Custom Font Picker -->
+    <string name="font_mode_title">Font mode</string>
+    <string name="custom_font_picker_title">Pick custom font</string>
+    <string name="custom_font_picker_summary">Select a TTF or OTF font file</string>
+    
+    <!-- Custom Font Info -->
+    <string name="custom_font_installed_title">Custom font installed</string>
+    <string name="custom_font_installed_summary">Font: %s</string>
+    
+    <!-- Reset Custom Font -->
+    <string name="reset_custom_font_title">Reset custom font</string>
+    <string name="reset_custom_font_summary">Remove custom font and restore default</string>
+    <string name="reset_custom_font_content_desc">Reset custom font</string>
+    
+    <!-- Reboot -->
+    <string name="reboot_device">Reboot device</string>
+    <string name="reboot_required_title">Reboot required</string>
+    <string name="reboot_required_message">A device reboot is required to apply the custom font system-wide. Reboot now?</string>
+    <string name="reboot_required_custom_font_title">Reboot required for custom fonts</string>
+    <string name="reboot_required_custom_font_desc">Custom fonts require a full system reboot to take effect</string>
+    
+    <!-- Toast Messages -->
+    <string name="custom_font_installed_success">Custom font installed successfully</string>
+    <string name="custom_font_install_failed">Failed to install custom font</string>
+    <string name="custom_font_reset_success">Custom font reset successfully</string>
+    <string name="toast_failed_apply_font">Failed to apply font</string>
+    <string name="toast_invalid_font_file">Invalid font file</string>
+    
+    <!-- Font Preview -->
+    <string name="font_preview_dialog_title">Font Preview</string>
+    <string name="font_preview_quote">The Quick Brown Fox</string>
+    <string name="font_preview_numbers">0123456789</string>
+    <string name="add_font">Add Font</string>
+    <string name="lightning_cancel">Cancel</string>
+    <string name="change_custom_font">Change custom font</string>
+    <string name="add_custom_font">Add custom font</string>
+    
+    <!-- Misc -->
+    <string name="no_custom_font">No custom font installed</string>
+    <string name="custom_font">Custom font</string>
+    <string name="active_content_desc">Active</string>
+    <string name="reset">Reset</string>
+    <string name="reset_default_title">Reset to default?</string>
+    <string name="reset_default_message">This will restore the default font settings</string>
+
+    <!-- Ripple Shape -->
+    <string name="ripple_shape_title">Charging ripple Shape</string>
+
+    <!-- QS media player -->
+    <string name="qs_show_media_player_title">QS Media player</string>
+    <string name="qs_show_media_player_summary">Display media controls in Quick Settings</string>
+
+    <!-- Status bar - Icon tinting -->
+    <string name="status_bar_tint_icons_title">Tint status bar icons</string>
+    <string name="status_bar_tint_icons_summary">Tint status bar icons with system accent color</string>
+    
+    <!-- Floating rotation button -->
+    <string name="floating_rotation_button_title">Floating rotate button</string>
+    <string name="floating_rotation_button_summary">Show a floating rotate button when device is rotated</string>
+
+    <!-- Media player settings -->
+    <string name="media_controls_always_show_time_title">Always show time</string>
+    <string name="media_controls_always_show_time_summary">Always show passed and total time on media player</string>
+
+    <!-- Doze screen state fix -->
+<string name="doze_screen_state_fix_title">Doze screen state</string>
+<string name="doze_screen_state_fix_summary">Apply screen state fix after unlock animation ends in AOD</string>
 </resources>

@@ -6,7 +6,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.lightning.thunderbolt.fragments.miscellaneous
+package org.lunaris.settings.fragments.miscellaneous
 
 import android.annotation.SuppressLint
 import android.app.ActivityManager
@@ -32,7 +32,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.android.internal.util.lightning.HideAppListUtils
+import com.android.internal.util.lunaris.HideAppListUtils
 import com.google.android.material.appbar.AppBarLayout
 import com.android.settings.R
 

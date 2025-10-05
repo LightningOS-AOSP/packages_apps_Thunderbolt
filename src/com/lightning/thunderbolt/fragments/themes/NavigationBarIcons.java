@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.lightning.thunderbolt.fragments.themes;
+package org.lunaris.settings.fragments.themes;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -55,9 +55,8 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import com.bumptech.glide.Glide;
 
-import com.android.internal.util.lightning.ThemeUtils;
-import com.android.internal.util.lightning.Utils;
-
+import com.android.internal.util.lunaris.ThemeUtils;
+import com.android.internal.util.lunaris.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -100,15 +99,21 @@ public class NavigationBarIcons extends SettingsPreferenceFragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
         mRecyclerView.setLayoutManager(gridLayoutManager);
-        Adapter mAdapter = new Adapter(getActivity());
-        mRecyclerView.setAdapter(mAdapter);
+
+        // Fix: safely assign adapter after layout inflation
+        view.post(() -> {
+            if (mRecyclerView != null) {
+                Adapter mAdapter = new Adapter(getActivity());
+                mRecyclerView.setAdapter(mAdapter);
+            }
+        });
 
         return view;
     }
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LIGHTNING;
+        return MetricsEvent.LUNARIS;
     }
 
     @Override

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.lightning.thunderbolt.preferences;
+package org.lunaris.settings.preferences;
 
 import android.content.Context;
 import android.os.SystemProperties;

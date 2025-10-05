@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2019-2024 LightningOS
-     SPDX-License-Identifier: Apache-2.0
--->
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,7 +7,6 @@
 
     <PreferenceCategory
         android:key="haptics_settings_category"
-        android:layout="@layout/lightning_first_header_pref"
         android:title="@string/haptics_settings_title">
 
         <Preference
@@ -22,18 +17,59 @@
 
     </PreferenceCategory>
 
-    
+    <PreferenceCategory
+          android:title="OmniJaw Weather">
+
+        <Preference
+            android:title="@string/weather_menu_title"
+            android:summary="@string/weather_menu_summary">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="org.omnirom.omnijaws"
+                android:targetClass="org.omnirom.omnijaws.WeatherActivity" />
+        </Preference>
+
+        <Preference
+            android:title="@string/weather_settings_title"
+            android:summary="@string/weather_settings_summary">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="org.omnirom.omnijaws"
+                android:targetClass="org.omnirom.omnijaws.SettingsActivity" />
+        </Preference>
+
+    </PreferenceCategory>
+
+
     <PreferenceCategory
         android:key="miscellaneous_developer_options_category"
-        android:layout="@layout/lightning_first_header_pref"
         android:title="@string/miscellaneous_developer_options_category">
+
+        <Preference
+            android:key="performance"
+            android:title="@string/performance_title"
+            android:summary="@string/performance_summary"
+            android:fragment="org.lunaris.settings.fragments.miscellaneous.Performance" />
+
+
+        <!-- QuickSwitch -->
+ 
+
+
 
         <!-- Hide applist -->
         <Preference
             android:key="hide_applist_setting"
             android:title="@string/hide_applist_title"
             android:summary="@string/hide_applist_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.HideAppListSettings" />
+            android:fragment="org.lunaris.settings.fragments.miscellaneous.HideAppListSettings" />
+
+       <Preference
+	        android:key="hide_developer_status_settings"
+	        android:title="@string/hide_developer_status_title"
+	        android:summary="@string/hide_developer_status_summary"
+            android:fragment="com.android.settings.security.HideDeveloperStatusSettings"
+            settings:controller="com.android.settings.security.HideDeveloperStatusPreferenceController" />
 
         <!-- Smart Pixels -->
 
@@ -44,29 +80,13 @@
             android:summary="@string/usb_default_config_summary"
             android:fragment="com.android.settings.connecteddevice.usb.UsbDefaultFragment" />
 
-        <!-- Hide developer status -->
-        <Preference
-            android:key="hide_developer_status_settings"
-            android:title="@string/hide_developer_status_title"
-            android:summary="@string/hide_developer_status_summary"
-            android:fragment="com.android.settings.security.HideDeveloperStatusSettings"
-            settings:controller="com.android.settings.security.HideDeveloperStatusPreferenceController" />
-
         <!-- No storage restrict -->
-        <com.lightning.thunderbolt.preferences.GlobalSettingSwitchPreference
+        <org.lunaris.settings.preferences.GlobalSettingSwitchPreference
             android:key="no_storage_restrict"
-            android:title="@string/no_storage_restrict_title"
-            android:summary="@string/no_storage_restrict_summary"
+            android:title="@string/lightning_no_storage_restrict_title"
+            android:summary="@string/lightning_no_storage_restrict_summary"
             android:defaultValue="false" />
 
-        <!-- Block wallpaper dimming -->
-
-        <!-- Unlimit screenrecord -->
-
-        <!-- Hide screen capture status -->
-
-        <!-- Allow application downgrade -->
-
-        <!-- Ignore window secure flags -->
     </PreferenceCategory>
+
 </PreferenceScreen>

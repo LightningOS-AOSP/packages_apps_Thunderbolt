@@ -14,14 +14,16 @@
  * limitations under the License.
  */
 
-package com.lightning.thunderbolt.fragments.themes;
+package org.lunaris.settings.fragments.themes;
 
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.widget.Toast;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -35,8 +37,18 @@ import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
-import com.lightning.thunderbolt.preferences.colorpicker.ColorPickerPreference;
-import com.lightning.thunderbolt.preferences.CustomSeekBarPreference;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.skydoves.colorpickerview.ColorPickerView;
+import com.skydoves.colorpickerview.listeners.ColorListener;
+import com.skydoves.colorpickerview.ColorPickerDialog;
+import com.skydoves.colorpickerview.ColorEnvelope;
+import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener;
+import com.skydoves.colorpickerview.flag.BubbleFlag;
+import com.skydoves.colorpickerview.flag.FlagMode;
+
+import org.lunaris.settings.preferences.colorpicker.ColorPickerPreference;
+import org.lunaris.settings.preferences.CustomSeekBarPreference;
+import org.lunaris.settings.utils.WallpaperUtils;
 
 import java.lang.CharSequence;
 
@@ -45,9 +57,23 @@ import lineageos.providers.LineageSettings;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.palette.graphics.Palette;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.view.ActionMode;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.Button;
+import android.view.Gravity;
+import android.graphics.drawable.Drawable;
+
+import com.android.internal.util.android.VibrationUtils;
+
 @SearchIndexable
 public class MonetSettings extends DashboardFragment implements
-        OnPreferenceChangeListener {
+        OnPreferenceChangeListener, Preference.OnPreferenceClickListener {
 
     private static final String TAG = "MonetSettings";
     private static final String OVERLAY_CATEGORY_ACCENT_COLOR =
@@ -84,6 +110,8 @@ public class MonetSettings extends DashboardFragment implements
     private static final String PREF_CHROMA_FACTOR = "chroma_factor";
     private static final String PREF_WHOLE_PALETTE = "whole_palette";
     private static final String PREF_TINT_BACKGROUND = "tint_background";
+    private static final String PREF_WALLPAPER_COLOR = "wallpaper_color";
+    private static final String PREF_COLOR_OVERRIDE = "color_override";
 
     private static final int DEFAULT_COLOR = 0xFF1b6ef3;
 
@@ -96,9 +124,14 @@ public class MonetSettings extends DashboardFragment implements
     private CustomSeekBarPreference mChromaPref;
     private SwitchPreferenceCompat mWholePalettePref;
     private SwitchPreferenceCompat mTintBackgroundPref;
+    private Preference mWallpaperColorPref;
 
     private int mAccentColorValue;
     private int mBgColorValue;
+
+    private ColorPickerView mColorPickerView;
+    private Preference mWallColorPicker;
+    private int mUserColor;
 
     private SharedPreferences mSharedPreferences;
 
@@ -120,9 +153,44 @@ public class MonetSettings extends DashboardFragment implements
         mChromaPref = findPreference(PREF_CHROMA_FACTOR);
         mWholePalettePref = findPreference(PREF_WHOLE_PALETTE);
         mTintBackgroundPref = findPreference(PREF_TINT_BACKGROUND);
+        mWallpaperColorPref = findPreference(PREF_WALLPAPER_COLOR);
         mSharedPreferences = getActivity().getSharedPreferences(TAG, Context.MODE_PRIVATE);
 
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+        final Context mContext = getActivity().getApplicationContext();
+        final Resources res = mContext.getResources();
+        final ContentResolver resolver = mContext.getContentResolver();
+
+        mColorPickerView = new ColorPickerView.Builder(getContext())
+            .setPreferenceName("GhostColorPicker")
+            .setColorListener(new ColorListener() {
+                @Override
+                public void onColorSelected(int color, boolean fromUser) {
+                    if (fromUser) {
+                        mUserColor = color;
+                        Settings.Secure.putInt(resolver, PREF_COLOR_OVERRIDE, mUserColor);
+                        new ColorPickerDialog.Builder(getContext())
+                            .setColorPickerView(mColorPickerView)
+                            .show();
+                    }
+                }
+            }).build();
+
+        // Set the palette drawable after the view is built
+        Drawable wallDrawable = WallpaperUtils.getWall(getContext(), false);
+        if (wallDrawable != null) {
+            mColorPickerView.setPaletteDrawable(wallDrawable);
+        }
+
+        mWallColorPicker = (Preference) prefScreen.findPreference(PREF_WALLPAPER_COLOR);
+        mWallColorPicker.setOnPreferenceClickListener(this);
+        mWallColorPicker.setEnabled(!WallpaperUtils.isLiveWall(getContext()));
+        mWallColorPicker.setSummary(WallpaperUtils.isLiveWall(getContext()) ? 
+            R.string.monet_engine_wallpaper_color_not_available : 
+            R.string.monet_engine_wallpaper_color_summary);
+
         updatePreferences();
+        setupWallpaperColorPicker();
 
         mThemeStylePref.setOnPreferenceChangeListener(this);
         mColorSourcePref.setOnPreferenceChangeListener(this);
@@ -133,6 +201,98 @@ public class MonetSettings extends DashboardFragment implements
         mChromaPref.setOnPreferenceChangeListener(this);
         mWholePalettePref.setOnPreferenceChangeListener(this);
         mTintBackgroundPref.setOnPreferenceChangeListener(this);
+    }
+
+    private void setupWallpaperColorPicker() {
+        mWallpaperColorPref.setOnPreferenceClickListener(preference -> {
+            Drawable wallDrawable = WallpaperUtils.getWall(getContext(), false);
+            if (wallDrawable != null) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle(R.string.monet_engine_wallpaper_color_title);
+
+                // Container for color picker and preview
+                LinearLayout layout = new LinearLayout(getContext());
+                layout.setOrientation(LinearLayout.VERTICAL);
+                layout.setPadding(32, 32, 32, 32);
+
+                // Color picker
+                final int[] selectedColor = { mAccentColorValue };
+                final View colorPreview = new View(getContext());
+                
+                ColorPickerView colorPickerView = new ColorPickerView.Builder(getContext())
+                    .setPreferenceName("WallpaperColorPicker")
+                    .setInitialColor(mAccentColorValue)
+                    .setColorListener(new ColorListener() {
+                        @Override
+                        public void onColorSelected(int color, boolean fromUser) {
+                            if (fromUser) {
+                                selectedColor[0] = color;
+                                colorPreview.setBackgroundTintList(android.content.res.ColorStateList.valueOf(color));
+                            }
+                        }
+                    }).build();
+                colorPickerView.setPaletteDrawable(wallDrawable);
+                LinearLayout.LayoutParams pickerParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    getResources().getDisplayMetrics().heightPixels / 2
+                );
+                colorPickerView.setLayoutParams(pickerParams);
+
+                // Add picker to layout
+                layout.addView(colorPickerView);
+
+                // Custom layout for buttons and preview
+                LinearLayout buttonLayout = new LinearLayout(getContext());
+                buttonLayout.setOrientation(LinearLayout.HORIZONTAL);
+                buttonLayout.setGravity(Gravity.END | Gravity.CENTER_VERTICAL);
+                buttonLayout.setPadding(32, 0, 32, 32);
+
+                // Color preview (bottom left)
+                int previewSize = (int) (48 * getResources().getDisplayMetrics().density);
+                LinearLayout.LayoutParams previewParams = new LinearLayout.LayoutParams(previewSize, previewSize);
+                previewParams.gravity = Gravity.START;
+                previewParams.rightMargin = 16;
+                colorPreview.setLayoutParams(previewParams);
+                colorPreview.setBackgroundResource(R.drawable.color_picker_preview_circle);
+                colorPreview.setBackgroundTintList(android.content.res.ColorStateList.valueOf(mAccentColorValue));
+
+                // Add preview to button layout
+                buttonLayout.addView(colorPreview);
+
+                // Add buttons to button layout
+                Button cancelButton = new Button(getContext());
+                cancelButton.setText(android.R.string.lightning_cancel);
+                buttonLayout.addView(cancelButton);
+
+                Button okButton = new Button(getContext());
+                okButton.setText(android.R.string.ok);
+                buttonLayout.addView(okButton);
+
+                // Add button layout to main layout
+                layout.addView(buttonLayout);
+
+                // Set the view before creating the dialog
+                builder.setView(layout);
+                final AlertDialog dialog = builder.create();
+                
+                // Set click listeners after dialog creation
+                cancelButton.setOnClickListener(v -> dialog.dismiss());
+                okButton.setOnClickListener(v -> {
+                    mAccentColorValue = selectedColor[0];
+                    mSharedPreferences.edit().putInt(PREF_ACCENT_COLOR, mAccentColorValue).apply();
+                    mAccentColorPref.setNewPreviewColor(mAccentColorValue);
+                    setColorValue();
+                    dialog.dismiss();
+                });
+
+                dialog.show();
+            } else {
+                Toast.makeText(getContext(), 
+                    getString(R.string.monet_engine_wallpaper_color_not_available),
+                    Toast.LENGTH_SHORT).show();
+            }
+            return true;
+        });
     }
 
     @Override
@@ -229,6 +389,14 @@ public class MonetSettings extends DashboardFragment implements
     }
 
     @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference != null && preference.getKey() != null) {
+            VibrationUtils.triggerVibration(getContext(), 3);
+        }
+        return super.onPreferenceTreeClick(preference);
+    }
+
+    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mThemeStylePref) {
@@ -273,6 +441,100 @@ public class MonetSettings extends DashboardFragment implements
         } else if (preference == mTintBackgroundPref) {
             boolean value = (Boolean) newValue;
             setTintBackgroundValue(value);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean onPreferenceClick(Preference preference) {
+        if (preference == mWallColorPicker) {
+            Drawable wallDrawable = WallpaperUtils.getWall(getContext(), false);
+            if (wallDrawable != null) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle(R.string.monet_engine_wallpaper_color_title);
+
+                // Container for color picker and preview
+                LinearLayout layout = new LinearLayout(getContext());
+                layout.setOrientation(LinearLayout.VERTICAL);
+                layout.setPadding(32, 32, 32, 32);
+
+                // Color picker
+                final int[] selectedColor = { mAccentColorValue };
+                final View colorPreview = new View(getContext());
+                
+                ColorPickerView colorPickerView = new ColorPickerView.Builder(getContext())
+                    .setPreferenceName("WallpaperColorPicker")
+                    .setInitialColor(mAccentColorValue)
+                    .setColorListener(new ColorListener() {
+                        @Override
+                        public void onColorSelected(int color, boolean fromUser) {
+                            if (fromUser) {
+                                selectedColor[0] = color;
+                                colorPreview.setBackgroundTintList(android.content.res.ColorStateList.valueOf(color));
+                            }
+                        }
+                    }).build();
+                colorPickerView.setPaletteDrawable(wallDrawable);
+                LinearLayout.LayoutParams pickerParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    getResources().getDisplayMetrics().heightPixels / 2
+                );
+                colorPickerView.setLayoutParams(pickerParams);
+
+                // Add picker to layout
+                layout.addView(colorPickerView);
+
+                // Custom layout for buttons and preview
+                LinearLayout buttonLayout = new LinearLayout(getContext());
+                buttonLayout.setOrientation(LinearLayout.HORIZONTAL);
+                buttonLayout.setGravity(Gravity.END | Gravity.CENTER_VERTICAL);
+                buttonLayout.setPadding(32, 0, 32, 32);
+
+                // Color preview (bottom left)
+                int previewSize = (int) (48 * getResources().getDisplayMetrics().density);
+                LinearLayout.LayoutParams previewParams = new LinearLayout.LayoutParams(previewSize, previewSize);
+                previewParams.gravity = Gravity.START;
+                previewParams.rightMargin = 16;
+                colorPreview.setLayoutParams(previewParams);
+                colorPreview.setBackgroundResource(R.drawable.color_picker_preview_circle);
+                colorPreview.setBackgroundTintList(android.content.res.ColorStateList.valueOf(mAccentColorValue));
+
+                // Add preview to button layout
+                buttonLayout.addView(colorPreview);
+
+                // Add buttons to button layout
+                Button cancelButton = new Button(getContext());
+                cancelButton.setText(android.R.string.lightning_cancel);
+                buttonLayout.addView(cancelButton);
+
+                Button okButton = new Button(getContext());
+                okButton.setText(android.R.string.ok);
+                buttonLayout.addView(okButton);
+
+                // Add button layout to main layout
+                layout.addView(buttonLayout);
+
+                // Set the view before creating the dialog
+                builder.setView(layout);
+                final AlertDialog dialog = builder.create();
+                
+                // Set click listeners after dialog creation
+                cancelButton.setOnClickListener(v -> dialog.dismiss());
+                okButton.setOnClickListener(v -> {
+                    mAccentColorValue = selectedColor[0];
+                    mSharedPreferences.edit().putInt(PREF_ACCENT_COLOR, mAccentColorValue).apply();
+                    mAccentColorPref.setNewPreviewColor(mAccentColorValue);
+                    setColorValue();
+                    dialog.dismiss();
+                });
+
+                dialog.show();
+            } else {
+                Toast.makeText(getContext(), 
+                    getString(R.string.monet_engine_wallpaper_color_not_available),
+                    Toast.LENGTH_SHORT).show();
+            }
             return true;
         }
         return false;
@@ -411,7 +673,7 @@ public class MonetSettings extends DashboardFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.LIGHTNING;
+        return MetricsProto.MetricsEvent.LUNARIS;
     }
 
     @Override

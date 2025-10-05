@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2019-2024 LightningOS
-     SPDX-License-Identifier: Apache-2.0
--->
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,7 +7,6 @@
 
     <PreferenceCategory
         android:key="power_menu_interface_category"
-        android:layout="@layout/lightning_first_header_pref"
         android:title="@string/power_menu_interface_category">
 
         <!-- Power menu actions -->
@@ -19,7 +14,8 @@
             android:key="power_menu_actions"
             android:title="@string/power_menu_actions_title"
             android:summary="@string/power_menu_actions_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.powermenu.PowerMenuActions" />
+            android:fragment="org.lunaris.settings.fragments.powermenu.PowerMenuActions" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

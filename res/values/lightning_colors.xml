@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2024 LightningOS
+     Copyright (C) 2019-2024 The Evolution X Project
      SPDX-License-Identifier: Apache-2.0
 -->
 
@@ -23,6 +23,5 @@
     <color name="op_control_accent_color_green_dark">#ff06743e</color>
     <color name="option_border_default">#5f6368</color>
     <color name="settingslib_preference_fg_color">@*android:color/system_neutral1_100</color>
-    <color name="lightning_background1">@android:color/system_neutral1_50</color>
     <color name="option_border_color">@android:color/system_accent1_300</color>
 </resources>

@@ -1,9 +1,20 @@
 /*
- * Copyright (C) 2019-2024 MISTOS
- * SPDX-License-Identifier: Apache-2.0
+ * Copyright (C) 2017-2024 crDroid Android Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
-package com.lightning.thunderbolt.fragments.statusbar;
+package org.lunaris.settings.fragments.statusbar;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -28,10 +39,13 @@ import java.util.List;
 
 import lineageos.preference.LineageSystemSettingListPreference;
 
-import com.lightning.thunderbolt.preferences.SystemSettingListPreference;
-import com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference;
-import com.lightning.thunderbolt.utils.DeviceUtils;
-import com.lightning.thunderbolt.utils.SystemUtils;
+import org.lunaris.settings.preferences.SystemSettingListPreference;
+import org.lunaris.settings.preferences.SystemSettingSwitchPreference;
+import org.lunaris.settings.preferences.colorpicker.ColorPickerPreference;
+import org.lunaris.settings.utils.DeviceUtils;
+import org.lunaris.settings.utils.SystemUtils;
+
+import com.android.internal.util.android.VibrationUtils;
 
 @SearchIndexable
 public class StatusBar extends SettingsPreferenceFragment implements
@@ -42,37 +56,31 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String KEY_QUICK_PULLDOWN = "qs_quick_pulldown";
 
     private static final String KEY_ICONS_CATEGORY = "status_bar_icons_category";
-    private static final String KEY_BATTERY_STYLE = "status_bar_battery_style";
-    private static final String KEY_BATTERY_PERCENT = "status_bar_show_battery_percent";
-    private static final String KEY_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
     private static final String KEY_DATA_DISABLED_ICON = "data_disabled_icon";
     private static final String KEY_BLUETOOTH_BATTERY_STATUS = "bluetooth_show_battery";
     private static final String KEY_FOUR_G_ICON = "show_fourg_icon";
-    private static final String KEY_COLORED_ICONS = "statusbar_colored_icons";
+    private static final String LOGO_COLOR = "status_bar_logo_color";
+    private static final String LOGO_COLOR_PICKER = "status_bar_logo_color_picker";
+
+    private SystemSettingListPreference mLogoColor;
+    private ColorPickerPreference mLogoColorPicker;
 
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
     private static final int PULLDOWN_DIR_LEFT = 2;
     private static final int PULLDOWN_DIR_BOTH = 3;
-    private static final int BATTERY_STYLE_PORTRAIT = 0;
-    private static final int BATTERY_STYLE_TEXT = 4;
-    private static final int BATTERY_STYLE_HIDDEN = 5;
 
     private LineageSystemSettingListPreference mQuickPulldown;
 
     private PreferenceCategory mIconsCategory;
-    private SystemSettingListPreference mBatteryPercent;
-    private SystemSettingListPreference mBatteryStyle;
-    private SystemSettingSwitchPreference mBatteryTextCharging;
     private SystemSettingSwitchPreference mDataDisabledIcon;
     private SystemSettingSwitchPreference mFourgIcon;
     private SystemSettingSwitchPreference mBluetoothBatteryStatus;
-    private SystemSettingSwitchPreference mColoredIcons;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.lightning_settings_status_bar);
+        addPreferencesFromResource(R.xml.lunaris_settings_status_bar);
 
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
@@ -85,34 +93,33 @@ public class StatusBar extends SettingsPreferenceFragment implements
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
 
         mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
-        mBatteryStyle = (SystemSettingListPreference) findPreference(KEY_BATTERY_STYLE);
-        mBatteryPercent = (SystemSettingListPreference) findPreference(KEY_BATTERY_PERCENT);
-        mBatteryTextCharging = (SystemSettingSwitchPreference) findPreference(KEY_BATTERY_TEXT_CHARGING);
         mBluetoothBatteryStatus = (SystemSettingSwitchPreference) findPreference(KEY_BLUETOOTH_BATTERY_STATUS);
         mDataDisabledIcon = (SystemSettingSwitchPreference) findPreference(KEY_DATA_DISABLED_ICON);
         mFourgIcon = (SystemSettingSwitchPreference) findPreference(KEY_FOUR_G_ICON);
-//        mBluetoothBatteryStatus = (SystemSettingSwitchPreference) findPreference(KEY_BLUETOOTH_BATTERY_STATUS);
-        mColoredIcons = (SystemSettingSwitchPreference) findPreference(KEY_COLORED_ICONS);
-        mColoredIcons.setOnPreferenceChangeListener(this);
+
+        mLogoColor = (SystemSettingListPreference) findPreference(LOGO_COLOR);
+        int logoColor = Settings.System.getIntForUser(resolver,
+                Settings.System.STATUS_BAR_LOGO_COLOR, 0, UserHandle.USER_CURRENT);
+        mLogoColor.setValue(String.valueOf(logoColor));
+        mLogoColor.setSummary(mLogoColor.getEntry());
+        mLogoColor.setOnPreferenceChangeListener(this);
+        mLogoColorPicker = (ColorPickerPreference) findPreference(LOGO_COLOR_PICKER);
+        int logoColorPicker = Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_LOGO_COLOR_PICKER, 0xFFFFFFFF);
+        mLogoColorPicker.setNewPreviewColor(logoColorPicker);
+        String logoColorPickerHex = String.format("#%08x", (0xFFFFFFFF & logoColorPicker));
+        if (logoColorPickerHex.equals("#ffffffff")) {
+            mLogoColorPicker.setSummary(R.string.default_string);
+        } else {
+            mLogoColorPicker.setSummary(logoColorPickerHex);
+        }
+        mLogoColorPicker.setOnPreferenceChangeListener(this);
+        updateColorPrefs(logoColor);
 
         if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
             mQuickPulldown.setEntries(R.array.status_bar_quick_pull_down_entries_rtl);
             mQuickPulldown.setEntryValues(R.array.status_bar_quick_pull_down_values_rtl);
         }
-
-        int batterystyle = Settings.System.getIntForUser(resolver,
-                Settings.System.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT, UserHandle.USER_CURRENT);
-        int batterypercent = Settings.System.getIntForUser(resolver,
-                Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT);
-
-        mBatteryStyle.setOnPreferenceChangeListener(this);
-
-        mBatteryPercent.setEnabled(
-                batterystyle != BATTERY_STYLE_TEXT && batterystyle != BATTERY_STYLE_HIDDEN);
-        mBatteryPercent.setOnPreferenceChangeListener(this);
-
-        mBatteryTextCharging.setEnabled(batterystyle == BATTERY_STYLE_HIDDEN ||
-                (batterystyle != BATTERY_STYLE_TEXT && batterypercent != 2));
 
         if (!DeviceUtils.deviceSupportsMobileData(context)) {
             mIconsCategory.removePreference(mDataDisabledIcon);
@@ -132,27 +139,34 @@ public class StatusBar extends SettingsPreferenceFragment implements
             int value = Integer.parseInt((String) newValue);
             updateQuickPulldownSummary(value);
             return true;
-        } else if (preference == mBatteryStyle) {
-            int value = Integer.parseInt((String) newValue);
-            int batterypercent = Settings.System.getIntForUser(resolver,
-                    Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT);
-            mBatteryPercent.setEnabled(
-                    value != BATTERY_STYLE_TEXT && value != BATTERY_STYLE_HIDDEN);
-            mBatteryTextCharging.setEnabled(value == BATTERY_STYLE_HIDDEN ||
-                    (value != BATTERY_STYLE_TEXT && batterypercent != 2));
+        } else if (preference == mLogoColor) {
+            int logoColor = Integer.valueOf((String) newValue);
+            int index = mLogoColor.findIndexOfValue((String) newValue);
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.STATUS_BAR_LOGO_COLOR, logoColor, UserHandle.USER_CURRENT);
+            mLogoColor.setSummary(mLogoColor.getEntries()[index]);
+            updateColorPrefs(logoColor);
             return true;
-        } else if (preference == mBatteryPercent) {
-            int value = Integer.parseInt((String) newValue);
-            int batterystyle = Settings.System.getIntForUser(resolver,
-                    Settings.System.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT, UserHandle.USER_CURRENT);
-            mBatteryTextCharging.setEnabled(batterystyle == BATTERY_STYLE_HIDDEN ||
-                    (batterystyle != BATTERY_STYLE_TEXT && value != 2));
-            return true;
-        } else if (preference == mColoredIcons) {
-            SystemUtils.showSystemUiRestartDialog(context);
+        } else if (preference == mLogoColorPicker) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hex.equals("#ffffffff")) {
+                preference.setSummary(R.string.default_string);
+            } else {
+                preference.setSummary(hex);
+            }
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(resolver,
+                    Settings.System.STATUS_BAR_LOGO_COLOR_PICKER, intHex);
             return true;
         }
         return false;
+    }
+
+    private void updateColorPrefs(int logoColor) {
+        if (mLogoColor != null) {
+            mLogoColorPicker.setEnabled(logoColor == 2);
+        }
     }
 
     private void updateQuickPulldownSummary(int value) {
@@ -182,11 +196,19 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LIGHTNING;
+        return MetricsEvent.LUNARIS;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference != null && preference.getKey() != null) {
+            VibrationUtils.triggerVibration(getContext(), 3);
+        }
+        return super.onPreferenceTreeClick(preference);
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        new BaseSearchIndexProvider(R.xml.lightning_settings_status_bar) {
+        new BaseSearchIndexProvider(R.xml.lunaris_settings_status_bar) {
 
             @Override
             public List<String> getNonIndexableKeys(Context context) {

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.lightning.thunderbolt.fragments.statusbar;
+package org.lunaris.settings.fragments.statusbar;
 
 import android.app.AlertDialog;
 import android.content.ContentResolver;
@@ -46,9 +46,11 @@ import java.util.List;
 import lineageos.preference.LineageSystemSettingListPreference;
 import lineageos.providers.LineageSettings;
 
-import com.lightning.thunderbolt.preferences.CustomSeekBarPreference;
-import com.lightning.thunderbolt.preferences.SystemSettingListPreference;
-import com.lightning.thunderbolt.utils.DeviceUtils;
+import org.lunaris.settings.preferences.CustomSeekBarPreference;
+import org.lunaris.settings.preferences.SystemSettingListPreference;
+import org.lunaris.settings.utils.DeviceUtils;
+
+import com.android.internal.util.android.VibrationUtils;
 
 @SearchIndexable
 public class Clock extends SettingsPreferenceFragment implements
@@ -233,7 +235,15 @@ public class Clock extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LIGHTNING;
+        return MetricsEvent.LUNARIS;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference != null && preference.getKey() != null) {
+            VibrationUtils.triggerVibration(getContext(), 3);
+        }
+        return super.onPreferenceTreeClick(preference);
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =

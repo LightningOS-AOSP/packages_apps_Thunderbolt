@@ -32,7 +32,7 @@ public class SystemRestartUtils {
             .setTitle(com.android.internal.R.string.systemui_restart_title)
             .setMessage(com.android.internal.R.string.systemui_restart_message)
             .setPositiveButton(com.android.internal.R.string.ok, (dialog, which) -> restartSystemUI(context))
-            .setNegativeButton(com.android.internal.R.string.cancel, null)
+            .setNegativeButton(com.android.internal.R.string.lightning_cancel, null)
             .show();
     }
 

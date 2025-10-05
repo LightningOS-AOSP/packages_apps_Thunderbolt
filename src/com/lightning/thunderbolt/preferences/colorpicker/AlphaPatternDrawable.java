@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.lightning.thunderbolt.preferences.colorpicker;
+package org.lunaris.settings.preferences.colorpicker;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;

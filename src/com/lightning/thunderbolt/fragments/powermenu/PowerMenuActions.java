@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.lightning.thunderbolt.fragments.powermenu;
+package org.lunaris.settings.fragments.powermenu;
 
 import android.Manifest;
 import android.content.Context;
@@ -42,7 +42,9 @@ import com.android.settingslib.applications.ServiceListing;
 
 import com.android.settings.R;
 
-import com.lightning.thunderbolt.utils.TelephonyUtils;
+import org.lunaris.settings.utils.TelephonyUtils;
+
+import com.android.internal.util.android.VibrationUtils;
 
 import lineageos.app.LineageGlobalActions;
 import lineageos.providers.LineageSettings;
@@ -55,7 +57,6 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
     private static final String CATEGORY_POWER_MENU_ITEMS = "power_menu_items";
 
     private SwitchPreferenceCompat mScreenshotPref;
-//   private SwitchPreferenceCompat mOnTheGoPref;
     private SwitchPreferenceCompat mAirplanePref;
     private SwitchPreferenceCompat mUsersPref;
     private SwitchPreferenceCompat mLockDownPref;
@@ -81,8 +82,6 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
         for (String action : PowerMenuConstants.getAllActions()) {
             if (action.equals(GLOBAL_ACTION_KEY_SCREENSHOT)) {
                 mScreenshotPref = (SwitchPreferenceCompat) findPreference(GLOBAL_ACTION_KEY_SCREENSHOT);
-//            } else if (action.equals(GLOBAL_ACTION_KEY_ONTHEGO)) {
-//                mOnTheGoPref = (SwitchPreferenceCompat) findPreference(GLOBAL_ACTION_KEY_ONTHEGO);
             } else if (action.equals(GLOBAL_ACTION_KEY_AIRPLANE)) {
                 mAirplanePref = (SwitchPreferenceCompat) findPreference(GLOBAL_ACTION_KEY_AIRPLANE);
             } else if (action.equals(GLOBAL_ACTION_KEY_USERS)) {
@@ -110,11 +109,6 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
             mScreenshotPref.setChecked(mLineageGlobalActions.userConfigContains(
                     GLOBAL_ACTION_KEY_SCREENSHOT));
         }
-
-//        if (mOnTheGoPref != null) {
-//            mOnTheGoPref.setChecked(mLineageGlobalActions.userConfigContains(
-//                    GLOBAL_ACTION_KEY_ONTHEGO));
-//        }
 
         if (mAirplanePref != null) {
             mAirplanePref.setChecked(mLineageGlobalActions.userConfigContains(
@@ -154,15 +148,15 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference != null && preference.getKey() != null) {
+            VibrationUtils.triggerVibration(getContext(), 3);
+        }
+
         boolean value;
 
         if (preference == mScreenshotPref) {
             value = mScreenshotPref.isChecked();
             mLineageGlobalActions.updateUserConfig(value, GLOBAL_ACTION_KEY_SCREENSHOT);
-
-        } else if (preference == mOnTheGoPref) {
-            value = mOnTheGoPref.isChecked();
-            mLineageGlobalActions.updateUserConfig(value, GLOBAL_ACTION_KEY_ONTHEGO);
 
         } else if (preference == mAirplanePref) {
             value = mAirplanePref.isChecked();
@@ -218,6 +212,6 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.LIGHTNING;
+        return MetricsProto.MetricsEvent.LUNARIS;
     }
 }

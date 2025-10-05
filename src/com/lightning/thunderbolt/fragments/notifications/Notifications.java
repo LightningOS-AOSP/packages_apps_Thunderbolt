@@ -1,9 +1,20 @@
 /*
- * Copyright (C) 2019-2024 LightningOS
- * SPDX-License-Identifier: Apache-2.0
+ * Copyright (C) 2018-2022 crDroid Android Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
-package com.lightning.thunderbolt.fragments.notifications;
+package org.lunaris.settings.fragments.notifications;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -22,11 +33,11 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
-import java.util.List;
+import com.android.internal.util.android.VibrationUtils;
 
-import com.lightning.thunderbolt.preferences.SystemPropertySwitchPreference;
-import com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference;
-import com.lightning.thunderbolt.utils.SystemUtils;
+import org.lunaris.settings.preferences.SystemSettingSwitchPreference;
+
+import java.util.List;
 
 @SearchIndexable
 public class Notifications extends SettingsPreferenceFragment implements
@@ -36,16 +47,14 @@ public class Notifications extends SettingsPreferenceFragment implements
 
     private static final String KEY_ALERT_SLIDER_PREF = "alert_slider_notifications";
     private static final String KEY_INTERFACE_CATEGORY = "notifications_interface_category";
-    private static final String KEY_COMPACT_HUN = "persist.sys.compact_heads_up_notification.always_show";
 
     private PreferenceCategory mInterfaceCategory;
     private Preference mAlertSlider;
-    private SystemPropertySwitchPreference mCompactHUN;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.lightning_settings_notifications);
+        addPreferencesFromResource(R.xml.lunaris_settings_notifications);
 
         final Context mContext = getActivity().getApplicationContext();
         final ContentResolver resolver = mContext.getContentResolver();
@@ -59,29 +68,31 @@ public class Notifications extends SettingsPreferenceFragment implements
         if (!mAlertSliderAvailable) {
             mInterfaceCategory.removePreference(mAlertSlider);
         }
-
-        mCompactHUN = (SystemPropertySwitchPreference) findPreference(KEY_COMPACT_HUN);
-        mCompactHUN.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
-        if (preference == mCompactHUN) {
-            SystemUtils.showSystemUiRestartDialog(context);
-            return true;
-        }
         return false;
     }
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LIGHTNING;
+        return MetricsEvent.LUNARIS;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference != null && preference.getKey() != null) {
+            VibrationUtils.triggerVibration(getContext(), 3);
+        }
+        return super.onPreferenceTreeClick(preference);
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.lightning_settings_notifications) {
+            new BaseSearchIndexProvider(R.xml.lunaris_settings_notifications) {
+
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);

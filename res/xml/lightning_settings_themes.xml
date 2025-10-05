@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2024 LightningOS
-     SPDX-License-Identifier: Apache-2.0
+    Copyright (C) 2024-2025 LightningOS
+    SPDX-License-Identifier: Apache-2.0
 -->
 
 <PreferenceScreen
@@ -9,25 +9,36 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/themes_title">
 
-	
-
     <PreferenceCategory
         android:key="themes_fonts_category"
-        android:layout="@layout/lightning_first_header_pref"
         android:title="@string/themes_fonts_category">
 
-        <!-- System font -->
+
+        <!-- Prebuilt Fonts -->
         <Preference
             android:key="android.theme.customization.fonts"
             android:title="@string/themes_system_font_title"
             android:summary="@string/themes_system_font_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.fonts.FontPickerPreview"/>
-    </PreferenceCategory>
+            android:fragment="com.lightning.thunderbolt.fragments.themes.fonts.FontsPicker" />
 
+        <!-- Custom Font Picker -->
+
+        <!-- Custom Font Info -->
+
+        <!-- Reset Custom Font Button -->
+
+        <!-- Reboot Button for Custom Font -->
+
+        <Preference
+            android:key="android.theme.customization.lockscreen_clock_font"
+            android:title="@string/theme_customization_lock_clock_title"
+            android:summary="@string/theme_customization_lock_clock_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.fonts.LockClockFontsPicker"/>
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="themes_icons_category"
-        android:layout="@layout/lightning_first_header_pref"
         android:title="@string/themes_icons_category">
 
         <!-- System icons -->
@@ -64,40 +75,31 @@
             android:title="@string/themes_navigation_bar_icons_title"
             android:summary="@string/themes_navigation_bar_icons_summary"
             android:fragment="com.lightning.thunderbolt.fragments.themes.NavigationBarIcons"/>
-
-        <!-- Udfps icon -->
-        <Preference
-            android:key="udfps_icon"
-            android:title="@string/themes_udfps_icon_title"
-            android:summary="@string/themes_udfps_icon_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.UdfpsIcons" />
+            
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="themes_animations_category"
-        android:layout="@layout/lightning_first_header_pref"
-        android:title="@string/themes_animations_category">
+        android:key="video_wallpaper_category"
+        android:title="@string/video_wallpaper_category">
 
-        <!-- Boot animation -->
         <Preference
-            android:key="boot_animation"
-            android:title="@string/themes_boot_animation_title"
-            android:summary="@string/themes_boot_animation_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.BootAnimation" />
+            android:key="video_wallpaper"
+            android:title="@string/video_wallpaper_category_title"
+            android:summary="@string/video_wallpaper_category_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.VideoWallpaperFragment" />
 
-        <!-- Charging animation -->
-
-        <!-- AOD wallpaper -->
-
-        <!-- Screen Off animation -->
-
-        <!-- Udfps animation -->
         <Preference
-            android:key="udfps_animation"
-            android:title="@string/themes_udfps_animation_title"
-            android:summary="@string/themes_udfps_animation_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.UdfpsAnimations" />
+            android:key="wallpaper_settings"
+            android:title="@string/lightning_wallpaper_settings_title"
+            android:summary="@string/wallpaper_settings_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.Wallpaper" />
+
     </PreferenceCategory>
+
+
+
+
+        
     <PreferenceCategory
         android:key="themes_launcher_category"
         android:title="@string/themes_launcher_category">

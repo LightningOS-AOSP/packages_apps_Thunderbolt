@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.lightning.thunderbolt.fragments.themes;
+package org.lunaris.settings.fragments.themes;
 
-import static com.android.internal.util.lightning.ThemeUtils.FONT_KEY;
+import static com.android.internal.util.lunaris.ThemeUtils.FONT_KEY;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -37,7 +37,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.internal.util.lightning.ThemeUtils;
+import com.android.internal.util.lunaris.ThemeUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -66,7 +66,18 @@ public class Fonts extends SettingsPreferenceFragment {
         View view = inflater.inflate(R.layout.item_view, container, false);
         mRecyclerView = view.findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 1));
-        mRecyclerView.setAdapter(new Adapter(requireContext(), mPkgs, mThemeUtils, mCategory, mRecyclerView));
+
+        // Fix: safely assign adapter after layout inflation
+        view.post(() -> {
+            if (mRecyclerView != null) {
+                mRecyclerView.setAdapter(
+                    new Adapter(requireContext(), mPkgs, mThemeUtils, mCategory, mRecyclerView)
+                );
+            } else {
+                Log.w(TAG, "RecyclerView is null — adapter not set");
+            }
+        });
+
         return view;
     }
 
@@ -81,7 +92,7 @@ public class Fonts extends SettingsPreferenceFragment {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LIGHTNING;
+        return MetricsEvent.LUNARIS;
     }
 
     public static class Adapter extends RecyclerView.Adapter<Adapter.CustomViewHolder> {
