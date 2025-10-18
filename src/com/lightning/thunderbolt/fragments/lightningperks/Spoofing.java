@@ -6,6 +6,7 @@
 package com.lightning.thunderbolt.fragments.lightningperks;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -36,6 +37,7 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.lightning.KeyProviderManager;
 import com.android.internal.util.lightning.SystemRestartUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -74,6 +76,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String KEY_SYSTEM_WIDE_CATEGORY = "spoofing_system_wide_category";
     private static final String KEY_UPDATE_JSON_BUTTON = "update_pif_json";
     private static final String SYS_GMS_SPOOF = "persist.sys.pixelprops.gms";
+   private static final String SYS_GMS_CERT_SPOOF = "persist.sys.pixelprops.gmscertchain"; 
     private static final String SYS_GOOGLE_SPOOF = "persist.sys.pixelprops";
     private static final String SYS_GAMEPROP_SPOOF = "persist.sys.pixelprops.games";
     private static final String SYS_GPHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
@@ -87,6 +90,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private Preference mPifJsonFilePreference;
     private Preference mUpdateJsonButton;
     private PreferenceCategory mSystemWideCategory;
+    private SystemPropertySwitchPreference mDisableForceIntegrity;
     private SystemPropertySwitchPreference mGmsSpoof;
     private SystemPropertySwitchPreference mGoogleSpoof;
     private SystemPropertySwitchPreference mGamePropsSpoof;
@@ -141,18 +145,26 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mQsbSpoof.setOnPreferenceChangeListener(this);
         mSnapSpoof.setOnPreferenceChangeListener(this);
         mTensorSpoof.setOnPreferenceChangeListener(this);
-
+        
+        mDisableForceIntegrity = findPreference(SYS_GMS_CERT_SPOOF);
+        if (mDisableForceIntegrity != null) {
+            mDisableForceIntegrity.setEnabled(KeyProviderManager.isKeyboxAvailable());
+        }
+        
         mKeyboxFilePickerLauncher = registerForActivityResult(
         new ActivityResultContracts.StartActivityForResult(),
-        result -> {
-            if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
-            Uri uri = result.getData().getData();
-            Preference pref = findPreference(KEYBOX_DATA_KEY);
-            if (pref instanceof KeyboxDataPreference) {
-                ((KeyboxDataPreference) pref).handleFileSelected(uri);
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                    Uri uri = result.getData().getData();
+                    Preference pref = findPreference(KEYBOX_DATA_KEY);
+                    if (pref instanceof KeyboxDataPreference) {
+                        ((KeyboxDataPreference) pref).handleFileSelected(uri);
+                    }
+                    if (mDisableForceIntegrity != null) {
+                        mDisableForceIntegrity.setEnabled(KeyProviderManager.isKeyboxAvailable());
+                    }
+                }
             }
-        }
-    }
     );
 
         mPifJsonFilePreference.setOnPreferenceClickListener(preference -> {
@@ -241,6 +253,30 @@ public class Spoofing extends SettingsPreferenceFragment implements
             .setPositiveButton(android.R.string.ok, null)
             .show();
     }
+    
+    /**
+     * Kill packages that need to be restarted to pick up new PIF properties
+     */
+    private void killGMSPackages() {
+        try {
+            ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
+            String[] packages = {
+                "com.google.android.apps.photos",
+                "com.google.android.gms",
+                "com.google.android.googlequicksearchbox",
+                "com.android.vending",
+                "com.snapchat.android"
+            };
+            for (String pkg : packages) {
+                am.getClass()
+                  .getMethod("forceStopPackage", String.class)
+                  .invoke(am, pkg);
+                Log.i(TAG, pkg + " process killed");
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to kill packages", e);
+        }
+    }
 
     private void updatePropertiesFromUrl(String urlString) {
         new Thread(() -> {
@@ -261,6 +297,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
                     mHandler.post(() -> {
                         String toastMessage = getString(R.string.toast_spoofing_success, spoofedModel);
                         Toast.makeText(getContext(), toastMessage, Toast.LENGTH_LONG).show();
+                        killGMSPackages();
                     });
 
                 } finally {
@@ -291,13 +328,13 @@ public class Spoofing extends SettingsPreferenceFragment implements
                     Log.d(TAG, "Setting PIF property: persist.sys.pihooks_" + key + " = " + value);
                     SystemProperties.set("persist.sys.pihooks_" + key, value);
                 }
+                killGMSPackages();
+                Toast.makeText(getContext(), "PIF JSON loaded and packages refreshed", Toast.LENGTH_SHORT).show();
             }
         } catch (Exception e) {
             Log.e(TAG, "Error reading PIF JSON or setting properties", e);
+            Toast.makeText(getContext(), "Error loading PIF JSON", Toast.LENGTH_SHORT).show();
         }
-        mHandler.postDelayed(() -> {
-            SystemRestartUtils.showSystemRestartDialog(getContext());
-        }, 1250);
     }
 
     @Override
@@ -305,11 +342,14 @@ public class Spoofing extends SettingsPreferenceFragment implements
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
         if (preference == mGmsSpoof
-            || preference == mGoogleSpoof
             || preference == mGphotosSpoof
-            || preference == mGamePropsSpoof
             || preference == mQsbSpoof
             || preference == mSnapSpoof) {
+            killGMSPackages();
+            return true;
+        }
+        if (preference == mGoogleSpoof
+            || preference == mGamePropsSpoof) {
             SystemRestartUtils.showSystemRestartDialog(getContext());
             return true;
         }
