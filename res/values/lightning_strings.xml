@@ -146,6 +146,9 @@
     <string name="monet_engine_wallpaper_color_summary">Wallpaper color selector</string>
     <string name="monet_engine_wallpaper_color_not_available">Not available</string>
 
+    <!-- Extras Settings -->
+    <string name="extras_title">Extra Settings</string>
+    <string name="extras_summary">Some extra settings</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Interface</string>
     <string name="lock_screen_charging_category">Charging</string>
