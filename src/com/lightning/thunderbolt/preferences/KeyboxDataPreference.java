@@ -1,4 +1,4 @@
-package org.lunaris.settings.preferences;
+package com.lightning.thunderbolt.preferences;
 
 import android.content.ContentResolver;
 import android.content.Context;

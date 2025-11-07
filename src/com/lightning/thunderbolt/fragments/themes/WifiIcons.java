@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lunaris.settings.fragments.themes;
+package com.lightning.thunderbolt.fragments.themes;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -36,7 +36,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.internal.util.lunaris.ThemeUtils;
+import com.android.internal.util.lightning.ThemeUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -91,7 +91,7 @@ public class WifiIcons extends SettingsPreferenceFragment {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LUNARIS;
+        return MetricsEvent.LIGHTNING;
     }
 
     public static class Adapter extends RecyclerView.Adapter<Adapter.CustomViewHolder> {

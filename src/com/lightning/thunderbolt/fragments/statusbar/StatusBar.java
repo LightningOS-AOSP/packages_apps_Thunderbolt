@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lunaris.settings.fragments.statusbar;
+package com.lightning.thunderbolt.fragments.statusbar;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -39,11 +39,11 @@ import java.util.List;
 
 import lineageos.preference.LineageSystemSettingListPreference;
 
-import org.lunaris.settings.preferences.SystemSettingListPreference;
-import org.lunaris.settings.preferences.SystemSettingSwitchPreference;
-import org.lunaris.settings.preferences.colorpicker.ColorPickerPreference;
-import org.lunaris.settings.utils.DeviceUtils;
-import org.lunaris.settings.utils.SystemUtils;
+import com.lightning.thunderbolt.preferences.SystemSettingListPreference;
+import com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference;
+import com.lightning.thunderbolt.preferences.colorpicker.ColorPickerPreference;
+import com.lightning.thunderbolt.utils.DeviceUtils;
+import com.lightning.thunderbolt.utils.SystemUtils;
 
 import com.android.internal.util.android.VibrationUtils;
 
@@ -80,7 +80,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.lunaris_settings_status_bar);
+        addPreferencesFromResource(R.xml.lightning_settings_status_bar);
 
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
@@ -196,7 +196,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LUNARIS;
+        return MetricsEvent.LIGHTNING;
     }
 
     @Override
@@ -208,7 +208,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        new BaseSearchIndexProvider(R.xml.lunaris_settings_status_bar) {
+        new BaseSearchIndexProvider(R.xml.lightning_settings_status_bar) {
 
             @Override
             public List<String> getNonIndexableKeys(Context context) {

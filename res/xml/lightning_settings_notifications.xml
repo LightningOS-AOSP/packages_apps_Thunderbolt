@@ -13,7 +13,7 @@
             android:key="island_notification"
             android:title="@string/notifications_island_notification_title"
             android:summary="@string/notifications_island_notification_summary"
-            android:fragment="org.lunaris.settings.fragments.notifications.IslandSettings" />
+            android:fragment="com.lightning.thunderbolt.fragments.notifications.IslandSettings" />
 
         <!-- Heads up -->
 

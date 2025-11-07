@@ -1,4 +1,4 @@
-package org.lunaris.settings.fragments.notifications
+package com.lightning.thunderbolt.fragments.notifications
 
 import android.content.Context
 import android.os.Bundle
@@ -26,7 +26,7 @@ class IslandSettings : SettingsPreferenceFragment() {
     }
 
     override fun getMetricsCategory(): Int {
-        return MetricsProto.MetricsEvent.LUNARIS
+        return MetricsProto.MetricsEvent.LIGHTNING
     }
 
     companion object {

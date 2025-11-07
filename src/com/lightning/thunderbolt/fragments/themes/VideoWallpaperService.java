@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024-2025 Lunaris AOSP
+ * Copyright (C) 2024-2025 LightningOS
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lunaris.settings.fragments.themes;
+package com.lightning.thunderbolt.fragments.themes;
 
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
@@ -26,7 +26,7 @@ import android.service.wallpaper.WallpaperService;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
-import org.lunaris.settings.utils.MediaUtils;
+import com.lightning.thunderbolt.utils.MediaUtils;
 
 import java.io.File;
 import java.io.IOException;

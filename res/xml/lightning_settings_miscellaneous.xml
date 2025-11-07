@@ -49,7 +49,7 @@
             android:key="performance"
             android:title="@string/performance_title"
             android:summary="@string/performance_summary"
-            android:fragment="org.lunaris.settings.fragments.miscellaneous.Performance" />
+            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.Performance" />
 
 
         <!-- QuickSwitch -->
@@ -62,7 +62,7 @@
             android:key="hide_applist_setting"
             android:title="@string/hide_applist_title"
             android:summary="@string/hide_applist_summary"
-            android:fragment="org.lunaris.settings.fragments.miscellaneous.HideAppListSettings" />
+            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.HideAppListSettings" />
 
        <Preference
 	        android:key="hide_developer_status_settings"
@@ -81,7 +81,7 @@
             android:fragment="com.android.settings.connecteddevice.usb.UsbDefaultFragment" />
 
         <!-- No storage restrict -->
-        <org.lunaris.settings.preferences.GlobalSettingSwitchPreference
+        <com.lightning.thunderbolt.preferences.GlobalSettingSwitchPreference
             android:key="no_storage_restrict"
             android:title="@string/lightning_no_storage_restrict_title"
             android:summary="@string/lightning_no_storage_restrict_summary"

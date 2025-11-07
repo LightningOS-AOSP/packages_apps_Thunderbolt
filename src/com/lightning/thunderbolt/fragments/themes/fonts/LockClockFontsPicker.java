@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lunaris.settings.fragments.themes.fonts;
+package com.lightning.thunderbolt.fragments.themes.fonts;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -38,8 +38,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.internal.util.lunaris.ThemeUtils;
-import org.lunaris.settings.utils.SystemRestartUtils;
+import com.android.internal.util.lightning.ThemeUtils;
+import com.lightning.thunderbolt.utils.SystemRestartUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -88,7 +88,7 @@ public class LockClockFontsPicker extends SettingsPreferenceFragment {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LUNARIS;
+        return MetricsEvent.LIGHTNING;
     }
 
     public static class Adapter extends RecyclerView.Adapter<Adapter.CustomViewHolder> {

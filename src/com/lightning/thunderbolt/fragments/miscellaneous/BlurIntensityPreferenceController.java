@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.lunaris.settings.fragments.miscellaneous;
+package com.lightning.thunderbolt.fragments.miscellaneous;
 
 import android.content.Context;
 import android.provider.Settings;

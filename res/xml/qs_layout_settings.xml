@@ -30,7 +30,7 @@
     <!-- Quick QS rows (portrait) -->
 
     <!-- Quick QS rows (landscape) -->
-    <!--<org.lunaris.settings.preferences.SystemSettingSeekBarPreference
+    <!--<com.lightning.thunderbolt.preferences.SystemSettingSeekBarPreference
         android:key="qqs_layout_rows_landscape"
         android:title="@string/quick_settings_qqs_rows_landscape_title"
         android:max="3"

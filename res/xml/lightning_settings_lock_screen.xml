@@ -14,19 +14,19 @@
             android:key="lock_glymps_settings"
             android:title="@string/lock_glymps_title"
             android:summary="@string/lock_glymps_enable_summary"
-            android:fragment="org.lunaris.settings.fragments.lockscreen.LockGlympsSettings" />
+            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.LockGlympsSettings" />
 
 
         <Preference
             android:key="edge_light_settings"
             android:title="@string/edge_light_title"
             android:summary="@string/edge_light_summary"
-            android:fragment="org.lunaris.settings.fragments.lockscreen.EdgeLightSettings" />
+            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.EdgeLightSettings" />
 
 
         <!-- Keyguard user switcher -->
 
-        <org.lunaris.settings.preferences.SystemSettingSwitchPreference
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_show_carrier"
             android:title="@string/status_bar_carrier_lock_screen_title"
             android:summary="@string/status_bar_carrier_lock_screen_summary"
@@ -46,7 +46,7 @@
             android:key="udfps_cust"
             android:title="@string/udfps_cust_title"
             android:summary="@string/udfps_cust_summary"
-            android:fragment="org.lunaris.settings.fragments.lockscreen.UdfpsCust" />
+            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.UdfpsCust" />
 
     </PreferenceCategory>
 
@@ -56,19 +56,19 @@
         android:key="lock_screen_fingerprint_category"
         android:title="@string/lock_screen_fingerprint_category">
 
-        <org.lunaris.settings.preferences.SystemSettingSwitchPreference
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="enable_ripple_effect"
             android:title="@string/lock_screen_fingerprint_ripple_title"
             android:summary="@string/lock_screen_fingerprint_ripple_summary"
             android:defaultValue="true" />
 
-        <org.lunaris.settings.preferences.SystemSettingSwitchPreference
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="fp_success_vibrate"
             android:title="@string/lock_screen_fingerprint_success_vibration_title"
             android:summary="@string/lock_screen_fingerprint_success_vibration_summary"
             android:defaultValue="true" />
 
-        <org.lunaris.settings.preferences.SystemSettingSwitchPreference
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="fp_error_vibrate"
             android:title="@string/lock_screen_fingerprint_error_vibration_title"
             android:summary="@string/lock_screen_fingerprint_error_vibration_summary"

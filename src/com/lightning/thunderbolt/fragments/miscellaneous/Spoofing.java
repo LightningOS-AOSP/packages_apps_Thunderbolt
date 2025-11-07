@@ -1,9 +1,9 @@
 /*
- * Copyright (C) 2024-2025 The Lunaris AOSP
+ * Copyright (C) 2024-2025 The LightningOS
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.lunaris.settings.fragments.miscellaneous;
+package com.lightning.thunderbolt.fragments.miscellaneous;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -57,9 +57,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.lunaris.settings.preferences.KeyboxDataPreference;
-import org.lunaris.settings.preferences.SystemPropertySwitchPreference;
-import org.lunaris.settings.utils.DeviceUtils;
+import com.lightning.thunderbolt.preferences.KeyboxDataPreference;
+import com.lightning.thunderbolt.preferences.SystemPropertySwitchPreference;
+import com.lightning.thunderbolt.utils.DeviceUtils;
 
 import com.android.internal.util.android.VibrationUtils;
 
@@ -190,7 +190,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         }
 
         mUpdateJsonButton.setOnPreferenceClickListener(preference -> {
-            updatePropertiesFromUrl("https://raw.githubusercontent.com/Lunaris-CLO/vendor_certification/refs/heads/15/gms_certified_props.json");
+            updatePropertiesFromUrl("https://raw.githubusercontent.com/Project-LightningOS/vendor_Spoofing/refs/heads/15/PlayIntergrity/pif.json");
             return true;
         });
 
@@ -474,7 +474,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LUNARIS;
+        return MetricsEvent.LIGHTNING;
     }
 
     @Override

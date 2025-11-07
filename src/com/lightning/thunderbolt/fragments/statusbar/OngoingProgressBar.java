@@ -1,4 +1,4 @@
-package org.lunaris.settings.fragments.statusbar;
+package com.lightning.thunderbolt.fragments.statusbar;
 
 import android.content.Context;
 import android.os.Bundle;

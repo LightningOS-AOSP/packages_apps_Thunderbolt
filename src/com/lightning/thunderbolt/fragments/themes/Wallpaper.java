@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lunaris.settings.fragments.themes;
+package com.lightning.thunderbolt.fragments.themes;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -26,8 +26,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
-import org.lunaris.settings.preferences.CustomSeekBarPreference;
-import org.lunaris.settings.utils.SystemUtils;
+import com.lightning.thunderbolt.preferences.CustomSeekBarPreference;
+import com.lightning.thunderbolt.utils.SystemUtils;
 
 import java.util.List;
 

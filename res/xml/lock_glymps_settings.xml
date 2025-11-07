@@ -4,7 +4,7 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/lock_glymps_title">
 
-    <org.lunaris.settings.preferences.SystemSettingSwitchPreference
+    <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
         android:key="lock_glymps_enabled"
         android:title="@string/lock_glymps_enable_title"
         android:summary="@string/lock_glymps_enable_summary"
@@ -14,7 +14,7 @@
         android:title="@string/lock_glymps_source_category"
         android:dependency="lock_glymps_enabled">
 
-        <org.lunaris.settings.preferences.SystemSettingListPreference
+        <com.lightning.thunderbolt.preferences.SystemSettingListPreference
             android:key="lock_glymps_source"
             android:title="@string/lock_glymps_source_title"
             android:summary="@string/lock_glymps_source_summary"
@@ -40,7 +40,7 @@
         android:title="@string/lock_glymps_behavior_category"
         android:dependency="lock_glymps_enabled">
 
-        <org.lunaris.settings.preferences.SystemSettingListPreference
+        <com.lightning.thunderbolt.preferences.SystemSettingListPreference
             android:key="lock_glymps_change_on"
             android:title="@string/lock_glymps_change_on_title"
             android:summary="@string/lock_glymps_change_on_summary"
@@ -54,13 +54,13 @@
         android:title="@string/lock_glymps_download_category"
         android:dependency="lock_glymps_enabled">
 
-        <org.lunaris.settings.preferences.SystemSettingSwitchPreference
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="lock_glymps_wifi_only"
             android:title="@string/lock_glymps_wifi_only_title"
             android:summary="@string/lock_glymps_wifi_only_summary"
             android:defaultValue="true" />
 
-        <org.lunaris.settings.preferences.SystemSettingListPreference
+        <com.lightning.thunderbolt.preferences.SystemSettingListPreference
             android:key="lock_glymps_cache_size"
             android:title="@string/lock_glymps_cache_size_title"
             android:summary="@string/lock_glymps_cache_size_summary"

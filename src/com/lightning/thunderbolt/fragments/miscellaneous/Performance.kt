@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lunaris.settings.fragments.miscellaneous
+package com.lightning.thunderbolt.fragments.miscellaneous
 
 import android.os.Bundle
 import android.os.SystemProperties
@@ -21,7 +21,7 @@ import android.view.View
 import androidx.preference.PreferenceCategory
 import com.android.settings.R
 import com.android.settings.preferences.BasePreferenceFragment
-import org.lunaris.settings.preferences.SecureSettingSeekBarPreference
+import com.lightning.thunderbolt.preferences.SecureSettingSeekBarPreference
 
 class Performance : BasePreferenceFragment(R.xml.performance) {
 

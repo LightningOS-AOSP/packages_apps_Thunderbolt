@@ -28,7 +28,7 @@
         android:entryValues="@array/status_bar_clock_position_values"
         android:defaultValue="2" />
 
-    <org.lunaris.settings.preferences.SystemSettingSwitchPreference
+    <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
         android:key="status_bar_clock_auto_hide"
         android:title="@string/status_bar_clock_auto_hide_intervals_title"
         android:summary="@string/status_bar_clock_auto_hide_intervals_summary"
@@ -39,7 +39,7 @@
 
 
 
-    <org.lunaris.settings.preferences.SystemSettingListPreference
+    <com.lightning.thunderbolt.preferences.SystemSettingListPreference
         android:key="statusbar_clock_chip"
         android:title="@string/statusbar_clock_chip_title"
         android:entries="@array/statusbar_clock_chip_entries"
@@ -56,21 +56,21 @@
         android:entryValues="@array/status_bar_am_pm_values"
         android:defaultValue="2" />
 
-    <org.lunaris.settings.preferences.SystemSettingListPreference
+    <com.lightning.thunderbolt.preferences.SystemSettingListPreference
         android:key="status_bar_clock_date_display"
         android:title="@string/status_bar_date_title"
         android:entries="@array/status_bar_date_entries"
         android:entryValues="@array/status_bar_date_values"
         android:defaultValue="0" />
 
-    <org.lunaris.settings.preferences.SystemSettingListPreference
+    <com.lightning.thunderbolt.preferences.SystemSettingListPreference
         android:key="status_bar_clock_date_position"
         android:title="@string/status_bar_clock_date_position"
         android:entries="@array/clock_date_position_entries"
         android:entryValues="@array/clock_date_position_values"
         android:defaultValue="0" />
 
-    <org.lunaris.settings.preferences.SystemSettingListPreference
+    <com.lightning.thunderbolt.preferences.SystemSettingListPreference
         android:key="status_bar_clock_date_style"
         android:title="@string/status_bar_date_style"
         android:entries="@array/status_bar_date_style_entries"

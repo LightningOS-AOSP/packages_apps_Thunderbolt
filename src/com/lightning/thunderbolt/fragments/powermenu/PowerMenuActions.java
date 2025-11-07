@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lunaris.settings.fragments.powermenu;
+package com.lightning.thunderbolt.fragments.powermenu;
 
 import android.Manifest;
 import android.content.Context;
@@ -42,7 +42,7 @@ import com.android.settingslib.applications.ServiceListing;
 
 import com.android.settings.R;
 
-import org.lunaris.settings.utils.TelephonyUtils;
+import com.lightning.thunderbolt.utils.TelephonyUtils;
 
 import com.android.internal.util.android.VibrationUtils;
 
@@ -212,6 +212,6 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.LUNARIS;
+        return MetricsProto.MetricsEvent.LIGHTNING;
     }
 }

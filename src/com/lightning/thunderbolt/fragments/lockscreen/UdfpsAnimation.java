@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lunaris.settings.fragments.lockscreen;
+package com.lightning.thunderbolt.fragments.lockscreen;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -53,7 +53,7 @@ import java.util.Arrays;
 public class UdfpsAnimation extends SettingsPreferenceFragment {
 
     private RecyclerView mRecyclerView;
-    private String mPkg = "com.lunaris.udfps.animations";
+    private String mPkg = "com.mist.udfps.animations";
     private AnimationDrawable animation;
 
     private Resources udfpsRes;
@@ -111,7 +111,7 @@ public class UdfpsAnimation extends SettingsPreferenceFragment {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LUNARIS;
+        return MetricsEvent.LIGHTNING;
     }
 
     public class UdfpsAnimAdapter extends RecyclerView.Adapter<UdfpsAnimAdapter.UdfpsAnimViewHolder> {

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lunaris.settings.fragments.quicksettings;
+package com.lightning.thunderbolt.fragments.quicksettings;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -46,7 +46,7 @@ public class LayoutSettings extends SettingsPreferenceFragment {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.LUNARIS;
+        return MetricsProto.MetricsEvent.LIGHTNING;
     }
 
     @Override

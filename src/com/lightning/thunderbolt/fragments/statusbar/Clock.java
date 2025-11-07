@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lunaris.settings.fragments.statusbar;
+package com.lightning.thunderbolt.fragments.statusbar;
 
 import android.app.AlertDialog;
 import android.content.ContentResolver;
@@ -46,9 +46,9 @@ import java.util.List;
 import lineageos.preference.LineageSystemSettingListPreference;
 import lineageos.providers.LineageSettings;
 
-import org.lunaris.settings.preferences.CustomSeekBarPreference;
-import org.lunaris.settings.preferences.SystemSettingListPreference;
-import org.lunaris.settings.utils.DeviceUtils;
+import com.lightning.thunderbolt.preferences.CustomSeekBarPreference;
+import com.lightning.thunderbolt.preferences.SystemSettingListPreference;
+import com.lightning.thunderbolt.utils.DeviceUtils;
 
 import com.android.internal.util.android.VibrationUtils;
 
@@ -235,7 +235,7 @@ public class Clock extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LUNARIS;
+        return MetricsEvent.LIGHTNING;
     }
 
     @Override

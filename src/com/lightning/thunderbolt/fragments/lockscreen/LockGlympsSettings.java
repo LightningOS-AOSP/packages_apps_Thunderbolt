@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024-2025 Lunaris AOSP
+ * Copyright (C) 2024-2025 LightningOS
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lunaris.settings.fragments.lockscreen;
+package com.lightning.thunderbolt.fragments.lockscreen;
 
 import android.content.Context;
 import android.content.Intent;
@@ -27,8 +27,8 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 
-import org.lunaris.settings.preferences.SystemSettingListPreference;
-import org.lunaris.settings.preferences.SystemSettingSwitchPreference;
+import com.lightning.thunderbolt.preferences.SystemSettingListPreference;
+import com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -51,7 +51,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private static final String KEY_CLEAR_CACHE = "lock_glymps_clear_cache";
     private static final String KEY_FOLDER_INFO = "lock_glymps_folder_info";
     
-    private static final String STORAGE_FOLDER = "LunarisGlymps";
+    private static final String STORAGE_FOLDER = "MistGlymps";
     
     private SystemSettingSwitchPreference mEnablePreference;
     private SystemSettingListPreference mSourcePreference;
@@ -332,7 +332,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.LUNARIS;
+        return MetricsProto.MetricsEvent.LIGHTNING;
     }
 
     @Override

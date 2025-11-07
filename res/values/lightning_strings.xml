@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2016-2024 crDroid Android Project
-     Copyright (C) 2023-2025 Lunaris OS Android Project
+     Copyright (C) 2023-2025 LightningOS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Singularity -->
-    <string name="lunaris_dashboard_title">Singularity</string>
-    <string name="lunaris_dashboard_summary">Explore infinity</string>
+    <!-- Lightning -->
+    <string name="lightning_dashboard_title">Lightning Tweek</string>
+    <string name="lightning_dashboard_summary">Magic Happen Here!!</string>
 
     <!-- Categories -->
     <string name="themes_title">User Interface</string>
@@ -1074,7 +1074,7 @@
     <string name="quickswitch_not_supported">QuickSwitch is not supported; the system only has one launcher.</string>
     <string name="quickswitch_footer_text">
         Notes: \n\n
-        1. Due to compatibility issues with current Android API, the Lawnchair Launcher uses the LightningOS Launcher recents overview and will override any third-party launchers when set as the active QuickSwitch launcher. For better compatibility with third-party launchers, consider setting the QuickSwitch launcher to LightningOS or Pixel Launcher instead.\n\n
+        1. Due to compatibility issues with current Android API, the Lawnchair Launcher uses the Mist Launcher recents overview and will override any third-party launchers when set as the active QuickSwitch launcher. For better compatibility with third-party launchers, consider setting the QuickSwitch launcher to Mist or Pixel Launcher instead.\n\n
         2. External launcher modules/modifications must be adapted to the QuickSwitch structure to function properly.
     </string>
 
@@ -1308,7 +1308,7 @@
     <string name="video_wallpaper_tips_summary">• Videos are muted automatically\n• Lower resolution videos use less battery\n• Shorter loops are recommended for better performance\n• If videos wallpaper doesnt load select live wallpaper from Wallpaper and style after selecting video wallpaper\n• You have to reapply live wallpaper after restart device</string>
 
     <string name="video_wallpaper_description">Animated video and GIF wallpaper</string>
-    <string name="lunaris_os">GHOST</string>
+    <string name="lightning_os">LightningOS !!</string>
 
     <!-- Video Wallpaper Strings -->
     <string name="video_wallpaper_cleared">Video wallpaper cleared</string>
@@ -1356,7 +1356,7 @@
     
     <!-- Footer -->
     <string name="lock_glymps_footer_title">Important Information</string>
-    <string name="lock_glymps_footer_text">📁 Local folder: /sdcard/LightningOSGlymps\n\n⚠️ Low-end devices may experience slight lag\n\n🎨 Tip: Use Custom Accent in Monet Settings for stable colors</string>
+    <string name="lock_glymps_footer_text">📁 Local folder: /sdcard/LightningGlymps\n\n⚠️ Low-end devices may experience slight lag\n\n🎨 Tip: Use Custom Accent in Monet Settings for stable colors</string>
    
     <!-- Blur intensity -->
     <string name="blur_intensity_title">Blur intensity</string>

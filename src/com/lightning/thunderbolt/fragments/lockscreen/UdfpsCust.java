@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024-2025 Lunaris AOSP
+ * Copyright (C) 2024-2025 LightningOS
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lunaris.settings.fragments.lockscreen;
+package com.lightning.thunderbolt.fragments.lockscreen;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -36,7 +36,7 @@ import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-import org.lunaris.settings.utils.UDFPSUtils;
+import com.lightning.thunderbolt.utils.UDFPSUtils;
 import com.android.internal.util.android.VibrationUtils;
 
 import java.io.File;
@@ -61,7 +61,7 @@ public class UdfpsCust extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.lunaris_settings_udfps_custom);
+        addPreferencesFromResource(R.xml.lightning_settings_udfps_custom);
 
         final ContentResolver resolver = getActivity().getContentResolver();
         initUdfpsIconPicker(resolver);
@@ -200,6 +200,6 @@ public class UdfpsCust extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.LUNARIS;
+        return MetricsProto.MetricsEvent.LIGHTNING;
     }
 }

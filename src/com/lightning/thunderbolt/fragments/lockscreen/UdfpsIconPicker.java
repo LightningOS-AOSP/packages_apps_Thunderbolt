@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lunaris.settings.fragments.lockscreen;
+package com.lightning.thunderbolt.fragments.lockscreen;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -71,7 +71,7 @@ public class UdfpsIconPicker extends SettingsPreferenceFragment {
 
     private Resources udfpsRes;
 
-    private String mPkg = "com.lunaris.udfps.icons";
+    private String mPkg = "com.mist.udfps.icons";
 
     private String[] mIcons;
 
@@ -118,7 +118,7 @@ public class UdfpsIconPicker extends SettingsPreferenceFragment {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LUNARIS;
+        return MetricsEvent.LIGHTNING;
     }
 
     @Override

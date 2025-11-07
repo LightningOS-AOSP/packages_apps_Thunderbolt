@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lunaris.settings.fragments.lockscreen;
+package com.lightning.thunderbolt.fragments.lockscreen;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -42,7 +42,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
-import org.lunaris.settings.utils.SystemUtils;
+import com.lightning.thunderbolt.utils.SystemUtils;
 
 import java.util.List;
 
@@ -57,7 +57,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String KEY_KG_USER_SWITCHER= "kg_user_switcher_enabled";
     private static final String KEY_DOZE_ANIMATION = "screen_animation_enabled";
     private static final String CATEGORY_UDFPS_CUSTOM = "lockscreen_custom_category";
-    private static final String PROP_CUSTOM_UDFPS = "lunaris_udfps_custom";
+    private static final String PROP_CUSTOM_UDFPS = "lightning_udfps_custom";
 
     private Preference mUserSwitcher;
     private Preference mDozeAnimation;
@@ -66,7 +66,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.lunaris_settings_lock_screen);
+        addPreferencesFromResource(R.xml.lightning_settings_lock_screen);
 
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
@@ -101,7 +101,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LUNARIS;
+        return MetricsEvent.LIGHTNING;
     }
 
     @Override
@@ -113,7 +113,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        new BaseSearchIndexProvider(R.xml.lunaris_settings_lock_screen) {
+        new BaseSearchIndexProvider(R.xml.lightning_settings_lock_screen) {
 
             @Override
             public List<String> getNonIndexableKeys(Context context) {

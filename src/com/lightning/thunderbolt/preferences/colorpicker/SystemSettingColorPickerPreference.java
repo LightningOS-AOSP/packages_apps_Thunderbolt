@@ -3,14 +3,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.lunaris.settings.preferences.colorpicker;
+package com.lightning.thunderbolt.preferences.colorpicker;
 
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.provider.Settings;
 
-import org.lunaris.settings.preferences.SystemSettingsStore;
+import com.lightning.thunderbolt.preferences.SystemSettingsStore;
 
 public class SystemSettingColorPickerPreference extends ColorPickerPreference {
 

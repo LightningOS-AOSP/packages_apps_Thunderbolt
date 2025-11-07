@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024-2025 Lunaris AOSP
+ * Copyright (C) 2024-2025 LightningOS
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lunaris.settings.fragments.themes;
+package com.lightning.thunderbolt.fragments.themes;
 
 import android.app.Activity;
 import android.app.WallpaperManager;
@@ -39,7 +39,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
-import org.lunaris.settings.utils.MediaUtils;
+import com.lightning.thunderbolt.utils.MediaUtils;
 
 import java.io.File;
 import java.util.List;
@@ -317,7 +317,7 @@ public class VideoWallpaperFragment extends SettingsPreferenceFragment
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LUNARIS;
+        return MetricsEvent.LIGHTNING;
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =

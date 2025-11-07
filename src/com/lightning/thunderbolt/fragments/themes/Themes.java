@@ -1,5 +1,4 @@
 /*
- * Copyright (C) 2024-2025 Lunaris AOSP
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lunaris.settings.fragments.themes;
+package com.lightning.thunderbolt.fragments.themes;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -34,7 +33,7 @@ import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.util.android.ThemeUtils;
-import com.android.internal.util.lunaris.Utils;
+import com.android.internal.util.lightning.Utils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -42,15 +41,15 @@ import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
 
-import org.lunaris.settings.preferences.GlobalSettingListPreference;
-import org.lunaris.settings.preferences.SystemSettingListPreference;
+import com.lightning.thunderbolt.preferences.GlobalSettingListPreference;
+import com.lightning.thunderbolt.preferences.SystemSettingListPreference;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 
-import org.lunaris.settings.utils.DeviceUtils;
-import org.lunaris.settings.utils.SystemRestartUtils;
-import org.lunaris.settings.utils.SystemUtils;
-import org.lunaris.settings.utils.ExternalFontInstaller;
+import com.lightning.thunderbolt.utils.DeviceUtils;
+import com.lightning.thunderbolt.utils.SystemRestartUtils;
+import com.lightning.thunderbolt.utils.SystemUtils;
+import com.lightning.thunderbolt.utils.ExternalFontInstaller;
 
 import com.android.internal.util.android.VibrationUtils;
 
@@ -97,7 +96,7 @@ public class Themes extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.lunaris_settings_themes);
+        addPreferencesFromResource(R.xml.lightning_settings_themes);
         mThemeUtils = ThemeUtils.getInstance(getActivity());
         mFontInstaller = new ExternalFontInstaller(getActivity());
 
@@ -327,11 +326,11 @@ public class Themes extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LUNARIS;
+        return MetricsEvent.LIGHTNING;
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        new BaseSearchIndexProvider(R.xml.lunaris_settings_themes) {
+        new BaseSearchIndexProvider(R.xml.lightning_settings_themes) {
 
             @Override
             public List<String> getNonIndexableKeys(Context context) {

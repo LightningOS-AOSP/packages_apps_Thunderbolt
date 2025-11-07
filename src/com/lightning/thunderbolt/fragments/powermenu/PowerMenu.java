@@ -1,10 +1,9 @@
 /*
  * Copyright (C) 2019-2024 The Evolution X Project
- * Copyright (C) 2024-2025 Lunaris OS
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.lunaris.settings.fragments.powermenu;
+package com.lightning.thunderbolt.fragments.powermenu;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -35,7 +34,7 @@ public class PowerMenu extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.lunaris_settings_power_menu);
+        addPreferencesFromResource(R.xml.lightning_settings_power_menu);
 
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
@@ -52,7 +51,7 @@ public class PowerMenu extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LUNARIS;
+        return MetricsEvent.LIGHTNING;
     }
 
     @Override
@@ -64,7 +63,7 @@ public class PowerMenu extends SettingsPreferenceFragment implements
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        new BaseSearchIndexProvider(R.xml.lunaris_settings_power_menu) {
+        new BaseSearchIndexProvider(R.xml.lightning_settings_power_menu) {
 
             @Override
             public List<String> getNonIndexableKeys(Context context) {

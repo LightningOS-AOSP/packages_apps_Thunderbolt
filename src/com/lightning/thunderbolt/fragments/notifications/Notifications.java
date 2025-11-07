@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lunaris.settings.fragments.notifications;
+package com.lightning.thunderbolt.fragments.notifications;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -35,7 +35,7 @@ import com.android.settingslib.search.SearchIndexable;
 
 import com.android.internal.util.android.VibrationUtils;
 
-import org.lunaris.settings.preferences.SystemSettingSwitchPreference;
+import com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference;
 
 import java.util.List;
 
@@ -54,7 +54,7 @@ public class Notifications extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.lunaris_settings_notifications);
+        addPreferencesFromResource(R.xml.lightning_settings_notifications);
 
         final Context mContext = getActivity().getApplicationContext();
         final ContentResolver resolver = mContext.getContentResolver();
@@ -79,7 +79,7 @@ public class Notifications extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LUNARIS;
+        return MetricsEvent.LIGHTNING;
     }
 
     @Override
@@ -91,7 +91,7 @@ public class Notifications extends SettingsPreferenceFragment implements
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.lunaris_settings_notifications) {
+            new BaseSearchIndexProvider(R.xml.lightning_settings_notifications) {
 
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
