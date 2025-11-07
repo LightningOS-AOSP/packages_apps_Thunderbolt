@@ -31,6 +31,13 @@
         <!-- QuickSwitch -->
  
 
+        <!-- USB configuration -->
+        <Preference
+            android:key="default_usb_configuration"
+            android:title="@string/usb_default_config_title"
+            android:summary="@string/usb_default_config_summary"
+            android:fragment="com.android.settings.connecteddevice.usb.UsbDefaultFragment" />
+
 
 
         <!-- Rotation button -->
