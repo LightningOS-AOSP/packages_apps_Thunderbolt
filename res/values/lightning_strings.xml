@@ -149,6 +149,9 @@
     <!-- Extras Settings -->
     <string name="extras_title">Extra Settings</string>
     <string name="extras_summary">Some extra settings</string>
+    <string name="extras_settings_title">Extras</string>
+    
+
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Interface</string>
     <string name="lock_screen_charging_category">Charging</string>

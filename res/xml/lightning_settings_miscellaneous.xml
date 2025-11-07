@@ -6,18 +6,6 @@
     android:title="@string/miscellaneous_title">
 
     <PreferenceCategory
-        android:key="haptics_settings_category"
-        android:title="@string/haptics_settings_title">
-
-        <Preference
-            android:key="haptics_settings"
-            android:title="@string/haptics_settings_title"
-            android:summary="@string/haptics_settings_summary"
-            android:fragment="com.android.settings.sound.HapticsPreferenceFragment"/>
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
           android:title="OmniJaw Weather">
 
         <Preference
@@ -50,11 +38,6 @@
             android:title="@string/performance_title"
             android:summary="@string/performance_summary"
             android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.Performance" />
-
-
-        <!-- QuickSwitch -->
- 
-
 
 
         <!-- Hide applist -->
