@@ -36,7 +36,7 @@
     <string name="power_menu_summary">Power menu Settings</string>
     <string name="buttons_title">Buttons</string>
     <string name="buttons_summary">System button, volume buttons etc</string>
-    <string name="miscellaneous_title">System</string>
+    <string name="miscellaneous_title">Miscellaneous</string>
     <string name="miscellaneous_summary">Some extra system settings</string>
 
     <!-- Themes -->
@@ -278,6 +278,7 @@
     <string name="status_bar_logo_position_left">Left side</string>
     <string name="status_bar_logo_position_right">Right side</string>
     <string name="status_bar_logo_style_title">Logo style</string>
+    <string name="status_bar_logo_style_lightning">LightningOS</string>
     <string name="status_bar_logo_style_android">Android</string>
     <string name="status_bar_logo_style_adidas">Adidas</string>
     <string name="status_bar_logo_style_alien">Alien</string>
