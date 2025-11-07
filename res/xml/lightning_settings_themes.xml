@@ -99,7 +99,6 @@
 
 
 
-        
     <PreferenceCategory
         android:key="themes_launcher_category"
         android:title="@string/themes_launcher_category">

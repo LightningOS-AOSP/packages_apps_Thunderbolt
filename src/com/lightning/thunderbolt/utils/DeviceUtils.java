@@ -1,8 +1,3 @@
-/*
- * SPDX-FileCopyrightText: 2016 The CyanogenMod project
- * SPDX-FileCopyrightText: 2017-2023 The LineageOS project
- * SPDX-License-Identifier: Apache-2.0
- */
 package com.lightning.thunderbolt.utils;
 
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_2BUTTON;
@@ -283,5 +278,10 @@ public class DeviceUtils {
     public static boolean isEdgeToEdgeEnabled(Context context) {
         return NAV_BAR_MODE_GESTURAL == context.getResources().getInteger(
                 com.android.internal.R.integer.config_navBarInteractionMode);
+    }
+
+    public static boolean isCurrentlySupportedPixel() {
+        boolean isPixelDevice = SystemProperties.get("ro.product.model").matches("Pixel (3|4|5|6|7|8|9|10)[a-zA-Z ]*");
+        return isPixelDevice;
     }
 }

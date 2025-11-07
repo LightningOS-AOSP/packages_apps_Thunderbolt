@@ -1,4 +1,41 @@
-<PreferenceCategory
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2024 LightningOS
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/lightning_dashboard_title">
+
+   <!--<PreferenceCategory
+        android:key="top_level_thunderbolt_ui"
+        android:layout="@layout/settingslib_preference_category_no_title">
+
+    <Preference
+        android:key="styles"
+        android:title="@string/settings_styles"
+        android:summary="@string/settings_summary"
+        android:icon="@drawable/ic_home"
+        android:fragment="com.lightning.thunderbolt.fragments.UserInterface" />
+
+    </PreferenceCategory> -->
+
+    <PreferenceCategory
+        android:key="top_level_personalize_monet"
+        android:layout="@layout/settingslib_preference_category_no_title">
+    
+    <Preference
+            android:key="monet_engine"
+            android:title="@string/themes_monet_title"
+            android:icon="@drawable/ic_homepage_monet"
+            android:summary="@string/themes_monet_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.MonetSettings" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="top_level_personalize_themes"
         android:layout="@layout/settingslib_preference_category_no_title">
 

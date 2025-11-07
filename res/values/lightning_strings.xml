@@ -22,7 +22,7 @@
     <string name="lightning_dashboard_summary">Magic Happen Here!!</string>
 
     <!-- Categories -->
-    <string name="themes_title">User Interface</string>
+    <string name="themes_title">Themes</string>
     <string name="themes_summary">UI Changes and customization</string>
     <string name="lock_screen_title">Lock screen</string>
     <string name="lock_screen_summary">Lock screen interface</string>
@@ -585,7 +585,7 @@
     <string name="smart_pixels_shift_summary">Prevents burn-in on OLED devices by shifting pixels every so often</string>
 
     <!-- Miscellaneous/Spoofing -->
-    <string name="spoofing_title">Spoofing Settings</string>
+    <string name="spoofing_title">Spoofing</string>
     <string name="spoofing_summary">Device spoofing and misc.</string>
     <string name="spoofing_system_wide_category">System-Wide</string>
     <string name="spoofing_pixel_props_title">Pixel props</string>
