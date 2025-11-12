@@ -148,7 +148,7 @@
             android:key="donation"
             android:title="@string/about_title"
             android:summary="@string/about_summary"
-            android:icon="@drawable/ic_homepage_about"
+            android:icon="@drawable/ic_homepage_abouts"
             android:fragment="com.lightning.thunderbolt.fragments.about.About"/>
 
     </PreferenceCategory>
