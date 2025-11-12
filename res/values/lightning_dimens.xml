@@ -9,4 +9,8 @@
     <!-- Oval preview size -->
     <dimen name="oval_notification_size">26dp</dimen>
     <dimen name="color_picker_preview_height">48dp</dimen>
+
+    <dimen name="logo_horizontal_margin">24dp</dimen>
+    <dimen name="logo_vertical_margin">24dp</dimen>
+    <dimen name="logo_height">150dp</dimen>
 </resources>

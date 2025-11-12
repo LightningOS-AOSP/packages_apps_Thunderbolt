@@ -1434,6 +1434,36 @@
     <string name="media_controls_always_show_time_summary">Always show passed and total time on media player</string>
 
     <!-- Doze screen state fix -->
-<string name="doze_screen_state_fix_title">Doze screen state</string>
-<string name="doze_screen_state_fix_summary">Apply screen state fix after unlock animation ends in AOD</string>
+    <string name="doze_screen_state_fix_title">Doze screen state</string>
+    <string name="doze_screen_state_fix_summary">Apply screen state fix after unlock animation ends in AOD</string>
+
+    <!-- Donation Activity -->
+    <string name="mistos_donate_title">Support Mist OS</string>
+    <string name="mistos_donate_message">Mist OS is developed by passionate developers in their free time. Your donations help us keep the project alive and thriving. Every contribution matters!</string>
+    <string name="mistos_donate_button">Donate Now</string>
+    <string name="mistos_later_button">Maybe Later</string>
+    
+    <!-- Donation Methods -->
+    <string name="mistos_donate_choose_method">Choose Payment Method</string>
+    <string name="mistos_donate_choose_description">Please select your preferred donation method:</string>
+    <string name="mistos_donate_upi">UPI (India)</string>
+    <string name="mistos_donate_paypal">PayPal (International)</string>
+    
+    <!-- UPI Strings -->
+    <string name="mistos_donate_no_upi_app">No UPI App Found</string>
+    <string name="mistos_donate_copy_upi_id">No UPI app installed on your device. You can copy the UPI ID and use it in your preferred payment app.\n\nUPI ID: %s</string>
+    <string name="mistos_donate_copy">Copy UPI ID</string>
+    <string name="mistos_donate_upi_copied">UPI ID copied to clipboard</string>
+    
+    <!-- PayPal Strings -->
+    <string name="mistos_donate_no_paypal_app">No PayPal App Found</string>
+    <string name="mistos_donate_paypal_options">PayPal app is not installed. You can open PayPal in your browser or copy the email address.\n\nPayPal Email: %s</string>
+    <string name="mistos_donate_open_browser">Open in Browser</string>
+    <string name="mistos_donate_copy_email">Copy Email</string>
+    <string name="mistos_donate_email_copied">PayPal email copied to clipboard</string>
+    
+    <!-- Notification -->
+    <string name="mistos_donate_notification_text">Consider supporting Mist OS development</string>
+    <string name="mistos_channel_name">Donation Reminders</string>
+    <string name="mistos_channel_desc">Monthly reminders to support Mist OS project</string>    
 </resources>
