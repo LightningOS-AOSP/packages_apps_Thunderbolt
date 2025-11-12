@@ -1469,4 +1469,8 @@
     <string name="mistos_donate_notification_text">Consider supporting Mist OS development</string>
     <string name="mistos_channel_name">Donation Reminders</string>
     <string name="mistos_channel_desc">Monthly reminders to support Mist OS project</string>    
+
+    <!-- QS Media Player Compact-->
+    <string name="qs_media_always_show_title">Always show media player</string>
+    <string name="qs_media_always_show_summary">Display media player in Quick Settings even when no media is playing</string>
 </resources>
