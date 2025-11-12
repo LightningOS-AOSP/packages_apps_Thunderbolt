@@ -1475,7 +1475,11 @@
     <string name="qs_media_always_show_title">Always show media player</string>
     <string name="qs_media_always_show_summary">Display media player in Quick Settings even when no media is playing</string>
 
-    <!-- chinese lunar calendar -->
-    <string name="qs_show_lunar_calendar_title">Chinese Lunar Calendar</string>
-    <string name="qs_show_lunar_calendar_summary">Show lunar calendar in Quick Settings</string>
+    <!-- calendar type -->
+    <string name="qs_calendar_type_title">Calendar type</string>
+    <string name="qs_calendar_type_summary">Choose calendar display in Quick Settings</string>
+    <string name="qs_calendar_type_default">Default (Gregorian)</string>
+    <string name="qs_calendar_type_bangabda">Bangabda (Indian)</string>
+    <string name="qs_calendar_type_lunar">Lunar (Chinese)</string>
+    <string name="qs_calendar_type_saka">Saka (Indian)</string>
 </resources>
