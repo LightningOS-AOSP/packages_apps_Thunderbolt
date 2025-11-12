@@ -1441,6 +1441,10 @@
     <string name="doze_screen_state_fix_title">Doze screen state</string>
     <string name="doze_screen_state_fix_summary">Apply screen state fix after unlock animation ends in AOD</string>
 
+    <!-- About your rom -->
+    <string name="about_title">About Rom</string>
+    <string name="about_summary">Know more about LightningOS !!</string>
+
     <!-- Donation Activity -->
     <string name="mistos_donate_title">Support Mist OS</string>
     <string name="mistos_donate_message">Mist OS is developed by passionate developers in their free time. Your donations help us keep the project alive and thriving. Every contribution matters!</string>
@@ -1449,9 +1453,9 @@
     
     <!-- Donation Methods -->
     <string name="mistos_donate_choose_method">Choose Payment Method</string>
-    <string name="mistos_donate_choose_description">Please select your preferred donation method:</string>
-    <string name="mistos_donate_upi">UPI (India)</string>
-    <string name="mistos_donate_paypal">PayPal (International)</string>
+    <string name="mistos_donate_upi">UPI</string>
+    <string name="mistos_donate_paypal">PayPal</string>
+    <string name="mistos_donate_choose_upi_app">Choose UPI App</string>
     
     <!-- UPI Strings -->
     <string name="mistos_donate_no_upi_app">No UPI App Found</string>

@@ -1,7 +1,6 @@
 /*
  * SPDX-License-Identifier: Apache-2.0
  */
-
 package com.lightning.thunderbolt.fragments.about;
 
 import android.app.AlertDialog;
@@ -13,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +29,7 @@ public class DonateActivity extends AppCompatActivity {
 
     private static final String UPI_ID = "zabukazuzu@ybl";
     private static final String UPI_NAME = "Mist OS";
+    
     private static final String PAYPAL_EMAIL = "zabukazuzu@gmail.com";
     private static final String PAYPAL_URL = "https://paypal.me/ShukakuZa?country.x=IN&locale.x=en_GB";
 
@@ -54,24 +55,29 @@ public class DonateActivity extends AppCompatActivity {
 
     private void showDonateOptions() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.mistos_donate_choose_method);
-        builder.setMessage(R.string.mistos_donate_choose_description);
         
-        String[] options = {
-            getString(R.string.mistos_donate_upi),
-            getString(R.string.mistos_donate_paypal)
-        };
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_donate_options, null);
+        builder.setView(dialogView);
         
-        builder.setItems(options, (dialog, which) -> {
-            if (which == 0) {
-                openUpiPayment();
-            } else {
-                openPayPalPayment();
-            }
+        AlertDialog dialog = builder.create();
+        
+        Button btnUpi = dialogView.findViewById(R.id.btn_upi);
+        Button btnPaypal = dialogView.findViewById(R.id.btn_paypal);
+        Button btnCancel = dialogView.findViewById(R.id.btn_cancel);
+        
+        btnUpi.setOnClickListener(v -> {
+            dialog.dismiss();
+            openUpiPayment();
         });
         
-        builder.setNegativeButton(android.R.string.lightning_cancel, null);
-        builder.show();
+        btnPaypal.setOnClickListener(v -> {
+            dialog.dismiss();
+            openPayPalPayment();
+        });
+        
+        btnCancel.setOnClickListener(v -> dialog.dismiss());
+        
+        dialog.show();
     }
 
     private void openUpiPayment() {
@@ -82,10 +88,11 @@ public class DonateActivity extends AppCompatActivity {
                     .appendQueryParameter("cu", "INR")
                     .build();
             
-            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(uri);
             
             if (intent.resolveActivity(getPackageManager()) != null) {
-                startActivity(intent);
+                startActivity(Intent.createChooser(intent, getString(R.string.mistos_donate_choose_upi_app)));
             } else {
                 showUpiCopyDialog();
             }
@@ -115,10 +122,16 @@ public class DonateActivity extends AppCompatActivity {
         try {
             Intent paypalIntent = new Intent(Intent.ACTION_VIEW);
             paypalIntent.setData(Uri.parse(PAYPAL_URL));
-            paypalIntent.setPackage("com.paypal.android.p2pmobile");
             
+            paypalIntent.setPackage("com.paypal.android.p2pmobile");
             if (paypalIntent.resolveActivity(getPackageManager()) != null) {
                 startActivity(paypalIntent);
+                return;
+            }
+            
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(PAYPAL_URL));
+            if (browserIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(Intent.createChooser(browserIntent, getString(R.string.mistos_donate_open_browser)));
             } else {
                 showPayPalBrowserDialog();
             }

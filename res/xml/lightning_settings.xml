@@ -139,5 +139,18 @@
     </PreferenceCategory>
 
 
+    <PreferenceCategory
+        android:key="top_level_personalize_donation"
+        android:layout="@layout/settingslib_preference_category_no_title">
+
+    <!-- Donations -->
+        <Preference
+            android:key="donation"
+            android:title="@string/about_title"
+            android:summary="@string/about_summary"
+            android:icon="@drawable/ic_homepage_about"
+            android:fragment="com.lightning.thunderbolt.fragments.about.About"/>
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
