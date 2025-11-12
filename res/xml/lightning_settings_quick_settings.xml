@@ -62,6 +62,7 @@
 
 
 
+
         <Preference
             android:key="qs_layout_columns_rows"
             android:title="@string/quick_settings_layout_columns_rows_title"

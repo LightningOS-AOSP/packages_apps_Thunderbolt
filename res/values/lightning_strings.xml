@@ -1474,4 +1474,8 @@
     <!-- QS Media Player Compact-->
     <string name="qs_media_always_show_title">Always show media player</string>
     <string name="qs_media_always_show_summary">Display media player in Quick Settings even when no media is playing</string>
+
+    <!-- chinese lunar calendar -->
+    <string name="qs_show_lunar_calendar_title">Chinese Lunar Calendar</string>
+    <string name="qs_show_lunar_calendar_summary">Show lunar calendar in Quick Settings</string>
 </resources>
