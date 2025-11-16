@@ -1309,6 +1309,13 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="qs_calendar_type_entries">
+        <item>@string/qs_calendar_type_default</item>
+        <item>@string/qs_calendar_type_lunar</item>
+        <item>@string/qs_calendar_type_saka</item>
+        <item>@string/qs_calendar_type_bangabda</item>
+        <item>@string/qs_calender_type_islamic</item>
+    </string-array>
 
     <string-array name="qs_calendar_type_values" translatable="false">
         <item>0</item>
