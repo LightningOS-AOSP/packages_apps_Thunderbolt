@@ -1486,4 +1486,5 @@
     <string name="qs_calendar_type_bangabda">Bangabda (Indian)</string>
     <string name="qs_calendar_type_lunar">Lunar (Chinese)</string>
     <string name="qs_calendar_type_saka">Saka (Indian)</string>
+    <string name="qs_calendar_type_islamic">Islamic (Hijri)</string>
 </resources>
