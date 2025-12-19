@@ -29,9 +29,15 @@
     <!-- Rows (landscape) -->
 
     <!-- Quick QS rows (portrait) -->
-
-    <!-- Quick QS rows (landscape) -->
     <!--<com.lightning.thunderbolt.preferences.SystemSettingSeekBarPreference
+        android:key="qqs_layout_rows"
+        android:title="@string/quick_settings_qqs_rows_portrait_title"
+        android:max="3"
+        settings:min="1"
+        settings:interval="1"
+        android:defaultValue="2" />
+
+    <com.lightning.thunderbolt.preferences.SystemSettingSeekBarPreference
         android:key="qqs_layout_rows_landscape"
         android:title="@string/quick_settings_qqs_rows_landscape_title"
         android:max="3"
