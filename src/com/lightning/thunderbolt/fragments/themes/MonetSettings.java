@@ -261,7 +261,7 @@ public class MonetSettings extends DashboardFragment implements
 
                 // Add buttons to button layout
                 Button cancelButton = new Button(getContext());
-                cancelButton.setText(android.R.string.lightning_cancel);
+                cancelButton.setText(android.R.string.cancel);
                 buttonLayout.addView(cancelButton);
 
                 Button okButton = new Button(getContext());
@@ -505,7 +505,7 @@ public class MonetSettings extends DashboardFragment implements
 
                 // Add buttons to button layout
                 Button cancelButton = new Button(getContext());
-                cancelButton.setText(android.R.string.lightning_cancel);
+                cancelButton.setText(android.R.string.cancel);
                 buttonLayout.addView(cancelButton);
 
                 Button okButton = new Button(getContext());

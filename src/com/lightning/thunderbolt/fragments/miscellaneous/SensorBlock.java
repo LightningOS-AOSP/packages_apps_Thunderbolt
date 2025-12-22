@@ -227,7 +227,7 @@ public class SensorBlock extends SettingsPreferenceFragment
                             }
                         }
                     })
-                    .setNegativeButton(android.R.string.lightning_cancel, null);
+                    .setNegativeButton(android.R.string.cancel, null);
 
             builder.show();
         }

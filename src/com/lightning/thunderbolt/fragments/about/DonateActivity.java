@@ -114,7 +114,7 @@ public class DonateActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.mistos_donate_upi_copied, Toast.LENGTH_SHORT).show();
         });
         
-        builder.setNegativeButton(android.R.string.lightning_cancel, null);
+        builder.setNegativeButton(android.R.string.cancel, null);
         builder.show();
     }
 
@@ -159,7 +159,7 @@ public class DonateActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.mistos_donate_email_copied, Toast.LENGTH_SHORT).show();
         });
         
-        builder.setNegativeButton(android.R.string.lightning_cancel, null);
+        builder.setNegativeButton(android.R.string.cancel, null);
         builder.show();
     }
 

@@ -13,21 +13,11 @@
         android:key="themes_fonts_category"
         android:title="@string/themes_fonts_category">
 
-
-        <!-- Prebuilt Fonts -->
         <Preference
-            android:key="android.theme.customization.fonts"
-            android:title="@string/themes_system_font_title"
-            android:summary="@string/themes_system_font_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.fonts.FontsPicker" />
-
-        <!-- Custom Font Picker -->
-
-        <!-- Custom Font Info -->
-
-        <!-- Reset Custom Font Button -->
-
-        <!-- Reboot Button for Custom Font -->
+            android:key="font_settings"
+            android:title="@string/font_settings_title"
+            android:summary="@string/font_settings_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.fonts.FontSettingsFragment"/>
 
         <!-- <Preference
             android:key="android.theme.customization.lockscreen_clock_font"
