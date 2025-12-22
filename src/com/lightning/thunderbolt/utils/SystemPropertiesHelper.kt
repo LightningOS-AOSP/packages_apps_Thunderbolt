@@ -4,6 +4,7 @@ import android.os.SystemProperties
 import android.provider.Settings
 import android.provider.Settings.Secure
 import android.content.ContentResolver
+import android.os.UserHandle
 
 object SystemPropertiesHelper {
 
@@ -15,16 +16,97 @@ object SystemPropertiesHelper {
         return SystemProperties.getInt(key, defaultValue)
     }
 
-    fun set(key: String, value: String) {
-        try {
-            SystemProperties.set(key, value)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
-
     fun get(key: String, def: String): String {
         return SystemProperties.get(key, def)
+    }
+
+    fun getSystemBoolean(resolver: ContentResolver, key: String, defaultValue: Boolean): Boolean {
+        return Settings.System.getIntForUser(
+            resolver, 
+            key, 
+            if (defaultValue) 1 else 0,
+            UserHandle.USER_CURRENT
+        ) == 1
+    }
+
+    fun setSystemBoolean(resolver: ContentResolver, key: String, value: Boolean) {
+        Settings.System.putIntForUser(
+            resolver, 
+            key, 
+            if (value) 1 else 0,
+            UserHandle.USER_CURRENT
+        )
+    }
+
+    fun getSystemInt(resolver: ContentResolver, key: String, defaultValue: Int): Int {
+        return Settings.System.getIntForUser(
+            resolver, 
+            key, 
+            defaultValue,
+            UserHandle.USER_CURRENT
+        )
+    }
+
+    fun setSystemInt(resolver: ContentResolver, key: String, value: Int) {
+        Settings.System.putIntForUser(
+            resolver, 
+            key, 
+            value,
+            UserHandle.USER_CURRENT
+        )
+    }
+
+    fun getSystemString(resolver: ContentResolver, key: String, defaultValue: String): String {
+        return Settings.System.getStringForUser(
+            resolver, 
+            key,
+            UserHandle.USER_CURRENT
+        ) ?: defaultValue
+    }
+
+    fun setSystemString(resolver: ContentResolver, key: String, value: String) {
+        Settings.System.putStringForUser(
+            resolver, 
+            key, 
+            value,
+            UserHandle.USER_CURRENT
+        )
+    }
+
+    fun getSecureBoolean(resolver: ContentResolver, key: String, defaultValue: Boolean): Boolean {
+        return Secure.getIntForUser(
+            resolver, 
+            key, 
+            if (defaultValue) 1 else 0,
+            UserHandle.USER_CURRENT
+        ) == 1
+    }
+
+    fun setSecureBoolean(resolver: ContentResolver, key: String, value: Boolean) {
+        Secure.putIntForUser(
+            resolver, 
+            key, 
+            if (value) 1 else 0,
+            UserHandle.USER_CURRENT
+        )
+    }
+
+    fun getSecureInt(resolver: ContentResolver, key: String, defaultValue: Int): Int {
+        return Secure.getIntForUser(
+            resolver, 
+            key, 
+            defaultValue,
+            UserHandle.USER_CURRENT
+        )
+    }
+
+    fun setSecureInt(resolver: ContentResolver, key: String, value: Int) {
+        Secure.putIntForUser(
+            resolver, 
+            key, 
+            value,
+            UserHandle.USER_CURRENT
+        )
     }
 
     fun getSecureString(
@@ -32,7 +114,11 @@ object SystemPropertiesHelper {
         key: String,
         defaultValue: String
     ): String {
-        return Secure.getString(resolver, key) ?: defaultValue
+        return Secure.getStringForUser(
+            resolver, 
+            key,
+            UserHandle.USER_CURRENT
+        ) ?: defaultValue
     }
 
     fun setSecureString(
@@ -40,7 +126,12 @@ object SystemPropertiesHelper {
         key: String,
         value: String
     ) {
-        Secure.putString(resolver, key, value)
+        Secure.putStringForUser(
+            resolver, 
+            key, 
+            value,
+            UserHandle.USER_CURRENT
+        )
     }
 
 }
