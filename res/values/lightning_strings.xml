@@ -1609,4 +1609,9 @@
     <!-- Media art QS background -->
     <string name="qs_media_art_scrim_title">Media art QS background</string>
     <string name="qs_media_art_scrim_summary">Use blurred media artwork as Quick Settings background</string>
+
+    <string name="custom_lockscreen_title">Custom Lockscreen</string>
+    <string name="custom_lockscreen_summary">Enable or disable the Avium custom lockscreen.</string>
+    <string name="custom_lockscreen_open">Open Lockscreen Editor</string>
+    <string name="custom_lockscreen_open_summary">Tap to configure the custom lockscreen UI.</string>
 </resources>
