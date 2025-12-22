@@ -11,6 +11,12 @@
         android:title="@string/lock_screen_interface_category">
 
         <Preference
+            android:key="nowplaying_settings"
+            android:title="@string/nowplaying_title"
+            android:summary="@string/nowplaying_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.NowplayingSettings" />
+
+        <Preference
             android:key="lock_glymps_settings"
             android:title="@string/lock_glymps_title"
             android:summary="@string/lock_glymps_enable_summary"
