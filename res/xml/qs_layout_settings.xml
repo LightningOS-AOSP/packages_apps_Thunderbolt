@@ -19,6 +19,7 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/quick_settings_layout_columns_rows_title">
 
+
     <!-- Columns (portrait) -->
 
     <!-- Columns (landscape) -->
