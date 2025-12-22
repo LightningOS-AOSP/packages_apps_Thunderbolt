@@ -9,6 +9,8 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.content.Intent;
+import android.provider.Settings;
 
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
@@ -23,11 +25,7 @@ import com.android.settingslib.search.SearchIndexable;
 
 import com.android.internal.util.android.VibrationUtils;
 
-import com.lightning.thunderbolt.utils.SystemPropertiesHelper;
 import com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference;
-
-import android.content.Intent;
-import android.os.SystemProperties;
 
 import java.util.List;
 
@@ -38,7 +36,10 @@ public class Extras extends SettingsPreferenceFragment implements
     private static final String TAG = "Extras";
     private static final String CUSTOM_LOCKSCREEN_KEY = "custom_lockscreen_enable";
 
+    private static final String CUSTOM_LOCKSCREEN_EDITOR_KEY = "custom_lockscreen_editor";
+
     private SystemSettingSwitchPreference mCustomLockscreen;
+    private Preference mCustomLockscreenEditor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,23 +47,27 @@ public class Extras extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.lightning_settings_extras);
 
         final Context context = getContext();
-        final ContentResolver resolver = context.getContentResolver();
-        final PreferenceScreen prefScreen = getPreferenceScreen();
-        final Resources resources = context.getResources();
 
-    mCustomLockscreen = (SystemSettingSwitchPreference) findPreference(CUSTOM_LOCKSCREEN_KEY);
+        mCustomLockscreen = (SystemSettingSwitchPreference) findPreference(CUSTOM_LOCKSCREEN_KEY);
         if (mCustomLockscreen != null) {
             mCustomLockscreen.setOnPreferenceChangeListener(this);
         }
 
+        mCustomLockscreenEditor = findPreference(CUSTOM_LOCKSCREEN_EDITOR_KEY);
+        if (mCustomLockscreenEditor != null) {
+            mCustomLockscreenEditor.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    launchCustomLockscreenApp(getContext());
+                    return true;
+                }
+            });
+        }
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        final Context context = getContext();
-        final ContentResolver resolver = context.getContentResolver();
-
-    if (preference == mCustomLockscreen) {
+        if (preference == mCustomLockscreen) {
             sendCustomLockscreenBroadcast(getContext());
             return true;
         }
@@ -103,10 +108,6 @@ public class Extras extends SettingsPreferenceFragment implements
         if (preference != null && preference.getKey() != null) {
             VibrationUtils.triggerVibration(getContext(), 3);
 
-        if (CUSTOM_LOCKSCREEN_KEY.equals(preference.getKey())) {
-                launchCustomLockscreenApp(getContext());
-                return true;
-            }
         }
         return super.onPreferenceTreeClick(preference);
     }
@@ -117,7 +118,6 @@ public class Extras extends SettingsPreferenceFragment implements
             @Override
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
-                final Resources resources = context.getResources();
                 return keys;
             }
         };
