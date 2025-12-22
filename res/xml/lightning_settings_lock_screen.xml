@@ -30,6 +30,7 @@
             android:fragment="com.lightning.thunderbolt.fragments.lockscreen.EdgeLightSettings" />
 
 
+
         <!-- Keyguard user switcher -->
 
         <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
