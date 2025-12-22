@@ -34,6 +34,7 @@ import lineageos.preference.SystemSettingMainSwitchPreference;
 import com.lightning.thunderbolt.preferences.SystemSettingListPreference;
 import com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference;
 import com.lightning.thunderbolt.preferences.WallpaperPreviewPreference;
+import com.lightning.thunderbolt.utils.SystemUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -172,21 +173,25 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
                 context.stopService(serviceIntent);
             }
             
+            SystemUtils.showSystemUiRestartDialog(context);
             return true;
             
         } else if (KEY_SOURCE.equals(key)) {
             updateSourceDependentPrefs((String) newValue);
             notifyServiceToRefresh(context);
+            SystemUtils.showSystemUiRestartDialog(context);
             return true;
             
          } else if (KEY_WALLPAPER_TARGET.equals(key)) {
             notifyServiceToRefresh(context);
             schedulePreviewRefresh();
+            SystemUtils.showSystemUiRestartDialog(context);
             return true;
 
         } else if (KEY_CHANGE_ON.equals(key)) {
             updateTimerVisibility((String) newValue);
             notifyServiceToRefresh(context);
+            SystemUtils.showSystemUiRestartDialog(context);
             return true;
             
         } else if (KEY_TIMER_INTERVAL.equals(key)) {
@@ -385,6 +390,8 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
             android.widget.Toast.makeText(context, 
                 "Cache cleared. New wallpapers will be downloaded.", 
                 android.widget.Toast.LENGTH_SHORT).show();
+
+            SystemUtils.showSystemUiRestartDialog(context);
         });
         
         builder.setNegativeButton("Cancel", null);
