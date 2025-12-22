@@ -11,6 +11,12 @@
         android:title="@string/lock_screen_interface_category">
 
         <Preference
+            android:key="lockscreen_weather"
+            android:title="@string/lockscreen_weather_title"
+            android:summary="@string/lockscreen_weather_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.LockscreenWeather" />
+
+        <Preference
             android:key="nowplaying_settings"
             android:title="@string/nowplaying_title"
             android:summary="@string/nowplaying_summary"
@@ -28,7 +34,6 @@
             android:title="@string/edge_light_title"
             android:summary="@string/edge_light_summary"
             android:fragment="com.lightning.thunderbolt.fragments.lockscreen.EdgeLightSettings" />
-
 
 
         <!-- Keyguard user switcher -->
