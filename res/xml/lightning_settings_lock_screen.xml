@@ -57,6 +57,25 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="lock_screen_charging_category"
+        android:title="@string/lock_screen_charging_category">
+
+        <Preference
+            android:key="charging_animation_settings"
+            android:title="@string/charging_animation_title"
+            android:summary="@string/charging_animation_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.ChargingAnimationSettings" />
+
+        <!-- Charging animation -->
+
+        <!-- Dynamic charging animation -->
+
+
+        <!-- Charging stats -->
+
+
+    </PreferenceCategory>
 
 
     <PreferenceCategory
