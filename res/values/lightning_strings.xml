@@ -1426,7 +1426,6 @@
     <string name="reboot_required_title">Reboot required</string>
     <string name="reboot_required_message">A device reboot is required to apply the custom font system-wide. Reboot now?</string>
     <string name="reboot_required_custom_font_title">Reboot required for custom fonts</string>
-    <string name="reboot_required_message">A reboot is required for the font changes to take effect</string>
     <string name="reboot_required_custom_font_desc">Reboot to apply custom font changes</string>
     <string name="custom_font_installed_success">Font installed successfully</string>
     <string name="custom_font_install_failed">Failed to install font</string>

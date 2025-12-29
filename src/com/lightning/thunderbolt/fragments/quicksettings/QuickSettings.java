@@ -41,7 +41,7 @@ import com.android.settingslib.search.SearchIndexable;
 import com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference;
 import com.lightning.thunderbolt.preferences.SecureSettingListPreference;
 import com.lightning.thunderbolt.preferences.SystemSettingListPreference;
-import org.lunaris.settings.preferences.SystemSettingSwitchPreference;
+import com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference;
 
 import com.lightning.thunderbolt.utils.DeviceUtils;
 import com.lightning.thunderbolt.utils.SystemRestartUtils;
