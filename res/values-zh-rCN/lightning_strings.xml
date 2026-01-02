@@ -341,7 +341,7 @@
     <string name="statusbar_clock_chip_title">背景芯片</string>
     <string name="statusbar_clock_chip_summary">显示时钟后面的高音芯片</string>
     <string name="solid_accent">实心色加权颜色</string>
-    <string name="outline">轮廓：</string>
+    <string name="outline">轮廓</string>
     <string name="solid_accent_gradient">固态色调渐变</string>
     <string name="solid_gradient">实心渐变方</string>
     <string name="solid_gradient_corner">坚固重量渐变锐度</string>
@@ -1320,7 +1320,7 @@
     <string name="mistos_donate_upi_copied">UPI ID已复制到剪贴板</string>
     <!-- PayPal Strings -->
     <string name="mistos_donate_no_paypal_app">未找到贝宝应用</string>
-    <string name="mistos_donate_paypal_options">PayPal app is not installed. You can open PayPal in your browser or copy the email address.\n\nPayPal Email: %s</string>
+    <string name="mistos_donate_paypal_options">PayPal 应用未安装。您可以在浏览器中打开 PayPal，或复制此电子邮件地址。\n\nPayPal 邮箱：%s</string>
     <string name="mistos_donate_open_browser">在浏览器中打开</string>
     <string name="mistos_donate_copy_email">复制电子邮件</string>
     <string name="mistos_donate_email_copied">PayPal电子邮件已复制到剪贴板</string>
