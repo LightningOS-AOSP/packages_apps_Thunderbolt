@@ -12,6 +12,13 @@
         android:key="spoofing_system_wide_category"
         android:title="@string/spoofing_system_wide_category">
          
+         <com.lightning.thunderbolt.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.pp.vending"
+            android:title="@string/vending_spoof_title"
+            android:summary="@string/vending_spoof_summary"
+            android:dependency="persist.sys.pp.gms"
+            android:defaultValue="true" />
+            
          <!-- Keybox Data -->
         <com.lightning.thunderbolt.preferences.KeyboxDataPreference
             android:key="keybox_data_setting"
