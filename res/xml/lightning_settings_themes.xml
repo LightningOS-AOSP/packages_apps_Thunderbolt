@@ -60,6 +60,7 @@
             android:summary="@string/edge_light_summary"
             android:fragment="com.lightning.thunderbolt.fragments.themes.EdgeLightSettings" />
 
+
     </PreferenceCategory>
 
     <PreferenceCategory
