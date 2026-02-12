@@ -10,6 +10,9 @@
         android:key="ui_category"
         android:title="@string/ui_title">
 
+        <!-- QuickSwitch -->
+ 
+
         <!-- Monet Theme Engine -->
         <Preference
             android:key="monet_settings"

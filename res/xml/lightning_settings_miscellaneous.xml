@@ -69,9 +69,6 @@
     <PreferenceCategory
         android:title="@string/extras_category_title">
 
-        <!-- QuickSwitch -->
- 
-
         <!-- Three fingers swipe action -->
         <ListPreference
             android:key="three_fingers_swipe"
