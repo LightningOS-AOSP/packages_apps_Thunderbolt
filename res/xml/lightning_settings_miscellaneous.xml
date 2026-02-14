@@ -78,6 +78,12 @@
             android:entryValues="@array/hardware_keys_action_values"
             android:persistent="false" />
 
+        <Preference
+            android:key="gesture_shake_action"
+            android:title="@string/shake_gestures_enabled_title"
+            android:summary="@string/shake_gestures_enabled_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.ShakeGestures" />
+
         <!-- Sidebar -->
 
         <!-- Sensor block per package -->
