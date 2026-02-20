@@ -27,11 +27,11 @@
         android:layout="@layout/settingslib_preference_category_no_title">
     
     <Preference
-            android:key="monet_engine"
-            android:title="@string/themes_monet_title"
+            android:key="monet_settings"
+            android:title="@string/monet_settings_title"
             android:icon="@drawable/ic_homepage_monet"
-            android:summary="@string/themes_monet_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.MonetSettings" />
+            android:summary="@string/monet_settings_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.ColorsSettingsFragment" />
 
     </PreferenceCategory>
 
