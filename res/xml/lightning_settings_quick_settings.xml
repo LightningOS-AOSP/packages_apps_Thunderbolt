@@ -79,6 +79,7 @@
 
 
 
+
         <com.lightning.thunderbolt.preferences.SystemSettingListPreference
             android:key="qs_header_clock_style"
             android:title="@string/qs_header_clock_style_title"
