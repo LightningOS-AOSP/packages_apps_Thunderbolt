@@ -143,6 +143,13 @@
 
 
 
+        <!-- Waveform seekbar -->
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="media_waveform_seekbar"
+            android:title="@string/media_waveform_seekbar_title"
+            android:summary="@string/media_waveform_seekbar_summary"
+            android:defaultValue="false" />
+
         <!-- Squiggle animation -->
 
         <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
