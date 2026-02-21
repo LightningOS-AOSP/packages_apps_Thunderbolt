@@ -18,4 +18,16 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="power_menu_lock_screen_category"
+        android:title="@string/power_menu_lock_screen_category">
+
+        <!-- Secure lock screen power menu -->
+
+        <Preference
+            android:key="power_off_verify"
+            android:title="@string/power_off_verify_title"
+            android:summary="@string/power_off_verify_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.powermenu.PowerOffVerify" />
+    </PreferenceCategory>
 </PreferenceScreen>
