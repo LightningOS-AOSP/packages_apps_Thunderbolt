@@ -22,9 +22,9 @@
     <string name="about_device_name">Device</string>
 
     <!-- Categories -->
-    <string name="themes_title">User Interface</string>
+    <string name="themes_title">Themes</string>
     <string name="themes_summary">UI Changes and customization</string>
-    <string name="lock_screen_title">Lock screen</string>
+    <string name="lock_screen_title_lightning">Lock screen</string>
     <string name="lock_screen_summary">Lock screen interface</string>
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_summary">Icons, privacy indicators</string>
@@ -36,9 +36,12 @@
     <string name="power_menu_summary">Power menu Settings</string>
     <string name="buttons_title">Buttons</string>
     <string name="buttons_summary">System button, volume buttons etc</string>
-    <string name="miscellaneous_title">System</string>
+    <string name="miscellaneous_title">Miscellaneous</string>
     <string name="miscellaneous_summary">Some extra system settings</string>
+    <string name="ambient_title">Ambient Display</string>
+    <string name="lockscreen_button_category">Lockscreen Button</string>
     <string name="quick_settings_media_category">QS media category</string>
+    <string name="extras_summary">Some extra settings</string>
 
     <!-- Themes -->
     <string name="themes_general_category">General</string>
@@ -968,7 +971,7 @@
     <string name="spoofing_pixel_props_summary">Spoof a select group of Google apps to the latest Pixel device</string>
 
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
-    <string name="spoofing_title">Spoofing Settings</string>
+    <string name="spoofing_title">Spoofing</string>
     <string name="gms_spoof_title">Play Integrity fix</string>
     <string name="spoofing_system_wide_category">System-Wide</string>
     <string name="gms_spoof_summary">Spoof your device to pass Google Play Attestation</string>
@@ -1850,7 +1853,7 @@
     <string name="wireless_charging_dynamic_color_summary">Use battery level to determine charging ripple animation color</string>
 
     <!-- Monet Settings -->
-    <string name="monet_settings_title">Color Customization</string>
+    <string name="monet_settings_title">Monet Settings</string>
     <string name="monet_settings_summary">Customize theme colors and style</string>
     <string name="color_settings_category">Color Settings</string>
     <string name="advanced_settings_category">Advanced Settings</string>
@@ -2014,6 +2017,7 @@
     <string name="cutout_progress_badge_size_title">Badge text size</string>
     <string name="cutout_progress_badge_offset_x_title">Badge horizontal offset</string>
     <string name="cutout_progress_badge_offset_y_title">Badge vertical offset</string>
+    <string name="cutout_progress_ring_color_mode_title">Ring color</string>
     <string name="cutout_progress_color_picker_title">Choose color</string>
     <string name="cutout_progress_ring_color_mode_accent">Accent</string>
     <string name="cutout_progress_ring_color_mode_rainbow">Rainbow</string>

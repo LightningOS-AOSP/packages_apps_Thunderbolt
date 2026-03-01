@@ -20,25 +20,6 @@
     xmlns:lineage="http://schemas.android.com/apk/res-auto"
     android:title="@string/quick_settings_title" >
 
-
-    <PreferenceCategory
-        android:key="qs_layout_category"
-        android:title="@string/qs_layout_category_title">
-
-
-
-
-
-        <Preference
-            android:key="qs_layout_columns_rows"
-            android:title="@string/qs_layout_columns_rows_title"
-            android:summary="@string/qs_layout_columns_rows_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.quicksettings.LayoutSettings" />
-
-
-    </PreferenceCategory>
-
-
     <PreferenceCategory
          android:key="qs_brightness_slider_category"
          android:title="@string/qs_brightness_slider_category">
@@ -70,6 +51,25 @@
             android:title="@string/qs_show_auto_brightness_title"
             android:summary="@string/qs_show_auto_brightness_summary"
             android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+
+
+    <PreferenceCategory
+        android:key="qs_layout_category"
+        android:title="@string/qs_layout_category_title">
+
+
+
+
+
+        <Preference
+            android:key="qs_layout_columns_rows"
+            android:title="@string/qs_layout_columns_rows_title"
+            android:summary="@string/qs_layout_columns_rows_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.quicksettings.LayoutSettings" />
+
 
     </PreferenceCategory>
 

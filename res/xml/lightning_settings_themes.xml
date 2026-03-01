@@ -10,16 +10,6 @@
         android:key="ui_category"
         android:title="@string/ui_title">
 
-        <!-- QuickSwitch -->
- 
-
-        <!-- Monet Theme Engine -->
-        <Preference
-            android:key="monet_settings"
-            android:title="@string/monet_settings_title"
-            android:summary="@string/monet_settings_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.ColorsSettingsFragment" />
-            
         <Preference
             android:key="android.theme.customization.navbar"
             android:title="@string/theme_customization_navbar_title"
@@ -33,6 +23,13 @@
             android:title="@string/font_settings_title"
             android:summary="@string/font_settings_summary"
             android:fragment="com.lightning.thunderbolt.fragments.themes.fonts.FontSettingsFragment"/>
+
+
+        </PreferenceCategory>
+
+        <PreferenceCategory
+            android:key="display_category"
+            android:title="@string/ambient_title">
 
         <!-- Ambient Display -->
         <Preference
@@ -56,7 +53,6 @@
             android:title="@string/edge_light_title"
             android:summary="@string/edge_light_summary"
             android:fragment="com.lightning.thunderbolt.fragments.themes.EdgeLightSettings" />
-
 
 
     </PreferenceCategory>
@@ -106,6 +102,9 @@
         android:key="extras_category"
         android:title="@string/extras_category">
 
+         <!-- QuickSwitch -->
+ 
+
         <!-- Display Cutout -->
 
         <!-- Screen Off animation -->
@@ -116,7 +115,6 @@
             android:title="@string/smart_pixels_title" 
             android:summary="@string/smart_pixels_summary" 
             android:fragment="com.lightning.thunderbolt.fragments.themes.SmartPixels" />
-
 
     </PreferenceCategory>
 

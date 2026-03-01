@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/extras_title">
+
+    <PreferenceCategory
+        android:title="@string/extras_category_title">
+
+    <!-- Ignore window secure flags -->
+
+        <!-- Block wallpaper dimming -->
+
+        <!-- Unlimit screenrecord -->
+
+        <!-- No storage restrict -->
+        <com.lightning.thunderbolt.preferences.GlobalSettingSwitchPreference
+            android:key="no_storage_restrict"
+            android:title="@string/lightning_no_storage_restrict_title"
+            android:summary="@string/lightning_no_storage_restrict_summary"
+            android:defaultValue="false" />
+
+        <!-- Hide screen capture status -->
+
+        <!-- Gaming mode -->
+
+        </PreferenceCategory>
+
+
+</PreferenceScreen>

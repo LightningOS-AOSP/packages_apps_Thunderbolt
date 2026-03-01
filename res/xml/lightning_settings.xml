@@ -6,7 +6,20 @@
     android:title="@string/lightning_dashboard_title">
 
     <com.android.settingslib.widget.UntitledPreferenceCategory
-        android:key="singularity_one_category">
+        android:key="thunderbolt_one_category">
+
+    <!-- Monet Theme Engine -->
+        <Preference
+            android:key="monet_settings"
+            android:title="@string/monet_settings_title"
+            android:summary="@string/monet_settings_summary"
+            android:icon="@drawable/ic_homepage_monet"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.ColorsSettingsFragment" />
+
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
+
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="thunderbolt_two_category">
 
     <!-- Themes -->
     <Preference
@@ -15,7 +28,12 @@
         android:summary="@string/themes_summary"
         android:icon="@drawable/ic_lightning_themes"
         android:fragment="com.lightning.thunderbolt.fragments.themes.Themes" />
-    
+
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
+
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="thunderbolt_three_category">
+
     <!-- Quick settings -->
     <Preference
         android:key="quick_settings"
@@ -24,26 +42,10 @@
         android:icon="@drawable/ic_lightning_quick_settings"
         android:fragment="com.lightning.thunderbolt.fragments.quicksettings.QuickSettings" />
 
-    <!-- Notifications -->
-    <Preference
-        android:key="notifications"
-        android:title="@string/lightning_notifications_title"
-        android:summary="@string/notifications_summary"
-        android:icon="@drawable/ic_homepage_notification"
-        android:fragment="com.lightning.thunderbolt.fragments.notifications.Notifications" />
-
-    <!-- Lock screen -->
-    <Preference
-        android:key="lock_screen"
-        android:title="@string/lock_screen_title"
-        android:summary="@string/lock_screen_summary"
-        android:icon="@drawable/ic_lightning_lock_screen"
-        android:fragment="com.lightning.thunderbolt.fragments.lockscreen.LockScreen" />
-
     </com.android.settingslib.widget.UntitledPreferenceCategory>
 
     <com.android.settingslib.widget.UntitledPreferenceCategory
-        android:key="singularity_two_category">
+        android:key="thunderbolt_four_category">
 
         <!-- Status bar -->
         <Preference
@@ -53,13 +55,36 @@
             android:icon="@drawable/ic_lightning_status_bar"
             android:fragment="com.lightning.thunderbolt.fragments.statusbar.StatusBar" />
 
-        <!-- Miscellaneous -->
-        <Preference
-            android:key="miscellaneous"
-            android:title="@string/miscellaneous_title"
-            android:summary="@string/miscellaneous_summary"
-            android:icon="@drawable/ic_lightning_miscellaneous"
-            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.Miscellaneous" />
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
+
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="thunderbolt_five_category">
+
+    <!-- Notifications -->
+    <Preference
+        android:key="notifications"
+        android:title="@string/lightning_notifications_title"
+        android:summary="@string/notifications_summary"
+        android:icon="@drawable/ic_homepage_notification"
+        android:fragment="com.lightning.thunderbolt.fragments.notifications.Notifications" />
+
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
+
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="thunderbolt_six_category">
+
+    <!-- Lock screen -->
+    <Preference
+        android:key="lock_screen"
+        android:title="@string/lock_screen_title_lightning"
+        android:summary="@string/lock_screen_summary"
+        android:icon="@drawable/ic_lightning_lock_screen"
+        android:fragment="com.lightning.thunderbolt.fragments.lockscreen.LockScreen" />
+
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
+
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="thunderbolt_seven_category">
 
         <!-- Power menu -->
         <Preference
@@ -69,6 +94,11 @@
             android:icon="@drawable/ic_lightning_power_menu"
             android:fragment="com.lightning.thunderbolt.fragments.buttons.Buttons" />
 
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
+
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="thunderbolt_eight_category">
+
         <!-- Sound -->
         <Preference
             android:key="sound"
@@ -76,7 +106,46 @@
             android:summary="@string/sound_summary"
             android:icon="@drawable/ic_homepage_sound"
             android:fragment="com.lightning.thunderbolt.fragments.sound.Sound" />
+
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
+
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="thunderbolt_nine_category">
+
+     <!-- Extras Settings -->
+    <Preference
+        android:key="extras"
+        android:title="@string/extras_title"
+        android:summary="@string/extras_summary"
+        android:icon="@drawable/ic_homepage_extras"
+        android:fragment="com.lightning.thunderbolt.fragments.extras.Extras" />
+
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
+
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="thunderbolt_ten_category">
             
+     <!-- Miscellaneous -->
+        <Preference
+            android:key="miscellaneous"
+            android:title="@string/miscellaneous_title"
+            android:summary="@string/miscellaneous_summary"
+            android:icon="@drawable/ic_lightning_miscellaneous"
+            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.Miscellaneous" />
+
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
+
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="thunderbolt_eleven_category">
+
+    <!-- Spoofing -->
+       <Preference
+            android:key="spoofing"
+            android:title="@string/spoofing_title"
+            android:summary="@string/spoofing_summary"
+            android:icon="@drawable/ic_homepage_spoof"
+            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.Spoofing" />
+
     </com.android.settingslib.widget.UntitledPreferenceCategory>
 
 </PreferenceScreen>
