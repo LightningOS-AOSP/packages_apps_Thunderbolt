@@ -53,6 +53,7 @@ import com.lightning.thunderbolt.fragments.lockscreen.fonts.FontManager;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import com.android.internal.util.lightning.ThemeUtils;
+import com.lightning.thunderbolt.utils.SystemUtils;
 
 import java.util.List;
 
@@ -197,7 +198,8 @@ public class LockClockFontsPickerPreview extends SettingsPreferenceFragment {
                 mHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                       updateClockOverlays(mClockPosition);
+                        updateClockOverlays(mClockPosition);
+                        SystemUtils.showSystemUiRestartDialog(getContext());
                     }
                 }, 1250);
             }
