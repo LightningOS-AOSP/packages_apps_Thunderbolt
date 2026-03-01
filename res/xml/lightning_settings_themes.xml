@@ -34,13 +34,6 @@
             android:summary="@string/font_settings_summary"
             android:fragment="com.lightning.thunderbolt.fragments.themes.fonts.FontSettingsFragment"/>
 
-        <!-- Adaptive icon pack -->
-        <Preference
-            android:key="android.theme.customization.adaptive_icon_shape"
-            android:title="@string/theme_customization_icon_shape_title"
-            android:summary="@string/theme_customization_icon_shape_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.IconShapes"/>
-
         <!-- Ambient Display -->
         <Preference
             android:key="doze_fragment"
