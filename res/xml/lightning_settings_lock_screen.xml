@@ -19,6 +19,14 @@
 
 
 
+        <Preference
+            android:key="lockscreen_widgets"
+            android:title="@string/lockscreen_widgets_title"
+            android:summary="@string/lockscreen_widgets_enabled_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.LockScreenWidgets"/>
+
+
+
     </PreferenceCategory>
 
     <PreferenceCategory
