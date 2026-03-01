@@ -100,11 +100,10 @@
                 android:dependency="status_bar_logo" />
 
             <!-- Logo style -->
-            <Preference
+            <com.lightning.thunderbolt.preferences.StatusBarLogoStylePreference
                 android:key="status_bar_logo_style"
                 android:title="@string/status_bar_logo_style_title"
                 android:summary="@string/status_bar_logo_style_summary"
-                android:fragment="com.lightning.thunderbolt.fragments.statusbar.StatusbarLogoPicker"
                 android:dependency="status_bar_logo" />
 
             <!-- Logo color type -->
