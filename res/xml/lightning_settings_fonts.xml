@@ -20,11 +20,6 @@
 
 
     <!-- Prebuilt Fonts -->
-    <Preference
-        android:key="android.theme.customization.fonts"
-        android:title="@string/themes_system_font_title"
-        android:summary="@string/themes_system_font_summary"
-        android:fragment="com.lightning.thunderbolt.fragments.themes.fonts.FontsPicker" />
 
     <!-- Custom Font Picker -->
 
