@@ -148,4 +148,16 @@
 
     </com.android.settingslib.widget.UntitledPreferenceCategory>
 
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="thunderbolt_twelve_category">
+
+    <!-- Spoofing -->
+       <Preference
+            android:key="about"
+            android:title="@string/about_title"
+            android:summary="@string/about_summary"
+            android:icon="@drawable/ic_homepage_about"
+            android:fragment="com.lightning.thunderbolt.fragments.about.About" />
+
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
 </PreferenceScreen>
