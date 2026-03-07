@@ -58,6 +58,7 @@
             android:fragment="com.lightning.thunderbolt.fragments.themes.EdgeLightSettings" />
 
 
+
     </PreferenceCategory>
 
     <PreferenceCategory
