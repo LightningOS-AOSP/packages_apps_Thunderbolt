@@ -128,7 +128,7 @@
                     android:text="@string/lock_glymps_home_screen"
                     android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
                     android:textColor="@android:color/white"
-                    android:drawableStart="@drawable/ic_home2"
+                    android:drawableStart="@drawable/ic_home"
                     android:drawablePadding="4dp"
                     android:drawableTint="@android:color/white"
                     android:maxLines="1"

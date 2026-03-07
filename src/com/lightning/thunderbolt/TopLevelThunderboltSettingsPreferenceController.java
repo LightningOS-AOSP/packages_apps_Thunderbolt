@@ -1,8 +1,3 @@
-/*
- * Copyright (C) 2019-2024 LightningOS
- * SPDX-License-Identifier: Apache-2.0
- */
-
 package com.lightning.thunderbolt;
 
 import android.content.Context;

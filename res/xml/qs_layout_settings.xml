@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2024 crDroid Android Project
+     Copyright (C) 2024-2025 crDroid Android Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,17 +17,25 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/quick_settings_layout_columns_rows_title">
+    android:title="@string/qs_layout_columns_rows_title">
 
 
 
 
-    <!-- Apply Button -->
 
-    <com.android.settingslib.widget.FooterPreference
+
+    <!--<com.lightning.thunderbolt.preferences.SystemSettingSeekBarPreference
+        android:key="qqs_tiles_rows_landscape"
+        android:title="@string/qqs_rows_landscape_title"
+        android:max="3"
+        settings:min="1"
+        settings:interval="1"
+        android:defaultValue="1" />-->
+
+    <!--<com.android.settingslib.widget.FooterPreference
         android:key="qs_layout_columns_rows_footer"
-        android:title="@string/quick_settings_layout_columns_rows_footer_text"
+        android:title="@string/qs_layout_columns_rows_footer_text"
         android:selectable="false"
-        settings:searchable="false" />
+        settings:searchable="false" />-->
 
 </PreferenceScreen>

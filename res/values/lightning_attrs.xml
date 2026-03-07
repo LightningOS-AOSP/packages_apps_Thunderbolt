@@ -31,14 +31,4 @@
         <attr name="dkey" format="string" />
         <attr name="dkeyNightOnly" format="boolean" />
     </declare-styleable>
-
-    <declare-styleable name="SystemPropertySwitchPreference">
-        <attr name="propKey" format="string" />
-        <attr name="propType">
-            <enum name="type_boolean" value="0" />
-            <enum name="type_string" value="1" />
-            <enum name="type_int" value="2" />
-        </attr>
-        <attr name="propDefault" format="string" />
-    </declare-styleable>
 </resources>

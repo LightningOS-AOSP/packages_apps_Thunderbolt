@@ -19,15 +19,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/ongoing_progress_settings_title" >
 
-    <!-- Enable/Disable Settings -->
 
-    <!-- Standard Chip Position Settings -->
-
-    <!-- Circular Chip Position Settings -->
 
     <com.android.settingslib.widget.FooterPreference
-        android:key="progress_footer"
-        android:title="@string/progress_footer_text"
+        android:key="ongoing_progress_footer"
+        android:title="@string/ongoing_progress_footer_text"
         android:selectable="false"
         settings:searchable="false" />
 

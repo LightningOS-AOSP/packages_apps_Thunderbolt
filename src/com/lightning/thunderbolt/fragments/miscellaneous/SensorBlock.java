@@ -50,6 +50,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.lightning.thunderbolt.preferences.PackageListAdapter;
 import com.lightning.thunderbolt.preferences.PackageListAdapter.PackageItem;
 
+import com.android.internal.util.lightning.VibrationUtils;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -216,7 +218,7 @@ public class SensorBlock extends SettingsPreferenceFragment
             showDialog(DIALOG_BLOCKED_APPS);
         } else {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
-                    .setTitle(R.string.delete)
+                    .setTitle(R.string.lightning_delete)
                     .setMessage(R.string.delete_message)
                     .setIconAttribute(android.R.attr.alertDialogIcon)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -227,11 +229,19 @@ public class SensorBlock extends SettingsPreferenceFragment
                             }
                         }
                     })
-                    .setNegativeButton(android.R.string.cancel, null);
+                    .setNegativeButton(android.R.string.lightning_cancel, null);
 
             builder.show();
         }
         return true;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference != null && preference.getKey() != null) {
+            VibrationUtils.triggerVibration(getContext(), 3);
+        }
+        return super.onPreferenceTreeClick(preference);
     }
 
     private void addCustomApplicationPref(String packageName, Map<String,Package> map) {

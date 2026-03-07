@@ -1,76 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Copyright (C) 2024-2025 LightningOS
-    SPDX-License-Identifier: Apache-2.0
--->
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lineage="http://schemas.android.com/apk/res-auto"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/themes_title">
 
     <PreferenceCategory
-        android:key="themes_fonts_category"
-        android:title="@string/themes_fonts_category">
+        android:key="ui_category"
+        android:title="@string/ui_title">
 
+        <!-- Monet Theme Engine -->
+        <Preference
+            android:key="monet_settings"
+            android:title="@string/monet_settings_title"
+            android:summary="@string/monet_settings_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.ColorsSettingsFragment" />
+            
+        <Preference
+            android:key="android.theme.customization.navbar"
+            android:title="@string/theme_customization_navbar_title"
+            android:summary="@string/theme_customization_navbar_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.NavbarStyles"/>
+
+        <!-- Font style -->
         <Preference
             android:key="font_settings"
             android:title="@string/font_settings_title"
             android:summary="@string/font_settings_summary"
             android:fragment="com.lightning.thunderbolt.fragments.themes.fonts.FontSettingsFragment"/>
 
-        <!-- <Preference
-            android:key="android.theme.customization.lockscreen_clock_font"
-            android:title="@string/theme_customization_lock_clock_title"
-            android:summary="@string/theme_customization_lock_clock_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.fonts.LockClockFontsPicker"/> -->
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="themes_icons_category"
-        android:title="@string/themes_icons_category">
-
-        <!-- System icons -->
-        <Preference
-            android:key="android.theme.customization.icon_pack"
-            android:title="@string/themes_system_icons_title"
-            android:summary="@string/themes_system_icons_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.SystemIcons"/>
-
-        <!-- Icon shape -->
+        <!-- Adaptive icon pack -->
         <Preference
             android:key="android.theme.customization.adaptive_icon_shape"
-            android:title="@string/themes_icon_shape_title"
-            android:summary="@string/themes_icon_shape_summary"
+            android:title="@string/theme_customization_icon_shape_title"
+            android:summary="@string/theme_customization_icon_shape_summary"
             android:fragment="com.lightning.thunderbolt.fragments.themes.IconShapes"/>
 
-        <!-- Signal icon -->
+        <!-- Ambient Display -->
         <Preference
-            android:key="android.theme.customization.signal_icon"
-            android:title="@string/themes_signal_icon_title"
-            android:summary="@string/themes_signal_icon_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.SignalIcons"/>
+            android:key="doze_fragment"
+            android:title="@string/doze_display_title"
+            android:summary="@string/doze_display_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.DozeSettings" />
 
-        <!-- Wifi icon -->
-        <Preference
-            android:key="android.theme.customization.wifi_icon"
-            android:title="@string/themes_wifi_icon_title"
-            android:summary="@string/themes_wifi_icon_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.WifiIcons"/>
+        <!-- Ambient Wallpaper -->
+        <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
+            android:key="doze_always_on_wallpaper_enabled"
+            android:title="@string/lightning_doze_always_on_wallpaper_title"
+            android:summary="@string/doze_always_on_wallpaper_summary"
+            android:defaultValue="@*android:bool/config_dozeSupportsAodWallpaper" />
 
-        <!-- Navigation bar icons -->
+        <!-- Ambient Music Ticker -->
+
+        <!-- Edge Light -->
         <Preference
-            android:key="android.theme.customization.navbar"
-            android:title="@string/themes_navigation_bar_icons_title"
-            android:summary="@string/themes_navigation_bar_icons_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.NavigationBarIcons"/>
-            
+            android:key="edge_light_settings"
+            android:title="@string/edge_light_title"
+            android:summary="@string/edge_light_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.EdgeLightSettings" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
         android:key="video_wallpaper_category"
         android:title="@string/video_wallpaper_category">
+
+        <Preference
+            android:key="lock_glymps_settings"
+            android:title="@string/lock_glymps_title"
+            android:summary="@string/lock_glymps_enable_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.LockGlympsSettings" />
 
         <Preference
             android:key="video_wallpaper"
@@ -86,8 +86,40 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="lock_screen_charging_category"
+        android:title="@string/lock_screen_charging_category">
+
+        <!-- Charging animation -->
 
 
+        <!-- Dynamic charging animation -->
+
+        <Preference
+            android:key="charging_animation_settings"
+            android:title="@string/charging_effect_title"
+            android:summary="@string/charging_effect_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.ChargingAnimationSettings" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="extras_category"
+        android:title="@string/extras_category">
+
+        <!-- Display Cutout -->
+
+        <!-- Screen Off animation -->
+
+        <!-- Smart Pixels -->
+        <Preference
+            android:key="smart_pixels"  
+            android:title="@string/smart_pixels_title" 
+            android:summary="@string/smart_pixels_summary" 
+            android:fragment="com.lightning.thunderbolt.fragments.themes.SmartPixels" />
+
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="themes_launcher_category"

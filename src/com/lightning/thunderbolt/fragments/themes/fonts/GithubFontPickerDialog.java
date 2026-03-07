@@ -1,5 +1,4 @@
 /*
- * Copyright (C) 2024-2025 Lunaris AOSP
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -56,8 +55,8 @@ import org.json.JSONObject;
 public class GithubFontPickerDialog extends Dialog {
 
     private static final String TAG = "GithubFontPickerDialog";
-    private static final String GITHUB_API_URL = "https://api.github.com/repos/Lunaris-CLO/font_prebuilt/contents/fonts?ref=16";
-    private static final String GITHUB_RAW_URL = "https://raw.githubusercontent.com/Lunaris-CLO/font_prebuilt/16/fonts/";
+    private static final String GITHUB_API_URL = "https://api.github.com/repos/Mist-CLO/font_prebuilt/contents/fonts?ref=16";
+    private static final String GITHUB_RAW_URL = "https://raw.githubusercontent.com/Mist-CLO/font_prebuilt/16/fonts/";
 
     public interface OnFontSelectedListener {
         void onFontInstalled(String fontName);
