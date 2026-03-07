@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    xmlns:lineage="http://schemas.android.com/apk/res-auto"
+    android:title="@string/ls_clock_title">
+    
+    <Preference
+        android:key="android.theme.customization.lockscreen_clock_font"
+        android:title="@string/theme_customization_lock_clock_title"
+        android:summary="@string/theme_customization_lock_clock_summary"
+        android:fragment="com.lightning.thunderbolt.fragments.lockscreen.LockClockFontsPickerPreview"/>
+
+
+
+
+
+    <Preference
+        android:key="lockscreen_widgets"
+        android:title="@string/lockscreen_widgets_title"
+        android:summary="@string/lockscreen_widgets_enabled_summary"
+        android:fragment="com.lightning.thunderbolt.fragments.lockscreen.LockScreenWidgets"/>
+
+    <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+        android:key="custom_aod_image_enabled"
+        android:title="@string/lockscreen_custom_image_enabled_title"
+        android:summary="@string/lockscreen_custom_image_summary"
+        android:defaultValue="false" />
+
+    <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
+        android:key="custom_clock_weather"
+        android:title="@string/custom_clock_weather_title"
+        android:summary="@string/custom_clock_weather_summary"
+        android:defaultValue="false" />
+
+    <Preference
+        android:key="lockscreen_custom_image"
+        android:title="@string/lockscreen_custom_image_title"
+        android:summary="@string/lockscreen_custom_image_pick_summary"
+        android:dependency="custom_aod_image_enabled" />
+
+</PreferenceScreen>

@@ -195,11 +195,14 @@ public class LockClockFontsPickerPreview extends SettingsPreferenceFragment {
                     "clock_style", mClockPosition, UserHandle.USER_CURRENT);
                 Settings.Secure.putIntForUser(getContext().getContentResolver(), 
                     "lock_screen_custom_clock_face", 0, UserHandle.USER_CURRENT);
+                
+                final Context ctx = getContext();
+
                 mHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         updateClockOverlays(mClockPosition);
-                        SystemUtils.showSystemUiRestartDialog(getContext());
+                        SystemUtils.showSystemUiRestartDialog(ctx);
                     }
                 }, 1250);
             }
