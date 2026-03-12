@@ -181,7 +181,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         }
 
         mUpdateJsonButton.setOnPreferenceClickListener(preference -> {
-            updatePropertiesFromUrl("https://raw.githubusercontent.com/Project-LightningOS/vendor_Spoofing/refs/heads/15/PlayIntergrity/pif.json");
+            updatePropertiesFromUrl("https://raw.githubusercontent.com/yusufnoor786/vendor_certification/refs/heads/16.2/gms_certified_props.json");
             return true;
         });
 
