@@ -73,6 +73,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_QS_TILE_SHAPE = "qs_tile_shape";
     private static final String KEY_BRIGHTNESS_SLIDER_STYLE = "qs_brightness_slider_style";
     private static final String KEY_BRIGHTNESS_SLIDER_SHAPE = "qs_brightness_slider_shape";
+    private static final String KEY_QS_IOS_CONTROL_PANEL = "qs_ios_control_panel";
 
     private ListPreference mShowBrightnessSlider;
     private ListPreference mBrightnessSliderPosition;
@@ -89,6 +90,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private SystemSettingSwitchPreference mQsTileStyleMinimalInvert;
     private SystemSettingSwitchPreference mQsUseModifiedTileSpacing;
     private SystemSettingListPreference mQsTileShape;
+    private SystemSettingSwitchPreference mQsIosControlPanel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -148,6 +150,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         if (mBrightnessSliderStyle != null) {
             mBrightnessSliderStyle.setOnPreferenceChangeListener(this);
             updateBrightnessSliderStyleDependencies();
+        }
+
+        mQsIosControlPanel = findPreference(KEY_QS_IOS_CONTROL_PANEL);
+        if (mQsIosControlPanel != null) {
+            mQsIosControlPanel.setOnPreferenceChangeListener(this);
         }
 
         mBrightnessSliderHaptic = findPreference(KEY_BRIGHTNESS_SLIDER_HAPTIC);
@@ -242,6 +249,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mBrightnessSliderStyle) {
             updateBrightnessSliderStyleDependencies();
+            SystemUtils.showSystemUiRestartDialog(getActivity());
+            return true;
+        } else if (preference == mQsIosControlPanel) {
             SystemUtils.showSystemUiRestartDialog(getActivity());
             return true;
         }
