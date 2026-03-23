@@ -1200,11 +1200,13 @@
         <item>Axion</item>
         <item>Redesigned</item>
         <item>Stock</item>
+        <item>Mist Style</item>
     </string-array>
     <string-array name="volume_dialog_type_values">
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
     </string-array>
 
     <string-array name="wifi_icon_style_entries">

@@ -60,6 +60,7 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_WIFI_ICON_STYLE = "wifi_icon_style";
     private static final String KEY_QUICKSWITCH = "quickswitch";
     private static final String KEY_SHOW_VOLUME_PERCENTAGE = "show_volume_percentage";
+    private static final String KEY_IOS_VOLUME_EXPAND_ON_KEY = "ios_volume_expand_on_key";
 
     private Preference mShowCutoutForce;
     private Preference mSmartPixels;
@@ -67,6 +68,7 @@ public class Themes extends SettingsPreferenceFragment implements
     private SystemSettingListPreference mVolumeDialogType;
     private SystemSettingListPreference mWifiIconStyle;
     private SystemSettingSwitchPreference mShowVolumePercentage;
+    private SystemSettingSwitchPreference mIosVolumeExpand;
     private ThemeUtils mThemeUtils;
 
     private static final String[] WIFI_ICON_OVERLAYS = {
@@ -118,6 +120,7 @@ public class Themes extends SettingsPreferenceFragment implements
         }
 
         mShowVolumePercentage = findPreference(KEY_SHOW_VOLUME_PERCENTAGE);
+        mIosVolumeExpand = findPreference(KEY_IOS_VOLUME_EXPAND_ON_KEY);
         updateVolumePercentageVisibility();
     }
 
@@ -128,6 +131,7 @@ public class Themes extends SettingsPreferenceFragment implements
                 KEY_VOLUME_DIALOG_TYPE, 1,
                 UserHandle.USER_CURRENT);
         mShowVolumePercentage.setVisible(type == 1);
+        if (mIosVolumeExpand != null) mIosVolumeExpand.setVisible(type == 3);
     }
 
     private void updateStyle(String key, String category, String target,
@@ -166,6 +170,9 @@ public class Themes extends SettingsPreferenceFragment implements
             int val = Integer.parseInt((String) newValue);
             if (mShowVolumePercentage != null) {
                 mShowVolumePercentage.setVisible(val == 1);
+            }
+            if (mIosVolumeExpand != null) {
+                mIosVolumeExpand.setVisible(val == 3);
             }
             return true;
         }

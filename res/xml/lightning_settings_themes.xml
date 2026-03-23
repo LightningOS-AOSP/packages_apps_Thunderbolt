@@ -25,6 +25,7 @@
             android:fragment="com.lightning.thunderbolt.fragments.themes.fonts.FontSettingsFragment"/>
 
 
+
         </PreferenceCategory>
 
         <PreferenceCategory

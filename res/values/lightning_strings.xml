@@ -2141,4 +2141,9 @@
     <!-- Stock Music Player -->
     <string name="stock_qs_media_player">Disable Stock QS media player</string>
     <string name="stock_qs_media_player_summary">Show the default Android media player carousel in Quick Settings</string>
+
+    <!-- Lightning Volume Panel -->
+    <string name="volume_dialog_type_ios">Lightning Style</string>
+    <string name="ios_volume_expand_on_key_title">Auto-expand on Volume Key</string>
+    <string name="ios_volume_expand_on_key_summary">Expand all streams when volume key is pressed</string>
 </resources>
