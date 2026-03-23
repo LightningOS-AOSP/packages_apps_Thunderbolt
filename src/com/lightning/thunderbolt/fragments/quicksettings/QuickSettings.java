@@ -74,6 +74,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_BRIGHTNESS_SLIDER_STYLE = "qs_brightness_slider_style";
     private static final String KEY_BRIGHTNESS_SLIDER_SHAPE = "qs_brightness_slider_shape";
     private static final String KEY_QS_IOS_CONTROL_PANEL = "qs_ios_control_panel";
+    private static final String KEY_QS_STOCK_MEDIA_PLAYER = "qs_stock_media_player";
 
     private ListPreference mShowBrightnessSlider;
     private ListPreference mBrightnessSliderPosition;
@@ -91,6 +92,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private SystemSettingSwitchPreference mQsUseModifiedTileSpacing;
     private SystemSettingListPreference mQsTileShape;
     private SystemSettingSwitchPreference mQsIosControlPanel;
+    private SystemSettingSwitchPreference mQsStockMediaPlayer;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -155,6 +157,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mQsIosControlPanel = findPreference(KEY_QS_IOS_CONTROL_PANEL);
         if (mQsIosControlPanel != null) {
             mQsIosControlPanel.setOnPreferenceChangeListener(this);
+        }
+
+        mQsStockMediaPlayer = findPreference(KEY_QS_STOCK_MEDIA_PLAYER);
+        if (mQsStockMediaPlayer != null) {
+            mQsStockMediaPlayer.setOnPreferenceChangeListener(this);
         }
 
         mBrightnessSliderHaptic = findPreference(KEY_BRIGHTNESS_SLIDER_HAPTIC);
@@ -252,6 +259,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             SystemUtils.showSystemUiRestartDialog(getActivity());
             return true;
         } else if (preference == mQsIosControlPanel) {
+            SystemUtils.showSystemUiRestartDialog(getActivity());
+            return true;
+        } else if (preference == mQsStockMediaPlayer) {
             SystemUtils.showSystemUiRestartDialog(getActivity());
             return true;
         }
