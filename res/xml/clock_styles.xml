@@ -16,6 +16,7 @@
 
 
 
+
     <Preference
         android:key="lockscreen_widgets"
         android:title="@string/lockscreen_widgets_title"
