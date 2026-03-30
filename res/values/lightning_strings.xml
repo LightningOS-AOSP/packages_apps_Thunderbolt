@@ -2153,4 +2153,8 @@
     <string name="volume_dialog_type_ios">Lightning Style</string>
     <string name="ios_volume_expand_on_key_title">Auto-expand on Volume Key</string>
     <string name="ios_volume_expand_on_key_summary">Expand all streams when volume key is pressed</string>
+
+    <!-- Status bar icon order -->
+    <string name="status_bar_icon_order_title">Status bar icon order</string>
+    <string name="status_bar_icon_order_summary">Enable legacy status bar icon order</string>
 </resources>
