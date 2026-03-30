@@ -8,4 +8,24 @@
     android:title="@string/spoofing_title">
 
 
+    <PreferenceCategory
+        android:key="spoofing_app_specific_category"
+        android:title="@string/spoofing_app_specific_category">
+
+        <!-- App Spoofing -->
+        <Preference
+            android:key="user_selectable_app_spoofing"
+            android:title="@string/user_selectable_app_spoofing_title"
+            android:summary="@string/user_selectable_app_spoofing_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.UserSelectedAppSpoofSettings" />
+            
+
+        <!-- Play Store -->
+
+        <!-- Google Photos -->
+
+        <!-- Snapchat -->
+        
+        <!-- Vbmeta hash attestation -->
+    </PreferenceCategory>
 </PreferenceScreen>
