@@ -1190,6 +1190,11 @@
     <string name="solid_gradient_void_light">Gradient Void light</string>
     <string name="clock_chip_custom_gradient">Custom gradient</string>
 
+    <!-- Mask text -->
+    <string name="clock_chip_gradient_mask_text_title">Clock text style</string>
+    <string name="clock_chip_gradient_mask_text_default">Default</string>
+    <string name="clock_chip_gradient_mask_text_mask">Transparent (Mask)</string>
+
     <!-- Start color picker -->
     <string name="clock_chip_gradient_start_color_title">Gradient start color</string>
     <string name="clock_chip_gradient_start_color_summary">Color at the start of the gradient</string>
