@@ -50,6 +50,13 @@
         android:dependency="nowplaying_enabled"
         android:defaultValue="false" />
 
+    <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+        android:key="nowplaying_tap_to_expand"
+        android:title="@string/nowplaying_expand_dialog"
+        android:summary="@string/nowplaying_expand_dialog_summary"
+        android:dependency="nowplaying_enabled"
+        android:defaultValue="true" />
+
 
     <com.lightning.thunderbolt.preferences.SystemSettingSeekBarPreference
         android:key="nowplaying_vertical_position"
