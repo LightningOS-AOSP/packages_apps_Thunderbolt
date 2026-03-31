@@ -38,6 +38,8 @@
             android:summary="@string/hide_applist_summary"
             android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.HideAppListSettings" />
 
+        <!-- Notification bubble apps -->
+
     </PreferenceCategory>
 
     <PreferenceCategory
