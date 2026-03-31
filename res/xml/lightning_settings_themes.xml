@@ -10,6 +10,13 @@
         android:key="ui_category"
         android:title="@string/ui_title">
 
+        <!-- Gradient Customization -->
+        <Preference
+            android:key="gradient_settings"
+            android:title="@string/gradient_settings_title"
+            android:summary="@string/gradient_settings_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.themes.GradientSettings" />
+
         <Preference
             android:key="android.theme.customization.navbar"
             android:title="@string/theme_customization_navbar_title"
