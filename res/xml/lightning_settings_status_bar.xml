@@ -93,6 +93,11 @@
             android:defaultValue="false" />
 
 
+        <!--<com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="wifi_standard_icon"
+            android:title="@string/wifi_standard_icon_title"
+            android:summary="@string/wifi_standard_icon_summary"
+            android:defaultValue="false"/> -->
         
 
         <Preference
