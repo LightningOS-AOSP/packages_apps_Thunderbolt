@@ -106,6 +106,8 @@ public class LockScreen extends SettingsPreferenceFragment
         }
 
         mSmartspace = (SwitchPreferenceCompat) findPreference(KEY_SMARTSPACE);
+        mSmartspace.setChecked(Settings.Secure.getIntForUser(getContext().getContentResolver(),
+                KEY_SMARTSPACE, 1, UserHandle.USER_CURRENT) == 1);
         mSmartspace.setOnPreferenceChangeListener(this);
 
         mWeather = (SwitchPreferenceCompat) findPreference(KEY_WEATHER);
@@ -128,7 +130,10 @@ public class LockScreen extends SettingsPreferenceFragment
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mSmartspace) {
-            mSmartspace.setChecked((Boolean)newValue);
+            boolean value = (Boolean) newValue;
+            Settings.Secure.putIntForUser(getContext().getContentResolver(),
+                    KEY_SMARTSPACE, value ? 1 : 0, UserHandle.USER_CURRENT);
+            mSmartspace.setChecked(value);
             updateWeatherSettings();
             SystemUtils.showSystemUiRestartDialog(getContext());
             return true;
