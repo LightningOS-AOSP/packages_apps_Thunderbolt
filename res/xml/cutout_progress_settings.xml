@@ -82,7 +82,7 @@
         settings:min="1000"
         settings:interval="10"
         settings:units=" (×0.001)"
-        android:defaultValue="1155"
+        android:defaultValue="1100"
         android:dependency="cutout_progress_enabled" />
 
     <PreferenceCategory

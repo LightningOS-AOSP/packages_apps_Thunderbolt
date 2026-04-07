@@ -2319,7 +2319,7 @@
     <string name="custom_gradient_start_color_title">Gradient start color</string>
     <string name="custom_gradient_end_color_title">Gradient end color</string>
 
-    !-- QS Panel style -->
+    <!-- QS Panel style -->
     <string name="qs_panel_style_title">QS Panel style</string>
     <string name="qs_panel_style_card">Card style</string>
     <string name="qs_panel_style_classic">Classic style</string>
