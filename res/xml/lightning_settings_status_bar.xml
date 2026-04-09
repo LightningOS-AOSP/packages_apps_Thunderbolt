@@ -100,12 +100,6 @@
             android:defaultValue="false"/> -->
         
 
-        <Preference
-            android:key="ongoing_progress_settings"
-            android:title="@string/ongoing_progress_settings_title"
-            android:summary="@string/ongoing_progress_settings_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.statusbar.OngoingProgressBar" />
-            
     </PreferenceCategory>
 
     <!-- Custom logo -->
