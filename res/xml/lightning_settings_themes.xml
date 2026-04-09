@@ -10,6 +10,8 @@
         android:key="ui_category"
         android:title="@string/ui_title">
 
+        <!-- Themes -->
+
         <!-- Gradient Customization -->
         <Preference
             android:key="gradient_settings"
