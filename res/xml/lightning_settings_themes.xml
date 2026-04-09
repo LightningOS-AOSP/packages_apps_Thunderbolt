@@ -23,7 +23,6 @@
             android:summary="@string/theme_customization_navbar_summary"
             android:fragment="com.lightning.thunderbolt.fragments.themes.NavbarStyles"/>
 
-
         <!-- Font style -->
         <Preference
             android:key="font_settings"

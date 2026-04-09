@@ -57,7 +57,6 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_FORCE_FULL_SCREEN = "display_cutout_force_fullscreen_settings";
     private static final String SMART_PIXELS = "smart_pixels";
     private static final String KEY_VOLUME_DIALOG_TYPE = "volume_dialog_type";
-    private static final String KEY_WIFI_ICON_STYLE = "wifi_icon_style";
     private static final String KEY_QUICKSWITCH = "quickswitch";
     private static final String KEY_SHOW_VOLUME_PERCENTAGE = "show_volume_percentage";
     private static final String KEY_IOS_VOLUME_EXPAND_ON_KEY = "ios_volume_expand_on_key";
@@ -66,18 +65,9 @@ public class Themes extends SettingsPreferenceFragment implements
     private Preference mSmartPixels;
     private Preference mQuickSwitch;
     private SystemSettingListPreference mVolumeDialogType;
-    private SystemSettingListPreference mWifiIconStyle;
     private SystemSettingSwitchPreference mShowVolumePercentage;
     private SystemSettingSwitchPreference mIosVolumeExpand;
     private ThemeUtils mThemeUtils;
-
-    private static final String[] WIFI_ICON_OVERLAYS = {
-            "com.custom.overlay.systemui.wifiAurora",
-            "com.android.systemui.wifibar_c",
-            "com.custom.overlay.systemui.wifiLinear",
-            "com.android.systemui.wifiNothingDot",
-            "com.android.systemui.wifibar_d"
-    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -114,49 +104,9 @@ public class Themes extends SettingsPreferenceFragment implements
             mVolumeDialogType.setOnPreferenceChangeListener(this);
         }
 
-        mWifiIconStyle = findPreference(KEY_WIFI_ICON_STYLE);
-        if (mWifiIconStyle != null) {
-            mWifiIconStyle.setOnPreferenceChangeListener(this);
-        }
-
         mShowVolumePercentage = findPreference(KEY_SHOW_VOLUME_PERCENTAGE);
         mIosVolumeExpand = findPreference(KEY_IOS_VOLUME_EXPAND_ON_KEY);
         updateVolumePercentageVisibility();
-    }
-
-    private void updateVolumePercentageVisibility() {
-        if (mShowVolumePercentage == null) return;
-        int type = Settings.System.getIntForUser(
-                getContext().getContentResolver(),
-                KEY_VOLUME_DIALOG_TYPE, 1,
-                UserHandle.USER_CURRENT);
-        mShowVolumePercentage.setVisible(type == 1);
-        if (mIosVolumeExpand != null) mIosVolumeExpand.setVisible(type == 3);
-    }
-
-    private void updateStyle(String key, String category, String target,
-            int defaultValue, String[] overlayPackages, boolean restartSystemUI) {
-        final int style = Settings.System.getIntForUser(
-                getContext().getContentResolver(),
-                key,
-                defaultValue,
-                UserHandle.USER_CURRENT
-        );
-        if (mThemeUtils == null) {
-            mThemeUtils = ThemeUtils.getInstance(getContext());
-        }
-        mThemeUtils.setOverlayEnabled(category, target, target);
-        if (style > 0 && style <= overlayPackages.length) {
-            mThemeUtils.setOverlayEnabled(category, overlayPackages[style - 1], target);
-        }
-        if (restartSystemUI) {
-            SystemRestartUtils.restartSystemUI(getContext());
-        }
-    }
-
-    private void updateWifiIconStyle() {
-        updateStyle(KEY_WIFI_ICON_STYLE, "android.theme.customization.wifi_icon", 
-                "com.android.systemui", 0, WIFI_ICON_OVERLAYS, true);
     }
 
     @Override
@@ -174,14 +124,6 @@ public class Themes extends SettingsPreferenceFragment implements
             if (mIosVolumeExpand != null) {
                 mIosVolumeExpand.setVisible(val == 3);
             }
-            return true;
-        }
-        
-        if (preference == mWifiIconStyle) {
-            value = Integer.parseInt((String) newValue);
-            Settings.System.putIntForUser(resolver,
-                    KEY_WIFI_ICON_STYLE, value, UserHandle.USER_CURRENT);
-            updateWifiIconStyle();
             return true;
         }
         
