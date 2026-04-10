@@ -109,6 +109,16 @@ public class Themes extends SettingsPreferenceFragment implements
         updateVolumePercentageVisibility();
     }
 
+    private void updateVolumePercentageVisibility() {
+        if (mShowVolumePercentage == null) return;
+        int type = Settings.System.getIntForUser(
+                getContext().getContentResolver(),
+                KEY_VOLUME_DIALOG_TYPE, 1,
+                UserHandle.USER_CURRENT);
+        mShowVolumePercentage.setVisible(type == 1);
+        if (mIosVolumeExpand != null) mIosVolumeExpand.setVisible(type == 3);
+    }
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final Context context = getContext();
