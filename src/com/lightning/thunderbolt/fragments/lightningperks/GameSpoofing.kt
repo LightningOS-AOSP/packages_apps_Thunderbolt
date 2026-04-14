@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.lightning.thunderbolt.fragments.lightningperks;
+package com.lightning.thunderbolt.fragments.lightningperks
 
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
@@ -271,7 +271,7 @@ class GameSpoofing : SettingsPreferenceFragment() {
 
     companion object {
         private const val TAG = "GameSpoofing"
-        private const val CONFIG_PATH = "/data/adb/gameprops"
+        private const val CONFIG_PATH = "/data/system/gameprops"
         private const val CONFIG_FILE = "gameprops.json"
 
         private val PRESET_PROFILES = listOf(
