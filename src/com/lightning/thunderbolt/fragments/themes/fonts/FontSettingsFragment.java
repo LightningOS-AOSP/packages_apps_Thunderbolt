@@ -74,7 +74,7 @@ public class FontSettingsFragment extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.lightning_settings_fonts);
-        
+
         mThemeUtils = ThemeUtils.getInstance(getActivity());
         mFontInstaller = new ExternalFontInstaller(getActivity());
 
@@ -88,7 +88,7 @@ public class FontSettingsFragment extends SettingsPreferenceFragment implements
 
         mCustomFontPickerPref = findPreference(KEY_CUSTOM_FONT_PICKER);
         mCustomFontPickerPref.setOnPreferenceClickListener(preference -> {
-            showFontPreviewDialog();
+            showFontFilePicker();
             return true;
         });
 
@@ -99,7 +99,7 @@ public class FontSettingsFragment extends SettingsPreferenceFragment implements
         });
 
         mCustomFontInfoPref = findPreference(KEY_CUSTOM_FONT_INFO);
-        
+
         mResetCustomFontPref = findPreference(KEY_RESET_CUSTOM_FONT);
         mResetCustomFontPref.setOnPreferenceClickListener(preference -> {
             resetCustomFont();
@@ -140,15 +140,17 @@ public class FontSettingsFragment extends SettingsPreferenceFragment implements
         mRebootForFontPref.setVisible((isCustomMode || isGithubMode) && hasCustomFont);
 
         if (hasCustomFont) {
-            mCustomFontInfoPref.setSummary(getString(R.string.custom_font_installed_summary, customFontName));
+            mCustomFontInfoPref.setSummary(
+                    getString(R.string.custom_font_installed_summary, customFontName));
         }
     }
 
-    private void showFontPreviewDialog() {
+    private void showFontFilePicker() {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
-        String[] mimeTypes = {"font/ttf", "font/otf", "application/x-font-ttf", "application/x-font-otf"};
+        String[] mimeTypes = {"font/ttf", "font/otf",
+                "application/x-font-ttf", "application/x-font-otf"};
         intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
         startActivityForResult(intent, REQUEST_PICK_FONT);
     }
@@ -199,11 +201,13 @@ public class FontSettingsFragment extends SettingsPreferenceFragment implements
                 );
                 getActivity().runOnUiThread(() -> {
                     updateFontPreferences();
-                    Toast.makeText(getContext(), R.string.custom_font_installed_success, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),
+                            R.string.custom_font_installed_success, Toast.LENGTH_SHORT).show();
                 });
             } else {
                 getActivity().runOnUiThread(() -> {
-                    Toast.makeText(getContext(), R.string.custom_font_install_failed, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),
+                            R.string.custom_font_install_failed, Toast.LENGTH_SHORT).show();
                 });
             }
         }).start();
@@ -211,21 +215,22 @@ public class FontSettingsFragment extends SettingsPreferenceFragment implements
 
     private void resetCustomFont() {
         mFontInstaller.resetFontUpdates(getContext());
+
         Settings.Secure.putStringForUser(
                 getContext().getContentResolver(),
                 "custom_font_name",
                 "",
                 UserHandle.USER_CURRENT
         );
-        
+
         if (mThemeUtils != null) {
             mThemeUtils.setOverlayEnabled(
                     "android.theme.customization.font",
-                    "com.android.theme.font.googlesansflex",
+                    "com.android.theme.font.extfont",
                     "android"
             );
         }
-        
+
         updateFontPreferences();
         Toast.makeText(getContext(), R.string.custom_font_reset_success, Toast.LENGTH_SHORT).show();
     }
@@ -235,7 +240,7 @@ public class FontSettingsFragment extends SettingsPreferenceFragment implements
                 .setTitle(R.string.reboot_required_title)
                 .setMessage(R.string.reboot_required_message)
                 .setPositiveButton(R.string.reboot_device, (dialog, which) -> {
-                    ExternalFontInstaller.rebootDevice(getContext());
+                    ExternalFontInstaller.rebootDevice();
                 })
                 .setNegativeButton(android.R.string.lightning_cancel, null)
                 .show();
@@ -253,7 +258,7 @@ public class FontSettingsFragment extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
-        
+
         if (preference == mFontModePref) {
             String fontMode = (String) newValue;
             Settings.System.putStringForUser(
@@ -262,7 +267,7 @@ public class FontSettingsFragment extends SettingsPreferenceFragment implements
                     fontMode,
                     UserHandle.USER_CURRENT
             );
-            
+
             if ("prebuilt".equals(fontMode)) {
                 String customFontName = Settings.Secure.getStringForUser(
                         resolver,
@@ -273,11 +278,11 @@ public class FontSettingsFragment extends SettingsPreferenceFragment implements
                     resetCustomFont();
                 }
             }
-            
+
             updateFontPreferences();
             return true;
         }
-        
+
         return false;
     }
 
