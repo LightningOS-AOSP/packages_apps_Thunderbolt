@@ -22,7 +22,11 @@ import com.android.settingslib.search.SearchIndexable;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.core.SubSettingLauncher;
+import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.instrumentation.Instrumentable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SearchIndexable
 public class ThunderboltSettings extends DashboardFragment implements
@@ -43,6 +47,13 @@ public class ThunderboltSettings extends DashboardFragment implements
     @Override
     protected String getLogTag() {
         return TAG;
+    }
+
+    @Override
+    protected List<AbstractPreferenceController> createPreferenceControllers(Context context) {
+        final List<AbstractPreferenceController> controllers = new ArrayList<>();
+        controllers.add(new LightningController(context));
+        return controllers;
     }
 
     @Override
@@ -67,7 +78,6 @@ public class ThunderboltSettings extends DashboardFragment implements
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         super.onCreatePreferences(savedInstanceState, rootKey);
         final PreferenceScreen screen = getPreferenceScreen();
-        // Tint the homepage icons
         final int tintColor = Utils.getHomepageIconColor(getContext());
         final int count = screen.getPreferenceCount();
         for (int i = 0; i < count; i++) {

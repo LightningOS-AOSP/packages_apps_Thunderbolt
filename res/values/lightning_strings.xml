@@ -22,6 +22,8 @@
     <string name="about_device_name">Device</string>
 
     <!-- Categories -->
+    <string name="misc2_title">Misc</string>
+    <string name="notifi_title">Notifi</string>
     <string name="themes_title">Themes</string>
     <string name="themes_summary">UI Changes and customization</string>
     <string name="lock_screen_title_lightning">Lock screen</string>
