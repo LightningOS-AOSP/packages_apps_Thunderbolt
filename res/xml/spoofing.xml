@@ -8,12 +8,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/spoofing_title">
 
-     <!-- Play Integrity Fix -->
-    <Preference
-        android:key="play_integrity_fix"
-        android:title="@string/play_integrity_fix_title"
-        android:summary="@string/play_integrity_fix_summary"
-        android:fragment="com.lightning.thunderbolt.fragments.lightningperks.PlayIntegrityFix" />
+     <!-- Integrity -->
+    <PreferenceCategory
+        android:key="spoofing_integrity_category"
+        android:title="@string/spoofing_integrity_category">
 
     <!-- TrickyStore -->
     <Preference
@@ -22,16 +20,25 @@
         android:summary="@string/tricky_store_summary"
         android:fragment="com.lightning.thunderbolt.fragments.lightningperks.TrickyStore" />
 
-    <!-- App Spoofing -->
-    <Preference
-        android:key="user_selectable_app_spoofing"
-        android:title="@string/user_selectable_app_spoofing_title"
-        android:summary="@string/user_selectable_app_spoofing_summary"
-        android:fragment="com.lightning.thunderbolt.fragments.lightningperks.UserSelectedAppSpoofSettings" />
+        <!-- Play Integrity Fix -->
+        <Preference
+            android:key="play_integrity_fix"
+            android:title="@string/play_integrity_fix_title"
+            android:summary="@string/play_integrity_fix_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.lightningperks.PlayIntegrityFix" />
+    </PreferenceCategory>
         
+     <!-- Device Identity -->
     <PreferenceCategory
-        android:key="spoofing_system_wide_category"
-        android:title="@string/spoofing_system_wide_category">
+        android:key="spoofing_identity_category"
+        android:title="@string/spoofing_identity_category">
+
+        <!-- App Spoofing -->
+        <Preference
+            android:key="user_selectable_app_spoofing"
+            android:title="@string/user_selectable_app_spoofing_title"
+            android:summary="@string/user_selectable_app_spoofing_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.lightningperks.UserSelectedAppSpoofSettings" />
 
         <!-- Pixel props -->
         <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
@@ -39,7 +46,12 @@
             android:title="@string/spoofing_pixel_props_title"
             android:summary="@string/spoofing_pixel_props_summary"
             android:defaultValue="true" />
+        </PreferenceCategory>
 
+    <!-- Features -->
+    <PreferenceCategory
+        android:key="spoofing_features_category"
+        android:title="@string/spoofing_features_category">
         
             <!-- Tensor feature targets -->
         <Preference
