@@ -40,12 +40,13 @@
             android:summary="@string/spoofing_pixel_props_summary"
             android:defaultValue="true" />
 
-        <!-- Tensor features -->
-        <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
-            android:key="pi_tensor_spoof"
+        
+            <!-- Tensor feature targets -->
+        <Preference
+            android:key="tensor_targets_settings"
             android:title="@string/tensor_spoof_title"
             android:summary="@string/tensor_spoof_summary"
-            android:defaultValue="false" />
+            android:fragment="com.lightning.thunderbolt.fragments.lightningperks.TensorTargetsSettings" />
     </PreferenceCategory>
 
     <PreferenceCategory
