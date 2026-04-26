@@ -46,23 +46,12 @@
 
 
 
-
-
         <SwitchPreferenceCompat
             android:key="event_notification"
             android:title="@string/dynamic_bar_event_notification"
             android:summary="@string/dynamic_bar_event_notification_summary"
             android:icon="@drawable/ic_notifications"
             android:defaultValue="true" />
-
-        <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
-            android:key="ax_dynamic_bar_compact_notifications"
-            android:title="@string/dynamic_bar_compact_notifications"
-            android:summary="@string/dynamic_bar_compact_notifications_summary"
-            android:icon="@drawable/ic_compact_notifications"
-            android:defaultValue="true"
-            android:dependency="event_notification" />
-
 
 
 
