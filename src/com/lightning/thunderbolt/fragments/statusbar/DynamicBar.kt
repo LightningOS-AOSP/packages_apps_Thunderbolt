@@ -170,11 +170,7 @@ class DynamicBar : SettingsPreferenceFragment() {
                 UserHandle.USER_CURRENT
             )
             Settings.Secure.putIntForUser(
-<<<<<<< HEAD:src/org/mist/settings/fragments/statusbar/DynamicBar.kt
-                resolver, SETTINGS_KEY_COMPACT_NOTIFICATIONS, 1,
-=======
                 resolver, SETTINGS_KEY_MUSIC_PILL, 0,
->>>>>>> 92023fba (cleanup dynamicbar):src/org/lunaris/settings/fragments/statusbar/DynamicBar.kt
                 UserHandle.USER_CURRENT
             )
             Settings.Secure.putIntForUser(
