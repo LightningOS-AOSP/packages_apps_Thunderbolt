@@ -60,7 +60,7 @@
             android:key="fidelity_enabled"
             android:title="@string/fidelity_title"
             android:summary="@string/fidelity_desc"
-            android:defaultValue="true" />
+            android:defaultValue="false" />
 
         <com.lightning.thunderbolt.preferences.CustomSeekBarPreference
             android:key="contrast_level"
