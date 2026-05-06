@@ -1201,12 +1201,14 @@
         <item>Redesigned</item>
         <item>Stock</item>
         <item>Mist Style</item>
+        <item>OnePlus</item>
     </string-array>
     <string-array name="volume_dialog_type_values">
         <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
     </string-array>
 
     <string-array name="cutout_progress_finish_style_entries">
