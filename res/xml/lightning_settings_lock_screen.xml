@@ -33,6 +33,13 @@
         android:key="lockscreen_interface_category"
         android:title="@string/lockscreen_interface_category">
 
+        <!-- Lightning Hub -->
+        <Preference
+            android:key="lightning_hub_settings"
+            android:title="@string/lightning_hub_title"
+            android:summary="@string/lightning_hub_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.MistHubSettings" />
+
         <!-- Lockscreen Media Art -->
 
         <!-- Pulse music visualizer -->

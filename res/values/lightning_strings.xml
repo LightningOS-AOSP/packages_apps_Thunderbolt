@@ -2434,4 +2434,49 @@
     <!-- Notification background alternate color -->
     <string name="notification_bg_alternate_color_title">Notification background alternate color</string>
     <string name="notification_bg_alternate_color_summary">Use alternate background color for notifications</string>
+
+    <!-- Lightning Hub -->
+    <string name="lightning_hub_title">Lightning Hub</string>
+    <string name="lightning_hub_summary">Dynamic lockscreen Hub for notifications &amp; live updates</string>
+    <string name="lightning_hub_enable_title">Enable Lightning Hub</string>
+    <string name="lightning_hub_enable_summary">Show a dynamic pill on the lockscreen for notifications, live updates, and more</string>
+
+    <!-- Lightning Hub: Appearance -->
+    <string name="lightning_hub_appearance_category">Appearance</string>
+    <string name="lightning_hub_corner_radius_title">Corner Radius</string>
+    <string name="lightning_hub_corner_radius_summary">Adjust the roundness of the hub pill</string>
+    <string name="lightning_hub_edge_glow_title">Edge Glow Mode</string>
+    <string name="lightning_hub_edge_glow_summary">Show a glowing border effect around the hub</string>
+    <string name="lightning_hub_vertical_offset_title">Hub Vertical Position</string>
+    <string name="lightning_hub_vertical_offset_summary">Slide up or down to reposition the hub on the lockscreen</string>
+    <string name="lightning_hub_max_width_title">Hub Maximum Width</string>
+    <string name="lightning_hub_max_width_summary">Adjust the maximum width of the pill</string>
+    <string name="lightning_hub_font_title">Hub Font</string>
+    <string name="lightning_hub_font_summary">Select the font used inside the hub</string>
+
+    <!-- Lightning Hub: Animations -->
+    <string name="lightning_hub_animation_category">Animations</string>
+    <string name="lightning_hub_animation_speed_title">Animation Speed</string>
+    <string name="lightning_hub_animation_speed_summary">Control how fast hub transitions animate</string>
+    <string name="lightning_hub_spring_animation_title">Spring Animations</string>
+    <string name="lightning_hub_spring_animation_summary">Use bouncy spring physics for all hub transitions</string>
+    <string name="lightning_hub_pulse_title">Pulse on Notification</string>
+    <string name="lightning_hub_pulse_summary">Pulse the hub when a new notification arrives</string>
+
+    <!-- Lightning Hub: Integrations -->
+    <string name="lightning_hub_integrations_category">Integrations</string>
+    <string name="lightning_hub_battery_title">Battery Charging Status</string>
+    <string name="lightning_hub_battery_summary">Show a live charging animation and percentage in the hub</string>
+    <string name="lightning_hub_music_visualizer_title">Music Reactive Visualizer</string>
+    <string name="lightning_hub_music_visualizer_summary">Display a waveform visualizer in the hub while music is playing</string>
+
+    <!-- Lightning Hub: Per-App -->
+    <string name="lightning_hub_per_app_category">Per-App Control</string>
+    <string name="lightning_hub_per_app_title">Per-App Enable/Disable</string>
+    <string name="lightning_hub_per_app_summary">Choose which apps can show in Lightning Hub</string>
+
+    <!-- Lightning Hub: Live Updates -->
+    <string name="lightning_hub_live_updates_category">Live Updates (3rd Party)</string>
+    <string name="lightning_hub_live_updates_info">Lightning Hub will automatically parse and display real-time updates from supported apps including some default apps &amp; with gesture options to switch &amp; dismiss the notifications</string>
+
 </resources>
