@@ -59,6 +59,8 @@
             android:defaultValue="true" />
         
 
+        <!-- Scrim -->
+
         <!-- Shortcuts -->
 
         <!-- Keyguard user switcher -->

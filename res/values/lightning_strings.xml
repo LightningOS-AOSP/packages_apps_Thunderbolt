@@ -2512,4 +2512,8 @@
     <!-- Animation -->
     <string name="activity_anim_perf_override_title">Activity Animation Override</string>
     <string name="activity_anim_perf_override_summary">Use optimized activity transition animations</string>
+
+    <!-- Scrim -->
+    <string name="keyguard_scrim_transparent_title">Transparent lockscreen scrim</string>
+    <string name="keyguard_scrim_transparent_summary">Hide the lockscreen wallpaper dimming layer</string>
 </resources>
