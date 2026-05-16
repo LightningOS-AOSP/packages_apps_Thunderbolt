@@ -942,7 +942,7 @@ private fun AppConfigCard(
                     },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = MaterialTheme.colorScheme.error)
-                ) { Text(stringResource(R.string.remove)) }
+                ) { Text(stringResource(R.string.lightning_remove)) }
             },
             dismissButton = {
                 TextButton(onClick = { showRemoveAlert = false }) {
@@ -1119,7 +1119,7 @@ private fun AppConfigCard(
                 ) {
                     Icon(Icons.Default.Delete, null, Modifier.size(16.dp))
                     Spacer(Modifier.width(4.dp))
-                    Text(stringResource(R.string.remove))
+                    Text(stringResource(R.string.lightning_remove))
                 }
                 FilledTonalButton(onClick = onEdit, modifier = Modifier.weight(1f)) {
                     Icon(Icons.Default.Edit, null, Modifier.size(16.dp))

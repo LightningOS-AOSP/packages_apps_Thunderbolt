@@ -34,6 +34,27 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="notification_category"
+        android:title="@string/notification_category_title">
+
+        <Preference
+            android:key="essential_notifications"
+            android:title="@string/essential_notifications"
+            android:summary="@string/essential_notifications_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.notification.EssentialNotificationsSettings" />
+
+
+        <!-- Notification guts kill app button -->
+
+        <!-- Show clipboard overlay -->
+
+
+
+        <!-- Notification app icon -->
+
+        <!-- Notification themed app icon -->
+    </PreferenceCategory>
 
 
 
