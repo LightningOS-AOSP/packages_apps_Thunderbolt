@@ -18,6 +18,11 @@
  
 
         <!-- Unlimit screenrecord -->
+        <!--<com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="unlimit_screenrecord"
+            android:title="@string/unlimit_screenrecord_title"
+            android:summary="@string/unlimit_screenrecord_summary"
+            android:defaultValue="false" /> -->
 
         <!-- No storage restrict -->
         <com.lightning.thunderbolt.preferences.GlobalSettingSwitchPreference
