@@ -39,12 +39,13 @@ import com.android.settingslib.search.SearchIndexable;
 import com.lightning.thunderbolt.fragments.themes.SmartPixels;
 import com.lightning.thunderbolt.utils.SystemUtils;
 import com.lightning.thunderbolt.preferences.SystemSettingListPreference;
+import com.lightning.thunderbolt.preferences.SystemPropertySwitchPreference;
 import com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference;
 
 import com.android.internal.util.lightning.VibrationUtils;
 import com.android.internal.util.lightning.ThemeUtils;
 
-import com.lightning.thunderbolt.utils.SystemRestartUtils;
+import com.android.internal.util.lightning.SystemRestartUtils;
 
 import java.util.List;
 
@@ -60,6 +61,7 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_QUICKSWITCH = "quickswitch";
     private static final String KEY_SHOW_VOLUME_PERCENTAGE = "show_volume_percentage";
     private static final String KEY_IOS_VOLUME_EXPAND_ON_KEY = "ios_volume_expand_on_key";
+    private static final String SYS_ANI_OVERRIDE_ENABLED = "persist.sys.activity_anim_perf_override";
 
     private Preference mShowCutoutForce;
     private Preference mSmartPixels;
@@ -68,6 +70,7 @@ public class Themes extends SettingsPreferenceFragment implements
     private SystemSettingSwitchPreference mShowVolumePercentage;
     private SystemSettingSwitchPreference mIosVolumeExpand;
     private ThemeUtils mThemeUtils;
+    private SystemPropertySwitchPreference mAniOverrideEnabled;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -98,6 +101,9 @@ public class Themes extends SettingsPreferenceFragment implements
         boolean withGoogleApps = android.os.SystemProperties.getBoolean("with_google_apps", false);
         if (!withGoogleApps)
             prefScreen.removePreference(mQuickSwitch);
+
+        mAniOverrideEnabled = (SystemPropertySwitchPreference) findPreference(SYS_ANI_OVERRIDE_ENABLED);
+        mAniOverrideEnabled.setOnPreferenceChangeListener(this);
 
         mVolumeDialogType = findPreference(KEY_VOLUME_DIALOG_TYPE);
         if (mVolumeDialogType != null) {
@@ -134,6 +140,9 @@ public class Themes extends SettingsPreferenceFragment implements
             if (mIosVolumeExpand != null) {
                 mIosVolumeExpand.setVisible(val == 3);
             }
+            return true;
+            if (preference == mAniOverrideEnabled) {
+            SystemRestartUtils.showSystemRestartDialog(getContext());
             return true;
         }
         
