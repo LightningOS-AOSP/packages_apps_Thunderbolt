@@ -122,22 +122,28 @@ public class Themes extends SettingsPreferenceFragment implements
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
         int value = 0;
-        
+
         if (preference == mVolumeDialogType) {
             SystemUtils.showSystemUiRestartDialog(getActivity());
+
             int val = Integer.parseInt((String) newValue);
+
             if (mShowVolumePercentage != null) {
                 mShowVolumePercentage.setVisible(val == 1);
             }
-            if (mIosVolumeExpand != null) {
-                mIosVolumeExpand.setVisible(val == 3);
-            }
-            return true;
-            if (preference == mAniOverrideEnabled) {
-            SystemRestartUtils.showSystemRestartDialog(getContext());
-            return true;
         }
-        
+
+        f (mIosVolumeExpand != null) {
+            mIosVolumeExpand.setVisible(val == 3);
+        }
+
+        return true;
+    }
+
+    if (preference == mAniOverrideEnabled) {
+        SystemRestartUtils.showSystemRestartDialog(getContext());
+        return true;
+    }
         return false;
     }
 

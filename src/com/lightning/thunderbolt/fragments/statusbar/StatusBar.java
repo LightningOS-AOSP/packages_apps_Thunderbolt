@@ -27,6 +27,7 @@ import android.provider.MediaStore;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
