@@ -2301,6 +2301,15 @@
 
     <!-- Depth Wallpaper -->
     <string name="depth_wallpaper_category">Depth Wallpaper</string>
+    <string name="depthwall_wallpaper_enabled_title">Depth Wallpaper</string>
+    <string name="depthwall_wallpaper_enabled_summary_tile">Apply depth effect\nto wallpaper</string>
+    <string name="depthwall_wallpaper_enabled_summary">Enable Model-based depth wallpaper. Automatically separates the subject from your wallpaper.</string>
+    <string name="depthwall_wallpaper_opacity_title">Depth wallpaper opacity</string>
+    <string name="depth_wallpaper_offset_x_title">Depth wallpaper horizontal offset</string>
+    <string name="depth_wallpaper_offset_y_title">Depth wallpaper vertical offset</string>
+    <string name="depthwall_footer_text">
+        The depth wallpaper feature enables overlaying of a subject above the lockscreen clock to show a wallpaper depth effect.\n\nTo setup Depth Wallpaper Feature:\n1. Apply a wallpaper to the lock screen.\n2. The system\'s model will automatically extract the subject from your wallpaper to create the depth effect.\n3. Modify the offsets and opacity according to your needs.\4. For better result use it with Lightning Launcher.\n5. This is Model base depth wallpaper some image may not work perfectly.
+    </string>
 
     <!-- IOS Styles -->
     <string name="ios_style">iOS-style control panel</string>
