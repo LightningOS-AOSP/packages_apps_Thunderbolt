@@ -8,10 +8,16 @@ package com.lightning.thunderbolt;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
@@ -90,6 +96,18 @@ public class ThunderboltSettings extends DashboardFragment implements
                 icon.setTint(tintColor);
             }
         }
+    }
+
+    @Override
+    public RecyclerView onCreateRecyclerView(LayoutInflater inflater, ViewGroup parent,
+            Bundle savedInstanceState) {
+        RecyclerView recyclerView = super.onCreateRecyclerView(inflater, parent,
+                savedInstanceState);
+        recyclerView.setVerticalScrollBarEnabled(false);
+        recyclerView.setHorizontalScrollBarEnabled(false);
+        recyclerView.setPadding(0, 0, 0, 0);
+        recyclerView.setClipChildren(true);
+        return recyclerView;
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =

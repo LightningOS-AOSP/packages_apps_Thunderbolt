@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="5dp">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:clipChildren="true"
+    android:clipToPadding="true"
+    android:padding="5dp">
 
         <!-- Monet Settings Section -->
         <com.lightning.thunderbolt.utils.AnimatedMonetCardView
@@ -48,7 +45,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/monet_settings_title"
-                    android:textColor="?android:attr/textColorPrimary"
+                    android:textColor="#FFFFFF"
                     android:textSize="32sp"
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
@@ -458,11 +455,10 @@
 
         <!-- Rest Settings: Horizontal Scroll -->
         <HorizontalScrollView
+            android:id="@+id/dashboard_horizontal_scroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:clipToPadding="false"
-            android:clipChildren="false"
             android:fillViewport="true"
             android:paddingBottom="16dp"
             android:scrollbars="none">
@@ -793,6 +789,4 @@
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
         </HorizontalScrollView>
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
-
+</LinearLayout>
