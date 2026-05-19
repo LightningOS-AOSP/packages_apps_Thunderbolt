@@ -131,9 +131,8 @@ public class Themes extends SettingsPreferenceFragment implements
             if (mShowVolumePercentage != null) {
                 mShowVolumePercentage.setVisible(val == 1);
             }
-        }
 
-        f (mIosVolumeExpand != null) {
+        if (mIosVolumeExpand != null) {
             mIosVolumeExpand.setVisible(val == 3);
         }
 

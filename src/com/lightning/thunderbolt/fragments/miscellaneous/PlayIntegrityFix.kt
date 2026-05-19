@@ -463,7 +463,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         private const val FLASH_URL = "https://flash.android.com"
         private const val FLASH_API = "https://content-flashstation-pa.googleapis.com/v1/builds"
         private const val PIXEL_BULLETIN_URL = "https://source.android.com/docs/security/bulletin/pixel"
-        private const val FALLBACK_PIF_URL = "https://raw.githubusercontent.com/yusufnoor786/vendor_certification/refs/heads/16.2/gms_certified_props.json"
+        private const val FALLBACK_PIF_URL = "https://raw.githubusercontent.com/Evolution-X/.github/refs/heads/main/profile/pif.json"
         private const val VENDING_PACKAGE = "com.android.vending"
         private const val DROIDGUARD_PACKAGE = "com.google.android.gms.unstable"
         private const val GMS_PACKAGE = "com.google.android.gms"
@@ -792,7 +792,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         }
 
         /**
-         * Fetches the LightningOS hosted pif.json as a fallback when the live
+         * Fetches the Evolution X hosted pif.json as a fallback when the live
          * Google OTA scraper returns no devices (e.g. no network at first boot
          * or Google has not published a new beta build yet).
          */
