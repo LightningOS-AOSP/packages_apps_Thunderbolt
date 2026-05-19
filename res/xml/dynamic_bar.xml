@@ -39,6 +39,7 @@
         android:defaultValue="1"
         android:dependency="ax_dynamic_bar_keyguard_enabled" />
 
+
     <PreferenceCategory
         android:key="dynamic_bar_events_category"
         android:title="@string/dynamic_bar_events"
