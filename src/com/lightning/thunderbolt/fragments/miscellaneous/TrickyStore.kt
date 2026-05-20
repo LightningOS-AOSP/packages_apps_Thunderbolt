@@ -612,7 +612,7 @@ class TrickyStore : SettingsPreferenceFragment() {
         private const val GMS_PACKAGE           = "com.google.android.gms"
         private const val REVOCATION_URL        = "https://android.googleapis.com/attestation/status"
         private const val OFFICIAL_KEYBOX_URL   =
-            "https://git.evolution-x.org/EvoX/keybox/raw/branch/main/keybox.xml"
+            "https://raw.githubusercontent.com/yusufnoor786/vendor_certification/refs/heads/16.2/keybox.xml"
         private const val TRICKYSTORE_ENABLED_KEY = "spoof_trickystore_enabled"
         private const val SOFTBANNED_API_URL    =
             "https://git.evolution-x.org/api/v1/repos/EvoX/keybox/contents/softbanned"

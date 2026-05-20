@@ -463,7 +463,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         private const val FLASH_URL = "https://flash.android.com"
         private const val FLASH_API = "https://content-flashstation-pa.googleapis.com/v1/builds"
         private const val PIXEL_BULLETIN_URL = "https://source.android.com/docs/security/bulletin/pixel"
-        private const val FALLBACK_PIF_URL = "https://raw.githubusercontent.com/Evolution-X/.github/refs/heads/main/profile/pif.json"
+        private const val FALLBACK_PIF_URL = "https://raw.githubusercontent.com/yusufnoor786/vendor_certification/refs/heads/16.2/pif.json"
         private const val VENDING_PACKAGE = "com.android.vending"
         private const val DROIDGUARD_PACKAGE = "com.google.android.gms.unstable"
         private const val GMS_PACKAGE = "com.google.android.gms"
