@@ -1,5 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
     <string name="lightning_dashboard_title">Lightning Tweek</string>
     <string name="lightning_dashboard_summary">Здесь происходит волшебство!!</string>
     <string name="about_device_name">Устройство</string>

@@ -15,7 +15,11 @@
  */
 package com.lightning.thunderbolt.fragments.themes;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -44,6 +48,7 @@ public class WallpaperDepth extends SettingsPreferenceFragment
     private static final String KEY_OPACITY  = "lock_screen_depth_wallpaper_opacity";
     private static final String KEY_OFFSET_X = "lock_screen_depth_wallpaper_offset_x";
     private static final String KEY_OFFSET_Y = "lock_screen_depth_wallpaper_offset_y";
+    private static final String KEY_DEPTH_INFO_SHOWN = "ax_depth_wallpaper_info_shown";
 
     private SecureSettingSwitchPreference mEnabled;
     private SystemSettingSeekBarPreference mOpacity;
@@ -63,14 +68,59 @@ public class WallpaperDepth extends SettingsPreferenceFragment
         if (mEnabled != null) mEnabled.setOnPreferenceChangeListener(this);
 
         updateDependencies();
+        showInfoDialogIfNeeded();
+    }
+
+    private void showInfoDialogIfNeeded() {
+        Context context = getContext();
+        if (context == null) return;
+
+        new AlertDialog.Builder(context)
+                .setTitle(R.string.depthwall_info_dialog_title)
+                .setMessage(R.string.depthwall_info_dialog_message)
+                .setCancelable(false)
+                .setPositiveButton(R.string.depthwall_info_dialog_button, null)
+                .show();
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mEnabled) {
+            boolean isChecked = (Boolean) newValue;
+            if (isChecked && isPixelLauncherDefault()) {
+                showLauncherWarningDialog();
+                return false; // Prevent turning it on!
+            }
             requireActivity().runOnUiThread(this::updateDependencies);
         }
         return true;
+    }
+
+    private boolean isPixelLauncherDefault() {
+        Context context = getContext();
+        if (context == null) return false;
+
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        ResolveInfo resolveInfo = context.getPackageManager().resolveActivity(
+                intent, PackageManager.MATCH_DEFAULT_ONLY);
+
+        if (resolveInfo != null && resolveInfo.activityInfo != null) {
+            String packageName = resolveInfo.activityInfo.packageName;
+            return "com.google.android.apps.nexuslauncher".equals(packageName);
+        }
+        return false;
+    }
+
+    private void showLauncherWarningDialog() {
+        Context context = getContext();
+        if (context == null) return;
+
+        new AlertDialog.Builder(context)
+                .setTitle(R.string.depthwall_launcher_warning_title)
+                .setMessage(R.string.depthwall_launcher_warning_message)
+                .setPositiveButton(android.R.string.ok, null)
+                .show();
     }
 
     private void updateDependencies() {
