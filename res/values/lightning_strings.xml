@@ -2314,7 +2314,7 @@
         The depth wallpaper feature enables overlaying of a subject above the lockscreen clock to show a wallpaper depth effect.\n\nTo setup Depth Wallpaper Feature:\n1. Apply a wallpaper to the lock screen.\n2. The system\'s model will automatically extract the subject from your wallpaper to create the depth effect.\n3. Modify the offsets and opacity according to your needs.\4. For better result use it with Lightning Launcher.\n5. This is Model base depth wallpaper some image may not work perfectly.
     </string>
     <string name="depthwall_info_dialog_title">Depth Wallpaper Info</string>
-    <string name="depthwall_info_dialog_message">• The depth effect is applied using an automatic segmentation model. Results may vary depending on the subject.\n• Landscape wallpapers are automatically aligned with the segmented subject, but for custom alignment, you can use the offset controls below.\n\n• For better result use depth with Lightning Launcher</string>
+    <string name="depthwall_info_dialog_message">• The depth effect is applied using an automatic segmentation model. Results may vary depending on the subject.\n• Landscape wallpapers are automatically aligned with the segmented subject, but for custom alignment, you can use the offset controls below. </string>
     <string name="depthwall_info_dialog_button">Got it</string>
 
     <!-- Launcher Compatibility -->
