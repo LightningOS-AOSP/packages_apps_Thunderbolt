@@ -27,5 +27,10 @@
 
     <!-- Edge light -->
     <color name="edge_light_preview_shell_stroke">#ff424242</color>
+
+    <!-- Canvas AOD -->
+    <color name="canvas_aod_neon_cyan">#ff00ffff</color>
+    <color name="canvas_aod_blueprint_bg">#dd0f2d64</color>
+    <color name="canvas_aod_pencil_stroke">#ffcccccc</color>
     <color name="option_border_color">@android:color/system_accent1_300</color>
 </resources>

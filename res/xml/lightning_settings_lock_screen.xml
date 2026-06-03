@@ -27,6 +27,12 @@
             android:title="@string/depthwall_wallpaper_enabled_title"
             android:summary="@string/depthwall_wallpaper_enabled_summary"
             android:fragment="com.lightning.thunderbolt.fragments.themes.WallpaperDepth" />
+
+        <Preference
+            android:key="canvas_aod_settings"
+            android:title="@string/canvas_aod_title"
+            android:summary="@string/canvas_aod_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.CanvasAodSettings" />
      </PreferenceCategory>
 
     <PreferenceCategory

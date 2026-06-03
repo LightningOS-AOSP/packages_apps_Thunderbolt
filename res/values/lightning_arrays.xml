@@ -1560,5 +1560,76 @@
         <item>com.google.android.apps.pixel.agent</item>
         <item>com.google.android.apps.pixel.creativeassistant</item>
     </string-array>
+
+    <!-- Canvas AOD — Art styles -->
+    <string-array name="canvas_aod_style_entries">
+        <item>Pencil Sketch</item>
+        <item>Comic Outline</item>
+        <item>Anime Outline</item>
+        <item>Cyberpunk Neon</item>
+        <item>Low Poly</item>
+        <item>Blueprint Style</item>
+    </string-array>
+
+    <string-array name="canvas_aod_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <!-- Canvas AOD — Animation speeds -->
+    <string-array name="canvas_aod_animation_speed_entries">
+        <item>Slow (cinematic)</item>
+        <item>Normal</item>
+        <item>Fast</item>
+    </string-array>
+
+    <string-array name="canvas_aod_animation_speed_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Canvas AOD — Weather intensity -->
+    <string-array name="canvas_aod_weather_intensity_entries">
+        <item>Light</item>
+        <item>Medium</item>
+        <item>Heavy</item>
+    </string-array>
+
+    <string-array name="canvas_aod_weather_intensity_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Canvas AOD — Outline thickness -->
+    <string-array name="canvas_aod_thickness_entries">
+        <item>Thin</item>
+        <item>Medium</item>
+        <item>Thick</item>
+    </string-array>
+
+    <string-array name="canvas_aod_thickness_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Canvas AOD — Color modes -->
+    <string-array name="canvas_aod_color_mode_entries">
+        <item>System Accent (Monet)</item>
+        <item>White</item>
+        <item>Custom Color</item>
+    </string-array>
+
+    <string-array name="canvas_aod_color_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
     <string name="lightning_disabled">Disabled</string>
 </resources>

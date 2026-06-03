@@ -2629,4 +2629,50 @@
     <!-- Scrim -->
     <string name="keyguard_scrim_transparent_title">Transparent lockscreen scrim</string>
     <string name="keyguard_scrim_transparent_summary">Hide the lockscreen wallpaper dimming layer</string>
+
+    <!-- Canvas AOD -->
+    <string name="canvas_aod_title">Canvas AOD</string>
+    <string name="canvas_aod_summary">Artistic outline of your wallpaper on Always-On Display</string>
+
+    <!-- Canvas AOD Settings — Master -->
+    <string name="canvas_aod_enabled_title">Enable Canvas AOD</string>
+    <string name="canvas_aod_enabled_summary">Display an artistic canvas outline of your wallpaper subject on AOD</string>
+
+    <!-- Canvas AOD Settings — Style category -->
+    <string name="canvas_aod_style_category">Canvas Style</string>
+    <string name="canvas_aod_style_title">Art style</string>
+    <string name="canvas_aod_thickness_title">Outline thickness</string>
+    <string name="canvas_aod_color_mode_title">Canvas color</string>
+    <string name="canvas_aod_custom_color_title">Custom color</string>
+
+    <!-- Canvas AOD Settings — Animation category -->
+    <string name="canvas_aod_animation_category">Animation</string>
+    <string name="canvas_aod_animation_enabled_title">Line reveal animation</string>
+    <string name="canvas_aod_animation_enabled_summary">Progressively draw the canvas from top to bottom on AOD entry</string>
+    <string name="canvas_aod_animation_speed_title">Animation speed</string>
+    <string name="canvas_aod_charging_anim_title">Charging pulse</string>
+    <string name="canvas_aod_charging_anim_summary">Pulse the canvas outline while the device is charging</string>
+    <string name="canvas_aod_notif_pulse_title">Notification flash</string>
+    <string name="canvas_aod_notif_pulse_summary">Brief flash when a new notification arrives</string>
+
+    <!-- Canvas AOD Settings — Weather category -->
+    <string name="canvas_aod_weather_category">Weather Effects</string>
+    <string name="canvas_aod_weather_effects_title">Weather particle effects</string>
+    <string name="canvas_aod_weather_effects_summary">Show rain, snow, fog, or lightning particles based on current weather (uses OmniJaws)</string>
+    <string name="canvas_aod_weather_intensity_title">Effect intensity</string>
+
+    <!-- Canvas AOD Settings — Actions category -->
+    <string name="canvas_aod_actions_category">Actions</string>
+    <string name="canvas_aod_preview_title">Preview canvas</string>
+    <string name="canvas_aod_preview_summary">Regenerate and preview the current canvas style</string>
+    <string name="canvas_aod_regenerate_title">Force regenerate</string>
+    <string name="canvas_aod_regenerate_summary">Re-run the canvas generation pipeline with your current wallpaper and settings</string>
+
+    <!-- Canvas AOD Toast messages -->
+    <string name="canvas_aod_preview_generating">Generating canvas preview…</string>
+    <string name="canvas_aod_regenerating">Regenerating canvas in the background…</string>
+    <string name="canvas_aod_regenerate_error">Could not contact Canvas AOD service</string>
+
+    <!-- Canvas AOD Footer -->
+    <string name="canvas_aod_footer_text">Canvas AOD uses AI-based subject segmentation from your wallpaper. Generation runs in the background and may take a few seconds. Results depend on wallpaper complexity.\n\nFor best results use a wallpaper with a clear, distinct subject.</string>
 </resources>
