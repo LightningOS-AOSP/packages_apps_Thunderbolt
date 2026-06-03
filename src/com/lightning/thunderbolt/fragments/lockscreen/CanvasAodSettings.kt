@@ -64,7 +64,11 @@ class CanvasAodSettings : SettingsPreferenceFragment(),
         private const val KEY_NOTIF_PULSE        = "canvas_aod_notification_pulse"
         private const val KEY_REGENERATE         = "canvas_aod_regenerate"
         private const val KEY_PREVIEW_CARD       = "canvas_aod_preview_card"
+        private const val KEY_USE_CUSTOM_IMAGE   = "canvas_aod_use_custom_image"
+        private const val KEY_CUSTOM_IMAGE_PICKER = "canvas_aod_custom_image_picker"
+
         private const val COLOR_MODE_CUSTOM = "2"
+        private const val REQUEST_CODE_PICK_IMAGE = 1001
 
         @JvmField
         val SEARCH_INDEX_DATA_PROVIDER = object : BaseSearchIndexProvider(R.xml.canvas_aod_settings) {}
@@ -84,8 +88,16 @@ class CanvasAodSettings : SettingsPreferenceFragment(),
     private var mRegenerate:        Preference?                          = null
     private var mPreviewCard:       LayoutPreference?                    = null
     private var mPreviewImageView:  ImageView?                           = null
+    private var mUseCustomImage:    SecureSettingSwitchPreference?       = null
+    private var mCustomImagePicker: Preference?                          = null
 
     private val handler = Handler(Looper.getMainLooper())
+
+    private val previewObserver = object : android.database.ContentObserver(handler) {
+        override fun onChange(selfChange: Boolean, uri: android.net.Uri?) {
+            loadLivePreview()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -104,13 +116,15 @@ class CanvasAodSettings : SettingsPreferenceFragment(),
         mNotifPulse       = findPreference(KEY_NOTIF_PULSE)
         mRegenerate       = findPreference(KEY_REGENERATE)
         mPreviewCard      = findPreference(KEY_PREVIEW_CARD)
+        mUseCustomImage   = findPreference(KEY_USE_CUSTOM_IMAGE)
+        mCustomImagePicker = findPreference(KEY_CUSTOM_IMAGE_PICKER)
 
         mPreviewCard?.let {
             mPreviewImageView = it.findViewById(R.id.canvas_preview_image)
         }
 
         listOf(mEnabled, mStyle, mAnimEnabled, mAnimSpeed, mWeatherEffects,
-            mWeatherIntensity, mThickness, mColorMode, mChargingAnim, mNotifPulse)
+            mWeatherIntensity, mThickness, mColorMode, mChargingAnim, mNotifPulse, mUseCustomImage)
             .forEach { it?.onPreferenceChangeListener = this }
 
         mCustomColor?.onPreferenceChangeListener = this
@@ -120,15 +134,67 @@ class CanvasAodSettings : SettingsPreferenceFragment(),
             true
         }
 
+        mCustomImagePicker?.setOnPreferenceClickListener {
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "image/*"
+            startActivityForResult(intent, REQUEST_CODE_PICK_IMAGE)
+            true
+        }
+
         updateDependencies()
         loadLivePreview()
+
+        requireActivity().contentResolver.registerContentObserver(
+            Settings.Secure.getUriFor("canvas_aod_cache_path"),
+            false,
+            previewObserver,
+            UserHandle.USER_ALL
+        )
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        requireActivity().contentResolver.unregisterContentObserver(previewObserver)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_PICK_IMAGE && resultCode == android.app.Activity.RESULT_OK) {
+            data?.data?.let { uri ->
+                saveCustomImage(uri)
+                triggerRegenerate()
+            }
+        }
+    }
+
+    private fun saveCustomImage(sourceUri: android.net.Uri) {
+        try {
+            val contentResolver = requireContext().contentResolver
+            contentResolver.openInputStream(sourceUri)?.use { input ->
+                val outFile = File(requireContext().filesDir, "canvas_custom_image.png")
+                java.io.FileOutputStream(outFile).use { output ->
+                    input.copyTo(output)
+                }
+                outFile.setReadable(true, false)
+                
+                Settings.Secure.putStringForUser(
+                    requireContext().contentResolver,
+                    "canvas_aod_custom_image_path",
+                    outFile.absolutePath,
+                    UserHandle.USER_CURRENT
+                )
+            }
+            Toast.makeText(requireContext(), "Custom image saved", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Toast.makeText(requireContext(), "Failed to save image", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
         handler.post {
             updateDependencies()
             triggerRegenerate()
-            handler.postDelayed({ loadLivePreview() }, 3000L)
         }
         return true
     }
@@ -137,7 +203,7 @@ class CanvasAodSettings : SettingsPreferenceFragment(),
         val enabled = isEnabled()
 
         listOf(mStyle, mAnimEnabled, mAnimSpeed, mWeatherEffects, mWeatherIntensity,
-            mThickness, mColorMode, mChargingAnim, mNotifPulse, mRegenerate)
+            mThickness, mColorMode, mChargingAnim, mNotifPulse, mRegenerate, mUseCustomImage)
             .forEach { it?.isEnabled = enabled }
 
         val animEnabled = enabled && (mAnimEnabled?.isChecked == true)
@@ -152,6 +218,10 @@ class CanvasAodSettings : SettingsPreferenceFragment(),
         val isCustomColor = enabled && (colorModeVal == COLOR_MODE_CUSTOM)
         mCustomColor?.isVisible = isCustomColor
         mCustomColor?.isEnabled = isCustomColor
+
+        val useCustomImage = enabled && (mUseCustomImage?.isChecked == true)
+        mCustomImagePicker?.isVisible = useCustomImage
+        mCustomImagePicker?.isEnabled = useCustomImage
     }
 
     private fun isEnabled(): Boolean {
@@ -206,3 +276,4 @@ class CanvasAodSettings : SettingsPreferenceFragment(),
 
     override fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.LIGHTNING
 }
+

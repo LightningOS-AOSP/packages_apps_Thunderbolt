@@ -2675,4 +2675,11 @@
 
     <!-- Canvas AOD Footer -->
     <string name="canvas_aod_footer_text">Canvas AOD uses AI-based subject segmentation from your wallpaper. Generation runs in the background and may take a few seconds. Results depend on wallpaper complexity.\n\nFor best results use a wallpaper with a clear, distinct subject.</string>
+
+    <!-- Custom Canvas -->
+    <string name="canvas_custom_cat">Custom Image</string>
+    <string name="canvas_custom_image_title">Use custom image canvas</string>
+    <string name="canvas_custom_image_summary">Use a specific image instead of the current wallpaper</string>
+    <string name="canvas_custom_image_picker_title">Pick Custom Image</string>
+    <string name="canvas_custom_image_picker_summary">Select an image from your gallery</string>
 </resources>

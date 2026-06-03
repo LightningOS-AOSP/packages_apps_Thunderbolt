@@ -26,6 +26,7 @@
 
 
 
+
     <com.android.settingslib.widget.FooterPreference
         android:key="canvas_aod_footer"
         android:title="@string/canvas_aod_footer_text"
