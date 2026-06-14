@@ -53,27 +53,26 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <TextView
+                <TextClock
                     android:id="@+id/canvas_preview_clock"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10:09"
+                    android:format12Hour="hh:mm"
+                    android:format24Hour="HH:mm"
                     android:textSize="48sp"
                     android:textColor="#e0ffffff"
                     android:fontFamily="sans-serif-thin" />
 
-                <TextView
+                <TextClock
                     android:id="@+id/canvas_preview_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Wednesday, June 3"
+                    android:format12Hour="EEEE, MMMM d"
+                    android:format24Hour="EEEE, MMMM d"
                     android:textSize="12sp"
                     android:textColor="#a0ffffff"
                     android:fontFamily="sans-serif-light" />
             </LinearLayout>
-
         </RelativeLayout>
-
     </com.google.android.material.card.MaterialCardView>
-
 </LinearLayout>
