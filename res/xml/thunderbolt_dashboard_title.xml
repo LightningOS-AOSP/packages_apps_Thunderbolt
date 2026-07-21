@@ -47,6 +47,14 @@
           android:fragment="com.lightning.thunderbolt.StaticField"
           android:layout="@layout/preference_category_staticfield"
           />
+   
+     <!-- Stormui -->
+     <Preference
+          android:key="stormui_settings"
+          android:title="@string/category_stormui_title"
+          android:fragment="com.lightning.thunderbolt.StormUI"
+          android:layout="@layout/preference_category_stormui"
+          />
 
 </PreferenceScreen>
 
