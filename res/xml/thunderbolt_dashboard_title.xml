@@ -55,6 +55,14 @@
           android:fragment="com.lightning.thunderbolt.StormUI"
           android:layout="@layout/preference_category_stormui"
           />
+      
+     <!-- LightningPerks -->
+     <Preference
+          android:key="lightningperks_settings"
+          android:title="@string/category_lightningperks_title"
+          android:fragment="com.lightning.thunderbolt.LightningPerks"
+          android:layout="@layout/preference_category_lightningperks"
+          />
 
 </PreferenceScreen>
 
