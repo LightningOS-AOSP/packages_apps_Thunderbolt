@@ -56,7 +56,10 @@
     <string name="spoofing_photos_summary">Spoof the Google Photos app as a Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Spoof Snapchat as a Pixel XL to fix possible chat issues</string>
-    
+    <string name="spoofing_applying_changes">Applying spoof changes\u2026</string>
+    <string name="spoofing_tensor_enabled">Tensor features enabled</string>
+    <string name="spoofing_tensor_disabled">Tensor features disabled</string>
+
     <!-- App Spoofing -->
     <string name="user_selectable_app_spoofing_title">App Spoofing</string>
     <string name="user_selectable_app_spoofing_summary">Choose which apps to spoof device properties for</string>

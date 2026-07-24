@@ -284,9 +284,4 @@ public class DeviceUtils {
         return NAV_BAR_MODE_GESTURAL == context.getResources().getInteger(
                 com.android.internal.R.integer.config_navBarInteractionMode);
     }
-
-    public static boolean isCurrentlySupportedPixel() {
-        boolean isPixelDevice = SystemProperties.get("ro.product.model").matches("Pixel [3-9][a-zA-Z ]*");
-        return isPixelDevice;
-    }
 }
