@@ -54,8 +54,6 @@
     <string name="gms_spoof_title">Play Integrity fix</string>
     <string name="gms_spoof_summary">Spoof your device to pass Google Play Attestation</string>
     <string name="spoofing_app_specific_category">App-Specific</string>
-    <string name="spoofing_qsb_title">Google app</string>
-    <string name="spoofing_qsb_summary">Spoof the Google app to the latest Pixel device to unlock exclusive features</string>
     <string name="spoofing_photos_title">Google Photos</string>
     <string name="spoofing_photos_summary">Spoof the Google Photos app as a Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
@@ -82,9 +80,4 @@
     <string name="keybox_toast_invalid_file_selected">Not an XML file. Choose a valid keybox XML.</string>
     <string name="keybox_toast_missing_data">Invalid keybox XML: required fields missing</string>
     <string name="keybox_toast_file_loaded">Keybox loaded</string>
-    
-    <!-- Block attestation even with Keybox Data -->
-    <string name="gms_cert_chain_title">Disable forcing strong integrity</string>
-    <string name="gms_cert_chain_summary">When enabled, do not enforce strong integrity from valid custom keybox and depend on Google Play Integrity spoof to fix apps like Google Pay</string>
-    <string name="keybox_toast_file_cleared">Keybox cleared</string>
 </resources> 

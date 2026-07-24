@@ -16,13 +16,6 @@
         <com.lightning.thunderbolt.preferences.KeyboxDataPreference
             android:key="keybox_data_setting"
             android:title="@string/keybox_data_title" />
-
-        <!-- Block attestation even with Keybox Data -->
-        <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
-            android:key="gms_cert_chain"
-            android:title="@string/gms_cert_chain_title"
-            android:summary="@string/gms_cert_chain_summary"
-            android:defaultValue="false" />
             
         <!-- GMS spoof -->
         <com.lightning.thunderbolt.preferences.SystemPropertySwitchPreference
@@ -67,13 +60,6 @@
     <PreferenceCategory
         android:key="spoofing_app_specific_category"
         android:title="@string/spoofing_app_specific_category">
-
-        <!-- Google App -->
-        <com.lightning.thunderbolt.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.pp.qsb"
-            android:title="@string/spoofing_qsb_title"
-            android:summary="@string/spoofing_qsb_summary"
-            android:defaultValue="false" />
 
         <!-- Google Photos -->
         <com.lightning.thunderbolt.preferences.SystemPropertySwitchPreference
