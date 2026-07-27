@@ -504,7 +504,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         private const val AUTO_FETCH_STALE_DAYS = 21L
         private const val PIF_ENABLED_KEY = "spoof_pif_enabled"
         private const val LAST_AUTO_FETCH_KEY = "spoof_pif_last_auto_fetch"
-        private const val MATCH_DEVICE_PROP = "ro.evolution.device"
+        private const val MATCH_DEVICE_PROP = "ro.lightning.device"
 
         private val PIXEL_DEVICE_GENERATION = mapOf(
             "rango"      to 10,  // Pixel 10 Pro Fold
