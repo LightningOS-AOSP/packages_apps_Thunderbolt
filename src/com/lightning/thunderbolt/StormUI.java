@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.droidx.customize;
+package com.lightning.thunderbolt;
 
 import android.app.Activity;
 import android.content.ContentResolver;
