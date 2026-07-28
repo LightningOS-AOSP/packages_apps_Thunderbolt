@@ -15,7 +15,7 @@
 
     <!-- ThunderBolt -->
     <string name="thunderbolt_dashboard_title">Thunderbolt Control Center</string>
-
+    <string name="thunderbolt_summary_title">Lightning up your Device</string>
     <!-- Categories -->
     <string name="category_boltbar_title">⚡ Bolt Bar</string>
     <string name="category_flashpanel_title">🌩️ Flash Panel</string>
