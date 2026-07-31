@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.lightning.thunderboltpreferences;
+package com.lightning.thunderbolt.preferences;
 
 import android.content.Context;
 import android.util.AttributeSet;

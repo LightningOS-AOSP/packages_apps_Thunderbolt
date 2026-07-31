@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.lightning.thunderbolt.fragments.lightningperks
+package com.lightning.thunderbolt.fragments.lightningperks;
 
 import android.app.ActivityManager;
 import android.content.ContentResolver;
@@ -28,7 +28,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
-import package com.lightning.thunderbolt.utils.PreferenceUtils;
+import com.lightning.thunderbolt.utils.PreferenceUtils;
 
 @SearchIndexable
 public class Spoofing extends SettingsPreferenceFragment implements

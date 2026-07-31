@@ -14,7 +14,7 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/thunderbolt_dashboard_title" >
+    android:title="@string/thunderbolt_dashboard" >
 
      <!-- Boltbar -->
      <Preference
@@ -37,7 +37,7 @@
           android:key="motionnav_settings"
           android:title="@string/category_motionnav_title"
           android:fragment="com.lightning.thunderbolt.MotionNav"
-          android:layout="@layout/preference_category_buttons"
+          android:layout="@layout/preference_category_motionnav"
           />
 
      <!-- Staticfield -->

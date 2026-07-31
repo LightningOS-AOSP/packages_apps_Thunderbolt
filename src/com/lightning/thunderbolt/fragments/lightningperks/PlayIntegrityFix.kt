@@ -31,7 +31,7 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import package com.lightning.thunderbolt.fragments.lightningperks.TrickyStore
+import com.lightning.thunderbolt.fragments.lightningperks.TrickyStore
 import org.json.JSONObject
 
 class PlayIntegrityFix : SettingsPreferenceFragment() {
