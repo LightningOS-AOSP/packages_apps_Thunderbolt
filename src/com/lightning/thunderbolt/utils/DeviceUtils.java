@@ -1,32 +1,33 @@
 /*
- * Copyright (C) 2016-2025 crDroid Android Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * SPDX-FileCopyrightText: 2016 The CyanogenMod project
+ * SPDX-FileCopyrightText: 2017-2023 The LineageOS project
+ * SPDX-License-Identifier: Apache-2.0
  */
 package com.lightning.thunderbolt.utils;
 
-import android.content.ContentResolver;
+import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_2BUTTON;
+import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL;
+
+import android.app.Activity;
+import android.bluetooth.BluetoothManager;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.hardware.fingerprint.FingerprintManager;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
+import android.nfc.NfcAdapter;
 import android.os.Build;
 import android.os.SystemProperties;
 import android.os.Vibrator;
-import android.provider.Settings;
+import android.telephony.TelephonyManager;
+import android.telephony.SubscriptionManager;
 import android.text.TextUtils;
 import android.view.Display;
 import android.view.DisplayCutout;
@@ -35,6 +36,10 @@ import android.view.KeyEvent;
 import android.view.Surface;
 
 import static org.lineageos.internal.util.DeviceKeysConstants.*;
+
+import androidx.annotation.NonNull;
+
+import java.util.Arrays;
 
 public class DeviceUtils {
 
@@ -165,13 +170,111 @@ public class DeviceUtils {
                 || hasAssistKey(context) || hasAppSwitchKey(context));
     }
 
-    /* returns whether the device supports keyboard backlight adjusment or not. */
+    /* returns whether the device supports keyboard backlight adjustment or not. */
     public static boolean hasKeyboardBacklightSupport(Context context) {
         return context.getResources().getInteger(org.lineageos.platform.internal.R.integer
                 .config_deviceSupportsKeyboardBrightnessControl) != 0;
     }
 
-    public static boolean deviceSupportsFlashLight(Context context) {
+    public static boolean isPackageInstalled(Context context, String pkg, boolean ignoreState) {
+        if (pkg != null) {
+            try {
+                PackageInfo pi = context.getPackageManager().getPackageInfo(pkg,
+                        PackageManager.PackageInfoFlags.of(0));
+                if (!pi.applicationInfo.enabled && !ignoreState) {
+                    return false;
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static boolean isActivityEnabled(Context context, String componentString) {
+        try {
+            ComponentName component = ComponentName.unflattenFromString(componentString);
+            ActivityInfo info = context.getPackageManager()
+                    .getActivityInfo(component, 0);
+            return info.enabled;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
+
+    public static void setComponentEnabled(Context context, String componentString,
+        boolean enabled) {
+
+    PackageManager pm = context.getPackageManager();
+    ComponentName component = ComponentName.unflattenFromString(componentString);
+
+    pm.setComponentEnabledSetting(
+            component,
+            enabled
+                    ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+                    : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+            PackageManager.DONT_KILL_APP
+    );
+}
+
+    /**
+     * Locks the activity orientation to the current device orientation
+     */
+    public static void lockCurrentOrientation(Activity activity) {
+        int currentRotation = activity.getDisplay().getRotation();
+        int orientation = activity.getResources().getConfiguration().orientation;
+        int frozenRotation = 0;
+        switch (currentRotation) {
+            case Surface.ROTATION_0:
+                frozenRotation = orientation == Configuration.ORIENTATION_LANDSCAPE
+                        ? ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                        : ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+                break;
+            case Surface.ROTATION_90:
+                frozenRotation = orientation == Configuration.ORIENTATION_PORTRAIT
+                        ? ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT
+                        : ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+                break;
+            case Surface.ROTATION_180:
+                frozenRotation = orientation == Configuration.ORIENTATION_LANDSCAPE
+                        ? ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
+                        : ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
+                break;
+            case Surface.ROTATION_270:
+                frozenRotation = orientation == Configuration.ORIENTATION_PORTRAIT
+                        ? ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                        : ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
+                break;
+        }
+        activity.setRequestedOrientation(frozenRotation);
+    }
+
+    public static boolean isDozeAvailable(Context context) {
+        String name = Build.IS_DEBUGGABLE ? SystemProperties.get("debug.doze.component") : null;
+        if (TextUtils.isEmpty(name)) {
+            name = context.getResources().getString(
+                    com.android.internal.R.string.config_dozeComponent);
+        }
+        return !TextUtils.isEmpty(name);
+    }
+
+    public static boolean deviceSupportsMobileData(Context ctx) {
+        TelephonyManager telephonyManager = ctx.getSystemService(TelephonyManager.class);
+        return telephonyManager.isDataCapable();
+    }
+
+    public static boolean deviceSupportsBluetooth(Context ctx) {
+        BluetoothManager bluetoothManager = (BluetoothManager)
+                ctx.getSystemService(Context.BLUETOOTH_SERVICE);
+        return (bluetoothManager.getAdapter() != null);
+    }
+
+    public static boolean deviceSupportsNfc(Context ctx) {
+        return NfcAdapter.getDefaultAdapter(ctx) != null;
+    }
+
+    public static boolean deviceSupportsFlashLight(@NonNull Context context) {
         CameraManager cameraManager = context.getSystemService(CameraManager.class);
         try {
             String[] ids = cameraManager.getCameraIdList();
@@ -186,7 +289,7 @@ public class DeviceUtils {
                     return true;
                 }
             }
-        } catch (Exception | AssertionError e) {
+        } catch (CameraAccessException | AssertionError e) {
             // Ignore
         }
         return false;
@@ -208,8 +311,22 @@ public class DeviceUtils {
         return true;
     }
 
-    public static boolean isCurrentlySupportedPixel() {
-        boolean isPixelDevice = SystemProperties.get("ro.product.model").matches("Pixel (3|4|5|6|7|8|9|10)[a-zA-Z ]*");
-        return isPixelDevice;
+    public static boolean isMobileDataEnabled(Context context) {
+        TelephonyManager telephonyManager = context.getSystemService(TelephonyManager.class);
+        int subId = SubscriptionManager.getDefaultDataSubscriptionId();
+        return telephonyManager.createForSubscriptionId(subId).isDataEnabled();
+    }
+
+    public static boolean isSwipeUpEnabled(Context context) {
+        if (isEdgeToEdgeEnabled(context)) {
+            return false;
+        }
+        return NAV_BAR_MODE_2BUTTON == context.getResources().getInteger(
+                com.android.internal.R.integer.config_navBarInteractionMode);
+    }
+
+    public static boolean isEdgeToEdgeEnabled(Context context) {
+        return NAV_BAR_MODE_GESTURAL == context.getResources().getInteger(
+                com.android.internal.R.integer.config_navBarInteractionMode);
     }
 }

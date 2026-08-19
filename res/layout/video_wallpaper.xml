@@ -3,5 +3,4 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:description="@string/video_wallpaper_description"
     android:thumbnail="@drawable/video_wallpaper_thumbnail"
-    android:author="@string/lightning_os"
-    android:settingsActivity="com.lightning.thunderbolt.fragments.themes.VideoWallpaperFragment" />
+    android:settingsActivity="com.lightning.thunderbolt.fragments.VideoWallpaperFragment" />

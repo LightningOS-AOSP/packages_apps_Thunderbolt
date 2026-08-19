@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: Evolution X
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 package com.lightning.thunderbolt.utils
 
 enum class ThemeStyle(val displayName: String, val systemValue: String) {

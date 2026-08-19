@@ -25,8 +25,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.DialogFragment
+import com.android.settingslib.spa.framework.theme.SettingsTheme
 import com.lightning.thunderbolt.utils.ColorPickerDialog
-import com.lightning.thunderbolt.utils.MistTheme
 
 class CutoutProgressColorPickerDialogFragment : DialogFragment() {
 
@@ -62,7 +62,7 @@ class CutoutProgressColorPickerDialogFragment : DialogFragment() {
                 ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed
             )
             setContent {
-                MistTheme {
+                SettingsTheme {
                     ColorPickerDialog(
                         initialColor = initialColor,
                         onDismiss = { dismiss() },

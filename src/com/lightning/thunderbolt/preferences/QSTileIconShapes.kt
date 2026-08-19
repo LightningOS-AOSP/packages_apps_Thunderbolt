@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-
 package com.lightning.thunderbolt.preferences
 
 import android.graphics.Matrix

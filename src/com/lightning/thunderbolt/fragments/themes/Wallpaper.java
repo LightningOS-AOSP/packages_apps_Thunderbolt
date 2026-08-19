@@ -29,8 +29,6 @@ import com.android.settingslib.search.SearchIndexable;
 import com.lightning.thunderbolt.preferences.CustomSeekBarPreference;
 import com.lightning.thunderbolt.utils.SystemUtils;
 
-import java.util.List;
-
 @SearchIndexable
 public class Wallpaper extends SettingsPreferenceFragment 
             implements Preference.OnPreferenceChangeListener {
@@ -146,18 +144,12 @@ public class Wallpaper extends SettingsPreferenceFragment
     
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.VIEW_UNKNOWN;
+        return MetricsProto.MetricsEvent.LIGHTNING;
     }
     
     /**
      * For search
      */
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.lightning_wallpaper_settings) {
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    return keys;
-                }
-            };
+            new BaseSearchIndexProvider(R.xml.lightning_wallpaper_settings);
 }

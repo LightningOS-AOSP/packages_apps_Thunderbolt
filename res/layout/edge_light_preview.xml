@@ -43,7 +43,7 @@
                     android:contentDescription="@null"
                     android:importantForAccessibility="no" />
 
-                <com.lightning.thunderbolt.fragments.themes.EdgeLightPreviewView
+                <com.lightning.thunderbolt.fragments.lockscreen.EdgeLightPreviewView
                     android:id="@+id/edge_light_preview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />

@@ -19,7 +19,8 @@
 
     <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="spoof_trickystore_enabled"
-        android:title="@string/ts_master_switch_title"
+        android:title="@string/tricky_store_title"
+        android:summary="@string/tricky_store_summary"
         android:defaultValue="true" />
 
     <PreferenceCategory
@@ -46,8 +47,7 @@
             android:key="ts_revocation_status"
             android:title="@string/ts_revocation_status"
             android:summary="@string/ts_revocation_no_keybox"
-            android:icon="@drawable/ic_ts_status_unknown"
-            android:selectable="false" />
+            android:icon="@drawable/ic_ts_status_unknown" />
     </PreferenceCategory>
 
     <PreferenceCategory

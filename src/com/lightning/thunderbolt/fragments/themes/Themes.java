@@ -1,162 +1,165 @@
 /*
- * Copyright (C) 2016-2025 crDroid Android Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * SPDX-FileCopyrightText: Evolution X
+ * SPDX-License-Identifier: Apache-2.0
  */
+
 package com.lightning.thunderbolt.fragments.themes;
 
-import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.res.Resources;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings;
-import android.text.TextUtils;
 
-import androidx.preference.ListPreference;
 import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceScreen;
 
-import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.lightning.SystemRestartUtils;
+import com.android.internal.util.lightning.ThemeUtils;
+import com.android.internal.util.lightning.Utils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
-import com.lightning.thunderbolt.fragments.themes.SmartPixels;
-import com.lightning.thunderbolt.utils.SystemUtils;
-import com.lightning.thunderbolt.preferences.SystemSettingListPreference;
-import com.lightning.thunderbolt.preferences.SystemPropertySwitchPreference;
-import com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference;
-
-import com.android.internal.util.lightning.VibrationUtils;
-import com.android.internal.util.lightning.ThemeUtils;
-
-import com.android.internal.util.lightning.SystemRestartUtils;
-
 import java.util.List;
+
+import com.lightning.thunderbolt.fragments.themes.IconShapeController;
+import com.lightning.thunderbolt.preferences.SoundPickerPreference;
+import com.lightning.thunderbolt.preferences.SystemPropertyListPreference;
+import com.lightning.thunderbolt.preferences.SystemPropertySwitchPreference;
+import com.lightning.thunderbolt.utils.DeviceUtils;
+import com.lightning.thunderbolt.utils.PreferenceUtils;
 
 @SearchIndexable
 public class Themes extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    public static final String TAG = "UserInterface";
+    private static final String TAG = "Themes";
 
-    private static final String KEY_FORCE_FULL_SCREEN = "display_cutout_force_fullscreen_settings";
-    private static final String KEY_VOLUME_DIALOG_TYPE = "volume_dialog_type";
-    private static final String KEY_QUICKSWITCH = "quickswitch";
-    private static final String KEY_SHOW_VOLUME_PERCENTAGE = "show_volume_percentage";
-    private static final String KEY_IOS_VOLUME_EXPAND_ON_KEY = "ios_volume_expand_on_key";
-    private static final String SYS_ANI_OVERRIDE_ENABLED = "persist.sys.activity_anim_perf_override";
+    private static final String VELVET_PACKAGE = "com.google.android.googlequicksearchbox";
+    private static final String VELVET_NEW_SEARCH_CLASS = VELVET_PACKAGE + ".OneSearchAimActivity";
+    private static final String VELVET_ONESEARCH_COMPONENT = VELVET_PACKAGE + "/" + VELVET_NEW_SEARCH_CLASS;
 
-    private Preference mShowCutoutForce;
-    private Preference mQuickSwitch;
-    private SystemSettingListPreference mVolumeDialogType;
-    private SystemSettingSwitchPreference mShowVolumePercentage;
-    private SystemSettingSwitchPreference mIosVolumeExpand;
+    private static final String KEY_ANIMATIONS_CATEGORY = "themes_visual_effects_category";
+    private static final String KEY_EMOJI_STYLE = "persist.sys.ax_emoji_style";
+    private static final String KEY_ICON_SHAPE = "android.theme.customization.adaptive_icon_shape";
+    private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
+    private static final String KEY_LAUNCHER_CATEGORY = "themes_launcher_category";
+    private static final String KEY_LAUNCHER_SEARCH_BAR = "persist.sys.velvet.force_onesearch";
+    private static final String KEY_NAVBAR_ICONS = "android.theme.customization.navbar";
+    private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
+    private static final String KEY_UDFPS_ICON = "udfps_icon";
+
+    private Preference mNavbarIcons;
+    private Preference mUdfpsAnimation;
+    private Preference mUdfpsIcon;
+    private PreferenceCategory mAnimationsCategory;
+    private PreferenceCategory mIconsCategory;
+    private PreferenceCategory mLauncherCategory;
+    private SystemPropertyListPreference mEmojiStyle;
+    private SystemPropertySwitchPreference mSearchBar;
     private ThemeUtils mThemeUtils;
-    private SystemPropertySwitchPreference mAniOverrideEnabled;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         addPreferencesFromResource(R.xml.lightning_settings_themes);
+        mThemeUtils = ThemeUtils.getInstance(getContext());
 
-        Context mContext = getActivity().getApplicationContext();
+        final Context context = getContext();
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
-        mThemeUtils = ThemeUtils.getInstance(getActivity());
+        mLauncherCategory = findPreference(KEY_LAUNCHER_CATEGORY);
+        mSearchBar = findPreference(KEY_LAUNCHER_SEARCH_BAR);
+        mIconsCategory = findPreference(KEY_ICONS_CATEGORY);
+        mNavbarIcons = findPreference(KEY_NAVBAR_ICONS);
+        mUdfpsIcon = findPreference(KEY_UDFPS_ICON);
+        mAnimationsCategory = findPreference(KEY_ANIMATIONS_CATEGORY);
+        mUdfpsAnimation = findPreference(KEY_UDFPS_ANIMATION);
+        mEmojiStyle = findPreference(KEY_EMOJI_STYLE);
 
-        final String displayCutout =
-            mContext.getResources().getString(com.android.internal.R.string.config_mainBuiltInDisplayCutout);
+        FingerprintManager fingerprintManager = (FingerprintManager)
+                getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
-        if (TextUtils.isEmpty(displayCutout)) {
-            mShowCutoutForce = (Preference) findPreference(KEY_FORCE_FULL_SCREEN);
-            prefScreen.removePreference(mShowCutoutForce);
+        if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+            mIconsCategory.removePreference(mUdfpsIcon);
+            mAnimationsCategory.removePreference(mUdfpsAnimation);
+        } else {
+            if (!Utils.isPackageInstalled(context, "org.lightning.udfps.icons")) {
+                mIconsCategory.removePreference(mUdfpsIcon);
+            }
+            if (!Utils.isPackageInstalled(context, "org.lightning.udfps.animations")) {
+                mAnimationsCategory.removePreference(mUdfpsAnimation);
+            }
         }
 
-        mQuickSwitch = (Preference) prefScreen.findPreference(KEY_QUICKSWITCH);
-        boolean withGoogleApps = android.os.SystemProperties.getBoolean("with_google_apps", false);
-        if (!withGoogleApps)
-            prefScreen.removePreference(mQuickSwitch);
-
-        mAniOverrideEnabled = (SystemPropertySwitchPreference) findPreference(SYS_ANI_OVERRIDE_ENABLED);
-        mAniOverrideEnabled.setOnPreferenceChangeListener(this);
-
-        mVolumeDialogType = findPreference(KEY_VOLUME_DIALOG_TYPE);
-        if (mVolumeDialogType != null) {
-            mVolumeDialogType.setOnPreferenceChangeListener(this);
+        if (mLauncherCategory != null
+                && (!Utils.isPackageInstalled(context, "com.google.android.apps.nexuslauncher")
+                || SystemProperties.getInt("persist.sys.quickswitch_pixel_shipped", 0) == 0)) {
+            prefScreen.removePreference(mLauncherCategory);
         }
 
-        mShowVolumePercentage = findPreference(KEY_SHOW_VOLUME_PERCENTAGE);
-        mIosVolumeExpand = findPreference(KEY_IOS_VOLUME_EXPAND_ON_KEY);
-        updateVolumePercentageVisibility();
-    }
+        if (mNavbarIcons != null && isGestureNavigationEnabled(context)) {
+            mIconsCategory.removePreference(mNavbarIcons);
+        }
 
-    private void updateVolumePercentageVisibility() {
-        if (mShowVolumePercentage == null) return;
-        int type = Settings.System.getIntForUser(
-                getContext().getContentResolver(),
-                KEY_VOLUME_DIALOG_TYPE, 1,
-                UserHandle.USER_CURRENT);
-        mShowVolumePercentage.setVisible(type == 1);
-        if (mIosVolumeExpand != null) mIosVolumeExpand.setVisible(type == 3);
+        if (mSearchBar != null) {
+            mSearchBar.setChecked(isOneSearchAimActivityEnabled(context)
+                    && SystemProperties.getBoolean(KEY_LAUNCHER_SEARCH_BAR, false));
+            mSearchBar.setOnPreferenceClickListener(pref -> {
+                DeviceUtils.setComponentEnabled(context, VELVET_ONESEARCH_COMPONENT,
+                        mSearchBar.isChecked());
+                return false;
+            });
+        }
+
+        if (mEmojiStyle != null) {
+            mEmojiStyle.setOnPreferenceChangeListener(this);
+        }
+
+        updateIconShapeSummary();
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        final Context context = getContext();
-        final ContentResolver resolver = context.getContentResolver();
-        int value = 0;
-
-        if (preference == mVolumeDialogType) {
-            SystemUtils.showSystemUiRestartDialog(getActivity());
-
-            int val = Integer.parseInt((String) newValue);
-
-            if (mShowVolumePercentage != null) {
-                mShowVolumePercentage.setVisible(val == 1);
-            }
-
-        if (mIosVolumeExpand != null) {
-            mIosVolumeExpand.setVisible(val == 3);
+        if (KEY_EMOJI_STYLE.equals(preference.getKey())) {
+            SystemRestartUtils.showSystemRestartDialog(getActivity());
+            return true;
         }
-
-        return true;
-    }
-
-    if (preference == mAniOverrideEnabled) {
-        SystemRestartUtils.showSystemRestartDialog(getContext());
-        return true;
-    }
         return false;
     }
 
+    private void updateIconShapeSummary() {
+        Preference pref = findPreference(KEY_ICON_SHAPE);
+        if (pref == null) return;
+        pref.setSummary(new IconShapeController(getContext(), KEY_ICON_SHAPE).getSummary());
+    }
+
     @Override
-    public boolean onPreferenceTreeClick(Preference preference) {
-        if (preference != null && preference.getKey() != null) {
-            VibrationUtils.triggerVibration(getContext(), 3);
-        }
-        return super.onPreferenceTreeClick(preference);
+    public void onResume() {
+        super.onResume();
+        updateIconShapeSummary();
+        PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.LIGHTNING;
+        return MetricsEvent.LIGHTNING;
+    }
+
+    private static boolean isOneSearchAimActivityEnabled(Context context) {
+        return DeviceUtils.isActivityEnabled(context, VELVET_ONESEARCH_COMPONENT);
+    }
+
+    private static boolean isGestureNavigationEnabled(Context context) {
+        return Settings.Secure.getIntForUser(context.getContentResolver(),
+                Settings.Secure.NAVIGATION_MODE, 0, UserHandle.USER_CURRENT) == 2;
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
@@ -166,16 +169,28 @@ public class Themes extends SettingsPreferenceFragment implements
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
 
-                    final String displayCutout =
-                        context.getResources().getString(com.android.internal.R.string.config_mainBuiltInDisplayCutout);
+                    FingerprintManager fingerprintManager = (FingerprintManager)
+                            context.getSystemService(Context.FINGERPRINT_SERVICE);
 
-                    if (TextUtils.isEmpty(displayCutout)) {
-                        keys.add(KEY_FORCE_FULL_SCREEN);
+                    if (!Utils.isPackageInstalled(context, "com.google.android.apps.nexuslauncher")) {
+                        keys.add(KEY_LAUNCHER_CATEGORY);
                     }
 
-                    boolean withGoogleApps = android.os.SystemProperties.getBoolean("with_google_apps", false);
-                    if (!withGoogleApps)
-                        keys.add(KEY_QUICKSWITCH);
+                    if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+                        keys.add(KEY_UDFPS_ICON);
+                        keys.add(KEY_UDFPS_ANIMATION);
+                    } else {
+                        if (!Utils.isPackageInstalled(context, "org.lightning.udfps.icons")) {
+                            keys.add(KEY_UDFPS_ICON);
+                        }
+                        if (!Utils.isPackageInstalled(context, "org.lightning.udfps.animations")) {
+                            keys.add(KEY_UDFPS_ANIMATION);
+                        }
+                    }
+
+                    if (isGestureNavigationEnabled(context)) {
+                        keys.add(KEY_NAVBAR_ICONS);
+                    }
 
                     return keys;
                 }

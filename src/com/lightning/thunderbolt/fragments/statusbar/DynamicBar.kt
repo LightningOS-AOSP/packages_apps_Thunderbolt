@@ -30,8 +30,11 @@ class DynamicBar : SettingsPreferenceFragment() {
     private var settingsObserver: ContentObserver? = null
 
     private val eventTypeIds = listOf(
+        "screen_recording",
+        "privacy",
         "audio_recording",
         "media",
+        "notification",
         "timer",
         "stopwatch",
         "alarm",
@@ -42,6 +45,7 @@ class DynamicBar : SettingsPreferenceFragment() {
         "vpn",
         "clipboard",
         "torch",
+        "casting",
         "promoted_ongoing",
         "sports",
         "app_switch",
@@ -54,6 +58,7 @@ class DynamicBar : SettingsPreferenceFragment() {
 
         setupKeyguardSubPrefs()
         setupEventToggles()
+        updateCompactNotificationVisibility()
         registerObserver()
     }
 
@@ -77,7 +82,6 @@ class DynamicBar : SettingsPreferenceFragment() {
 
     private fun updateKeyguardSubPrefsVisibility(keyguardEnabled: Boolean) {
         findPreference<Preference>(SETTINGS_KEY_BATTERY_CHIP_MODE)?.isVisible = keyguardEnabled
-        findPreference<Preference>(SETTINGS_KEY_MUSIC_PILL)?.isVisible = keyguardEnabled
     }
 
     private fun setupEventToggles() {
@@ -89,6 +93,9 @@ class DynamicBar : SettingsPreferenceFragment() {
             pref.setOnPreferenceChangeListener { _, newValue ->
                 val enabled = newValue as Boolean
                 toggleEvent(typeId, enabled)
+                if (typeId == "notification") {
+                    updateCompactNotificationVisibility()
+                }
                 true
             }
         }
@@ -118,6 +125,12 @@ class DynamicBar : SettingsPreferenceFragment() {
         )
     }
 
+    private fun updateCompactNotificationVisibility() {
+        val compactPref = findPreference<Preference>(SETTINGS_KEY_COMPACT_NOTIFICATIONS)
+        val notifPref = findPreference<SwitchPreferenceCompat>("event_notification")
+        compactPref?.isVisible = notifPref?.isChecked == true
+    }
+
     private fun registerObserver() {
         settingsObserver = object : ContentObserver(handler) {
             override fun onChange(selfChange: Boolean, uri: Uri?) {
@@ -128,6 +141,7 @@ class DynamicBar : SettingsPreferenceFragment() {
                             val pref = findPreference<SwitchPreferenceCompat>("event_$typeId")
                             pref?.isChecked = typeId !in disabledEvents
                         }
+                        updateCompactNotificationVisibility()
                     }
                     SETTINGS_KEY_KEYGUARD_ENABLED -> {
                         val enabled = Settings.Secure.getIntForUser(
@@ -157,8 +171,8 @@ class DynamicBar : SettingsPreferenceFragment() {
         private const val SETTINGS_KEY_ENABLED = "ax_dynamic_bar_enabled"
         private const val SETTINGS_KEY_KEYGUARD_ENABLED = "ax_dynamic_bar_keyguard_enabled"
         private const val SETTINGS_KEY_EVENTS = "ax_dynamic_bar_events"
+        private const val SETTINGS_KEY_COMPACT_NOTIFICATIONS = "ax_dynamic_bar_compact_notifications"
         private const val SETTINGS_KEY_BATTERY_CHIP_MODE = "ax_dynamic_bar_keyguard_battery_chip_mode"
-        private const val SETTINGS_KEY_MUSIC_PILL = "ax_dynamic_bar_keyguard_music_pill"
 
         @JvmStatic
         fun reset(context: Context) {
@@ -172,7 +186,7 @@ class DynamicBar : SettingsPreferenceFragment() {
                 UserHandle.USER_CURRENT
             )
             Settings.Secure.putIntForUser(
-                resolver, SETTINGS_KEY_MUSIC_PILL, 0,
+                resolver, SETTINGS_KEY_COMPACT_NOTIFICATIONS, 1,
                 UserHandle.USER_CURRENT
             )
             Settings.Secure.putIntForUser(

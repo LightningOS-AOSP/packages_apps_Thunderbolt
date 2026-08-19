@@ -76,6 +76,7 @@ class StatusBarLogoStylePreference @JvmOverloads constructor(
             val span = if (isLandscape) 2 else 1
             layoutManager = GridLayoutManager(ctx, span)
             adapter = IconAdapter(getCurrentValue())
+
             post {
                 val fraction = if (isLandscape) 0.75f else 0.6f
                 val maxHeight = (ctx.resources.displayMetrics.heightPixels * fraction).toInt()
@@ -87,7 +88,7 @@ class StatusBarLogoStylePreference @JvmOverloads constructor(
         dialog = AlertDialog.Builder(ctx)
             .setTitle(title)
             .setView(content)
-            .setNegativeButton(android.R.string.lightning_cancel, null)
+            .setNegativeButton(android.R.string.cancel, null)
             .create()
             .also { dlg ->
                 dlg.setOnDismissListener {

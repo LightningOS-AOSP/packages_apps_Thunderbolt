@@ -1,82 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!--
+     SPDX-FileCopyrightText: Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    xmlns:lineage="http://schemas.android.com/apk/res-auto"
-    android:title="@string/lock_screen_title_lightning">
+    android:title="@string/lock_screen_title">
 
     <PreferenceCategory
-        android:key="lockscreen_clock_category"
-        android:title="@string/qs_clock_title">
+        android:key="lock_screen_clock_category"
+        android:title="@string/lock_screen_clock_category">
 
+        <!-- Custom clock style -->
         <Preference
             android:key="clock_styles_settings"
             android:title="@string/ls_clock_title"
             android:summary="@string/ls_clock_summary"
             android:fragment="com.lightning.thunderbolt.fragments.lockscreen.ClockStyles" />
 
-
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/depth_wallpaper_category">
-        
-        <Preference
-            android:key="depth_wallpaper"
-            android:title="@string/depthwall_wallpaper_enabled_title"
-            android:summary="@string/depthwall_wallpaper_enabled_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.WallpaperDepth" />
+        android:key="lock_screen_media_category"
+        android:title="@string/lock_screen_media_category">
 
-        <Preference
-            android:key="canvas_aod_settings"
-            android:title="@string/canvas_aod_title"
-            android:summary="@string/canvas_aod_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.CanvasAodSettings" />
-     </PreferenceCategory>
+        <!-- Now Playing -->
+        <com.lightning.thunderbolt.preferences.SystemSettingPrimarySwitchPreference
+            android:key="nowplaying_enabled"
+            android:title="@string/nowplaying_title"
+            android:summary="@string/nowplaying_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.NowPlayingSettings"
+            android:defaultValue="false" />
 
-    <PreferenceCategory
-        android:key="lockscreen_interface_category"
-        android:title="@string/lockscreen_interface_category">
-
-        <!-- Lightning Hub -->
-        <Preference
-            android:key="lightning_hub_settings"
-            android:title="@string/lightning_hub_title"
-            android:summary="@string/lightning_hub_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.MistHubSettings" />
+        <!-- Edge light -->
 
         <!-- Lockscreen Media Art -->
 
         <!-- Pulse music visualizer -->
 
-        <Preference
-            android:key="nowplaying_settings"
-            android:title="@string/nowplaying_title"
-            android:summary="@string/nowplaying_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.NowplayingSettings" />
+    </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="lock_screen_interface_category"
+        android:title="@string/lock_screen_interface_category">
 
+        <!-- Ambient Wallpaper -->
+        <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
+            android:key="doze_always_on_wallpaper_enabled"
+            android:title="@string/lightning_doze_always_on_wallpaper_title"
+            android:summary="@string/doze_always_on_wallpaper_summary"
+            android:defaultValue="@*android:bool/config_dozeSupportsAodWallpaper" />
 
-        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_show_carrier"
-            android:title="@string/lockscreen_show_carrier_title"
-            android:summary="@string/lockscreen_show_carrier_summary"
+        <!-- Charging stats -->
+
+        <!-- Remaining charging time -->
+        <!--<com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_charging_time"
+            android:title="@string/lock_screen_charging_time_title"
+            android:summary="@string/lock_screen_charging_time_summary"
             android:defaultValue="true" />
-        
 
-        <!-- Scrim -->
-
-        <!-- Shortcuts -->
-
-        <!-- Keyguard user switcher -->
+        <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
+            android:key="keyguard_scrim_transparent"
+            android:title="@string/keyguard_scrim_transparent_title"
+            android:summary="@string/keyguard_scrim_transparent_summary"
+            android:defaultValue="false" />-->
 
     </PreferenceCategory>
+
+    <!--<PreferenceCategory
+        android:key="ambient_display_category"
+        android:title="@string/ambient_display_category_title">
+
+        <com.lightning.thunderbolt.preferences.SystemSettingListPreference
+            android:key="ambient_show_settings"
+            android:title="@string/ambient_bottom_title"
+            android:entries="@array/ambient_bottom_entries"
+            android:entryValues="@array/ambient_bottom_values"
+            android:summary="%s"
+            android:defaultValue="1" />
+
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="ambient_show_settings_icons"
+            android:title="@string/display_icon_title"
+            android:summary="@string/display_icon_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>-->
 
     <PreferenceCategory
         android:key="lockscreen_weather_category"
         android:title="@string/lockscreen_weather_category">
 
+        <!-- Smartspace -->
         <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
             android:key="lockscreen_smartspace_enabled"
             android:title="@string/lockscreen_smartspace_title"
@@ -127,39 +144,39 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="lockscreen_gestures_category"
-        android:title="@string/gestures_title">
+        android:key="lock_screen_charging_effects_category"
+        android:title="@string/lock_screen_charging_effects_category">
 
-
-        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
-            android:key="fp_success_vibrate"
-            android:title="@string/fp_success_vibrate_title"
-            android:summary="@string/fp_success_vibrate_summary"
-            android:defaultValue="true" />
-
-        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
-            android:key="fp_error_vibrate"
-            android:title="@string/fp_error_vibrate_title"
-            android:summary="@string/fp_error_vibrate_summary"
-            android:defaultValue="true" />
-
-        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
-            android:key="enable_ripple_effect"
-            android:title="@string/enable_fingerprint_ripple_effect_title"
-            android:summary="@string/enable_fingerprint_ripple_effect_summary"
-            android:defaultValue="true" />
+        <com.lightning.thunderbolt.preferences.SystemSettingPrimarySwitchPreference
+            android:key="charging_animation_enabled"
+            android:title="@string/charging_animation_title"
+            android:summary="@string/charging_animation_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.ChargingAnimationSettings"
+            android:defaultValue="false" />
 
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="lockscreen_custom_category"
-        android:title="@string/udfps_custom_title">
+        android:key="lockscreen_gestures_category"
+        android:title="@string/lock_screen_fingerprint_category">
 
-        <Preference
-            android:key="udfps_cust"
-            android:title="@string/udfps_cust_title"
-            android:summary="@string/udfps_cust_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.UdfpsCust" />
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="enable_ripple_effect"
+            android:title="@string/lock_screen_fingerprint_ripple_title"
+            android:summary="@string/lock_screen_fingerprint_ripple_summary"
+            android:defaultValue="true" />
+
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="fp_success_vibrate"
+            android:title="@string/lock_screen_fingerprint_success_vibration_title"
+            android:summary="@string/lock_screen_fingerprint_success_vibration_summary"
+            android:defaultValue="true" />
+
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="fp_error_vibrate"
+            android:title="@string/lock_screen_fingerprint_error_vibration_title"
+            android:summary="@string/lock_screen_fingerprint_error_vibration_summary"
+            android:defaultValue="true" />
 
     </PreferenceCategory>
 

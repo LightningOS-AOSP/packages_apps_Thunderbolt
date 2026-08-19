@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
+     Copyright (C) 2024-2025 Lunaris AOSP
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -20,7 +21,8 @@
 
     <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="nowplaying_enabled"
-        android:title="@string/enable"
+        android:title="@string/nowplaying_title"
+        android:summary="@string/nowplaying_summary"
         android:defaultValue="false" />
 
     <com.lightning.thunderbolt.preferences.SystemSettingListPreference
@@ -44,6 +46,13 @@
         settings:units="dp" />
 
     <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+        android:key="nowplaying_lyrics_mode"
+        android:title="@string/nowplaying_lyrics_mode_title"
+        android:summary="@string/nowplaying_lyrics_mode_summary"
+        android:dependency="nowplaying_enabled"
+        android:defaultValue="false" />
+
+    <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
         android:key="nowplaying_use_compact_style"
         android:title="@string/nowplaying_compact_style_title"
         android:summary="@string/nowplaying_compact_style_summary"
@@ -57,6 +66,12 @@
         android:dependency="nowplaying_enabled"
         android:defaultValue="true" />
 
+    <com.lightning.thunderbolt.preferences.SystemSettingListPreference
+        android:key="nowplaying_color_mode"
+        android:title="@string/nowplaying_color_mode_title"
+        android:entries="@array/nowplaying_color_mode_entries"
+        android:entryValues="@array/nowplaying_color_mode_values"
+        android:defaultValue="0" />
 
     <com.lightning.thunderbolt.preferences.SystemSettingSeekBarPreference
         android:key="nowplaying_vertical_position"

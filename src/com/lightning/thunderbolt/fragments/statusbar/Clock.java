@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.lightning.thunderbolt.fragments.statusbar;
 
 import android.app.AlertDialog;
@@ -32,22 +33,22 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 
-import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
+import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
-
-import com.lightning.thunderbolt.preferences.CustomSeekBarPreference;
-import com.lightning.thunderbolt.preferences.SystemSettingListPreference;
+import com.android.settingslib.search.SearchIndexable;
 
 import java.util.Date;
 
 import lineageos.preference.LineageSystemSettingListPreference;
 import lineageos.providers.LineageSettings;
 
-import com.android.internal.util.lightning.VibrationUtils;
+import com.lightning.thunderbolt.preferences.SystemSettingListPreference;
 
+@SearchIndexable
 public class Clock extends SettingsPreferenceFragment
-            implements Preference.OnPreferenceChangeListener  {
+            implements Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "Clock";
 
@@ -208,15 +209,10 @@ public class Clock extends SettingsPreferenceFragment
     }
 
     @Override
-    public boolean onPreferenceTreeClick(Preference preference) {
-        if (preference != null && preference.getKey() != null) {
-            VibrationUtils.triggerVibration(getContext(), 3);
-        }
-        return super.onPreferenceTreeClick(preference);
+    public int getMetricsCategory() {
+        return MetricsEvent.LIGHTNING;
     }
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.LIGHTNING;
-    }
+    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        new BaseSearchIndexProvider(R.xml.status_bar_clock);
 }

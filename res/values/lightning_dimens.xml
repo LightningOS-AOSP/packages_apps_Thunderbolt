@@ -1,37 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2024 Evolution X
+     SPDX-FileCopyrightText: Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
-
 <resources>
-
     <!-- Oval preview size -->
     <dimen name="oval_notification_size">26dp</dimen>
-    <dimen name="color_picker_preview_height">48dp</dimen>
-
-    <!-- Columbus -->
-    <dimen name="columbus_action_list_item_spacing_vertical">16.0dip</dimen>
-    <dimen name="columbus_animation_layout_height">320.0dip</dimen>
-    <dimen name="columbus_animation_layout_width">320.0dip</dimen>
-    <dimen name="columbus_app_icon_padding">16.0dip</dimen>
-    <dimen name="columbus_app_icon_size">32.0dip</dimen>
-    <dimen name="columbus_app_list_item_spacing_horizontal">16.0dip</dimen>
-    <dimen name="columbus_app_list_item_spacing_vertical">8.0dip</dimen>
-    <dimen name="columbus_app_list_padding">10.0dip</dimen>
-    <dimen name="columbus_enroll_illustration_stroke_width">10.0dip</dimen>
-    <dimen name="columbus_extras_icon_padding">12.0dip</dimen>
-    <dimen name="columbus_illustration_layout_height">240.0dip</dimen>
-    <dimen name="columbus_illustration_layout_width">240.0dip</dimen>
-    <dimen name="columbus_list_item_text_spacing">32.0dip</dimen>
-
-    <dimen name="package_list_padding_top">16dp</dimen>
-
-    <!-- Support -->
-    <dimen name="logo_vertical_margin">48dp</dimen>
-    <dimen name="logo_horizontal_margin">40dp</dimen>
-    <dimen name="logo_height">-2px</dimen>
-    <dimen name="logo_width">-1px</dimen>
 
     <!-- Edge light -->
     <dimen name="phone_preview_hardware_corner_radius">1.0999756dip</dimen>
@@ -46,8 +20,4 @@
     <dimen name="edge_light_preview_punchhole_size">9.0dip</dimen>
     <dimen name="edge_light_preview_shell_content_inset">6.0dip</dimen>
     <dimen name="edge_light_preview_shell_corner_radius">28.0dip</dimen>
-
-    <!-- Canvas AOD -->
-    <dimen name="canvas_aod_particle_rain_length">18dp</dimen>
-    <dimen name="canvas_aod_snow_radius_max">5dp</dimen>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2016-2022 crDroid Android Project
+     SPDX-FileCopyrightText: Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
@@ -31,4 +31,12 @@
         <attr name="dkey" format="string" />
         <attr name="dkeyNightOnly" format="boolean" />
     </declare-styleable>
+
+    <!-- Base attributes available to DeviceConfigSwitchPreference. -->
+    <declare-styleable name="DeviceConfigSwitchPreference">
+        <attr name="deviceConfigNamespace" format="string" />
+        <attr name="deviceConfigFlag" format="string" />
+        <attr name="deviceConfigDefault" format="boolean" />
+    </declare-styleable>
+
 </resources>

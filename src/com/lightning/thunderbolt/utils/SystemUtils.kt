@@ -1,5 +1,9 @@
 /*
+ * SPDX-FileCopyrightText: Evolution X
  * Copyright (C) 2025 crDroid Android Project
+ * Copyright (C) 2023-2024 the risingOS Android Project
+ *
+ * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +22,7 @@ package com.lightning.thunderbolt.utils
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
+import android.provider.Settings
 import android.widget.Toast
 
 import androidx.appcompat.app.AlertDialog
@@ -32,7 +37,7 @@ object SystemUtils {
         AlertDialog.Builder(context)
             .setTitle(R.string.systemui_restart_title)
             .setMessage(R.string.systemui_restart_message)
-            .setPositiveButton(R.string.systemui_restart_yes) { _, _ ->
+            .setPositiveButton(R.string.action_yes) { _, _ ->
                 restartSystemUI(context)
             }
             .setNegativeButton(R.string.systemui_restart_not_now, null)
@@ -51,4 +56,11 @@ object SystemUtils {
             Utils.restartSystemUI()
         }, 2000) // 2-second delay
     }
-} 
+
+    @JvmStatic
+    fun reloadSystemUI(context: Context) {
+        val resolver = context.contentResolver
+        val currentValue = Settings.System.getInt(resolver, "system_ui_reload", 0)
+        Settings.System.putInt(resolver, "system_ui_reload", if (currentValue == 0) 1 else 0)
+    }
+}

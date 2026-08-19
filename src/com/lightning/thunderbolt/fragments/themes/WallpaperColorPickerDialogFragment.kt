@@ -1,4 +1,5 @@
 /*
+ * Copyright (C) 2024-2025 Lunaris AOSP
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,8 +24,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.DialogFragment
+import com.android.settingslib.spa.framework.theme.SettingsTheme
 import com.lightning.thunderbolt.utils.WallpaperColorPickerDialog
-import com.lightning.thunderbolt.utils.MistTheme
 
 class WallpaperColorPickerDialogFragment : DialogFragment() {
 
@@ -44,7 +45,7 @@ class WallpaperColorPickerDialogFragment : DialogFragment() {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             
             setContent {
-                MistTheme {
+                SettingsTheme {
                     WallpaperColorPickerDialog(
                         onDismiss = { dismiss() },
                         onColorSelected = { color ->

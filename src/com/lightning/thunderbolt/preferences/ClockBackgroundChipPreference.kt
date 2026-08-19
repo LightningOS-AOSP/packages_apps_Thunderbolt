@@ -88,7 +88,7 @@ class ClockBackgroundChipPreference @JvmOverloads constructor(
         dialog = AlertDialog.Builder(ctx)
             .setTitle(title)
             .setView(content)
-            .setNegativeButton(android.R.string.lightning_cancel, null)
+            .setNegativeButton(android.R.string.cancel, null)
             .create()
             .also { dlg ->
                 dlg.setOnDismissListener {
