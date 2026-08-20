@@ -22,6 +22,13 @@
             android:summary="%s"
             android:defaultValue="0" />
 
+
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="qs_stock_media_player"
+            android:title="@string/stock_qs_media_player"
+            android:summary="@string/stock_qs_media_player_summary"
+            android:defaultValue="true" />
+
         <!-- Single Tone QS -->
         <!--<com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="single_qs_tone_enabled"

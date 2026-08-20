@@ -1758,6 +1758,14 @@
     <!-- Custom power menu style -->
     <string name="global_actions_use_compose_dialog_title">Redesigned power menu</string>
     <string name="global_actions_use_compose_dialog_summary">Use the new power menu with a customizable, draggable tile layout. Disable to use the classic power menu.</string>
+
+    <!-- IOS Styles Panel-->
+    <string name="ios_style">iOS-style control panel</string>
+    <string name="ios_style_summary">Show iOS-style brightness, volume sliders and music player in expanded quick settings</string>
+
+    <!-- Stock Music Player -->
+    <string name="stock_qs_media_player">Disable Stock QS media player</string>
+    <string name="stock_qs_media_player_summary">Show the default Android media player carousel in Quick Settings</string>
     <string name="light_brightness_normal">Normal</string>
     <string name="light_brightness_zen">Do not disturb</string>
 </resources>

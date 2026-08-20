@@ -64,6 +64,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 //    private static final String KEY_SHOW_RINGER_MODE = "qs_show_ringer_mode";
     private static final String KEY_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
 //    private static final String KEY_SINGLE_QS_TONE_ENABLED = "single_qs_tone_enabled";
+    private static final String KEY_QS_IOS_CONTROL_PANEL = "qs_ios_control_panel";
+    private static final String KEY_QS_STOCK_MEDIA_PLAYER = "qs_stock_media_player";
 
     private ListPreference mBrightnessSliderPosition;
 //    private ListPreference mQsPanelStyle;
@@ -85,6 +87,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 //    private SystemSettingSwitchPreference mQsWidgetPanel;
 //    private SystemSettingSwitchPreference mQsWidgetSliderCorner;
 //    private SystemSettingSwitchPreference mSingleQsToneEnabled;
+    private SystemSettingSwitchPreference mQsIosControlPanel;
+    private SystemSettingSwitchPreference mQsStockMediaPlayer;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -112,6 +116,16 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
         mBrightnessSliderPosition = findPreference(KEY_BRIGHTNESS_SLIDER_POSITION);
         mBrightnessSliderPosition.setEnabled(showSlider);
+
+        mQsIosControlPanel = findPreference(KEY_QS_IOS_CONTROL_PANEL);
+        if (mQsIosControlPanel != null) {
+            mQsIosControlPanel.setOnPreferenceChangeListener(this);
+        }
+
+        mQsStockMediaPlayer = findPreference(KEY_QS_STOCK_MEDIA_PLAYER);
+        if (mQsStockMediaPlayer != null) {
+            mQsStockMediaPlayer.setOnPreferenceChangeListener(this);
+        }
 
         mBrightnessSliderHaptic = findPreference(KEY_BRIGHTNESS_SLIDER_HAPTIC);
 //        mQsTileHaptic = findPreference(KEY_QS_TILE_HAPTIC);
@@ -217,6 +231,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             if ("0".equals(value)) {
                 SystemUtils.showSystemUiRestartDialog(getActivity());
             }
+            return true;
+        } else if (preference == mQsIosControlPanel) {
+            SystemUtils.showSystemUiRestartDialog(getActivity());
+            return true;
+        } else if (preference == mQsStockMediaPlayer) {
+            SystemUtils.showSystemUiRestartDialog(getActivity());
             return true;
         }
         return false;
