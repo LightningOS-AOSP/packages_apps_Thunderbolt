@@ -68,6 +68,12 @@
         android:key="themes_visual_effects_category"
         android:title="@string/themes_visual_effects_category">
 
+        <Preference
+            android:key="vehicle_motion_cues"
+            android:title="@string/vehicle_motion_cues_title"
+            android:summary="@string/vehicle_motion_cues_summary"
+            android:fragment="com.android.settings.display.VehicleMotionCuesSettings" />
+
         <!-- Screen off animation -->
 
         <!-- Udfps animation -->
