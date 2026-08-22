@@ -19,6 +19,14 @@
             android:summary="@string/ls_clock_summary"
             android:fragment="com.lightning.thunderbolt.fragments.lockscreen.ClockStyles" />
 
+        <!-- Depth wallpaper -->
+        <com.lightning.thunderbolt.preferences.SystemSettingPrimarySwitchPreference
+            android:key="depth_wallpaper_enabled"
+            android:title="@string/dw_wallpaper_enabled_title"
+            android:summary="@string/dw_wallpaper_enabled_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.WallpaperDepth"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
