@@ -1770,6 +1770,17 @@
     <!-- Stock Music Player -->
     <string name="stock_qs_media_player">Disable Stock QS media player</string>
     <string name="stock_qs_media_player_summary">Show the default Android media player carousel in Quick Settings</string>
-    <string name="light_brightness_normal">Normal</string>
+
+    <!-- QuickSwitch -->
+    <string name="quickswitch_launcher_title">Quick Switch</string>
+    <string name="quickswitch_launcher_summary">Switch default launcher</string>
+    <string name="wallpaper_overlay_title">Wallpaper overlay</string>
+    <string name="wallpaper_overlay_summary">Enable for Lightning Launcher, disable for Pixel Launcher</string>
+    <string name="quickswitch_not_supported">QuickSwitch is not supported; the system only has one launcher.</string>
+    <string name="quickswitch_footer_text">
+        Notes: \n\n
+        External launcher modules/modifications must be adapted to the QuickSwitch structure to function properly.
+    </string>
     <string name="light_brightness_zen">Do not disturb</string>
+    <string name="light_brightness_normal">Normal</string>
 </resources>
