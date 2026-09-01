@@ -23,6 +23,8 @@
     <string name="category_staticfield_title">🔒 Static Field</string>
     <string name="category_stormui_title">✨ Storm UI &amp; Notifications</string>
     <string name="category_lightningperks_title">⚡ Lightning Perks</string>
+    <string name="thunderbolt_collectibles_title">📁 Thunderbolt Collectibles</string>
+    <string name="thunderbolt_collectibles_summary">Unlock easter eggs and master badges</string>
     
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
