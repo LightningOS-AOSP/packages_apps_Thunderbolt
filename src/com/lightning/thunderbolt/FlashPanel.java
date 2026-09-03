@@ -32,7 +32,6 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
 import com.android.internal.logging.nano.MetricsProto;
@@ -42,7 +41,12 @@ import java.util.Arrays;
 import java.util.List;
 
 @SearchIndexable
-public class FlashPanel extends SettingsPreferenceFragment {
+public class FlashPanel extends ThunderboltSubSettingsFragment {
+
+    @Override
+    protected int getAccentThemeOverlay() {
+        return R.style.ThemeOverlay_ThunderboltSub;
+    }
 
     @Override
     public void onCreate(Bundle icicle) {

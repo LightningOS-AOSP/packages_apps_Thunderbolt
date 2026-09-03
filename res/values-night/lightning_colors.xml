@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Page Background -->
+    <color name="thunderbolt_page_bg">#0a0d18</color>
+
+    <!-- Core Palette -->
+    <color name="thunderbolt_void">#0a0d18</color>
+    <color name="thunderbolt_panel">#12162a</color>
+    <color name="thunderbolt_panel_hi">#171c34</color>
+    <color name="thunderbolt_line">#232948</color>
+
+    <!-- Settings homepage tile background -->
+    <color name="homepage_thunderbolt_background">@color/thunderbolt_amber</color>
+
+    <!-- Accents -->
+    <color name="thunderbolt_amber">#f5c244</color>
+    <color name="thunderbolt_amber_dim">#6b5726</color>
+    <color name="thunderbolt_ripple">#2df5c244</color>
+    <color name="thunderbolt_violet">#8b7ff5</color>
+    <color name="thunderbolt_violet_dim">#322e5c</color>
+    <color name="thunderbolt_cyan">#4fd1c5</color>
+    <color name="thunderbolt_cyan_dim">#1f4a46</color>
+
+    <!-- Text -->
+    <color name="thunderbolt_text">#edeff7</color>
+    <color name="thunderbolt_text_mute">#7178a0</color>
+    <color name="thunderbolt_text_dim">#454b6e</color>
+
+</resources>

@@ -33,7 +33,6 @@ import androidx.preference.SwitchPreference;
 
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
 import com.android.internal.logging.nano.MetricsProto;
@@ -43,7 +42,12 @@ import java.util.Arrays;
 import java.util.List;
 
 @SearchIndexable
-public class StaticField extends SettingsPreferenceFragment {
+public class StaticField extends ThunderboltSubSettingsFragment {
+
+    @Override
+    protected int getAccentThemeOverlay() {
+        return R.style.ThemeOverlay_ThunderboltSub_Cyan;
+    }
 
     @Override
     public void onCreate(Bundle icicle) {

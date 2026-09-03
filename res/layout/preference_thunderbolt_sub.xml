@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_thunderbolt_row"
+    android:padding="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:minHeight="58dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="10dp">
+
+<!-- Accent bar -->
+        <View
+            android:id="@+id/tb_accent_bar"
+            android:layout_width="@dimen/tb_accent_bar_width"
+            android:layout_height="match_parent"
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="11dp"
+            android:layout_marginStart="0dp"
+            android:background="@drawable/bg_thunderbolt_accent_theme" />
+
+        <!-- Icon chip; hidden by androidx when the preference has no icon -->
+        <FrameLayout
+            android:id="@android:id/icon_frame"
+            android:layout_width="@dimen/tb_icon_chip_size"
+            android:layout_height="@dimen/tb_icon_chip_size"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/bg_thunderbolt_chip_theme">
+
+            <androidx.preference.internal.PreferenceImageView
+                android:id="@android:id/icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:tint="?attr/thunderboltAccent" />
+        </FrameLayout>
+
+        <!-- Title + summary -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="14dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@android:id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:textColor="@color/thunderbolt_text"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@android:id/summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textColor="@color/thunderbolt_text_mute"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Widgets (switches, list values, etc.) -->
+        <LinearLayout
+            android:id="@android:id/widget_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="end|center_vertical"
+            android:orientation="vertical"
+            android:paddingStart="12dp" />
+    </LinearLayout>
+</FrameLayout>

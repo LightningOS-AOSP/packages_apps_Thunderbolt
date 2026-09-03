@@ -35,4 +35,17 @@
         <attr name="deviceConfigFlag" format="string" />
         <attr name="deviceConfigDefault" format="boolean" />
     </declare-styleable>
+
+    <!-- ThunderboltDashboardPreference -->
+    <declare-styleable name="ThunderboltDashboardPreference">
+        <attr name="tbAccent" format="integer" />
+        <attr name="tbIcon" format="reference" />
+        <attr name="tbSpecial" format="boolean" />
+    </declare-styleable>
+
+    <!-- Accent color applied to Thunderbolt sub-setting screens. -->
+    <attr name="thunderboltAccent" format="color" />
+    <!-- Muted chip background variant of the Thunderbolt accent. -->
+    <attr name="thunderboltAccentDim" format="color" />
+</resources>
 </resources>

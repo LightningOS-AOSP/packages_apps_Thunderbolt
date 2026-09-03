@@ -22,7 +22,7 @@ import androidx.preference.SwitchPreferenceCompat
 import com.android.internal.logging.nano.MetricsProto
 import com.android.internal.util.lightning.PixelDeviceRepository
 import com.android.settings.R
-import com.android.settings.SettingsPreferenceFragment
+import com.lightning.thunderbolt.ThunderboltSubSettingsFragment
 import java.net.URL
 import java.nio.charset.StandardCharsets
 import kotlinx.coroutines.CoroutineScope
@@ -34,7 +34,9 @@ import kotlinx.coroutines.withContext
 import com.lightning.thunderbolt.fragments.lightningperks.TrickyStore
 import org.json.JSONObject
 
-class PlayIntegrityFix : SettingsPreferenceFragment() {
+class PlayIntegrityFix : ThunderboltSubSettingsFragment() {
+
+    override fun getAccentThemeOverlay(): Int = R.style.ThemeOverlay_ThunderboltSub
 
     private val isPifEnabled: Boolean
         get() = Settings.System.getInt(
@@ -276,7 +278,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
 
         for (key in displayOrder) {
             val value = data[key] ?: continue
-            category.addPreference(androidx.preference.EditTextPreference(requireContext()).apply {
+            val pref = androidx.preference.EditTextPreference(requireContext()).apply {
                 this.title = key
                 this.summary = value
                 this.text = value
@@ -294,7 +296,9 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                     updateConfigValue(key, v)
                     true
                 }
-            })
+            }
+            applyRowTheme(pref)
+            category.addPreference(pref)
         }
 
         data.keys.filter {
@@ -306,7 +310,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                 && it != "manually_imported"
         }
             .forEach { key ->
-                category.addPreference(androidx.preference.EditTextPreference(requireContext()).apply {
+                val pref = androidx.preference.EditTextPreference(requireContext()).apply {
                     this.title = key
                     this.summary = data[key]
                     this.text = data[key]
@@ -324,7 +328,9 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                         updateConfigValue(key, v)
                         true
                     }
-                })
+                }
+                applyRowTheme(pref)
+                category.addPreference(pref)
             }
     }
 

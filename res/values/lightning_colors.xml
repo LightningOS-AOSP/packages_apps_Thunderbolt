@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2026 LightningOS
-     SPDX-License-Identifier: Apache-2.0
--->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-<resources
-    xmlns:androidprv="http://schemas.android.com/apk/prv/res/android">
+    <!-- Page Background -->
+    <color name="thunderbolt_page_bg">#f0f2fa</color>
 
-    <color name="homepage_lightning_background">#0060FF</color>
-    <color name="homepage_thunderbolt_background">@color/homepage_lightning_background</color>
+    <!-- Core Palette -->
+    <color name="thunderbolt_void">#f0f2fa</color>
+    <color name="thunderbolt_panel">#ffffff</color>
+    <color name="thunderbolt_panel_hi">#f4f6fd</color>
+    <color name="thunderbolt_line">#d3d8ea</color>
+
+    <!-- Settings homepage tile background -->
+    <color name="homepage_thunderbolt_background">@color/thunderbolt_amber</color>
+
+    <!-- Accents -->
+    <color name="thunderbolt_amber">#d79a24</color>
+    <color name="thunderbolt_amber_dim">#f9edce</color>
+    <color name="thunderbolt_ripple">#2dd79a24</color>
+    <color name="thunderbolt_violet">#6a5af0</color>
+    <color name="thunderbolt_violet_dim">#e5e2fb</color>
+    <color name="thunderbolt_cyan">#12a094</color>
+    <color name="thunderbolt_cyan_dim">#d8f0ec</color>
+
+    <!-- Text -->
+    <color name="thunderbolt_text">#1b2034</color>
+    <color name="thunderbolt_text_mute">#565f85</color>
+    <color name="thunderbolt_text_dim">#8b92b3</color>
+
 </resources>

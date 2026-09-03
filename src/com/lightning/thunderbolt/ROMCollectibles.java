@@ -41,7 +41,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @SearchIndexable
-public class Boltbar extends ThunderboltSubSettingsFragment {
+public class ROMCollectibles extends ThunderboltSubSettingsFragment {
 
     @Override
     protected int getAccentThemeOverlay() {
@@ -51,7 +51,7 @@ public class Boltbar extends ThunderboltSubSettingsFragment {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.category_boltbar);
+        addPreferencesFromResource(R.xml.category_romcollectibles);
         PreferenceScreen prefSet = getPreferenceScreen();
 
     }
@@ -67,7 +67,7 @@ public class Boltbar extends ThunderboltSubSettingsFragment {
                 public List<SearchIndexableResource> getXmlResourcesToIndex(
                         Context context, boolean enabled) {
                     final SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.category_boltbar;
+                    sir.xmlResId = R.xml.category_romcollectibles;
                     return Arrays.asList(sir);
                 }
 

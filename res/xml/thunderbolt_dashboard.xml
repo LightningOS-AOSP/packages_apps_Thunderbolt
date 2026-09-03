@@ -1,68 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 20226 LightningOS
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-          http://www.apache.org/licenses/LICENSE-2.0
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/thunderbolt_dashboard_title" >
 
-     <!-- Boltbar -->
-     <Preference
-          android:id="@+id/boltbar"
-          android:title="@string/category_boltbar_title"
-          android:fragment="com.lightning.thunderbolt.BoltBar"
-          android:layout="@layout/preference_category_boltbar"
-          />
+    <!-- Core (amber): Bolt Bar -->
+    <com.lightning.thunderbolt.ThunderboltDashboardPreference
+        android:key="boltbar"
+        android:title="@string/category_boltbar_title"
+        android:summary="@string/category_boltbar_subtitle"
+        android:fragment="com.lightning.thunderbolt.Boltbar" />
 
-     <!-- Flash Panel -->
-     <Preference
-          android:id="@+id/flash_panel"
-          android:title="@string/category_flashpanel_title"
-          android:fragment="com.lightning.thunderbolt.FlashPanel"
-          android:layout="@layout/preference_category_flashpanel"
-          />
+    <!-- Core (amber): Flash Panel -->
+    <com.lightning.thunderbolt.ThunderboltDashboardPreference
+        android:key="flash_panel"
+        android:title="@string/category_flashpanel_title"
+        android:summary="@string/category_flashpanel_subtitle"
+        android:fragment="com.lightning.thunderbolt.FlashPanel" />
 
-     <!-- MotionNav -->
-     <Preference
-          android:key="motionnav_settings"
-          android:title="@string/category_motionnav_title"
-          android:fragment="com.lightning.thunderbolt.MotionNav"
-          android:layout="@layout/preference_category_motionnav"
-          />
+    <!-- Movement (violet): Motion & Navigation -->
+    <com.lightning.thunderbolt.ThunderboltDashboardPreference
+        android:key="motionnav_settings"
+        android:title="@string/category_motionnav_title"
+        android:summary="@string/category_motionnav_subtitle"
+        android:fragment="com.lightning.thunderbolt.MotionNav" />
 
-     <!-- Staticfield -->
-     <Preference
-          android:key="staticfield_settings"
-          android:title="@string/category_staticfield_title"
-          android:fragment="com.lightning.thunderbolt.StaticField"
-          android:layout="@layout/preference_category_staticfield"
-          />
-   
-     <!-- Stormui -->
-     <Preference
-          android:key="stormui_settings"
-          android:title="@string/category_stormui_title"
-          android:fragment="com.lightning.thunderbolt.StormUI"
-          android:layout="@layout/preference_category_stormui"
-          />
-      
-     <!-- LightningPerks -->
-     <Preference
-          android:key="lightningperks_settings"
-          android:title="@string/category_lightningperks_title"
-          android:fragment="com.lightning.thunderbolt.LightningPerks"
-          android:layout="@layout/preference_category_lightningperks"
-          />
+    <!-- Security (cyan): Static Field -->
+    <com.lightning.thunderbolt.ThunderboltDashboardPreference
+        android:key="staticfield_settings"
+        android:title="@string/category_staticfield_title"
+        android:summary="@string/category_staticfield_subtitle"
+        android:fragment="com.lightning.thunderbolt.StaticField" />
+
+    <!-- Appearance (violet): Storm UI & Notifications -->
+    <com.lightning.thunderbolt.ThunderboltDashboardPreference
+        android:key="stormui_settings"
+        android:title="@string/category_stormui_title"
+        android:summary="@string/category_stormui_subtitle"
+        android:fragment="com.lightning.thunderbolt.StormUI" />
+
+    <!-- Extras (amber): Lightning Perks -->
+    <com.lightning.thunderbolt.ThunderboltDashboardPreference
+        android:key="lightningperks_settings"
+        android:title="@string/category_lightningperks_title"
+        android:summary="@string/category_lightningperks_subtitle"
+        android:fragment="com.lightning.thunderbolt.LightningPerks" />
+
+    <!-- Extras (amber -> cyan gradient, special): ROM Collectibles -->
+    <com.lightning.thunderbolt.ThunderboltDashboardPreference
+        android:key="romcollectibles_settings"
+        android:title="@string/category_romcollectibles_title"
+        android:summary="@string/category_romcollectibles_subtitle"
+        android:fragment="com.lightning.thunderbolt.ROMCollectibles" />
+
+    <!-- Legend -->
+    <Preference
+        android:key="legend"
+        android:selectable="false"
+        android:layout="@layout/preference_thunderbolt_legend" />
 
 </PreferenceScreen>
-

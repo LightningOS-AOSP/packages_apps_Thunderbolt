@@ -17,12 +17,25 @@
     <string name="thunderbolt_dashboard_title">Thunderbolt Control Center</string>
     <string name="thunderbolt_summary_title">Lightning up your Device</string>
     <!-- Categories -->
-    <string name="category_boltbar_title">⚡ Bolt Bar</string>
-    <string name="category_flashpanel_title">🌩️ Flash Panel</string>
-    <string name="category_motionnav_title">🕹️ Motion &amp; Navigation</string>
-    <string name="category_staticfield_title">🔒 Static Field</string>
-    <string name="category_stormui_title">✨ Storm UI &amp; Notifications</string>
-    <string name="category_lightningperks_title">⚡ Lightning Perks</string>
+    <string name="category_boltbar_title">Bolt Bar</string>
+    <string name="category_boltbar_subtitle">Buttons, layout, quick toggles</string>
+    <string name="category_flashpanel_title">Flash Panel</string>
+    <string name="category_flashpanel_subtitle">Shortcut tray and gestures</string>
+    <string name="category_motionnav_title">Motion &amp; Navigation</string>
+    <string name="category_motionnav_subtitle">Stick sensitivity, drift correction</string>
+    <string name="category_staticfield_title">Static Field</string>
+    <string name="category_staticfield_subtitle">Lock screens, passcodes, privacy</string>
+    <string name="category_stormui_title">Storm UI &amp; Notifications</string>
+    <string name="category_stormui_subtitle">Themes, banners, sound cues</string>
+    <string name="category_lightningperks_title">Lightning Perks</string>
+    <string name="category_lightningperks_subtitle">Boosts and unlockable bonuses</string>
+    <string name="category_romcollectibles_title">ROM Collectibles</string>
+    <string name="category_romcollectibles_subtitle">Unlock easter eggs and master badges</string>
+
+    <!-- Legend -->
+    <string name="legend_core">Core &amp; perks</string>
+    <string name="legend_motion">Motion &amp; appearance</string>
+    <string name="legend_security">Security</string>
     
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>

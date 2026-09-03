@@ -25,14 +25,19 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.util.lightning.PixelPropsUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.lightning.thunderbolt.ThunderboltSubSettingsFragment;
 import com.lightning.thunderbolt.utils.PreferenceUtils;
 
 @SearchIndexable
-public class Spoofing extends SettingsPreferenceFragment implements
+public class Spoofing extends ThunderboltSubSettingsFragment implements
         Preference.OnPreferenceChangeListener {
+
+    @Override
+    protected int getAccentThemeOverlay() {
+        return R.style.ThemeOverlay_ThunderboltSub;
+    }
 
     private static final String TAG = "Spoofing";
 

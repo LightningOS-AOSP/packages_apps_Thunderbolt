@@ -19,7 +19,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import com.android.internal.logging.nano.MetricsProto
 import com.android.settings.R
-import com.android.settings.SettingsPreferenceFragment
+import com.lightning.thunderbolt.ThunderboltSubSettingsFragment
 import java.io.BufferedReader
 import java.io.ByteArrayInputStream
 import java.io.InputStreamReader
@@ -39,8 +39,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
 
-class TrickyStore : SettingsPreferenceFragment() {
+class TrickyStore : ThunderboltSubSettingsFragment() {
 
+    override fun getAccentThemeOverlay(): Int = R.style.ThemeOverlay_ThunderboltSub
     // ----- Revocation status enum -------------------------------------------
 
     private enum class RevocationStatus {
