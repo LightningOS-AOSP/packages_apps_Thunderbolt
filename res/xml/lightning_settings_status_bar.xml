@@ -34,6 +34,13 @@
         android:key="status_bar_features_category"
         android:title="@string/status_bar_features_category">
 
+        <!-- Dynamic Island -->
+        <Preference
+            android:key="status_bar_dynamic_island"
+            android:title="@string/status_bar_dynamic_island_title"
+            android:summary="@string/status_bar_dynamic_island_summary"
+            android:fragment="com.lightning.thunderbolt.fragments.statusbar.DynamicIslandSettings" />
+
         <!-- Statusbar lyric -->
 
         <com.lightning.thunderbolt.preferences.SecureSettingPrimarySwitchPreference
