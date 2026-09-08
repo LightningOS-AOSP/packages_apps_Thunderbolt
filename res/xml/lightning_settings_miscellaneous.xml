@@ -82,6 +82,7 @@
             android:summary="@string/usb_default_config_summary"
             android:fragment="com.android.settings.connecteddevice.usb.UsbDefaultFragment" />
 
+
         <com.lightning.thunderbolt.preferences.GlobalSettingSwitchPreference
             android:key="no_storage_restrict"
             android:title="@string/no_storage_restrict_title"
