@@ -17,4 +17,7 @@
     <dimen name="tb_row_vertical_padding">15dp</dimen>
     <dimen name="tb_accent_bar_width">3dp</dimen>
 
+    <!-- Homepage tile icon badge -->
+    <dimen name="tb_home_badge_size">40dp</dimen>
+
 </resources>

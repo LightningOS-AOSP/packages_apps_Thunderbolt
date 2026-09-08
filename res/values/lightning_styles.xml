@@ -25,6 +25,27 @@
         <item name="colorAccent">@color/thunderbolt_amber</item>
         <item name="thunderboltAccent">@color/thunderbolt_amber</item>
         <item name="thunderboltAccentDim">@color/thunderbolt_amber_dim</item>
+        <item name="expressiveTwoTargetPreferenceTheme">@style/ThunderboltExpressiveTwoTargetPreferenceTheme</item>
+    </style>
+
+    <!--
+        TwoTargetPreference (e.g. RestrictedPreference rows such as the Modes list) resolves
+        ?expressiveTwoTargetPreferenceWidgetFrameStyle through android:theme="?...". When the
+        RecyclerView inflater context is wrapped (Lightning theme), that resolve must be pinned to
+        a fixed theme or the widget_frame <LinearLayout> ends up with no layout_width and crashes.
+        Just mirror the SettingsLib expressive two-target theme here.
+    -->
+    <style name="ThunderboltExpressiveTwoTargetPreferenceTheme">
+        <item name="expressiveTwoTargetPreferenceRootStyle">@style/ExpressiveTwoTargetPreferenceRootStyle</item>
+        <item name="expressiveTwoTargetPreferenceWidgetFrameStyle">@style/ExpressiveTwoTargetPreferenceWidgetFrameStyle</item>
+        <item name="expressivePreferenceIconFrameStyle">@style/ExpressivePreferenceIconFrameStyle</item>
+        <item name="expressivePreferenceIconStyle">@style/ExpressivePreferenceIconStyle</item>
+        <item name="expressivePreferenceTextFrameStyle">@style/ExpressivePreferenceTextFrameStyle</item>
+        <item name="expressivePreferenceTextFrameTitleStyle">@style/ExpressivePreferenceTextFrameTitleStyle</item>
+        <item name="expressivePreferenceTextFrameSummaryStyle">@style/ExpressivePreferenceTextFrameSummaryStyle</item>
+        <item name="expressiveTwoTargetDividerStyle">@style/ExpressiveTwoTargetDividerStyle</item>
+        <item name="expressiveTwoTargetDividerImageViewStyle">@style/ExpressiveTwoTargetDividerImageViewStyle</item>
+        <item name="expressiveTwoTargetDividerViewStyle">@style/ExpressiveTwoTargetDividerViewStyle</item>
     </style>
 
     <style name="ThemeOverlay.ThunderboltSub.Violet" parent="">

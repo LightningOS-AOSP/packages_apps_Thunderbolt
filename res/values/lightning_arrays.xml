@@ -80,4 +80,15 @@
         <item>0</item>
         <item>1</item>
     </string-array>
+
+    <!-- Bolt Bar: Switch Layout -->
+    <string-array name="boltbar_layout_entries">
+        <item>@string/boltbar_layout_aosp</item>
+        <item>@string/boltbar_layout_lightning</item>
+    </string-array>
+
+    <string-array name="boltbar_layout_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
 </resources> 

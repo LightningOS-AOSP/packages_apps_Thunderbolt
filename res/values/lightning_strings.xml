@@ -243,4 +243,11 @@
     <string name="action_reset">Reset</string>
     <string name="action_delete">Delete</string>
     <string name="action_add_installed">Add installed apps</string>
+
+    <!-- Switch Layout -->
+    <string name="boltbar_switch_layout_title">Switch Layout</string>
+    <string name="boltbar_switch_layout_summary">%1$s</string>
+    <string name="boltbar_layout_aosp">AOSP Style</string>
+    <string name="boltbar_layout_lightning">Lightning Style</string>
+    <string name="boltbar_layout_dialog_title">Choose Layout</string>
 </resources> 

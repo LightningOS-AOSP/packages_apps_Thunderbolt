@@ -16,4 +16,13 @@
      xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
      android:title="@string/category_boltbar_title" >
 
+    <ListPreference
+        android:key="boltbar_switch_layout"
+        android:title="@string/boltbar_switch_layout_title"
+        android:summary="@string/boltbar_switch_layout_summary"
+        android:dialogTitle="@string/boltbar_layout_dialog_title"
+        android:entries="@array/boltbar_layout_entries"
+        android:entryValues="@array/boltbar_layout_values"
+        android:defaultValue="0"/>
+
 </PreferenceScreen>

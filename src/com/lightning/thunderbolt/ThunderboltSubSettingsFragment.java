@@ -25,22 +25,11 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 import androidx.annotation.XmlRes;
 import androidx.preference.Preference;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceGroup;
-import androidx.preference.PreferenceScreen;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settingslib.PrimarySwitchPreference;
-import com.android.settingslib.widget.FooterPreference;
-import com.android.settingslib.widget.LayoutPreference;
-import com.android.settingslib.widget.MainSwitchPreference;
-import com.android.settingslib.widget.SpacePreference;
 
 import com.android.internal.logging.nano.MetricsProto;
-import com.lightning.thunderbolt.preferences.CustomSeekBarPreference;
-import com.lightning.thunderbolt.preferences.colorpicker.ColorPickerPreference;
 
 /**
  * Base fragment for all Thunderbolt sub-setting screens.
@@ -96,7 +85,16 @@ public abstract class ThunderboltSubSettingsFragment extends SettingsPreferenceF
         // Apply the Thunderbolt layout resources to every preference as soon as the
         // screen is inflated. This must happen before the RecyclerView adapter is
         // created in onViewCreated, otherwise the custom layouts are ignored.
-        applySubScreenTheme(getPreferenceScreen());
+        ThunderboltTheme.applySubScreenTheme(getPreferenceScreen());
+    }
+
+    /**
+     * This screen already applies Thunderbolt theming itself, so the generic Lightning
+     * style hook in {@code SettingsPreferenceFragment} must not also restyle it.
+     */
+    @Override
+    protected boolean isThunderboltStyledScreen() {
+        return true;
     }
 
     @Override
@@ -111,49 +109,11 @@ public abstract class ThunderboltSubSettingsFragment extends SettingsPreferenceF
     }
 
     /**
-     * Preference classes that ship their own layout and must keep it:
-     * primary/main switches, footers, layout/space prefs, seekbars and color pickers.
-     */
-    private static boolean isCustomLayoutPreference(Preference pref) {
-        return pref instanceof PrimarySwitchPreference
-                || pref instanceof MainSwitchPreference
-                || pref instanceof FooterPreference
-                || pref instanceof LayoutPreference
-                || pref instanceof SpacePreference
-                || pref instanceof CustomSeekBarPreference
-                || pref instanceof ColorPickerPreference;
-    }
-
-    private void applySubScreenTheme(PreferenceScreen screen) {
-        if (screen == null) {
-            return;
-        }
-        for (int i = 0; i < screen.getPreferenceCount(); i++) {
-            applyRowTheme(screen.getPreference(i));
-        }
-    }
-
-    /**
      * Applies the Thunderbolt row/category layout to a single preference. Safe to call on
      * preferences added at runtime (before they are inserted into the group, so the adapter
      * captures the layout resource).
      */
     protected void applyRowTheme(Preference pref) {
-        if (pref instanceof PreferenceCategory) {
-            // Slim accent label header — do NOT hide, or its children vanish with it.
-            pref.setLayoutResource(R.layout.preference_thunderbolt_category);
-        } else if (isCustomLayoutPreference(pref)) {
-            // Keep the built-in layout for prefs that manage their own widgets.
-            return;
-        } else {
-            pref.setLayoutResource(R.layout.preference_thunderbolt_sub);
-        }
-        // Recurse into group children (categories, nested screens).
-        if (pref instanceof PreferenceGroup) {
-            PreferenceGroup group = (PreferenceGroup) pref;
-            for (int i = 0; i < group.getPreferenceCount(); i++) {
-                applyRowTheme(group.getPreference(i));
-            }
-        }
+        ThunderboltTheme.applyRowTheme(pref);
     }
 }

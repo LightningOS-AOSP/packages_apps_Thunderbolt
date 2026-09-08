@@ -95,6 +95,15 @@ public class ThunderboltDashboard extends SettingsPreferenceFragment {
         return false;
     }
 
+    /**
+     * The dashboard rows carry their own Thunderbolt styling; the generic Lightning style
+     * hook must not restyle them (and must not override {@link ThunderboltDashboardPreference}).
+     */
+    @Override
+    protected boolean isThunderboltStyledScreen() {
+        return true;
+    }
+
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.LIGHTNING;

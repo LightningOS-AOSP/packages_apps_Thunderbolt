@@ -27,7 +27,6 @@ import androidx.preference.ListPreference;
 import androidx.preference.SwitchPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 
 import com.android.settings.R;
@@ -52,8 +51,40 @@ public class Boltbar extends ThunderboltSubSettingsFragment {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.category_boltbar);
-        PreferenceScreen prefSet = getPreferenceScreen();
 
+        initSwitchLayout();
+    }
+
+    private void initSwitchLayout() {
+        ListPreference switchLayout = findPreference("boltbar_switch_layout");
+        if (switchLayout == null) {
+            return;
+        }
+        boolean lightning = ThunderboltTheme.isLightning(getContext());
+        switchLayout.setValue(lightning ? "1" : "0");
+        switchLayout.setSummary(getContext().getString(
+                lightning ? R.string.boltbar_layout_lightning : R.string.boltbar_layout_aosp));
+        switchLayout.setOnPreferenceChangeListener((preference, newValue) -> {
+            boolean enable = "1".equals(String.valueOf(newValue));
+            ThunderboltTheme.setLightning(getContext(), enable);
+            preference.setSummary(getContext().getString(
+                    enable ? R.string.boltbar_layout_lightning : R.string.boltbar_layout_aosp));
+            // Relaunch Settings from its home page so the style applies instantly, without the
+            // user having to force-close and reopen Settings.
+            restartSettings();
+            return true;
+        });
+    }
+
+    private void restartSettings() {
+        final Context context = getContext();
+        if (context == null) {
+            return;
+        }
+        final Intent intent =
+                new Intent(context, com.android.settings.homepage.SettingsHomepageActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        context.startActivity(intent);
     }
 
     @Override

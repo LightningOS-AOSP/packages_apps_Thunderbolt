@@ -27,4 +27,8 @@
     <color name="thunderbolt_text_mute">#7178a0</color>
     <color name="thunderbolt_text_dim">#454b6e</color>
 
+    <!-- Homepage tile icon badges -->
+    <color name="thunderbolt_icon_badge">#f5c244</color>
+    <color name="thunderbolt_icon_navy">#1a1408</color>
+
 </resources>
