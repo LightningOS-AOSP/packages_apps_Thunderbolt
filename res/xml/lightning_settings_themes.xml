@@ -83,6 +83,13 @@
             android:summary="@string/themes_udfps_animation_summary"
             android:fragment="com.lightning.thunderbolt.fragments.themes.UdfpsAnimation" />
 
+        <!-- Lightning Fluid Animation -->
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="lightning_fluid_animation_enabled"
+            android:title="@string/lightning_fluid_animation_title"
+            android:summary="@string/lightning_fluid_animation_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
 

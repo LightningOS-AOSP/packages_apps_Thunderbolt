@@ -55,10 +55,12 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_NAVBAR_ICONS = "android.theme.customization.navbar";
     private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
     private static final String KEY_UDFPS_ICON = "udfps_icon";
+    private static final String KEY_FLUID_ANIMATION = "lightning_fluid_animation_enabled";
 
     private Preference mNavbarIcons;
     private Preference mUdfpsAnimation;
     private Preference mUdfpsIcon;
+    private Preference mFluidAnimation;
     private PreferenceCategory mAnimationsCategory;
     private PreferenceCategory mIconsCategory;
     private PreferenceCategory mLauncherCategory;
@@ -83,6 +85,10 @@ public class Themes extends SettingsPreferenceFragment implements
         mAnimationsCategory = findPreference(KEY_ANIMATIONS_CATEGORY);
         mUdfpsAnimation = findPreference(KEY_UDFPS_ANIMATION);
         mEmojiStyle = findPreference(KEY_EMOJI_STYLE);
+        mFluidAnimation = findPreference(KEY_FLUID_ANIMATION);
+        if (mFluidAnimation != null) {
+            mFluidAnimation.setOnPreferenceChangeListener(this);
+        }
 
         FingerprintManager fingerprintManager = (FingerprintManager)
                 getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
@@ -130,6 +136,9 @@ public class Themes extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (KEY_EMOJI_STYLE.equals(preference.getKey())) {
             SystemRestartUtils.showSystemRestartDialog(getActivity());
+            return true;
+        } else if (KEY_FLUID_ANIMATION.equals(preference.getKey())) {
+            SystemRestartUtils.showSystemUIRestartDialog(getActivity());
             return true;
         }
         return false;
