@@ -31,4 +31,27 @@
     <color name="thunderbolt_icon_badge">#f5c244</color>
     <color name="thunderbolt_icon_navy">#1a1408</color>
 
+    <!-- About phone page -->
+    <color name="tb_about_surface">#ffffff</color>
+    <color name="tb_about_on_surface">#1a1b20</color>
+    <color name="tb_about_outline">#1a1b2033</color>
+    <color name="tb_about_scrim">#8cffffff</color>
+
+    <color name="tb_about_hardware_fill">#dff3f6</color>
+    <color name="tb_about_hardware_bar">#2ca9c0</color>
+    <color name="tb_about_hardware_icon">#0e6577</color>
+    <color name="tb_about_hardware_label">#1d8fa3</color>
+    <color name="tb_about_hardware_value">#083f49</color>
+
+    <color name="tb_about_software_fill">#eeedfe</color>
+    <color name="tb_about_software_bar">#7f77dd</color>
+    <color name="tb_about_software_icon">#3c3489</color>
+    <color name="tb_about_software_label">#534ab7</color>
+    <color name="tb_about_software_value">#26215c</color>
+
+    <color name="tb_about_security_fill">#e1f5ee</color>
+    <color name="tb_about_security_bar">#5dcaa5</color>
+    <color name="tb_about_security_icon">#085041</color>
+    <color name="tb_about_security_label">#0f6e56</color>
+    <color name="tb_about_security_value">#04342c</color>
 </resources>

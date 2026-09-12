@@ -64,4 +64,39 @@
         <item name="thunderboltAccentDim">@color/thunderbolt_cyan_dim</item>
     </style>
 
+    <!-- About phone page: supplies every color the redesigned screen references
+         so nothing is hardcoded. Values are day/night-qualified resources. -->
+    <style name="ThemeOverlay.ThunderboltAboutPhone" parent="">
+        <item name="thunderboltAccent">@color/thunderbolt_cyan</item>
+        <item name="thunderboltAccentDim">@color/thunderbolt_cyan_dim</item>
+        <item name="android:colorAccent">@color/thunderbolt_cyan</item>
+        <item name="android:colorControlActivated">@color/thunderbolt_cyan</item>
+        <item name="android:colorControlHighlight">@color/thunderbolt_ripple</item>
+
+        <item name="aboutSurfaceContainer">@color/tb_about_surface</item>
+        <item name="aboutSurface">@color/tb_about_surface</item>
+        <item name="aboutOnSurface">@color/tb_about_on_surface</item>
+        <item name="aboutOnSurfaceVariant">@color/tb_about_on_surface</item>
+        <item name="aboutOutline">@color/tb_about_outline</item>
+        <item name="colorScrimWallpaper">@color/tb_about_scrim</item>
+
+        <item name="colorCategoryHardwareFill">@color/tb_about_hardware_fill</item>
+        <item name="colorCategoryHardwareBar">@color/tb_about_hardware_bar</item>
+        <item name="colorCategoryHardwareIcon">@color/tb_about_hardware_icon</item>
+        <item name="colorCategoryHardwareLabel">@color/tb_about_hardware_label</item>
+        <item name="colorCategoryHardwareValue">@color/tb_about_hardware_value</item>
+
+        <item name="colorCategorySoftwareFill">@color/tb_about_software_fill</item>
+        <item name="colorCategorySoftwareBar">@color/tb_about_software_bar</item>
+        <item name="colorCategorySoftwareIcon">@color/tb_about_software_icon</item>
+        <item name="colorCategorySoftwareLabel">@color/tb_about_software_label</item>
+        <item name="colorCategorySoftwareValue">@color/tb_about_software_value</item>
+
+        <item name="colorCategorySecurityFill">@color/tb_about_security_fill</item>
+        <item name="colorCategorySecurityBar">@color/tb_about_security_bar</item>
+        <item name="colorCategorySecurityIcon">@color/tb_about_security_icon</item>
+        <item name="colorCategorySecurityLabel">@color/tb_about_security_label</item>
+        <item name="colorCategorySecurityValue">@color/tb_about_security_value</item>
+    </style>
+
 </resources>

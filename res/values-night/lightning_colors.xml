@@ -31,4 +31,28 @@
     <color name="thunderbolt_icon_badge">#f5c244</color>
     <color name="thunderbolt_icon_navy">#1a1408</color>
 
+    <!-- About phone page (deliberately desaturated so cards don't glow
+         against the near-black wallpaper scrim). -->
+    <color name="tb_about_surface">#1c1a17</color>
+    <color name="tb_about_on_surface">#d8d6ce</color>
+    <color name="tb_about_outline">#e8e6de26</color>
+    <color name="tb_about_scrim">#b3000000</color>
+
+    <color name="tb_about_hardware_fill">#0f2027</color>
+    <color name="tb_about_hardware_bar">#2d6e7f</color>
+    <color name="tb_about_hardware_icon">#4fb6c9</color>
+    <color name="tb_about_hardware_label">#3f97a7</color>
+    <color name="tb_about_hardware_value">#bfe0e6</color>
+
+    <color name="tb_about_software_fill">#1b1930</color>
+    <color name="tb_about_software_bar">#4f4890</color>
+    <color name="tb_about_software_icon">#8983c7</color>
+    <color name="tb_about_software_label">#7871ad</color>
+    <color name="tb_about_software_value">#c9c6e8</color>
+
+    <color name="tb_about_security_fill">#0f231f</color>
+    <color name="tb_about_security_bar">#2e7a5f</color>
+    <color name="tb_about_security_icon">#5aab8c</color>
+    <color name="tb_about_security_label">#4a9179</color>
+    <color name="tb_about_security_value">#bfdfd3</color>
 </resources>

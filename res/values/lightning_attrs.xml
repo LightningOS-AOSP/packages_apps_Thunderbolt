@@ -47,5 +47,35 @@
     <attr name="thunderboltAccent" format="color" />
     <!-- Muted chip background variant of the Thunderbolt accent. -->
     <attr name="thunderboltAccentDim" format="color" />
-</resources>
+
+    <!-- About phone page category theme colors. -->
+    <attr name="colorCategoryHardwareFill" format="color" />
+    <attr name="colorCategoryHardwareBar" format="color" />
+    <attr name="colorCategoryHardwareIcon" format="color" />
+    <attr name="colorCategoryHardwareLabel" format="color" />
+    <attr name="colorCategoryHardwareValue" format="color" />
+
+    <attr name="colorCategorySoftwareFill" format="color" />
+    <attr name="colorCategorySoftwareBar" format="color" />
+    <attr name="colorCategorySoftwareIcon" format="color" />
+    <attr name="colorCategorySoftwareLabel" format="color" />
+    <attr name="colorCategorySoftwareValue" format="color" />
+
+    <attr name="colorCategorySecurityFill" format="color" />
+    <attr name="colorCategorySecurityBar" format="color" />
+    <attr name="colorCategorySecurityIcon" format="color" />
+    <attr name="colorCategorySecurityLabel" format="color" />
+    <attr name="colorCategorySecurityValue" format="color" />
+
+    <!-- Scrim drawn over the live wallpaper on the About phone page. -->
+    <attr name="colorScrimWallpaper" format="color" />
+
+    <!-- Surface tokens used by the About phone page, equivalent to the
+         framework Material tokens but app-defined so they resolve under any
+         host theme. -->
+    <attr name="aboutSurfaceContainer" format="color" />
+    <attr name="aboutSurface" format="color" />
+    <attr name="aboutOnSurface" format="color" />
+    <attr name="aboutOnSurfaceVariant" format="color" />
+    <attr name="aboutOutline" format="color" />
 </resources>

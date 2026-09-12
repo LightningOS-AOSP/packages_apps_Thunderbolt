@@ -250,4 +250,48 @@
     <string name="boltbar_layout_aosp">AOSP Style</string>
     <string name="boltbar_layout_lightning">Lightning Style</string>
     <string name="boltbar_layout_dialog_title">Choose Layout</string>
+
+    <!-- About phone page -->
+    <string name="about_phone_title">About phone</string>
+    <string name="about_phone_back">Back</string>
+    <string name="about_phone_search">Search</string>
+    <string name="about_phone_search_hint">Search fields…</string>
+    <string name="about_android_version_title">Android version</string>
+
+    <string name="about_hero_processor">Processor</string>
+    <string name="about_hero_storage">Storage</string>
+    <string name="about_hero_screen">Screen</string>
+
+    <string name="about_field_device_model">Device model</string>
+    <string name="about_field_processor">Processor</string>
+    <string name="about_field_kernel">Kernel</string>
+    <string name="about_field_bootloader">Bootloader</string>
+    <string name="about_field_baseband">Baseband</string>
+    <string name="about_field_ram">RAM</string>
+    <string name="about_field_battery_level">Battery level</string>
+    <string name="about_field_ip_address">IP address</string>
+    <string name="about_field_wifi_mac">Wi-Fi MAC</string>
+    <string name="about_field_bluetooth_address">Bluetooth address</string>
+    <string name="about_field_serial_number">Serial number</string>
+    <string name="about_field_android_version">Android version</string>
+    <string name="about_field_api_level">API level</string>
+    <string name="about_field_thunderbolt_version">Thunderbolt version</string>
+    <string name="about_field_build_number">Build number</string>
+    <string name="about_field_build_date">Build date</string>
+    <string name="about_field_build_fingerprint">Build fingerprint</string>
+    <string name="about_field_maintainer">Maintainer</string>
+    <string name="about_field_build_status">Build status</string>
+    <string name="about_field_security_patch">Security patch</string>
+    <string name="about_field_encryption_state">Device encryption</string>
+    <string name="about_field_verified_boot">Verified boot</string>
+    <string name="about_field_selinux_state">SELinux status</string>
+
+    <string name="about_selinux_enforcing">Enforcing</string>
+    <string name="about_selinux_permissive">Permissive</string>
+    <string name="about_encryption_encrypted">Encrypted</string>
+    <string name="about_encryption_unencrypted">Not encrypted</string>
+    <string name="about_verified_boot_green">Verified</string>
+    <string name="about_verified_boot_yellow">Warning</string>
+    <string name="about_verified_boot_orange">Orange</string>
+    <string name="about_verified_boot_red">Failed</string>
 </resources> 
