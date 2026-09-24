@@ -222,8 +222,8 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                     put("FINGERPRINT", matched.fingerprint)
                     put("SECURITY_PATCH", matched.securityPatch)
                     put("DEVICE_INITIAL_SDK_INT", "32")
-                    if (canaryMonth.length == 7) put("_canary_month", canaryMonth)
-                    matched.releaseDate?.let { put("_canary_release_date", it) }
+                    if (matched.isCanary && canaryMonth.length == 7) put("_canary_month", canaryMonth)
+                    if (matched.isCanary) matched.releaseDate?.let { put("_canary_release_date", it) }
                     put("manually_imported", false)
                 }
                 Settings.Secure.putString(
@@ -383,19 +383,31 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                 }
 
                 val currentDevice = android.os.SystemProperties.get(MATCH_DEVICE_PROP, "")
+                val preferredASeries = PixelDeviceRepository.getPreferredASeriesCodename(profiles)
                 val sortedProfiles = profiles.sortedWith(
                     compareByDescending<PixelDeviceRepository.PixelProfile> {
                         it.device == currentDevice
+                    }.thenByDescending {
+                        PixelDeviceRepository.A_SERIES_ORDER.contains(it.codename)
                     }.thenByDescending {
                         PixelDeviceRepository.GENERATION_ORDER.indexOf(it.codename)
                             .let { idx -> if (idx < 0) -1 else PixelDeviceRepository.GENERATION_ORDER.size - idx }
                     }
                 )
-                val modelNames = sortedProfiles.map { it.model }.toTypedArray()
+                val modelNames = sortedProfiles.map {
+                    if (PixelDeviceRepository.A_SERIES_ORDER.contains(it.codename)) {
+                        "${it.model} — ${str(R.string.pif_recommended_suffix)}"
+                    } else {
+                        it.model
+                    }
+                }.toTypedArray()
+                val preselectedIndex = sortedProfiles.indexOfFirst { it.codename == preferredASeries }
+                    .let { if (it < 0) 0 else it }
 
                 AlertDialog.Builder(requireContext())
                     .setTitle(R.string.pif_select_device)
-                    .setItems(modelNames) { _, which ->
+                    .setSingleChoiceItems(modelNames, preselectedIndex) { dialog, which ->
+                        dialog.dismiss()
                         saveProfileAsPif(sortedProfiles[which])
                     }
                     .setNegativeButton(android.R.string.cancel, null)
@@ -432,8 +444,8 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                     put("FINGERPRINT", profile.fingerprint)
                     put("SECURITY_PATCH", profile.securityPatch)
                     put("DEVICE_INITIAL_SDK_INT", "32")
-                    if (canaryMonth.length == 7) put("_canary_month", canaryMonth)
-                    profile.releaseDate?.let { put("_canary_release_date", it) }
+                    if (profile.isCanary && canaryMonth.length == 7) put("_canary_month", canaryMonth)
+                    if (profile.isCanary) profile.releaseDate?.let { put("_canary_release_date", it) }
                     put("manually_imported", false)
                 }
                 withContext(Dispatchers.IO) {
@@ -471,6 +483,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                 PIF_CONFIG_KEY,
                 json.toString(2)
             )
+            stopGmsPackages()
             refreshStatus()
         } catch (e: Exception) {
             toast(str(R.string.pif_failed, e.message ?: ""))
@@ -528,11 +541,11 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         Toast.makeText(ctx, msg, Toast.LENGTH_SHORT).show()
     }
 
-    override fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.LIGHTNING
+    override fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.EVOLVER
 
     companion object {
         private const val TAG = "PlayIntegrityFix"
-        private const val PIF_CONFIG_KEY = "spoof_pif_config"
+        internal const val PIF_CONFIG_KEY = "spoof_pif_config"
         private const val PIF_CONFIG_NAME = "pif.json"
         private const val GOOGLE_URL = "https://developer.android.com"
         private const val FLASH_URL = "https://flash.android.com"
