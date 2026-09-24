@@ -103,6 +103,12 @@
             android:summary="@string/miscellaneous_unlimit_screenrecord_summary"
             android:defaultValue="false" />-->
 
+        <com.lightning.thunderbolt.preferences.GlobalSettingSwitchPreference
+            android:key="screenshot_flash_enabled"
+            android:title="@string/miscellaneous_screenshot_flash_title"
+            android:summary="@string/miscellaneous_screenshot_flash_summary"
+            android:defaultValue="true" />
+
 
 
 
