@@ -97,6 +97,7 @@
         android:key="video_wallpaper_category"
         android:title="@string/video_wallpaper_category">
 
+
         <com.lightning.thunderbolt.preferences.SystemSettingPrimarySwitchPreference
             android:key="lock_glymps_enabled"
             android:title="@string/lock_glymps_title"
