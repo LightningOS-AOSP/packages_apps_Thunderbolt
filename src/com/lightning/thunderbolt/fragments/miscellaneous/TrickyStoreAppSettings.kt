@@ -238,7 +238,10 @@ private fun TrickyStoreAppSettingsContent(
                 extraFilter = { app ->
                     val isSystem = app.flags and ApplicationInfo.FLAG_SYSTEM != 0
                     val isSuffixExcluded = EXCLUDED_SUFFIXES.any { app.packageName.contains(it) }
-                    !(isSystem && isSuffixExcluded)
+                    // Xposed managers are always skipped by the framework (attesting through a
+                    // hooked process breaks STRONG), so don't offer them as targets.
+                    val isXposed = app.packageName in TrickyStoreService.XPOSED_PACKAGES
+                    !(isSystem && isSuffixExcluded) && !isXposed
                 },
             )
 
