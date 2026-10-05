@@ -1838,6 +1838,51 @@
     <!-- Wallpaper zoom -->
     <string name="wallpaper_zoom_title">Wallpaper zoom</string>
     <string name="wallpaper_zoom_summary">Turn off to show the wallpaper without extra zoom</string>
-    <string name="light_brightness_zen">Do not disturb</string>
+
+    <!-- Axion Quick Settings -->
+    <string name="qs_settings_category">QS Settings</string>
+    <string name="ax_qs_panel_customisations_title">Panel Customisations</string>
+    <string name="ax_qs_panel_customisations_summary">Customize the Quick Settings panel</string>
+    <string name="ax_qs_panel_category">Panel</string>
+    <string name="ax_qs_panel_mode_title">Panel Mode</string>
+    <string name="ax_qs_panel_mode_summary">Choose between unified shade or separate Quick Settings and notification panels</string>
+    <string name="ax_qs_panel_mode_together">Together</string>
+    <string name="ax_qs_panel_mode_separate">Separate</string>
+    <string name="ax_qs_quick_panel_on_left_title">Quick Settings Side</string>
+    <string name="ax_qs_quick_panel_on_left_summary">Choose which side pulls down Quick Settings in separate mode</string>
+    <string name="ax_qs_quick_panel_right">Right</string>
+    <string name="ax_qs_quick_panel_left">Left</string>
+
+    <string name="ax_qqs_category">Quick Quick Settings</string>
+    <string name="ax_qqs_tile_columns_title">QQS Columns</string>
+    <string name="ax_qqs_tile_rows_title">QQS Rows</string>
+    <string name="ax_qqs_control_columns_title">QQS Control Columns</string>
+
+    <string name="ax_qs_category">Quick Settings</string>
+    <string name="ax_qs_tile_columns_title">QS Columns</string>
+    <string name="ax_qs_tile_rows_title">QS Rows</string>
+    <string name="ax_qs_control_columns_title">QS Control Columns</string>
+    <string name="ax_qs_show_tile_labels_title">Show Tile Labels</string>
+    <string name="ax_qs_show_tile_labels_summary">Display text labels beneath quick settings tiles</string>
+    <string name="ax_qs_show_weather_title">Show Weather</string>
+    <string name="ax_qs_show_weather_summary">Display weather information in the Quick Settings header</string>
+
+    <string name="ax_qs_sliders_category">Sliders</string>
+    <string name="ax_qs_brightness_vertical_slider_style_title">Brightness Slider Style</string>
+    <string name="ax_qs_volume_vertical_slider_style_title">Volume Slider Style</string>
+    <string name="ax_qs_slider_style_m3">Material 3 Expressive</string>
+    <string name="ax_qs_slider_style_platform">Platform</string>
+
+    <string name="ax_qs_appearance_category">Appearance</string>
+    <string name="ax_qs_blur_radius_title">QS Blur Radius</string>
+    <string name="ax_qs_blur_radius_summary">Adjust backdrop blur intensity behind Quick Settings</string>
+
+    <string name="ax_qs_layout_category">Layout</string>
+    <string name="ax_qs_tile_layout_info_title">Tile Order &amp; Spans</string>
+    <string name="ax_qs_tile_layout_info_summary">Tiles can be reordered and resized (1x1, 2x1, 4x1) directly in Quick Settings via the Edit button</string>
+    <string name="ax_qs_reset_layout_title">Reset Tile Layout</string>
+    <string name="ax_qs_reset_layout_summary">Restore tile order and spans back to default</string>
+    <string name="ax_qs_reset_layout_done">Tile layout restored to default</string>
     <string name="light_brightness_normal">Normal</string>
+    <string name="light_brightness_zen">Do not disturb</string>
 </resources>

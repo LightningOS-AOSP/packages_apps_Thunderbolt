@@ -1619,5 +1619,38 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+    <!-- Axion QS Panel Mode -->
+    <string-array name="ax_qs_panel_mode_entries">
+        <item>@string/ax_qs_panel_mode_together</item>
+        <item>@string/ax_qs_panel_mode_separate</item>
+    </string-array>
+
+    <string-array name="ax_qs_panel_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <!-- Axion QS Pulldown Side -->
+    <string-array name="ax_qs_quick_panel_on_left_entries">
+        <item>@string/ax_qs_quick_panel_right</item>
+        <item>@string/ax_qs_quick_panel_left</item>
+    </string-array>
+
+    <string-array name="ax_qs_quick_panel_on_left_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <!-- Axion QS Slider Styles -->
+    <string-array name="ax_qs_slider_style_entries">
+        <item>@string/ax_qs_slider_style_m3</item>
+        <item>@string/ax_qs_slider_style_platform</item>
+    </string-array>
+
+    <string-array name="ax_qs_slider_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
     <string name="lightning_disabled">Disabled</string>
 </resources>

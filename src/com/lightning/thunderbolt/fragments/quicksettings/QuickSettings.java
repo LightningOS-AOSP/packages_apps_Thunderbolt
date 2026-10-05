@@ -10,6 +10,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.widget.Toast;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -32,62 +33,44 @@ import com.lightning.thunderbolt.preferences.SecureSettingListPreference;
 import com.lightning.thunderbolt.preferences.SystemSettingListPreference;
 import com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference;
 import com.lightning.thunderbolt.utils.DeviceUtils;
-import com.lightning.thunderbolt.utils.PreferenceUtils;
 import com.lightning.thunderbolt.utils.SystemUtils;
 
 @SearchIndexable
 public class QuickSettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener {
 
     private static final String TAG = "QuickSettings";
 
-    private static final String QS_BRIGHTNESS_CATEGORY = "qs_brightness_slider_category";
-//    private static final String QS_LAYOUT_CATEGORY = "qs_layout_category";
+    private static final String QS_BRIGHTNESS_CATEGORY = "ax_qs_sliders_category";
+
+    private static final String KEY_AX_QS_PANEL_MODE = "ax_qs_panel_mode";
+    private static final String KEY_AX_QS_QUICK_PANEL_ON_LEFT = "ax_qs_quick_panel_on_left";
+    private static final String KEY_AX_QS_BRIGHTNESS_SLIDER_STYLE = "ax_qs_brightness_vertical_slider_style";
+    private static final String KEY_AX_QS_VOLUME_SLIDER_STYLE = "ax_qs_volume_vertical_slider_style";
+    private static final String KEY_QS_RESET_LAYOUT = "qs_reset_layout";
 
     private static final String KEY_BRIGHTNESS_SLIDER_HAPTIC = "qs_brightness_slider_haptic";
     private static final String KEY_BRIGHTNESS_SLIDER_POSITION = "qs_brightness_slider_position";
     private static final String KEY_COMPACT_MEDIA_PLAYER_ENABLED = "qs_compact_media_player_mode";
     private static final String KEY_MEDIA_WAVEFORM_SEEKBAR = "media_waveform_seekbar";
     private static final String KEY_QS_HEADER_CLOCK_STYLE = "qs_header_clock_style";
-//    private static final String KEY_QS_PANEL_STYLE = "qs_panel_style";
-//    private static final String KEY_QS_SHOW_MEDIA_PLAYER = "qs_show_media_player";
-//    private static final String KEY_QS_TILE_ALTERNATE_COLOR = "qs_tile_alternate_color";
-//    private static final String KEY_QS_TILE_HAPTIC = "qs_tile_haptic";
-//    private static final String KEY_QS_TILE_ICON_SHAPE = "qs_tile_icon_shape";
-//    private static final String KEY_QS_TILE_LABEL_HIDE = "qs_tile_label_hide";
-//    private static final String KEY_QS_TILE_SHAPE = "qs_tile_shape";
-//    private static final String KEY_QS_WIDGET_IOS_MUSIC = "qs_widget_ios_music";
-//    private static final String KEY_QS_WIDGET_PANEL = "qs_widget_panel";
-//    private static final String KEY_QS_WIDGET_SLIDER_CORNER = "qs_widget_slider_corner";
     private static final String KEY_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
-//    private static final String KEY_SHOW_VOLUME_SLIDER = "qs_show_volume_slider";
-//    private static final String KEY_SHOW_RINGER_MODE = "qs_show_ringer_mode";
     private static final String KEY_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
-//    private static final String KEY_SINGLE_QS_TONE_ENABLED = "single_qs_tone_enabled";
-    private static final String KEY_QS_IOS_CONTROL_PANEL = "qs_ios_control_panel";
     private static final String KEY_QS_STOCK_MEDIA_PLAYER = "qs_stock_media_player";
 
+    private SecureSettingListPreference mQsPanelMode;
+    private SecureSettingListPreference mQsQuickPanelOnLeft;
+    private SecureSettingListPreference mQsBrightnessSliderStyle;
+    private SecureSettingListPreference mQsVolumeSliderStyle;
+    private Preference mQsResetLayout;
+
     private ListPreference mBrightnessSliderPosition;
-//    private ListPreference mQsPanelStyle;
     private ListPreference mShowBrightnessSlider;
-//    private ListPreference mVolumeSliderMode;
-//    private Preference mQsTileIconShape;
-//    private Preference mQsTileShape;
-//    private SecureSettingListPreference mQsShowMediaPlayer;
     private SwitchPreferenceCompat mBrightnessSliderHaptic;
-//    private SwitchPreferenceCompat mQsTileAlternateColor;
-//    private SwitchPreferenceCompat mQsTileHaptic;
-//    private SwitchPreferenceCompat mQsTileLabelHide;
     private SwitchPreferenceCompat mShowAutoBrightness;
-//    private SwitchPreferenceCompat mShowRingerMode;
     private SystemSettingListPreference mQsHeaderClockStyle;
     private SystemSettingSwitchPreference mCompactMediaPlayer;
     private SystemSettingSwitchPreference mMediaWaveformSeekBar;
-//    private SystemSettingSwitchPreference mQsWidgetIosMusic;
-//    private SystemSettingSwitchPreference mQsWidgetPanel;
-//    private SystemSettingSwitchPreference mQsWidgetSliderCorner;
-//    private SystemSettingSwitchPreference mSingleQsToneEnabled;
-    private SystemSettingSwitchPreference mQsIosControlPanel;
     private SystemSettingSwitchPreference mQsStockMediaPlayer;
 
     @Override
@@ -99,7 +82,29 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         final ContentResolver resolver = context.getContentResolver();
 
         final PreferenceCategory brightnessCategory = findPreference(QS_BRIGHTNESS_CATEGORY);
-//        final PreferenceCategory tileCategory = findPreference(QS_LAYOUT_CATEGORY);
+
+        mQsPanelMode = findPreference(KEY_AX_QS_PANEL_MODE);
+        if (mQsPanelMode != null) {
+            mQsPanelMode.setOnPreferenceChangeListener(this);
+        }
+
+        mQsQuickPanelOnLeft = findPreference(KEY_AX_QS_QUICK_PANEL_ON_LEFT);
+        updateQuickPanelOnLeftState();
+
+        mQsBrightnessSliderStyle = findPreference(KEY_AX_QS_BRIGHTNESS_SLIDER_STYLE);
+        if (mQsBrightnessSliderStyle != null) {
+            mQsBrightnessSliderStyle.setOnPreferenceChangeListener(this);
+        }
+
+        mQsVolumeSliderStyle = findPreference(KEY_AX_QS_VOLUME_SLIDER_STYLE);
+        if (mQsVolumeSliderStyle != null) {
+            mQsVolumeSliderStyle.setOnPreferenceChangeListener(this);
+        }
+
+        mQsResetLayout = findPreference(KEY_QS_RESET_LAYOUT);
+        if (mQsResetLayout != null) {
+            mQsResetLayout.setOnPreferenceClickListener(this);
+        }
 
         mMediaWaveformSeekBar = (SystemSettingSwitchPreference) findPreference(KEY_MEDIA_WAVEFORM_SEEKBAR);
         if (mMediaWaveformSeekBar != null) {
@@ -107,123 +112,84 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         }
 
         mShowBrightnessSlider = findPreference(KEY_SHOW_BRIGHTNESS_SLIDER);
-        mShowBrightnessSlider.setOnPreferenceChangeListener(this);
-        boolean showSlider = LineageSettings.Secure.getIntForUser(resolver,
-                LineageSettings.Secure.QS_SHOW_BRIGHTNESS_SLIDER, 1, UserHandle.USER_CURRENT) > 0;
+        if (mShowBrightnessSlider != null) {
+            mShowBrightnessSlider.setOnPreferenceChangeListener(this);
+            boolean showSlider = LineageSettings.Secure.getIntForUser(resolver,
+                    LineageSettings.Secure.QS_SHOW_BRIGHTNESS_SLIDER, 1, UserHandle.USER_CURRENT) > 0;
 
-//        mVolumeSliderMode = findPreference(KEY_SHOW_VOLUME_SLIDER);
-//        mVolumeSliderMode.setEnabled(showSlider);
+            mBrightnessSliderPosition = findPreference(KEY_BRIGHTNESS_SLIDER_POSITION);
+            if (mBrightnessSliderPosition != null) {
+                mBrightnessSliderPosition.setEnabled(showSlider);
+            }
 
-        mBrightnessSliderPosition = findPreference(KEY_BRIGHTNESS_SLIDER_POSITION);
-        mBrightnessSliderPosition.setEnabled(showSlider);
+            mBrightnessSliderHaptic = findPreference(KEY_BRIGHTNESS_SLIDER_HAPTIC);
+            if (mBrightnessSliderHaptic != null) {
+                if (DeviceUtils.hasVibrator(context)) {
+                    mBrightnessSliderHaptic.setOnPreferenceChangeListener(this);
+                    mBrightnessSliderHaptic.setEnabled(showSlider);
+                } else if (brightnessCategory != null) {
+                    brightnessCategory.removePreference(mBrightnessSliderHaptic);
+                }
+            }
 
-        mQsIosControlPanel = findPreference(KEY_QS_IOS_CONTROL_PANEL);
-        if (mQsIosControlPanel != null) {
-            mQsIosControlPanel.setOnPreferenceChangeListener(this);
+            mShowAutoBrightness = findPreference(KEY_SHOW_AUTO_BRIGHTNESS);
+            if (mShowAutoBrightness != null) {
+                if (context.getResources().getBoolean(
+                        com.android.internal.R.bool.config_automatic_brightness_available)) {
+                    mShowAutoBrightness.setEnabled(showSlider);
+                } else if (brightnessCategory != null) {
+                    brightnessCategory.removePreference(mShowAutoBrightness);
+                }
+            }
         }
-
-        mQsStockMediaPlayer = findPreference(KEY_QS_STOCK_MEDIA_PLAYER);
-        if (mQsStockMediaPlayer != null) {
-            mQsStockMediaPlayer.setOnPreferenceChangeListener(this);
-        }
-
-        mBrightnessSliderHaptic = findPreference(KEY_BRIGHTNESS_SLIDER_HAPTIC);
-//        mQsTileHaptic = findPreference(KEY_QS_TILE_HAPTIC);
-        if (DeviceUtils.hasVibrator(context)) {
-            mBrightnessSliderHaptic.setOnPreferenceChangeListener(this);
-            mBrightnessSliderHaptic.setEnabled(showSlider);
-        } else {
-            brightnessCategory.removePreference(mBrightnessSliderHaptic);
-//            tileCategory.removePreference(mQsTileHaptic);
-        }
-
-        mShowAutoBrightness = findPreference(KEY_SHOW_AUTO_BRIGHTNESS);
-        if (context.getResources().getBoolean(
-                com.android.internal.R.bool.config_automatic_brightness_available)) {
-            mShowAutoBrightness.setEnabled(showSlider);
-        } else {
-            brightnessCategory.removePreference(mShowAutoBrightness);
-        }
-
-//        mShowRingerMode = findPreference(KEY_SHOW_RINGER_MODE);
-//        mShowRingerMode.setEnabled(showSlider);
 
         mCompactMediaPlayer = findPreference(KEY_COMPACT_MEDIA_PLAYER_ENABLED);
         mCompactMediaPlayer.setOnPreferenceChangeListener(this);
-
-//        mQsShowMediaPlayer = findPreference(KEY_QS_SHOW_MEDIA_PLAYER);
-//        mQsShowMediaPlayer.setOnPreferenceChangeListener(this);
-
-//        mQsWidgetPanel = findPreference(KEY_QS_WIDGET_PANEL);
-//        mQsWidgetPanel.setOnPreferenceChangeListener(this);
-//        mQsWidgetIosMusic = findPreference(KEY_QS_WIDGET_IOS_MUSIC);
-//        mQsWidgetSliderCorner = findPreference(KEY_QS_WIDGET_SLIDER_CORNER);
-//        updateWidgetPanelDependencies();
 
         mQsHeaderClockStyle = (SystemSettingListPreference) findPreference(KEY_QS_HEADER_CLOCK_STYLE);
         if (mQsHeaderClockStyle != null) {
             mQsHeaderClockStyle.setOnPreferenceChangeListener(this);
         }
-
-//        mSingleQsToneEnabled = findPreference(KEY_SINGLE_QS_TONE_ENABLED);
-//        mSingleQsToneEnabled.setOnPreferenceChangeListener(this);
-
-//        mQsTileAlternateColor = findPreference(KEY_QS_TILE_ALTERNATE_COLOR);
-//        mQsTileAlternateColor.setOnPreferenceChangeListener(this);
-
-//        mQsPanelStyle = findPreference(KEY_QS_PANEL_STYLE);
-//        mQsPanelStyle.setOnPreferenceChangeListener(this);
-//        mQsTileShape = findPreference(KEY_QS_TILE_SHAPE);
-//        mQsTileIconShape = findPreference(KEY_QS_TILE_ICON_SHAPE);
-//        mQsTileLabelHide = findPreference(KEY_QS_TILE_LABEL_HIDE);
-//        updatePanelStylePrefs(Settings.System.getIntForUser(resolver,
-//                Settings.System.QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT));
     }
 
-//    private void updateWidgetPanelDependencies() {
-//        boolean enabled = Settings.System.getInt(
-//                getContext().getContentResolver(), KEY_QS_WIDGET_PANEL, 0) == 1;
-
-//        mQsWidgetIosMusic.setVisible(enabled);
-//        mQsWidgetSliderCorner.setVisible(enabled);
-//        mQsShowMediaPlayer.setVisible(!enabled);
-//    }
-
-//    private void updatePanelStylePrefs(int panelStyle) {
-//        boolean isClassic = panelStyle == 1;
-//        mQsTileShape.setVisible(!isClassic);
-//        mQsTileIconShape.setVisible(isClassic);
-//        mQsTileLabelHide.setVisible(isClassic);
-//    }
+    private void updateQuickPanelOnLeftState() {
+        if (mQsQuickPanelOnLeft != null) {
+            int panelMode = Settings.Secure.getIntForUser(
+                    getContext().getContentResolver(),
+                    "ax_qs_panel_mode", 0, UserHandle.USER_CURRENT);
+            mQsQuickPanelOnLeft.setEnabled(panelMode == 1);
+        }
+    }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mShowBrightnessSlider) {
             int value = Integer.parseInt((String) newValue);
             mBrightnessSliderPosition.setEnabled(value > 0);
-//            mVolumeSliderMode.setEnabled(value > 0);
             if (mBrightnessSliderHaptic != null)
                 mBrightnessSliderHaptic.setEnabled(value > 0);
             if (mShowAutoBrightness != null)
                 mShowAutoBrightness.setEnabled(value > 0);
-//            mShowRingerMode.setEnabled(value > 0);
             return true;
-//        } else if (preference == mQsPanelStyle) {
-//            updatePanelStylePrefs(Integer.parseInt((String) newValue));
-//            return true;
-//        } else if (preference == mQsWidgetPanel) {
-//            boolean enabled = (Boolean) newValue;
-//            mQsWidgetIosMusic.setVisible(enabled);
-//            mQsWidgetSliderCorner.setVisible(enabled);
-//            mQsShowMediaPlayer.setVisible(!enabled);
-//            SystemUtils.showSystemUiRestartDialog(getActivity());
-//            return true;
+        } else if (preference == mQsPanelMode) {
+            int mode = Integer.parseInt((String) newValue);
+            if (mQsQuickPanelOnLeft != null) {
+                mQsQuickPanelOnLeft.setEnabled(mode == 1);
+            }
+            return true;
+        } else if (preference == mQsBrightnessSliderStyle) {
+            int val = Integer.parseInt((String) newValue);
+            Settings.Secure.putIntForUser(getContext().getContentResolver(),
+                    "ax_qs_brightness_vertical_slider_style", val, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mQsVolumeSliderStyle) {
+            int val = Integer.parseInt((String) newValue);
+            Settings.Secure.putIntForUser(getContext().getContentResolver(),
+                    "ax_qs_volume_vertical_slider_style", val, UserHandle.USER_CURRENT);
+            return true;
         } else if (preference == mCompactMediaPlayer
                 || preference == mBrightnessSliderHaptic
                 || preference == mMediaWaveformSeekBar) {
-//                || preference == mQsShowMediaPlayer
-//                || preference == mSingleQsToneEnabled
-//                || preference == mQsTileAlternateColor) {
             SystemUtils.showSystemUiRestartDialog(getActivity());
             return true;
         } else if (preference == mQsHeaderClockStyle) {
@@ -232,9 +198,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 SystemUtils.showSystemUiRestartDialog(getActivity());
             }
             return true;
-        } else if (preference == mQsIosControlPanel) {
-            SystemUtils.showSystemUiRestartDialog(getActivity());
-            return true;
         } else if (preference == mQsStockMediaPlayer) {
             SystemUtils.showSystemUiRestartDialog(getActivity());
             return true;
@@ -242,43 +205,48 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         return false;
     }
 
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
-//    }
+    @Override
+    public boolean onPreferenceClick(Preference preference) {
+        if (preference == mQsResetLayout) {
+            final ContentResolver resolver = getContext().getContentResolver();
+            final int userId = UserHandle.USER_CURRENT;
+            Settings.Secure.putStringForUser(resolver, "ax_qqs_tile_order", "", userId);
+            Settings.Secure.putStringForUser(resolver, "ax_qs_tile_order", "", userId);
+            Settings.Secure.putStringForUser(resolver, "ax_qqs_control_order", "", userId);
+            Settings.Secure.putStringForUser(resolver, "ax_qs_control_order", "", userId);
+            Settings.Secure.putStringForUser(resolver, "ax_qqs_spans", "", userId);
+            Settings.Secure.putStringForUser(resolver, "ax_qs_spans", "", userId);
+            Settings.Secure.putStringForUser(resolver, "ax_qqs_control_positions", "", userId);
+            Settings.Secure.putStringForUser(resolver, "ax_qs_control_positions", "", userId);
+            Toast.makeText(getContext(), R.string.ax_qs_reset_layout_done, Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return false;
+    }
 
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.LIGHTNING;
     }
 
-    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.lightning_settings_quick_settings) {
+    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER = new BaseSearchIndexProvider(
+            R.xml.lightning_settings_quick_settings) {
 
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    final ContentResolver resolver = context.getContentResolver();
+        @Override
+        public List<String> getNonIndexableKeys(Context context) {
+            List<String> keys = super.getNonIndexableKeys(context);
+            final ContentResolver resolver = context.getContentResolver();
 
-                    if (!context.getResources().getBoolean(
-                            com.android.internal.R.bool.config_automatic_brightness_available)) {
-                        keys.add(KEY_SHOW_AUTO_BRIGHTNESS);
-                    }
+            if (!context.getResources().getBoolean(
+                    com.android.internal.R.bool.config_automatic_brightness_available)) {
+                keys.add(KEY_SHOW_AUTO_BRIGHTNESS);
+            }
 
-                    if (!DeviceUtils.hasVibrator(context)) {
-                        keys.add(KEY_BRIGHTNESS_SLIDER_HAPTIC);
-//                        keys.add(KEY_QS_TILE_HAPTIC);
-                    }
+            if (!DeviceUtils.hasVibrator(context)) {
+                keys.add(KEY_BRIGHTNESS_SLIDER_HAPTIC);
+            }
 
-//                    if (Settings.System.getInt(resolver, KEY_QS_WIDGET_PANEL, 0) == 1) {
-//                        keys.add(KEY_QS_SHOW_MEDIA_PLAYER);
-//                    } else {
-//                        keys.add(KEY_QS_WIDGET_IOS_MUSIC);
-//                        keys.add(KEY_QS_WIDGET_SLIDER_CORNER);
-//                    }
-
-                    return keys;
-                }
-            };
+            return keys;
+        }
+    };
 }

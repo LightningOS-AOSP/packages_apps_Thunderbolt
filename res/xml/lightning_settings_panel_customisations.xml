@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: LightningOS
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/ax_qs_panel_customisations_title">
+
+    <!-- Panel Mode & Side -->
+    <PreferenceCategory
+        android:key="ax_qs_panel_category"
+        android:title="@string/ax_qs_panel_category">
+
+        <com.lightning.thunderbolt.preferences.SecureSettingListPreference
+            android:key="ax_qs_panel_mode"
+            android:title="@string/ax_qs_panel_mode_title"
+            android:summary="%s"
+            android:entries="@array/ax_qs_panel_mode_entries"
+            android:entryValues="@array/ax_qs_panel_mode_values"
+            android:defaultValue="0" />
+
+        <com.lightning.thunderbolt.preferences.SecureSettingListPreference
+            android:key="ax_qs_quick_panel_on_left"
+            android:title="@string/ax_qs_quick_panel_on_left_title"
+            android:summary="%s"
+            android:entries="@array/ax_qs_quick_panel_on_left_entries"
+            android:entryValues="@array/ax_qs_quick_panel_on_left_values"
+            android:defaultValue="0" />
+    </PreferenceCategory>
+
+    <!-- Quick Quick Settings (QQS) -->
+    <PreferenceCategory
+        android:key="ax_qqs_category"
+        android:title="@string/ax_qqs_category">
+
+        <com.lightning.thunderbolt.preferences.SecureSettingSeekBarPreference
+            android:key="ax_qqs_tile_columns"
+            android:title="@string/ax_qqs_tile_columns_title"
+            settings:min="2"
+            android:max="6"
+            settings:interval="1"
+            android:defaultValue="4" />
+
+        <com.lightning.thunderbolt.preferences.SecureSettingSeekBarPreference
+            android:key="ax_qqs_tile_rows"
+            android:title="@string/ax_qqs_tile_rows_title"
+            settings:min="1"
+            android:max="3"
+            settings:interval="1"
+            android:defaultValue="1" />
+
+        <com.lightning.thunderbolt.preferences.SecureSettingSeekBarPreference
+            android:key="ax_qqs_control_columns"
+            android:title="@string/ax_qqs_control_columns_title"
+            settings:min="1"
+            android:max="4"
+            settings:interval="1"
+            android:defaultValue="4" />
+    </PreferenceCategory>
+
+    <!-- Full Quick Settings (QS) -->
+    <PreferenceCategory
+        android:key="ax_qs_category"
+        android:title="@string/ax_qs_category">
+
+        <com.lightning.thunderbolt.preferences.SecureSettingSeekBarPreference
+            android:key="ax_qs_tile_columns"
+            android:title="@string/ax_qs_tile_columns_title"
+            settings:min="2"
+            android:max="6"
+            settings:interval="1"
+            android:defaultValue="4" />
+
+        <com.lightning.thunderbolt.preferences.SecureSettingSeekBarPreference
+            android:key="ax_qs_tile_rows"
+            android:title="@string/ax_qs_tile_rows_title"
+            settings:min="2"
+            android:max="6"
+            settings:interval="1"
+            android:defaultValue="3" />
+
+        <com.lightning.thunderbolt.preferences.SecureSettingSeekBarPreference
+            android:key="ax_qs_control_columns"
+            android:title="@string/ax_qs_control_columns_title"
+            settings:min="1"
+            android:max="4"
+            settings:interval="1"
+            android:defaultValue="4" />
+
+        <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
+            android:key="ax_qs_show_tile_labels"
+            android:title="@string/ax_qs_show_tile_labels_title"
+            android:summary="@string/ax_qs_show_tile_labels_summary"
+            android:defaultValue="true" />
+
+        <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
+            android:key="ax_qs_show_weather"
+            android:title="@string/ax_qs_show_weather_title"
+            android:summary="@string/ax_qs_show_weather_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <!-- Sliders & Appearance -->
+    <PreferenceCategory
+        android:key="ax_qs_sliders_category"
+        android:title="@string/ax_qs_sliders_category">
+
+        <com.lightning.thunderbolt.preferences.SecureSettingListPreference
+            android:key="ax_qs_brightness_vertical_slider_style"
+            android:title="@string/ax_qs_brightness_vertical_slider_style_title"
+            android:summary="%s"
+            android:entries="@array/ax_qs_slider_style_entries"
+            android:entryValues="@array/ax_qs_slider_style_values"
+            android:defaultValue="0" />
+
+        <com.lightning.thunderbolt.preferences.SecureSettingListPreference
+            android:key="ax_qs_volume_vertical_slider_style"
+            android:title="@string/ax_qs_volume_vertical_slider_style_title"
+            android:summary="%s"
+            android:entries="@array/ax_qs_slider_style_entries"
+            android:entryValues="@array/ax_qs_slider_style_values"
+            android:defaultValue="0" />
+
+        <!-- Stock Brightness slider toggle & position -->
+       <!-- <lineageos.preference.LineageSecureSettingListPreference
+            android:key="qs_show_brightness_slider"
+            android:title="@string/quick_settings_show_brightness_slider_title"
+            android:entries="@array/quick_settings_show_brightness_slider_entries"
+            android:entryValues="@array/quick_settings_show_brightness_slider_values"
+            android:defaultValue="1" />
+
+        <lineageos.preference.LineageSecureSettingListPreference
+            android:key="qs_brightness_slider_position"
+            android:title="@string/quick_settings_brightness_slider_position_title"
+            android:entries="@array/quick_settings_brightness_slider_position_entries"
+            android:entryValues="@array/quick_settings_brightness_slider_position_values"
+            android:defaultValue="0" /> -->
+
+        <!-- Haptic feedback on brightness slider -->
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="qs_brightness_slider_haptic"
+            android:title="@string/quick_settings_brightness_slider_haptic_title"
+            android:summary="@string/quick_settings_brightness_slider_haptic_summary"
+            android:defaultValue="true" />
+
+        <!-- Auto brightness icon -->
+        <lineageos.preference.LineageSecureSettingSwitchPreference
+            android:key="qs_show_auto_brightness"
+            android:title="@string/quick_settings_auto_brightness_icon_title"
+            android:summary="@string/quick_settings_auto_brightness_icon_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="ax_qs_appearance_category"
+        android:title="@string/ax_qs_appearance_category">
+
+        <com.lightning.thunderbolt.preferences.SecureSettingSeekBarPreference
+            android:key="system_blur_radius_pct"
+            android:title="@string/ax_qs_blur_radius_title"
+            android:summary="@string/ax_qs_blur_radius_summary"
+            settings:units="%"
+            settings:min="0"
+            android:max="100"
+            settings:interval="5"
+            android:defaultValue="80" />
+    </PreferenceCategory>
+
+    <!-- Layout / Spans -->
+    <PreferenceCategory
+        android:key="ax_qs_layout_category"
+        android:title="@string/ax_qs_layout_category">
+
+
+        <Preference
+            android:key="qs_reset_layout"
+            android:title="@string/ax_qs_reset_layout_title"
+            android:summary="@string/ax_qs_reset_layout_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>
