@@ -1883,6 +1883,6 @@
     <string name="ax_qs_reset_layout_title">Reset Tile Layout</string>
     <string name="ax_qs_reset_layout_summary">Restore tile order and spans back to default</string>
     <string name="ax_qs_reset_layout_done">Tile layout restored to default</string>
-    <string name="light_brightness_normal">Normal</string>
     <string name="light_brightness_zen">Do not disturb</string>
+    <string name="light_brightness_normal">Normal</string>
 </resources>
