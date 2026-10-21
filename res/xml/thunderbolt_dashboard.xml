@@ -64,5 +64,13 @@
           android:layout="@layout/preference_category_lightningperks"
           />
 
+    <!-- Collectibles -->
+    <Preference
+    android:fragment="com.lightning.thunderbolt.Collectibles"
+    android:key="thunderbolt_collectibles"
+    android:title="Collectibles &amp; Easter Eggs"
+    android:summary="View your unlocked ROM achievements and cards"
+    />
+
 </PreferenceScreen>
 

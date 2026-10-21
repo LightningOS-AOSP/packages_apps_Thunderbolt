@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="Thunderbolt Collectibles">
+
+    <PreferenceCategory
+        android:title="Unlocked Badges &amp; Cards">
+
+        <Preference
+            android:key="badge_genesis"
+            android:title="⚡ Genesis Badge"
+            android:summary="Status: Locked (Tap to Check)" />
+
+        <Preference
+            android:key="badge_speed_alpha"
+            android:title="🚀 Speed Card Alpha"
+            android:summary="Status: Locked" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Easter Egg Vault">
+
+        <Preference
+            android:key="unlock_secret_egg"
+            android:title="Find Hidden Easter Egg"
+            android:summary="Tap 5 times rapidly to unlock a secret system perk!" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
