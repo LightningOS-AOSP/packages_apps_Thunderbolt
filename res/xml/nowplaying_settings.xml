@@ -23,7 +23,8 @@
         android:key="nowplaying_enabled"
         android:title="@string/nowplaying_title"
         android:summary="@string/nowplaying_summary"
-        android:defaultValue="false" />
+        android:defaultValue="false"
+        android:icon="@drawable/ic_tv_sub_ls_nowplaying" />
 
     <com.lightning.thunderbolt.preferences.SystemSettingListPreference
         android:key="nowplaying_icon_style"

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tv_page_margin">16dp</dimen>
+    <dimen name="tv_list_pad_side">12dp</dimen>
+    <dimen name="tv_list_pad_top">8dp</dimen>
+    <dimen name="tv_list_pad_bottom">24dp</dimen>
+    <dimen name="tv_cell_margin">4dp</dimen>
+    <dimen name="tv_cell_height">112dp</dimen>
+    <dimen name="tv_cell_corner">24dp</dimen>
+    <dimen name="tv_card_corner">28dp</dimen>
+    <dimen name="tv_inner_corner">4dp</dimen>
+    <dimen name="tv_hub_icon">64dp</dimen>
+    <dimen name="tv_header_icon">72dp</dimen>
+    <dimen name="tv_row_icon">48dp</dimen>
+    <dimen name="tv_icon_gap">14dp</dimen>
+    <dimen name="tv_row_pad_start">14dp</dimen>
+    <dimen name="tv_row_pad_end">20dp</dimen>
+    <dimen name="tv_row_noicon_start">76dp</dimen>
+    <dimen name="tv_row_min_height">72dp</dimen>
+    <dimen name="tv_row_pad_v">10dp</dimen>
+    <dimen name="tv_group_gap">16dp</dimen>
+    <dimen name="tv_row_gap">2dp</dimen>
+    <dimen name="tv_caption_inset">12dp</dimen>
+    <dimen name="tv_active_look_height">104dp</dimen>
+</resources>

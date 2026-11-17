@@ -21,7 +21,8 @@
         android:key="spoof_trickystore_enabled"
         android:title="@string/tricky_store_title"
         android:summary="@string/tricky_store_summary"
-        android:defaultValue="true" />
+        android:defaultValue="true"
+        android:icon="@drawable/ic_tv_sub_sp_tricky" />
 
     <PreferenceCategory
         android:key="ts_keybox_category"

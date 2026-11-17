@@ -7,7 +7,8 @@
     <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="lock_glymps_enabled"
         android:title="@string/action_enable"
-        android:defaultValue="false" />
+        android:defaultValue="false"
+        android:icon="@drawable/ic_tv_sub_th_glymps" />
 
     <com.lightning.thunderbolt.preferences.WallpaperPreviewPreference
         android:key="lock_glymps_preview"

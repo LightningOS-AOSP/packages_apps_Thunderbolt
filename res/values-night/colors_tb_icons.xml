@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="tb_pink_circle">#8D0053</color>
+    <color name="tb_pink_glyph">#FFAEE4</color>
+    <color name="tb_purple_circle">#5629A4</color>
+    <color name="tb_purple_glyph">#D9BAFD</color>
+    <color name="tb_blue_circle">#04409F</color>
+    <color name="tb_blue_glyph">#A1C9FF</color>
+    <color name="tb_orange_circle">#753403</color>
+    <color name="tb_orange_glyph">#FFB683</color>
+    <color name="tb_yellow_circle">#6D3A01</color>
+    <color name="tb_yellow_glyph">#FCBD00</color>
+    <color name="tb_red_circle">#8A1A16</color>
+    <color name="tb_red_glyph">#FFB3AE</color>
+    <color name="tb_green_circle">#00522C</color>
+    <color name="tb_green_glyph">#80DA88</color>
+    <color name="tb_cyan_circle">#004E5D</color>
+    <color name="tb_cyan_glyph">#60D5F3</color>
+    <color name="tb_teal_circle">#00443E</color>
+    <color name="tb_teal_glyph">#8FD8CF</color>
+</resources>

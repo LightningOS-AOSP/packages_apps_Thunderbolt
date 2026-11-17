@@ -24,7 +24,8 @@
         android:key="cutout_progress_enabled"
         android:title="@string/cutout_progress_title"
         android:summary="@string/cutout_progress_summary"
-        android:defaultValue="false" />
+        android:defaultValue="false"
+        android:icon="@drawable/ic_tv_sub_sb_cutout" />
 
     <com.lightning.thunderbolt.preferences.SecureSettingListPreference
         android:key="cutout_progress_ring_color_mode"

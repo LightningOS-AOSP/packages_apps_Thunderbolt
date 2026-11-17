@@ -23,7 +23,8 @@
         android:key="ax_dynamic_bar_enabled"
         android:title="@string/dynamic_bar"
         android:summary="@string/dynamic_bar_summary"
-        android:defaultValue="false" />
+        android:defaultValue="false"
+        android:icon="@drawable/ic_tv_sub_sb_dynamic_bar" />
 
     <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
         android:key="ax_dynamic_bar_keyguard_enabled"

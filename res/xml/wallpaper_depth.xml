@@ -23,7 +23,8 @@
         android:key="depth_wallpaper_enabled"
         android:title="@string/dw_wallpaper_enabled_title"
         android:summary="@string/dw_wallpaper_enabled_summary"
-        android:defaultValue="false" />
+        android:defaultValue="false"
+        android:icon="@drawable/ic_tv_sub_ls_depth" />
 
     <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
         android:key="depth_wallpaper_spatial_effect"

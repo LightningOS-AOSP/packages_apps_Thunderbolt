@@ -5,7 +5,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Lightning -->
-    <string name="lightning_dashboard_title">Lightning Tweek</string>
+    <string name="lightning_dashboard_title">Thunderbolt</string>
     <string name="lightning_dashboard_summary">Magic Happen Here!!</string>
     <string name="about_device_name">Device</string>
     
@@ -19,7 +19,7 @@
     <string name="quick_settings_title">Quick settings</string>
     <string name="quick_settings_summary">Interface, brightness slider, layout</string>
     <string name="lightning_notifications_title">Notifications</string>
-    <string name="notifications_summary">Heads up, edge light, sounds</string>
+    <string name="notifications_summary">Heads up, lock screen and history</string>
     <string name="power_menu_title">Power menu</string>
     <string name="power_menu_summary">Actions, lock screen</string>
     <string name="buttons_title">Buttons</string>
@@ -1898,4 +1898,35 @@
     <string name="ax_qs_reset_layout_done">Tile layout restored to default</string>
     <string name="light_brightness_normal">Normal</string>
     <string name="light_brightness_zen">Do not disturb</string>
+    <string name="tb_tab_style">Style</string>
+    <string name="tb_tab_interface">Interface</string>
+    <string name="tb_tab_system">System</string>
+    <string name="lightning_notifications_cooldown_title">Notification cooldown</string>
+    <string name="lightning_notifications_cooldown_summary">Lower the volume of repeated notification sounds</string>
+    <string name="lightning_notifications_silent_title">Show silent notifications</string>
+    <string name="lightning_notifications_silent_summary">Display notifications that make no sound on the lock screen</string>
+    <string name="lightning_notifications_private_title">Show sensitive content</string>
+    <string name="lightning_notifications_private_summary">Show content of sensitive notifications on the lock screen</string>
+    <string name="lightning_notifications_unseen_title">Show only unseen notifications</string>
+    <string name="lightning_notifications_unseen_summary">Hide notifications on the lock screen once they have been seen</string>
+    <string name="lightning_notifications_history_title">Notification history</string>
+    <string name="lightning_notifications_history_summary">Keep a history of dismissed notifications</string>
+    <string name="lightning_notifications_bubbles_title">Bubbles</string>
+    <string name="lightning_notifications_bubbles_summary">Allow apps to show conversations as floating bubbles</string>
+    <string name="tv_hero_label">Active look</string>
+    <string name="tv_hero_edit">Edit palette</string>
+    <string name="tv_hero_fallback">Dynamic palette</string>
+    <string name="tv_cat_style">Style</string>
+    <string name="tv_cat_interface">Interface</string>
+    <string name="tv_cat_system">System</string>
+    <string name="tv_active_look">Active look</string>
+    <string name="tv_edit">Edit</string>
+    <string name="tv_hub_subtitle">Customise how LightningOS looks and feels</string>
+    <string name="miscellaneous_apps_category">Apps</string>
+    <string name="tv_app_sidebar_title">Sidebar</string>
+    <string name="tv_app_sidebar_summary">Apps, gestures and look of the sidebar</string>
+    <string name="tv_app_gamespace_title">Game space</string>
+    <string name="tv_app_gamespace_summary">Game overlay, performance and per-game settings</string>
+    <string name="tv_app_bthelper_title">Bluetooth device battery</string>
+    <string name="tv_app_bthelper_summary">Show the battery level of connected Bluetooth devices</string>
 </resources>

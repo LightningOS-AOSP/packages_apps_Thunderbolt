@@ -19,13 +19,15 @@
             android:title="@string/three_fingers_swipe_title"
             android:entries="@array/hardware_keys_action_entries"
             android:entryValues="@array/hardware_keys_action_values"
-            android:persistent="false" />
+            android:persistent="false"
+            android:icon="@drawable/ic_tv_sub_mi_gestures" />
 
         <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="shake_gestures_enabled"
             android:title="@string/shake_gestures_enabled_title"
             android:summary="@string/shake_gestures_enabled_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            android:icon="@drawable/ic_tv_sub_mi_shake" />
 
         <lineageos.preference.LineageSystemSettingListPreference
             android:key="shake_gestures_action"
@@ -53,7 +55,8 @@
             android:title="@string/flashlight_on_call_title"
             android:entries="@array/flashlight_on_call_entries"
             android:entryValues="@array/flashlight_on_call_values"
-            android:defaultValue="0" />
+            android:defaultValue="0"
+            android:icon="@drawable/ic_tv_sub_mi_developer" />
 
         <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="flashlight_on_call_ignore_dnd"
@@ -80,7 +83,8 @@
             android:key="default_usb_configuration"
             android:title="@string/usb_default_config_title"
             android:summary="@string/usb_default_config_summary"
-            android:fragment="com.android.settings.connecteddevice.usb.UsbDefaultFragment" />
+            android:fragment="com.android.settings.connecteddevice.usb.UsbDefaultFragment"
+            android:icon="@drawable/ic_tv_sub_mi_usb" />
 
 
 
@@ -88,30 +92,70 @@
             android:key="no_storage_restrict"
             android:title="@string/no_storage_restrict_title"
             android:summary="@string/no_storage_restrict_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            android:icon="@drawable/ic_tv_sub_mi_storage" />
 
 
         <!--<com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="block_wallpaper_dimming"
             android:title="@string/miscellaneous_block_wallpaper_dimming_title"
             android:summary="@string/miscellaneous_block_wallpaper_dimming_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            android:icon="@drawable/ic_tv_sub_mi_developer" />
 
         <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="unlimit_screenrecord"
             android:title="@string/miscellaneous_unlimit_screenrecord_title"
             android:summary="@string/miscellaneous_unlimit_screenrecord_summary"
-            android:defaultValue="false" />-->
+            android:defaultValue="false"
+            android:icon="@drawable/ic_tv_sub_mi_developer" />-->
 
         <com.lightning.thunderbolt.preferences.GlobalSettingSwitchPreference
             android:key="screenshot_flash_enabled"
             android:title="@string/miscellaneous_screenshot_flash_title"
             android:summary="@string/miscellaneous_screenshot_flash_summary"
-            android:defaultValue="true" />
+            android:defaultValue="true"
+            android:icon="@drawable/ic_tv_sub_mi_screenshot" />
 
 
 
 
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="miscellaneous_apps_category"
+        android:title="@string/miscellaneous_apps_category">
+
+        <Preference
+            android:key="sidebar_settings"
+            android:title="@string/tv_app_sidebar_title"
+            android:summary="@string/tv_app_sidebar_summary"
+            android:icon="@drawable/ic_tv_sub_mi_gestures">
+            <intent
+                android:targetPackage="com.libremobileos.sidebar"
+                android:targetClass="com.libremobileos.sidebar.ui.sidebar.SidebarSettingsActivity" />
+        </Preference>
+
+        <Preference
+            android:key="gamespace_settings"
+            android:title="@string/tv_app_gamespace_title"
+            android:summary="@string/tv_app_gamespace_summary"
+            android:icon="@drawable/ic_tv_sub_mi_developer">
+            <intent
+                android:targetPackage="io.chaldeaprjkt.gamespace"
+                android:targetClass="io.chaldeaprjkt.gamespace.settings.SettingsActivity" />
+        </Preference>
+
+        <Preference
+            android:key="bthelper_settings"
+            android:title="@string/tv_app_bthelper_title"
+            android:summary="@string/tv_app_bthelper_summary"
+            android:icon="@drawable/ic_tv_sub_sb_battery">
+            <intent
+                android:targetPackage="com.android.bluetooth.bthelper"
+                android:targetClass="com.android.bluetooth.bthelper.settings.MainSettingsActivity" />
+        </Preference>
 
     </PreferenceCategory>
 

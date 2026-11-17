@@ -20,26 +20,30 @@
             android:entries="@array/qs_header_clock_style_entries"
             android:entryValues="@array/qs_header_clock_style_values"
             android:summary="%s"
-            android:defaultValue="0" />
+            android:defaultValue="0"
+            android:icon="@drawable/ic_tv_sub_qs_clock" />
 
         <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="qs_stock_media_player"
             android:title="@string/stock_qs_media_player"
             android:summary="@string/stock_qs_media_player_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            android:icon="@drawable/ic_tv_sub_qs_media" />
 
         <!-- Waveform seekbar -->
         <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="media_waveform_seekbar"
             android:title="@string/media_waveform_seekbar_title"
             android:summary="@string/media_waveform_seekbar_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            android:icon="@drawable/ic_tv_sub_qs_waveform" />
 
         <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="qs_compact_media_player_mode"
             android:title="@string/qs_compact_media_player_mode_title"
             android:summary="@string/qs_compact_media_player_mode_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            android:icon="@drawable/ic_tv_sub_qs_compact" />
     </PreferenceCategory>
 
     <!-- Panel Customisations -->
@@ -50,7 +54,8 @@
             android:key="ax_qs_panel_customisations"
             android:title="@string/ax_qs_panel_customisations_title"
             android:summary="@string/ax_qs_panel_customisations_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.quicksettings.PanelCustomisations" />
+            android:fragment="com.lightning.thunderbolt.fragments.quicksettings.PanelCustomisations"
+            android:icon="@drawable/ic_tv_sub_qs_panel" />
     </PreferenceCategory>
 
     <!-- Lock screen -->

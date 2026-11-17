@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:key="lightning_notifications_screen"
+    android:title="@string/lightning_notifications_title">
+
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="lightning_notifications_alerts_category">
+
+        <com.lightning.thunderbolt.preferences.GlobalSettingSwitchPreference
+            android:key="heads_up_notifications_enabled"
+            android:title="@string/notifications_heads_up_title"
+            android:summary="@string/notifications_heads_up_summary"
+            android:defaultValue="true" />
+
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="notification_cooldown_enabled"
+            android:title="@string/lightning_notifications_cooldown_title"
+            android:summary="@string/lightning_notifications_cooldown_summary"
+            android:defaultValue="false" />
+
+        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+            android:key="notification_row_transparency"
+            android:title="@string/notification_row_transparency_title"
+            android:summary="@string/notification_row_transparency_summary"
+            android:defaultValue="false" />
+
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
+
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="lightning_notifications_lockscreen_category">
+
+        <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
+            android:key="lock_screen_show_silent_notifications"
+            android:title="@string/lightning_notifications_silent_title"
+            android:summary="@string/lightning_notifications_silent_summary"
+            android:defaultValue="false" />
+
+        <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
+            android:key="lock_screen_allow_private_notifications"
+            android:title="@string/lightning_notifications_private_title"
+            android:summary="@string/lightning_notifications_private_summary"
+            android:defaultValue="true" />
+
+        <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
+            android:key="lock_screen_show_only_unseen_notifications"
+            android:title="@string/lightning_notifications_unseen_title"
+            android:summary="@string/lightning_notifications_unseen_summary"
+            android:defaultValue="false" />
+
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
+
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="lightning_notifications_other_category">
+
+        <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
+            android:key="notification_history_enabled"
+            android:title="@string/lightning_notifications_history_title"
+            android:summary="@string/lightning_notifications_history_summary"
+            android:defaultValue="true" />
+
+        <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
+            android:key="notification_bubbles"
+            android:title="@string/lightning_notifications_bubbles_title"
+            android:summary="@string/lightning_notifications_bubbles_summary"
+            android:defaultValue="true" />
+
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
+
+</PreferenceScreen>

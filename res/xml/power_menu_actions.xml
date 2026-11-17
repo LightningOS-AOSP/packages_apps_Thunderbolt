@@ -23,7 +23,8 @@
     <SwitchPreferenceCompat
         android:key="screenshot"
         android:title="@string/power_menu_actions_screenshot_title"
-        android:defaultValue="false" />
+        android:defaultValue="false"
+    android:icon="@drawable/ic_tv_sub_pm_actions" />
 
     <SwitchPreferenceCompat
         android:key="onthego"

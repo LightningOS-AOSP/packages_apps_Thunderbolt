@@ -20,7 +20,8 @@
     <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="spoof_pif_enabled"
         android:title="@string/pif_master_switch_title"
-        android:defaultValue="true" />
+        android:defaultValue="true"
+        android:icon="@drawable/ic_tv_sub_sp_pif" />
 
     <PreferenceCategory
         android:key="pif_status_category"

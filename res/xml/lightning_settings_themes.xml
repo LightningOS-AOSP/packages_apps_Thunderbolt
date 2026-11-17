@@ -46,21 +46,24 @@
         <Preference
             android:key="android.theme.customization.adaptive_icon_shape"
             android:title="@string/themes_icon_shape_title"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.IconShapes"/>
+            android:fragment="com.lightning.thunderbolt.fragments.themes.IconShapes"
+            android:icon="@drawable/ic_tv_sub_th_shape" />
 
         <!-- Navigation bar icons -->
         <Preference
             android:key="android.theme.customization.navbar"
             android:title="@string/themes_navigation_bar_icons_title"
             android:summary="@string/themes_navigation_bar_icons_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.NavigationBarIcons"/>
+            android:fragment="com.lightning.thunderbolt.fragments.themes.NavigationBarIcons"
+            android:icon="@drawable/ic_tv_sub_th_navbar" />
 
         <!-- Udfps icon -->
         <Preference
             android:key="udfps_icon"
             android:title="@string/themes_udfps_icon_title"
             android:summary="@string/themes_udfps_icon_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.UdfpsIconPicker" />
+            android:fragment="com.lightning.thunderbolt.fragments.themes.UdfpsIconPicker"
+            android:icon="@drawable/ic_tv_sub_th_udfps" />
 
     </PreferenceCategory>
 
@@ -72,7 +75,8 @@
             android:key="vehicle_motion_cues"
             android:title="@string/vehicle_motion_cues_title"
             android:summary="@string/vehicle_motion_cues_summary"
-            android:fragment="com.android.settings.display.VehicleMotionCuesSettings" />
+            android:fragment="com.android.settings.display.VehicleMotionCuesSettings"
+            android:icon="@drawable/ic_tv_sub_th_motion" />
 
         <!-- Screen off animation -->
 
@@ -81,14 +85,16 @@
             android:key="udfps_animation"
             android:title="@string/themes_udfps_animation_title"
             android:summary="@string/themes_udfps_animation_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.UdfpsAnimation" />
+            android:fragment="com.lightning.thunderbolt.fragments.themes.UdfpsAnimation"
+            android:icon="@drawable/ic_tv_sub_th_udfps" />
 
         <!-- Lightning Fluid Animation -->
         <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="lightning_fluid_animation_enabled"
             android:title="@string/lightning_fluid_animation_title"
             android:summary="@string/lightning_fluid_animation_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            android:icon="@drawable/ic_tv_sub_th_fluid" />
 
     </PreferenceCategory>
 
@@ -103,7 +109,8 @@
             android:title="@string/lock_glymps_title"
             android:summary="@string/lock_glymps_enable_summary"
             android:fragment="com.lightning.thunderbolt.fragments.themes.LockGlympsSettings"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            android:icon="@drawable/ic_tv_sub_th_glymps" />
 
         <!--<Preference
             android:key="video_wallpaper"
@@ -115,32 +122,38 @@
             android:key="wallpaper_settings"
             android:title="@string/lightning_wallpaper_settings_title"
             android:summary="@string/wallpaper_settings_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.themes.Wallpaper" />
+            android:fragment="com.lightning.thunderbolt.fragments.themes.Wallpaper"
+            android:icon="@drawable/ic_tv_sub_th_wallpaper" />
 
     </PreferenceCategory>
 
 
-    <!-- Incall vibration options -->
-    <PreferenceCategory
-        android:key="accessibility_incall_vibration_category"
-        android:title="@string/incall_vibration_category" >
+    <!--
+        <PreferenceCategory
+            android:key="accessibility_incall_vibration_category"
+            android:title="@string/incall_vibration_category" >
 
-        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
-            android:key="vibrate_on_connect"
-            android:title="@string/incall_vibrate_connect_title"
-            android:defaultValue="true" />
+            <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+                android:key="vibrate_on_connect"
+                android:title="@string/incall_vibrate_connect_title"
+                android:defaultValue="true"
+                android:icon="@drawable/ic_tv_sub_th_vibrate" />
 
-        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
-            android:key="vibrate_on_callwaiting"
-            android:title="@string/incall_vibrate_call_wait_title"
-            android:defaultValue="true" />
+            <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+                android:key="vibrate_on_callwaiting"
+                android:title="@string/incall_vibrate_call_wait_title"
+                android:defaultValue="true"
+                android:icon="@drawable/ic_tv_sub_th_vibrate" />
 
-        <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
-            android:key="vibrate_on_disconnect"
-            android:title="@string/incall_vibrate_disconnect_title"
-            android:defaultValue="true" />
+            <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
+                android:key="vibrate_on_disconnect"
+                android:title="@string/incall_vibrate_disconnect_title"
+                android:defaultValue="true"
+                android:icon="@drawable/ic_tv_sub_th_vibrate" />
 
-    </PreferenceCategory>
+        </PreferenceCategory>
+    -->
+
     <PreferenceCategory
         android:key="themes_launcher_category"
         android:title="@string/themes_launcher_category">
@@ -149,7 +162,8 @@
             android:key="quickswitch"
             android:title="@string/quickswitch_launcher_title"
             android:summary="@string/quickswitch_launcher_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.QuickSwitch" />
+            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.QuickSwitch"
+            android:icon="@drawable/ic_tv_sub_th_launcher" />
 
     </PreferenceCategory>
 

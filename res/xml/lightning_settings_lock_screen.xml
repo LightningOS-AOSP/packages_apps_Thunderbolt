@@ -17,7 +17,8 @@
             android:key="clock_styles_settings"
             android:title="@string/ls_clock_title"
             android:summary="@string/ls_clock_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.ClockStyles" />
+            android:fragment="com.lightning.thunderbolt.fragments.lockscreen.ClockStyles"
+            android:icon="@drawable/ic_tv_sub_ls_clock" />
 
         <!-- Depth wallpaper -->
         <com.lightning.thunderbolt.preferences.SystemSettingPrimarySwitchPreference
@@ -25,7 +26,8 @@
             android:title="@string/dw_wallpaper_enabled_title"
             android:summary="@string/dw_wallpaper_enabled_summary"
             android:fragment="com.lightning.thunderbolt.fragments.lockscreen.WallpaperDepth"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            android:icon="@drawable/ic_tv_sub_ls_depth" />
 
     </PreferenceCategory>
 
@@ -39,7 +41,8 @@
             android:title="@string/nowplaying_title"
             android:summary="@string/nowplaying_summary"
             android:fragment="com.lightning.thunderbolt.fragments.lockscreen.NowPlayingSettings"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            android:icon="@drawable/ic_tv_sub_ls_nowplaying" />
 
         <!-- Edge light -->
 
@@ -58,7 +61,8 @@
             android:key="doze_always_on_wallpaper_enabled"
             android:title="@string/lightning_doze_always_on_wallpaper_title"
             android:summary="@string/doze_always_on_wallpaper_summary"
-            android:defaultValue="@*android:bool/config_dozeSupportsAodWallpaper" />
+            android:defaultValue="@*android:bool/config_dozeSupportsAodWallpaper"
+            android:icon="@drawable/ic_tv_sub_ls_ambient" />
 
         <!-- Charging stats -->
 
@@ -106,7 +110,8 @@
             android:key="lockscreen_smartspace_enabled"
             android:title="@string/lockscreen_smartspace_title"
             android:summary="@string/lockscreen_smartspace_summary"
-            android:defaultValue="true" />
+            android:defaultValue="true"
+            android:icon="@drawable/ic_tv_sub_ls_smartspace" />
 
         <Preference
             android:title="@string/weather_settings_title"
@@ -120,7 +125,8 @@
         <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_weather_enabled"
             android:title="@string/lockscreen_weather_title"
-            android:summary="@string/lockscreen_weather_summary" />
+            android:summary="@string/lockscreen_weather_summary"
+            android:icon="@drawable/ic_tv_sub_ls_weather" />
 
         <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_weather_location"
@@ -160,7 +166,8 @@
             android:title="@string/charging_animation_title"
             android:summary="@string/charging_animation_summary"
             android:fragment="com.lightning.thunderbolt.fragments.lockscreen.ChargingAnimationSettings"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            android:icon="@drawable/ic_tv_sub_ls_charging" />
 
     </PreferenceCategory>
 
@@ -178,13 +185,15 @@
             android:key="fp_success_vibrate"
             android:title="@string/lock_screen_fingerprint_success_vibration_title"
             android:summary="@string/lock_screen_fingerprint_success_vibration_summary"
-            android:defaultValue="true" />
+            android:defaultValue="true"
+            android:icon="@drawable/ic_tv_sub_ls_fingerprint" />
 
         <com.lightning.thunderbolt.preferences.SystemSettingSwitchPreference
             android:key="fp_error_vibrate"
             android:title="@string/lock_screen_fingerprint_error_vibration_title"
             android:summary="@string/lock_screen_fingerprint_error_vibration_summary"
-            android:defaultValue="true" />
+            android:defaultValue="true"
+            android:icon="@drawable/ic_tv_sub_ls_fingerprint" />
 
     </PreferenceCategory>
 

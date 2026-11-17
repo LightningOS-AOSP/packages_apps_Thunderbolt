@@ -19,7 +19,8 @@
             android:title="@string/tricky_store_title"
             android:summary="@string/tricky_store_summary"
             android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.TrickyStore"
-            android:defaultValue="true" />
+            android:defaultValue="true"
+            android:icon="@drawable/ic_tv_sub_sp_tricky" />
 
         <!-- Play Integrity Fix -->
         <com.lightning.thunderbolt.preferences.SystemSettingPrimarySwitchPreference
@@ -27,7 +28,8 @@
             android:title="@string/play_integrity_fix_title"
             android:summary="@string/play_integrity_fix_summary"
             android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.PlayIntegrityFix"
-            android:defaultValue="true" />
+            android:defaultValue="true"
+            android:icon="@drawable/ic_tv_sub_sp_pif" />
     </PreferenceCategory>
 
     <!-- Device Identity -->
@@ -40,14 +42,16 @@
             android:key="user_selectable_app_spoofing"
             android:title="@string/user_selectable_app_spoofing_title"
             android:summary="@string/user_selectable_app_spoofing_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.UserSelectedAppSpoofSettings" />
+            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.UserSelectedAppSpoofSettings"
+            android:icon="@drawable/ic_tv_sub_sp_identity" />
 
         <!-- Pixel props -->
         <Preference
             android:key="pi_pp_spoof"
             android:title="@string/spoofing_pixel_props_title"
             android:summary="@string/spoofing_pixel_props_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.PixelPropsSettings" />
+            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.PixelPropsSettings"
+            android:icon="@drawable/ic_tv_sub_sp_pixel" />
     </PreferenceCategory>
 
     <!-- Features -->
@@ -60,7 +64,8 @@
             android:key="tensor_targets_settings"
             android:title="@string/tensor_spoof_title"
             android:summary="@string/tensor_spoof_summary"
-            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.TensorTargetsSettings" />
+            android:fragment="com.lightning.thunderbolt.fragments.miscellaneous.TensorTargetsSettings"
+            android:icon="@drawable/ic_tv_sub_sp_tensor" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -72,14 +77,16 @@
             android:key="pi_photos_spoof"
             android:title="@string/spoofing_photos_title"
             android:summary="@string/spoofing_photos_summary"
-            android:defaultValue="true" />
+            android:defaultValue="true"
+            android:icon="@drawable/ic_tv_sub_sp_photos" />
 
         <!-- Snapchat -->
         <com.lightning.thunderbolt.preferences.SecureSettingSwitchPreference
             android:key="pi_snapchat_spoof"
             android:title="@string/spoofing_snap_title"
             android:summary="@string/spoofing_snap_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            android:icon="@drawable/ic_tv_sub_sp_snap" />
     </PreferenceCategory>
 
     <!-- Reset -->
@@ -87,5 +94,6 @@
         android:key="spoofing_reset_defaults"
         android:title="@string/spoofing_reset_defaults_title"
         android:summary="@string/spoofing_reset_defaults_summary"
-        android:persistent="false" />
+        android:persistent="false"
+        android:icon="@drawable/ic_tv_sub_sp_reset" />
 </PreferenceScreen>
